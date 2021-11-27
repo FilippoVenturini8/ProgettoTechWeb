@@ -1,0 +1,19 @@
+body > header{
+    margin: 10px 2% 0;
+    border-bottom: solid 2px #d9534f;
+    padding-bottom: 10px;
+}
+
+body > header img{
+    width: 100%;
+}
+
+body > header > div{
+    max-height: 50px;
+}
+
+body > aside{
+    float:right;
+}
+
+
