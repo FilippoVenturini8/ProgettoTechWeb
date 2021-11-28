@@ -14,6 +14,11 @@ body > header > div{
 
 body > aside{
     float:right;
+    background-color: #ebebeb;
+}
+
+body > aside > ul >li {
+    background-color: #ebebeb !important;
 }
 
 aside > ul > div > li > div > img{
