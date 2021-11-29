@@ -17,6 +17,11 @@ body > aside{
     background-color: #ebebeb;
 }
 
+body > nav{
+    float:left;
+    background-color: #ebebeb;
+}
+
 body > aside > ul >li {
     background-color: #ebebeb !important;
 }
@@ -45,4 +50,8 @@ aside > ul > div > li > div > img{
 
 body{
     font-family: 'Alegreya Sans SC';
+}
+
+body > nav > div > header > img{
+    max-height: 50px;
 }
