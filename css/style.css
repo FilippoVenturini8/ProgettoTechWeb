@@ -37,3 +37,9 @@ nav > header > img{
 .diskInOrder{
     width: 150px;
 }
+
+/*Login*/
+body > div > div:nth-last-of-type(2) > input{
+    background-color: #d9534f !important;
+    border-color: black !important;
+}
