@@ -5,6 +5,10 @@ body > div > div:nth-child(1){
     align-items:center;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 button > img{
     width: 30px;
 }
