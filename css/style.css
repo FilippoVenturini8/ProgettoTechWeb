@@ -5,9 +5,8 @@ body > div > div:nth-child(1){
     align-items:center;
 }
 
-body > div > div > div:nth-child(1) > img,
-body > div > div > div:nth-child(4) > img,
-body > div > div > div:nth-child(5) > img{
+
+button > img{
     width: 30px;
 }
 
@@ -15,8 +14,7 @@ body > div > div > div:nth-child(3) > img{
     height: 100px;
 }
 
-aside{
-    float: right;
+aside, nav{
     background-color: #ebebeb;
 }
 
@@ -24,15 +22,10 @@ div > aside > ul > li{
     background-color: #ebebeb !important;
 }
 
-.btn{
+/*.btn{
     background-color: #d9534f !important;
     border-color: black !important;
-}
-
-nav{
-    float:left;
-    background-color: #ebebeb;
-}
+}*/
 
 nav > header > img{
     max-width: 60px;
