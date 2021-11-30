@@ -36,12 +36,9 @@ nav > header > img{
 main{
     background-color: lightcyan;
 }
-<<<<<<< HEAD
-=======
 
 /*Login*/
 body > div > div:nth-last-of-type(2) > input{
     background-color: #d9534f !important;
     border-color: black !important;
 }
->>>>>>> 2b51699f38c63fc1dd825e01e9fea471fefe5df8
