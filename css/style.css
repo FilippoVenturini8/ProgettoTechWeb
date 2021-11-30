@@ -33,6 +33,7 @@ div > aside > ul > li{
 nav > header > img{
     max-width: 60px;
 }
-main{
-    background-color: lightcyan;
+
+.diskInOrder{
+    width: 150px;
 }
