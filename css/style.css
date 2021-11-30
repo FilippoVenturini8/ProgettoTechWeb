@@ -20,7 +20,7 @@ aside{
     background-color: #ebebeb;
 }
 
-aside > ul > li{
+div > aside > ul > li{
     background-color: #ebebeb !important;
 }
 
