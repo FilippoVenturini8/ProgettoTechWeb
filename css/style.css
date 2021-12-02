@@ -1,4 +1,4 @@
-body > div > div:nth-child(1){
+body > div > header{
     border-bottom: solid 2px #d9534f;
     box-sizing: content-box !important;
     height: 100px;
@@ -9,29 +9,22 @@ body{
     overflow-x: hidden;
 }
 
-button > img{
+button{
+    padding: 0 !important;
+}
+
+button img{
     width: 30px;
 }
 
-body > div > div > div:nth-child(3) > img{
+/*profile image*/
+aside.float-start > header > button:last-of-type > img{
+    width: 80px;
+}
+
+/*logo image*/
+body > div > header > div:nth-child(3) > img{
     height: 100px;
-}
-
-aside, nav{
-    background-color: #ebebeb;
-}
-
-div > aside > ul > li{
-    background-color: #ebebeb !important;
-}
-
-/*.btn{
-    background-color: #d9534f !important;
-    border-color: black !important;
-}*/
-
-nav > header > img{
-    max-width: 60px;
 }
 
 .diskInOrder{
@@ -58,7 +51,41 @@ body > div > div > nav > div:nth-child(2) button.btn:hover{
     background-color: #d9534f;
     background: #d9534f;
 
+<<<<<<< HEAD
 }
 .navbar{
     background-color: white;
 }
+=======
+.progress-striped {
+    background-color: #ee5f5b;
+    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+    background-image: -webkit-linear-gradient(0deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -moz-linear-gradient(0deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(0deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent)
+}
+
+/*aside*/
+
+aside{
+    background-color: #ebebeb;
+    position: fixed;
+    top: 0;
+    height: 100%;
+}
+
+aside.float-end{
+    right: 0;
+    width: 70%;
+}
+
+aside.float-start{
+    left: 0;
+    width: 30%;
+}
+
+div > aside > ul > li{
+    background-color: #ebebeb !important;
+}
+>>>>>>> 71dbf5ba7af43be70c7c0fb6f2b462414a3d2c2b
