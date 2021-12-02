@@ -23,7 +23,7 @@ aside.float-start > header > button:last-of-type > img{
 }
 
 /*logo image*/
-body > div > header > div:nth-child(3) > img{
+body > div > header > div:nth-child(3) > a > img{
     height: 100px;
 }
 
