@@ -15,28 +15,12 @@
 </div>
 <!--categorie-->
 <div class="row" >
-    <div class="col-6 col-md-4">
+    <?php foreach($templateParams["categories"] as $category) : ?>
+        <div class="col-6 col-md-4">
         <div class="d-flex justify-content-center py-3">
             <img src="../../img/LP/rock/pinkfloyd.jpg" alt="" style="width: 200px;"/>
         </div>
-        <p class="text-center">Rock</p>
+        <p class="text-center"><?php echo $category["Nome"]?></p>
     </div>
-    <div class="col-6 col-md-4">
-        <div class="d-flex justify-content-center py-3">
-            <img src="../../img/LP/rock/pinkfloyd.jpg" alt="" style="width: 200px;"/>
-        </div>
-        <p class="text-center">Rock</p>
-    </div>
-    <div class="col-6 col-md-4">
-        <div class="d-flex justify-content-center py-3">
-            <img src="../../img/LP/rock/pinkfloyd.jpg" alt="" style="width: 200px;"/>
-        </div>
-        <p class="text-center">Rock</p>
-    </div>
-    <div class="col-6 col-md-4">
-        <div class="d-flex justify-content-center py-3">
-            <img src="../../img/LP/rock/pinkfloyd.jpg" alt="" style="width: 200px;"/>
-        </div>
-        <p class="text-center">Rock</p>
-    </div>
+    <?php endforeach; ?>
 </div>
