@@ -2,7 +2,7 @@
             <!--singolo disco-->
     <div class="row p-2 mt-2 border-bottom border-danger">
         <div  class="col-4">
-            <img src="../img/LP/rap/salmo.jpg" alt="" class="diskInOrder"></img>
+            <img src="../../img/LP/rap/salmo.jpg" alt="" class="diskInOrder"></img>
         </div>
         <div class="col-8 mt-2">
             <p class="m-0">Salmo - Playlist</p>
@@ -13,7 +13,7 @@
     </div>
     <div class="row p-2 mt-2 border-bottom border-danger">
         <div  class="col-4">
-            <img src="../img/LP/rap/salmo.jpg" alt="" class="diskInOrder"></img>
+            <img src="../../img/LP/rap/salmo.jpg" alt="" class="diskInOrder"></img>
         </div>
         <div class="col-8 mt-2">
             <p class="m-0">Salmo - Playlist</p>
@@ -24,7 +24,7 @@
     </div>
     <div class="row p-2 mt-2 border-bottom border-danger">
         <div  class="col-4">
-            <img src="../img/LP/rap/salmo.jpg" alt="" class="diskInOrder"></img>
+            <img src="../../img/LP/rap/salmo.jpg" alt="" class="diskInOrder"></img>
         </div>
         <div class="col-8 mt-2">
             <p class="m-0">Salmo - Playlist</p>

@@ -37,7 +37,7 @@
     <div class="row m-5">
         <div class="row p-2 mt-2 border-bottom border-danger">
             <div  class="col-4">
-                <img src="../img/LP/rap/travisscott.jpg" alt="" class="diskInOrder"></img>
+                <img src="../../img/LP/rap/travisscott.jpg" alt="" class="diskInOrder"></img>
             </div>
             <div class="col-8 mt-2">
                 <p class="m-0">Travis Scott - Astroworld</p>

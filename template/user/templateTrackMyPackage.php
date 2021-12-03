@@ -7,7 +7,7 @@
     <div class="row m-5">
         <div class="col-10"></div>
         <div class="col-2">
-            <img src="../img/LP/classica/beethoven.jpg" style="max-width: 100px; max-height: 100px;" alt=""/>
+            <img src="../../img/LP/classica/beethoven.jpg" style="max-width: 100px; max-height: 100px;" alt=""/>
         </div>   
     </div>
 
