@@ -7,11 +7,11 @@
 <div class="row text-center m-5">
     <div class="col-4"></div>
     <div class="col-4 text-center ">
-        <img class="rounded-circle" style="max-width: 100px;" src="../img/icon/User.png" alt=""/>
+        <img class="rounded-circle" style="max-width: 100px;" src="../../img/icon/User.png" alt=""/>
     </div>
     <div class="col-1">
         <button class="btn btn-default">
-            <img src="../img/icon/pencil.png" style="max-width: 20px; max-height: 20px;"  alt=""/>
+            <img src="../../img/icon/pencil.png" style="max-width: 20px; max-height: 20px;"  alt=""/>
         </button>           
     </div>
     <div class="col-3"></div>

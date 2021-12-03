@@ -19,7 +19,7 @@
             </div>
             <div class="col-2"></div>
             <div class="col-4">
-                <a href="../../common/base.html">
+                <a href="../../php/common/index.php">
                     <img src="../../img/icon/logo.png" alt=""/>
                 </a>
             </div>
@@ -108,7 +108,7 @@
 
             <ul class="nav flex-column text-center">
                 <li class="nav-item py-2">
-                    <a href="../../common/profile.html">Profilo</a>
+                    <a href="../../php/common/profile.php">Profilo</a>
                 </li>
                 <li class="nav-item py-2">
                     <a href="#">Categorie</a>
