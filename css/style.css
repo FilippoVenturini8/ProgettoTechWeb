@@ -51,12 +51,12 @@ body > div > div > nav > div:nth-child(2) button.btn:hover{
     background-color: #d9534f;
     background: #d9534f;
 
-<<<<<<< HEAD
+
 }
 .navbar{
     background-color: white;
 }
-=======
+
 .progress-striped {
     background-color: #ee5f5b;
     background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
@@ -88,4 +88,4 @@ aside.float-start{
 div > aside > ul > li{
     background-color: #ebebeb !important;
 }
->>>>>>> 71dbf5ba7af43be70c7c0fb6f2b462414a3d2c2b
+
