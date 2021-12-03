@@ -18,7 +18,9 @@
     <?php foreach($templateParams["categories"] as $category) : ?>
         <div class="col-6 col-md-4">
         <div class="d-flex justify-content-center py-3">
-            <img src="../../img/LP/rock/pinkfloyd.jpg" alt="" style="width: 200px;"/>
+            <a href="../../php/common/category.php?nomeCategoria=<?php echo $category["Nome"];?>">
+                <img src="../../img/LP/rock/pinkfloyd.jpg" alt="" style="width: 200px;"/>
+            </a>
         </div>
         <p class="text-center"><?php echo $category["Nome"]?></p>
     </div>

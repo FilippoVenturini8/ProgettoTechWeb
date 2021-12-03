@@ -3,7 +3,7 @@ INSERT INTO Categoria(Nome)
 VALUES ("Indie"),
         ("Musica Classica"),
         ("Punk"),
-        ("Raggae"),
+        ("Reggae"),
         ("Rap"),
         ("Rock");
 
