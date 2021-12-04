@@ -3,7 +3,6 @@
 <?php foreach($templateParams["disks"] as $disk) :?>
     <div class="row p-2 mt-2 border-bottom border-danger">
         <div class="col-4">
-            <?php var_dump($disk["Copertina"]); ?>
             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
         </div>
         <div class="col-8 mt-2">

@@ -58,7 +58,7 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-5" >
-                                <img class="rounded" src="../../img/LP/rap/Playlist-Salmo.jpg" alt="" style="max-height: 70px;"/>
+                                <img class="rounded" src="<?php echo UPLOAD_DIR.$diskInCart["Copertina"] ;?>" alt="" style="max-height: 70px;"/>
                             </div>
                             <div class="col-7">
                                 <p class="text-end m-0"><?php echo $diskInCart["Quantita"]?>x <?php echo $diskInCart["Artista"]?> - <?php echo $diskInCart["Titolo"]?></p>
@@ -77,7 +77,7 @@
 
             <footer>
                 <div class="row"></div>
-                    <div class="row"><p><?php echo $templateParams["cartTotal"]["Totale"];?>€</p></div>
+                    <div class="row"><p>Totale: <?php echo round($templateParams["cartTotal"][0]["Totale"], 2);?>€</p></div>
                     <div class="row py-10">
                         <div class="col-6"></div>
                         <div class="col-5 text-end pb-4">
