@@ -58,7 +58,7 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-5" >
-                                <img class="rounded" src="<?php echo UPLOAD_DIR.$diskInCart["Copertina"] ;?>" alt="" style="max-height: 70px;"/>
+                                <img class="rounded" src="<?php echo UPLOAD_DIR.$diskInCart["Copertina"] ;?>" alt=""/>
                             </div>
                             <div class="col-7">
                                 <p class="text-end m-0"><?php echo $diskInCart["Quantita"]?>x <?php echo $diskInCart["Artista"]?> - <?php echo $diskInCart["Titolo"]?></p>

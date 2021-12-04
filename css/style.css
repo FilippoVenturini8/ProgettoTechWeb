@@ -80,6 +80,10 @@ aside.float-end{
     width: 70%;
 }
 
+aside.float-end li img{
+    height: 80px;
+}
+
 aside.float-start{
     left: 0;
     width: 30%;

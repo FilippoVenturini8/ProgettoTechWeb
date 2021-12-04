@@ -31,5 +31,4 @@ $(document).ready(function () {
         $('aside.float-start').addClass('active');
         $('aside.float-start').removeClass('collapse');
     });
-
 });
