@@ -97,7 +97,7 @@
                 <button class="btn btn-default float-end">
                     <img class="float-end" src="../../img/icon/close.png" alt=""/>
                 </button>
-                <button class="btn btn-default">
+                <button class="btn btn-default mt-3 mx-4">
                     <img src="../../img/icon/User.png" alt=""/>
                 </button>
             </header>
@@ -115,6 +115,9 @@
                 </li>
                 <li class="nav-item py-2">
                     <a href="#">Notifiche</a>
+                </li>
+                <li class="nav-item py-2">
+                    <a href="../../php/common/login.php">Login</a>
                 </li>
             </ul>
         </aside>

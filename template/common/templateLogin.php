@@ -14,5 +14,5 @@
 </div>
 
 <div class="text-center mt-3">
-    <a class="fw-bold text-danger" href="#">Registrati</a>
+    <a class="fw-bold text-danger" href="../../php/user/register.php">Registrati</a>
 </div>

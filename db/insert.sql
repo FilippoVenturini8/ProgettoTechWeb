@@ -37,7 +37,7 @@ VALUES("Pink Floyd"),
 
 /*DISCHI*/
 INSERT INTO Disco(Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria)
-VALUES ("In a time lapse", '2013-01-21', 26, null, 17.99, null, 'Ludovico Einaudi', 'Musica Classica'),
+VALUES ("In a time lapse", '2013-01-21', 26, 'LP/classica/InATimeLapse-LudovicoEinaudi.png', 17.99, null, 'Ludovico Einaudi', 'Musica Classica'),
 ("The 12th Room", '2015-10-30', 26, null, 28.89, null, 'Ezio Bosso', 'Musica Classica'),
 ("Ahia", '2020-12-04', 26, null, 21.51, null, 'Pinguini Tattici Nucleari', 'Indie'),
 ("Gemelli", '2020-06-19', 26, null, 23.67, null, 'Ernia', 'Indie'),

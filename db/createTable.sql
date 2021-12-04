@@ -23,7 +23,7 @@ create table DISCO (
      Titolo varchar(30) not null,
      DataPubblicazione date not null,
      QuantitaDisponibile int not null,
-     Copertina varchar(40),
+     Copertina varchar(70),
      Prezzo float not null,
      VotoMedio int,
      Artista varchar(30) REFERENCES Artista(Nome),
