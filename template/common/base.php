@@ -77,7 +77,7 @@
 
             <footer>
                 <div class="row"></div>
-                    <div class="row"><p>Totale: 39,80€</p></div>
+                    <div class="row"><p><?php echo $templateParams["cartTotal"]["Totale"];?>€</p></div>
                     <div class="row py-10">
                         <div class="col-6"></div>
                         <div class="col-5 text-end pb-4">
