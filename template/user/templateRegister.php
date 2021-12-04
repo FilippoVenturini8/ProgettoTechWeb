@@ -1,5 +1,6 @@
-<h1 class="pt-4 mb-4 mx-3">Registrati</h1>
+<script src="../../js/login.js" type="text/javascript"></script>
 
+<h1 class="pt-4 mb-4 mx-3">Registrati</h1>
 <form>
     <div class="row">
         <div class="col-3"></div>

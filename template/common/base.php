@@ -54,27 +54,25 @@
             </header>
 
             <ul class="list-group list-group-flush border-bottom scrollarea">
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-5" >
-                            <img class="rounded" src="../../img/LP/rap/Playlist-Salmo.jpg" alt="" style="max-height: 70px;"/>
+                <?php foreach($templateParams["disksInCart"] as $diskInCart): ?>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-5" >
+                                <img class="rounded" src="../../img/LP/rap/Playlist-Salmo.jpg" alt="" style="max-height: 70px;"/>
+                            </div>
+                            <div class="col-7">
+                                <p class="text-end m-0"><?php echo $diskInCart["Quantita"]?>x <?php echo $diskInCart["Artista"]?> - <?php echo $diskInCart["Titolo"]?></p>
+                                <p class="text-end"><?php echo ($diskInCart["Prezzo"]*$diskInCart["Quantita"])?>€</p>
+                            </div>
                         </div>
-                        <div class="col-7">
-                            <p class="text-end m-0">2x Salmo - Playlist</p>
-                            <p class="text-end">19,99€</p>
+                        <div class="row">
+                            <div class="col-8"></div>
+                            <div class="col-4 text-end" >
+                                <a class="btn btn-primary btn-sm" href="#" role="button">Rimuovi</a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8"></div>
-                        <div class="col-4 text-end" >
-                            <a class="btn btn-primary btn-sm" href="#" role="button">Rimuovi</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">Articolo2</li>
-                <li class="list-group-item">Articolo3</li>
-                <li class="list-group-item">Articolo4</li>
-                <li class="list-group-item">Articolo5</li>
+                    </li>
+                <?php endforeach; ?>
             </ul>
 
             <footer>

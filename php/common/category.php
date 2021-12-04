@@ -7,7 +7,8 @@ $templateParams["templateName"] = "../../template/common/templateCategory.php";
 
 if(isset($_GET)){
     $templateParams["categoryName"] = $_GET["nomeCategoria"];
-    $templateParams["disks"] = $dbh->getDisksFromCategory($_GET["nomeCategoria"]);
+    $templateParams["categoryID"] = $_GET["codiceCategoria"];
+    $templateParams["disks"] = $dbh->getDisksFromCategory($_GET["categoryID"]);
 }
 
 require '../../template/common/base.php';
