@@ -24,7 +24,7 @@ create table DISCO (
      DataPubblicazione date not null,
      QuantitaDisponibile int not null,
      Copertina varchar(40),
-     Prezzo int not null,
+     Prezzo float not null,
      VotoMedio int,
      Artista varchar(30) REFERENCES Artista(Nome),
      Categoria varchar(15) REFERENCES Categoria(Nome),
@@ -64,5 +64,5 @@ create table ORDINE (
 
 create table PAGAMENTO (
      Codice int not null AUTO_INCREMENT,
-     Importo int not null,
+     Importo float not null,
      constraint ID_PAGAMENTO_ID primary key (Codice));

@@ -57,7 +57,7 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-5" >
-                            <img class="rounded" src="../../img/LP/rap/salmo.jpg" alt="" style="max-height: 70px;"/>
+                            <img class="rounded" src="../../img/LP/rap/Playlist-Salmo.jpg" alt="" style="max-height: 70px;"/>
                         </div>
                         <div class="col-7">
                             <p class="text-end m-0">2x Salmo - Playlist</p>

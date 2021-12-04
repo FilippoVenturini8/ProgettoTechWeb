@@ -19,7 +19,7 @@
         <div class="col-6 col-md-4">
         <div class="d-flex justify-content-center py-3">
             <a href="../../php/common/category.php?nomeCategoria=<?php echo $category["Nome"];?>">
-                <img src="../../img/LP/rock/pinkfloyd.jpg" alt="" style="width: 200px;"/>
+                <img src="../../img/LP/rock/DireStraits.jpg" alt="" style="width: 200px;"/>
             </a>
         </div>
         <p class="text-center"><?php echo $category["Nome"]?></p>
