@@ -49,5 +49,14 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function isAdmin($accounMail){
+        $stmt = $this->db->prepare("SELECT isAdmin
+                                    FROM Account
+                                    WHERE Mail = \"$accounMail\"");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>

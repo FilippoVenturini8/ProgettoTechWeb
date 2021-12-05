@@ -29,9 +29,13 @@
                 </button>
             </div>
             <div class="col-2 text-start">
-                <button id="cartExpand" class="btn btn-default">
-                    <img src="../../img/icon/cart.png" alt=""/>
-                </button>
+                <?php 
+                    if($templateParams["isAdmin"][0]["isAdmin"]){
+                        require("../../template/admin/templateHeaderAdmin.php");
+                    } else {
+                        require("../../template/user/templateHeaderUser.php");
+                    }
+                ?>
             </div>
         </header>
 

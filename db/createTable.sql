@@ -8,6 +8,7 @@ create table ACCOUNT (
      Cognome varchar(15) not null,
      Cellulare int not null,
      ImmagineProfilo varchar(40),
+     isAdmin boolean not null,
      constraint ID_ACCOUNT_ID primary key (Mail));
 
 create table ARTISTA (

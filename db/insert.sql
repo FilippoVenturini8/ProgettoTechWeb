@@ -57,8 +57,9 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/classica/InATimeLapse-LudovicoE
 ("Minutes To Midnite", '2007-09-14', 26, 'LP/rock/MinutesToMidnight-LinkinPark.png', 25.68, null, 'Linkin Park', 'Rock'),
 ("The Dark Side Of The Moon", '1973-03-01', 26, 'LP/rock/TheDarkSideOfTheMoon-Pinkfloyd.jpg', 41.50, null, 'Pink Floyd', 'Rock');
 
-INSERT INTO Account(Mail, Psw, Nome, Cognome, Cellulare, ImmagineProfilo)
-VALUES("gigi@gmail.com", "GGGG", "Gigi", "Rossi", 2462742, NULL);
+INSERT INTO Account(Mail, Psw, Nome, Cognome, Cellulare, ImmagineProfilo, isAdmin)
+VALUES("gigi@gmail.com", "GGGG", "Gigi", "Rossi", 2462742, NULL, 0),
+("admin@gmail.com", "AdminPW", "Admin", "", 242245, NULL, 1);
 
 INSERT INTO Disco_in_carrello(CodiceDisco, MailAccount, Quantita)
 VALUES (1, "gigi@gmail.com", 2),
