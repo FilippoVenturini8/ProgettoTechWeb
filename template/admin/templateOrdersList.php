@@ -21,30 +21,32 @@
 <div class="row py-3">
     <h5>Ordini</h5>
 </div>
-<div class="accordion" id="accordionPanelsStayOpenExample">
+<div class="accordion">
     <?php foreach($templateParams["allOrders"] as $order) : ?>
         <div class="accordion-item">
-            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-            <button class="accordion-button row" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            <h2 class="accordion-header">
+            <button class="accordion-button row" type="button" data-bs-toggle="collapse" data-bs-target="#order<?php echo $order["CodiceOrdine"]?>">
                 <div class="col-5">
                     <label>Codice ordine: <?php echo $order["CodiceOrdine"]?></label>
                 </div>
                 <div class="col-3">
-                    <label>54.99</label>
+                    <label>54.99€</label>
                 </div>
                 <div class="col-4">
                     <label>In consegna</label>
                 </div>
             </button>
             </h2>
-            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-            <div class="accordion-body">
-                <label class="row">Codice ordine: <?php echo $order["CodiceOrdine"]?></label>
-                <label class="row">Cliente: <?php echo $order["Nome"]." ".$order["Cognome"]?></label>
-                <label class="row">In consegna</label>
-                <label class="row">2x Astroworld - Travis Scott</label>
-                <label class="row">3x The Dark Side of the Moon - Pink Floyd</label>
-                <label class="row">Totale: 54.99</label>
+            <div id="order<?php echo $order["CodiceOrdine"]?>" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <label class="row">Codice ordine: <?php echo $order["CodiceOrdine"]?></label>
+                    <label class="row">Cliente: <?php echo $order["Nome"]." ".$order["Cognome"]?></label>
+                    <label class="row">Stato: In consegna</label>
+                    <?php foreach($dbh->getOrderDetails($order["CodiceOrdine"]) as $disk) : ?>
+                        <label class="row"><?php echo $disk["Quantita"] ?>x <?php echo $disk["Titolo"] ?> - <?php echo $disk["Artista"] ?></label>
+                    <?php endforeach; ?>
+                    <label class="row">Totale: 54.99€</label>
+                </div>
             </div>
         </div>
     <?php endforeach; ?>

@@ -59,7 +59,7 @@ create table ORDINE (
      DataOrdine date not null,
      DataSpedizione date,
      DataConsegna date,
-     MailAccount varchar(1) REFERENCES Account(Mail),
+     MailAccount varchar(30) REFERENCES Account(Mail),
      constraint ID_ORDINE_ID primary key (Codice),
      constraint SID_ORDIN_PAGAM_ID unique (CodicePagamento));
 

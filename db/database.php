@@ -50,25 +50,33 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function isAdmin($accounMail){
+    public function isAdmin($accountMail){
         $stmt = $this->db->prepare("SELECT isAdmin
                                     FROM Account
-                                    WHERE Mail = \"$accounMail\"");
+                                    WHERE Mail = \"$accountMail\"");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getAllOrders(){
-        $stmt = $this->db->prepare("SELECT CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome
-                                    FROM Ordine, Account, Disco_Ordinato
-                                    WHERE Ordine.MailAccount = Account.Mail
-                                    AND Ordine.Codice = Disco_Ordinato.CodiceOrdine");
+        $stmt = $this->db->prepare("SELECT Ordine.Codice as CodiceOrdine, CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome
+                                    FROM Ordine, Account
+                                    WHERE Ordine.MailAccount = Account.Mail");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getOrderDetails($orderID){
+        $stmt = $this->db->prepare("SELECT Titolo, Copertina, Artista, Quantita, Prezzo*Quantita as Totale
+                                    FROM Disco_Ordinato, Disco
+                                    WHERE Disco_Ordinato.CodiceOrdine = $orderID
+                                    AND Disco_Ordinato.CodiceDisco = Disco.Codice");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
     
 }
 ?>
