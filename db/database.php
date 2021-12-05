@@ -11,7 +11,7 @@ class DatabaseHelper{
     }
 
     public function getAllCategories(){
-        $stmt = $this->db->prepare("SELECT Nome FROM categoria");
+        $stmt = $this->db->prepare("SELECT Nome, Copertina FROM categoria");
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -58,5 +58,17 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getAllOrders(){
+        $stmt = $this->db->prepare("SELECT CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome
+                                    FROM Ordine, Account, Disco_Ordinato
+                                    WHERE Ordine.MailAccount = Account.Mail
+                                    AND Ordine.Codice = Disco_Ordinato.CodiceOrdine");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    
 }
 ?>

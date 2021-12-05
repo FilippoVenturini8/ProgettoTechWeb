@@ -17,6 +17,7 @@ create table ARTISTA (
 
 create table CATEGORIA (
      Nome varchar(15) not null,
+     Copertina varchar(70),
      constraint ID_CATEGORIA_ID primary key (Nome));
 
 create table DISCO (
@@ -58,7 +59,6 @@ create table ORDINE (
      DataOrdine date not null,
      DataSpedizione date,
      DataConsegna date,
-     Stato varchar(1) not null,
      MailAccount varchar(1) REFERENCES Account(Mail),
      constraint ID_ORDINE_ID primary key (Codice),
      constraint SID_ORDIN_PAGAM_ID unique (CodicePagamento));

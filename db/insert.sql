@@ -1,11 +1,11 @@
 /*CATEGORIE*/
-INSERT INTO Categoria(Nome)
-VALUES ("Indie"),
-        ("Musica Classica"),
-        ("Punk"),
-        ("Reggae"),
-        ("Rap"),
-        ("Rock");
+INSERT INTO Categoria(Nome,Copertina)
+VALUES ("Indie",'categories/indie.png'),
+        ("Musica Classica",'categories/classica.jpg'),
+        ("Punk",'categories/punk.png'),
+        ("Reggae",'categories/reggae.png'),
+        ("Rap",'categories/rap.jpg'),
+        ("Rock",'categories/rock.jpg');
 
 /*ARTISTI*/
 INSERT INTO Artista(Nome)
@@ -57,10 +57,26 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/classica/InATimeLapse-LudovicoE
 ("Minutes To Midnite", '2007-09-14', 26, 'LP/rock/MinutesToMidnight-LinkinPark.png', 25.68, null, 'Linkin Park', 'Rock'),
 ("The Dark Side Of The Moon", '1973-03-01', 26, 'LP/rock/TheDarkSideOfTheMoon-Pinkfloyd.jpg', 41.50, null, 'Pink Floyd', 'Rock');
 
+/*ACCOUNT*/
 INSERT INTO Account(Mail, Psw, Nome, Cognome, Cellulare, ImmagineProfilo, isAdmin)
 VALUES("gigi@gmail.com", "GGGG", "Gigi", "Rossi", 2462742, NULL, 0),
 ("admin@gmail.com", "AdminPW", "Admin", "", 242245, NULL, 1);
 
+/*DISCO IN CARRELLO*/
 INSERT INTO Disco_in_carrello(CodiceDisco, MailAccount, Quantita)
 VALUES (1, "gigi@gmail.com", 2),
 (3, "gigi@gmail.com", 1);
+
+/*ORDINI*/
+INSERT INTO Ordine(CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount)
+VALUES(NULL,'2007-09-14', NULL, NULL,"gigi@gmail.com"),
+(NULL,'2018-08-03', NULL, NULL,"gigi@gmail.com"),
+(NULL,'2018-08-03', NULL, NULL,"gigi@gmail.com"),
+(NULL,'1999-06-08', '1999-06-10', NULL,"gigi@gmail.com"),
+(NULL,'2020-10-26', '2020-10-26', '2020-10-30',"gigi@gmail.com");
+
+/*DISCHI ORDINATI*/
+INSERT INTO Disco_Ordinato(CodiceDisco, CodiceOrdine, Quantita, Voto)
+VALUES(12,1,1,NULL),
+(3,1,3,NULL),
+(17,1,1,NULL);

@@ -22,79 +22,30 @@
     <h5>Ordini</h5>
 </div>
 <div class="accordion" id="accordionPanelsStayOpenExample">
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-        <button class="accordion-button row" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-            <div class="col-5">
-                <label>Codice ordine: 27295</label>
+    <?php foreach($templateParams["allOrders"] as $order) : ?>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button class="accordion-button row" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                <div class="col-5">
+                    <label>Codice ordine: <?php echo $order["CodiceOrdine"]?></label>
+                </div>
+                <div class="col-3">
+                    <label>54.99</label>
+                </div>
+                <div class="col-4">
+                    <label>In consegna</label>
+                </div>
+            </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body">
+                <label class="row">Codice ordine: <?php echo $order["CodiceOrdine"]?></label>
+                <label class="row">Cliente: <?php echo $order["Nome"]." ".$order["Cognome"]?></label>
+                <label class="row">In consegna</label>
+                <label class="row">2x Astroworld - Travis Scott</label>
+                <label class="row">3x The Dark Side of the Moon - Pink Floyd</label>
+                <label class="row">Totale: 54.99</label>
             </div>
-            <div class="col-3">
-                <label>54.99</label>
-            </div>
-            <div class="col-4">
-                <label>In consegna</label>
-            </div>
-        </button>
-        </h2>
-        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-        <div class="accordion-body">
-            <label class="row">Codice ordine: 021301302</label>
-            <label class="row">Cliente: Mirko Viroli</label>
-            <label class="row">In consegna</label>
-            <label class="row">2x Astroworld - Travis Scott</label>
-            <label class="row">3x The Dark Side of the Moon - Pink Floyd</label>
-            <label class="row">Totale: 54.99</label>
         </div>
-        </div>
-    </div>
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-        <button class="accordion-button collapsed row" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-            <div class="col-5">
-                <label>Codice ordine: 27295</label>
-            </div>
-            <div class="col-3">
-                <label>54.99</label>
-            </div>
-            <div class="col-4">
-                <label>In consegna</label>
-            </div>
-        </button>
-        </h2>
-        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-        <div class="accordion-body">
-            <label class="row">Codice ordine: 021301302</label>
-            <label class="row">Cliente: Mirko Viroli</label>
-            <label class="row">In consegna</label>
-            <label class="row">2x Astroworld - Travis Scott</label>
-            <label class="row">3x The Dark Side of the Moon - Pink Floyd</label>
-            <label class="row">Totale: 54.99</label>
-        </div>
-        </div>
-    </div>
-    <div class="accordion-item">
-        <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-        <button class="accordion-button collapsed row" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
-            <div class="col-5">
-                <label>Codice ordine: 27295</label>
-            </div>
-            <div class="col-3">
-                <label>54.99</label>
-            </div>
-            <div class="col-4">
-                <label>In consegna</label>
-            </div>
-        </button>
-        </h2>
-        <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-        <div class="accordion-body">
-            <label class="row">Codice ordine: 021301302</label>
-            <label class="row">Cliente: Mirko Viroli</label>
-            <label class="row">In consegna</label>
-            <label class="row">2x Astroworld - Travis Scott</label>
-            <label class="row">3x The Dark Side of the Moon - Pink Floyd</label>
-            <label class="row">Totale: 54.99</label>                    </div>
-        </div>
-    </div>
-    </div>
+    <?php endforeach; ?>
 </div>
