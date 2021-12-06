@@ -105,7 +105,7 @@
             </header>
 
             <div class="px-2">
-                <p>Ciao Utente</p>
+                <p>Ciao <?php echo $templateParams["userInfo"][0]["Nome"]?> <?php echo $templateParams["userInfo"][0]["Cognome"]?></p>
             </div>
 
             <ul class="nav flex-column text-center">
