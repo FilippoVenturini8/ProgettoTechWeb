@@ -48,46 +48,64 @@
         </main>
 
         <!--carrello-->
-        <aside class="collapse float-end">
+        <aside class=" float-end">
             <header class="row pt-3">
-                <div class="col-2"></div>
-                <h3 class="col-7">Carrello</h3>
-                <button class="btn btn-default col-3">
-                    <img src="../../img/icon/close.png" alt=""/>
-                </button>
+                <div class="row mx-0 px-0">
+                    <div class="col-10"></div>
+                    <button class="btn btn-default col-2">
+                        <img src="../../img/icon/close.png" alt=""/>
+                    </button>
+                </div>
+                <div class="row mb-3">
+                    <h3 class="mx-4">Carrello</h3>
+                </div>
             </header>
 
             <ul class="list-group list-group-flush border-bottom scrollarea">
                 <?php foreach($templateParams["disksInCart"] as $diskInCart): ?>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-5" >
-                                <img class="rounded" src="<?php echo UPLOAD_DIR.$diskInCart["Copertina"] ;?>" alt=""/>
+                    <li class="list-group-item row m-0">
+                        <div class="align-top row">
+                            <div class="col-4">
+                                <img class="rounded d-block" src="<?php echo UPLOAD_DIR.$diskInCart["Copertina"] ;?>" alt=""/>
                             </div>
-                            <div class="col-7">
-                                <p class="text-end m-0"><?php echo $diskInCart["Quantita"]?>x <?php echo $diskInCart["Artista"]?> - <?php echo $diskInCart["Titolo"]?></p>
-                                <p class="text-end"><?php echo ($diskInCart["Prezzo"]*$diskInCart["Quantita"])?>€</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-8"></div>
-                            <div class="col-4 text-end" >
-                                <a class="btn btn-primary btn-sm" href="#" role="button">Rimuovi</a>
+                            <div class="col-8">
+                                <p class="fw-bold mb-0"><?php echo $diskInCart["Titolo"]?></p>
+                                <p class=""><?php echo $diskInCart["Artista"]?></p>
+                                <div class="mt-2 row mx-0 py-0">
+                                    <div class="col-2 px-0 text-end">
+                                        <button class="btn btn-default mx-0">
+                                            <img src="../../img/icon/minus2.png" class="icon-cart" alt=""/>
+                                        </button> 
+                                    </div>
+                                    <div class="col-1 px-0 text-center">
+                                        <p class="pt-1"><?php echo $diskInCart["Quantita"]?></p>
+                                    </div>
+                                    <div class="col-2 px-0 text-start">
+                                        <button class="btn btn-default mx-0">
+                                            <img src="../../img/icon/plus2.png" class="icon-cart" alt=""/> 
+                                        </button> 
+                                    </div>
+                                    <div class="col-5"></div>
+                                    <div class="col-2">
+                                        <p class="pt-1"><?php echo ($diskInCart["Prezzo"]*$diskInCart["Quantita"])?>€</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </li>
                 <?php endforeach; ?>
             </ul>
 
-            <footer>
+            <footer class="mt-3">
                 <div class="row"></div>
-                    <div class="row"><p>Totale: <?php echo round($templateParams["cartTotal"][0]["Totale"], 2);?>€</p></div>
-                    <div class="row py-10">
-                        <div class="col-6"></div>
-                        <div class="col-5 text-end pb-4">
+                    <div class="row mx-3">
+                        <p class="fw-bold">Totale: <?php echo round($templateParams["cartTotal"][0]["Totale"], 2);?>€</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-9"></div>
+                        <div class="col-3">
                             <a class="btn btn-primary btn-sm" href="#" role="button">Paga</a>
                         </div>
-                        <div class="col-1"></div>
                     </div>
                 </div>
             </footer>

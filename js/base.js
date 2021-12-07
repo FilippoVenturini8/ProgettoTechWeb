@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     //close cart
-    $('aside.float-end button').on('click', function () {
+    $('aside.float-end > header button').on('click', function () {
         $('aside.float-end').addClass('collapse');
         $('aside.float-end').removeClass('active');
     });
