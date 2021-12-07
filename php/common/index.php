@@ -10,6 +10,7 @@ $templateParams["userInfo"] = $dbh->getUserInfo($templateParams["userMail"]);
 $templateParams["disksInCart"] = $dbh->getDisksInCart($templateParams["userMail"]);
 $templateParams["cartTotal"] = $dbh->getCartTotal($templateParams["userMail"]);
 $templateParams["isAdmin"] = $dbh->isAdmin($templateParams["userMail"]);
+$templateParams["popularsDisks"] = $dbh->getPopularsDisks();
 
 require '../../template/common/base.php';
 ?>

@@ -9,24 +9,16 @@
 
 <div id="carouselExampleControls" class="carousel slide mx-auto" data-bs-ride="carousel" style="width: 300px;">
     <div class="carousel-inner w-100">
-        <div class="carousel-item active w-100">
-            <img src="../../img/LP/raggae/Legend-BobMarley.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption">
-                <h5>Legend - Bob Marley</h5>
+        <?php $i=0; foreach($templateParams["popularsDisks"] as $popularDisk) :?>
+            <div class="carousel-item <?php if($i==0){ echo "active";}?> w-100">
+                <a href="../../php/common/category.php?nomeCategoria=Popolari&CodiceDisco=<?php echo $popularDisk["Codice"];?>">
+                    <img src="<?php echo UPLOAD_DIR.$popularDisk["Copertina"]?>" class="d-block w-100" alt="...">
+                </a>
+                <div class="carousel-caption">
+                    <h5><?php echo $popularDisk["Titolo"]?> - <?php echo $popularDisk["Artista"];?></h5>
+                </div>
             </div>
-        </div>
-        <div class="carousel-item w-100">
-            <img src="../../img/LP/rock/HighwayToHell-ACDC.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption">
-                <h5>Highway To Hell - ACDC</h5>
-            </div>
-        </div>
-        <div class="carousel-item w-100">
-            <img src="../../img/LP/rap/NothingWasTheSame-Drake.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption">
-                <h5>Nothing Was The Same - Drake</h5>
-            </div>
-        </div>
+        <?php $i=$i+1; endforeach; ?>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
