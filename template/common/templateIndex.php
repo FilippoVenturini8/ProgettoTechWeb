@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row my-3">
     <div class="col-1"></div>
     <h1 class="col-11">
         Popolari
@@ -30,12 +30,13 @@
     </button>
 </div>
 
-<div class="row">
+<div class="row mt-4 mb-3">
     <div class="col-1"></div>
     <h1 class="col-11">
         Categorie
     </h1>
 </div>
+
 <!--categorie-->
 <div class="row" >
     <?php foreach($templateParams["categories"] as $category) : ?>
