@@ -48,13 +48,15 @@
         </main>
 
         <!--carrello-->
-        <aside class=" float-end">
+        <aside class="collapse float-end">
             <header class="row pt-3">
                 <div class="row mx-0 px-0">
                     <div class="col-10"></div>
-                    <button class="btn btn-default col-2">
-                        <img src="../../img/icon/close.png" alt=""/>
-                    </button>
+                    <div class="col-2">
+                        <button class="btn btn-default">
+                            <img src="../../img/icon/close.png" alt=""/>
+                        </button>
+                    </div>
                 </div>
                 <div class="row mb-3">
                     <h3 class="mx-4">Carrello</h3>
