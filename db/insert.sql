@@ -62,6 +62,10 @@ INSERT INTO Account(Mail, Psw, Nome, Cognome, Cellulare, ImmagineProfilo, isAdmi
 VALUES("gigi@gmail.com", "GGGG", "Gigi", "Rossi", 2462742, NULL, 0),
 ("admin@gmail.com", "AdminPW", "Admin", "", 242245, NULL, 1);
 
+/*CARTE DI CREDITO*/
+INSERT INTO Carta_Di_Credito(CodiceCarta, DataScadenza, Cvv, MailAccount)
+VALUES(1234567890123456, '2022-10-01', 123, "gigi@gmail.com");
+
 /*DISCO IN CARRELLO*/
 INSERT INTO Disco_in_carrello(CodiceDisco, MailAccount, Quantita)
 VALUES (1, "gigi@gmail.com", 2),

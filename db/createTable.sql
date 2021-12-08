@@ -11,6 +11,13 @@ create table ACCOUNT (
      isAdmin boolean not null,
      constraint ID_ACCOUNT_ID primary key (Mail));
 
+create table CARTA_DI_CREDITO (
+     CodiceCarta int(16) not null,
+     DataScadenza date not null,
+     Cvv varchar(3) not null,
+     MailAccount varchar(30) REFERENCES Account(Mail),
+     constraint ID_CARTA_DI_CREDITO_ID primary key (CodiceCarta));
+
 create table ARTISTA (
      Nome varchar(30) not null,
      constraint ID_ARTISTA_ID primary key (Nome));
@@ -66,4 +73,5 @@ create table ORDINE (
 create table PAGAMENTO (
      Codice int not null AUTO_INCREMENT,
      Importo float not null,
+     CodiceCarta int(16) REFERENCES Carta_Di_Credito(CodiceCarta),
      constraint ID_PAGAMENTO_ID primary key (Codice));
