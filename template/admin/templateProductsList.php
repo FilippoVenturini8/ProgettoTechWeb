@@ -34,19 +34,40 @@
         <div class="col-2"></div>
     </div>
 
-    <div class="row m-5">
-        <div class="row p-2 mt-2 border-bottom border-danger">
-            <div  class="col-4">
-                <img src="../../img/LP/rap/travisscott.jpg" alt="" class="diskInOrder"></img>
+    <div class="accordion">
+        <?php foreach($templateParams["allDisks"] as $disk): ?> 
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button row" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>">
+                    <div class="col-1">
+                        <label>#<?php echo $disk["Codice"]?></label>
+                    </div>
+                    <div class="col-4 ml-2">
+                        <label><?php echo $disk["Titolo"]?></label>
+                    </div>
+                    <div class="col-3">
+                        <label><?php echo $disk["Artista"]?></label>
+                    </div>
+                    <div class="col-2">
+                        <label><?php echo $disk["Prezzo"]?>€</label>
+                    </div>
+                    <div class="col-2">
+                        <label>Qtà: <?php echo $disk["QuantitaDisponibile"]?></label>
+                    </div>
+                </button>
+                </h2>
+                <div id="disk<?php echo $disk["Codice"]?>" class="accordion-collapse collapse">
+                    <div class="row accordion-body">
+                        <div class="col-4">
+                            <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
+                        </div>
+                        <div class="col-8">
+                            <p class="m-0"><?php echo $disk["Artista"];?> - <?php echo $disk["Titolo"]?></p>                          
+                            <p><?php echo $disk["Prezzo"];?>€</p>                           
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-8 mt-2">
-                <p class="m-0">Travis Scott - Astroworld</p>
-                <p>19.90$</p>
-                <button type="button" class="btn btn-primary float-end rounded">Rimuovi</button>
-                <button type="button" class="btn btn-primary float-end rounded">Modifica</button>
-            </div>
-        </div>
-
-        <div class="col-2"></div>
+        <?php endforeach; ?>
     </div>
 <div>
