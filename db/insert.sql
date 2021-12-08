@@ -79,4 +79,12 @@ VALUES(NULL,'2007-09-14', NULL, NULL,"gigi@gmail.com"),
 INSERT INTO Disco_Ordinato(CodiceDisco, CodiceOrdine, Quantita, Voto)
 VALUES(12,1,1,NULL),
 (3,1,3,NULL),
-(17,1,1,NULL);
+(17,1,1,NULL),
+(2,1,1,NULL),
+(10,2,1,NULL),
+(14,3,1,NULL),
+(16,4,1,NULL),
+(5,5,1,NULL),
+(7,2,1,NULL),
+(9,3,1,NULL),
+(3,4,1,NULL);
