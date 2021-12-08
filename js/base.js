@@ -17,7 +17,7 @@ $(document).ready(function () {
     });
 
     //close menu
-    $('aside.float-start > header > button:first-of-type').on('click', function () {
+    $('aside.float-start > header > div:first-of-type button').on('click', function () {
         $('aside.float-start').addClass('collapse');
         $('aside.float-start').removeClass('active');
     });
