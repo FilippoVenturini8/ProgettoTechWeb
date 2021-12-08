@@ -17,11 +17,6 @@ button img{
     width: 30px;
 }
 
-/*profile image*/
-aside.float-start > header > button:last-of-type > img{
-    width: 80px;
-}
-
 /*logo image*/
 body > div > header > div:nth-child(3) > a > img{
     height: 100px;
@@ -87,6 +82,10 @@ aside.float-end li img{
 aside.float-start{
     left: 0;
     width: 250px; 
+}
+
+aside.float-start > header > div:nth-of-type(2) img{
+    width: 80px;
 }
 
 div > aside > ul > li{

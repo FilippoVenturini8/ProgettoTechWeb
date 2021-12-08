@@ -116,45 +116,39 @@
         <!--menu-->
         <aside class="float-start collapse">
             <header class="py-3 px-2">
-                <button class="btn btn-default float-end">
-                    <img class="float-end" src="../../img/icon/close.png" alt=""/>
-                </button>
-                <button class="btn btn-default mt-3 mx-4">
-                    <img src="../../img/icon/User.png" alt=""/>
-                </button>
+                <div class="row">
+                    <div class="col-10"></div>
+                    <div class="col-2">
+                        <button class="btn btn-default float-end">
+                            <img class="float-end" src="../../img/icon/close.png" alt=""/>
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3"></div>
+                    <div class="col-6 text-center">
+                        <button class="btn btn-default">
+                            <img src="../../img/icon/User.png" alt=""/>
+                        </button>
+                    </div>
+                    <div class="col-3"></div>
+                </div>
+                <div class="row text-center">
+                    <p>Ciao, <?php echo $templateParams["userInfo"][0]["Nome"]?> <?php echo $templateParams["userInfo"][0]["Cognome"]?></p>
+                </div>
             </header>
 
-            <div class="px-2">
-                <p>Ciao, <?php echo $templateParams["userInfo"][0]["Nome"]?> <?php echo $templateParams["userInfo"][0]["Cognome"]?></p>
-            </div>
+            
 
             <ul class="nav flex-column text-center">
                 <li class="nav-item py-2">
-                    <a href="../../php/common/profile.php">Profilo</a>
+                    <a href="../../php/common/profile.php" class="text-dark">Profilo</a>
                 </li>
                 <li class="nav-item py-2">
-                    <a href="#">Notifiche</a>
+                    <a href="#" class="text-dark">Notifiche</a>
                 </li>
                 <li class="nav-item py-2">
-                    <a href="../../php/common/login.php">Login</a>
-                </li>
-            
-                <li class="accordion accordion-flush" id="accordionFlushExample">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="flush-headingOne">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"  style="background-color:#ebebeb;">
-                                Categorie
-                            </button>
-                        </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <a href="#">Musica Classica</a>
-                                <a href="#">Rap</a>
-                                <a href="#">Rock</a>
-                                <a href="#">Indie</a>
-                            </div>
-                        </div>
-                    </div>
+                    <a href="../../php/common/login.php" class="text-danger">Logout</a>
                 </li>
             </ul>
         </aside>
