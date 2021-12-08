@@ -96,3 +96,8 @@ div > aside > ul > li{
     width: 20px !important;
     height: 20px !important;
 }
+
+.icon-map{
+    width: 500px !important;
+    height: 350px !important;
+}
