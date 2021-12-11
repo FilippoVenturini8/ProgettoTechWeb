@@ -1,7 +1,8 @@
 <div class="row my-3">
-    <div class="col-1"></div>
-    <h1 class="col-11">
-        Popolari
+    <h1>
+        <spam class="mx-5 border-bottom border-danger">
+            Popolari
+        </spam>
     </h1>
 </div>
 
@@ -31,9 +32,10 @@
 </div>
 
 <div class="row mt-4 mb-3">
-    <div class="col-1"></div>
-    <h1 class="col-11">
-        Categorie
+    <h1>
+        <spam class="mx-5 border-bottom border-danger">
+            Categorie
+        </spam>
     </h1>
 </div>
 
@@ -41,12 +43,12 @@
 <div class="row" >
     <?php foreach($templateParams["categories"] as $category) : ?>
         <div class="col-6 col-md-4">
-        <div class="d-flex justify-content-center py-3">
+        <div class="d-flex justify-content-center mt-3 mb-0">
             <a href="../../php/common/category.php?nomeCategoria=<?php echo $category["Nome"];?>">
-                <img src="<?php echo UPLOAD_DIR.$category["Copertina"];?>" alt="" style="width: 200px;"/>
+                <img class="pb-1 border-bottom border-danger" src="<?php echo UPLOAD_DIR.$category["Copertina"];?>" alt="" style="width: 200px;"/>
             </a>
         </div>
-        <p class="text-center"><?php echo $category["Nome"]?></p>
+        <p class="text-center fw-bold"><?php echo $category["Nome"]?></p>
     </div>
     <?php endforeach; ?>
 </div>

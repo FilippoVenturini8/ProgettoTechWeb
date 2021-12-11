@@ -59,13 +59,17 @@
                     </div>
                 </div>
                 <div class="row mb-3">
-                    <h3 class="mx-4">Carrello</h3>
+                    <h3>
+                        <spam class="mx-4 border-bottom border-danger">
+                            Carrello
+                        </spam>
+                    </h3>
                 </div>
             </header>
 
-            <ul class="list-group list-group-flush border-bottom scrollarea">
+            <ul class="list-group list-group-flush scrollarea">
                 <?php foreach($templateParams["disksInCart"] as $diskInCart): ?>
-                    <li class="list-group-item row m-0">
+                    <li class="list-group-item row m-0 border-bottom ">
                         <div class="align-top row">
                             <div class="col-4">
                                 <img class="rounded d-block" src="<?php echo UPLOAD_DIR.$diskInCart["Copertina"] ;?>" alt=""/>

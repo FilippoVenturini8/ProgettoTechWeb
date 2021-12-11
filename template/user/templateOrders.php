@@ -4,7 +4,7 @@
      
         <div class="row p-2 mt-2 border-bottom border-danger">
             <div  class="col-4">
-                <div id="carousel<?php echo $order["Codice"] ?>" class="carousel slide no-auto-slide" data-interval="false" style="width: 180px;">
+                <div id="carousel<?php echo $order["Codice"] ?>" class="carousel slide" data-interval="false" style="width: 180px;">
                     <div class="carousel-inner w-100">
                         <?php $i=0; foreach($dbh->getOrderDetails($order["Codice"]) as $disk) :?>
                             <div class="carousel-item <?php if($i==0){ echo "active";}?> w-100">

@@ -101,3 +101,7 @@ div > aside > ul > li{
     width: 500px !important;
     height: 350px !important;
 }
+
+aside{
+    z-index: 2;
+}
