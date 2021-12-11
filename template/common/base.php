@@ -30,7 +30,7 @@
             </div>
             <div class="col-2 text-start">
                 <?php 
-                    if($templateParams["isAdmin"][0]["isAdmin"]){
+                    if(isUserLoggedIn() && $_SESSION["isadmin"]){
                         require("../../template/admin/templateHeaderAdmin.php");
                     } else {
                         require("../../template/user/templateHeaderUser.php");
