@@ -105,3 +105,9 @@ div > aside > ul > li{
 aside{
     z-index: 2;
 }
+
+.btn-primary{
+    background-color: #d9534f !important;
+    color: white !important;
+    border-color: black !important;
+}
