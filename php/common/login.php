@@ -1,17 +1,3 @@
-<!--
-require_once '../common/bootstrap.php';
-
-//Base Template
-$templateParams["title"] = "LP Shop - Login";
-$templateParams["templateName"] = "../../template/common/templateLogin.php";
-$templateParams["disksInCart"] = $dbh->getDisksInCart("gigi@gmail.com");
-$templateParams["cartTotal"] = $dbh->getCartTotal("gigi@gmail.com");
-$templateParams["isAdmin"] = $dbh->isAdmin("gigi@gmail.com");
-
-require '../../template/common/base.php';
-
--->
-
 <?php
 require_once '../common/bootstrap.php';
 
@@ -28,17 +14,16 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 }
 
 if(isUserLoggedIn()){
-    $templateParams["titolo"] = "Blog TW - Admin";
-    $templateParams["nome"] = "../../template/common/templateIndex.php";
-
-    $templateParams["disksInCart"] = $dbh->getDisksInCart($_SESSION["mail"]);
-    $templateParams["cartTotal"] = $dbh->getCartTotal($_SESSION["mail"]);
+    header('Location: ../../php/common/index.php');
 }
 else{
-    $templateParams["titolo"] = "Blog TW - Login";
-    $templateParams["nome"] = "../../template/common/templateLogin.php";
+    $templateParams["title"] = "Blog TW - Login";
+    $templateParams["templateName"] = "../../template/common/templateLogin.php";
 }
-
+/*
+$templateParams["disksInCart"] = $dbh->getDisksInCart($_SESSION["mail"]);
+$templateParams["cartTotal"] = $dbh->getCartTotal($_SESSION["mail"]);
+*/
 
 require '../../template/common/base.php';
 ?>

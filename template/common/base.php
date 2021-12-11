@@ -67,54 +67,57 @@
                 </div>
             </header>
 
-            <ul class="list-group list-group-flush scrollarea">
-                <?php foreach($templateParams["disksInCart"] as $diskInCart): ?>
-                    <li class="list-group-item row m-0 border-bottom ">
-                        <div class="align-top row">
-                            <div class="col-4">
-                                <img class="rounded d-block" src="<?php echo UPLOAD_DIR.$diskInCart["Copertina"] ;?>" alt=""/>
-                            </div>
-                            <div class="col-8">
-                                <p class="fw-bold mb-0"><?php echo $diskInCart["Titolo"]?></p>
-                                <p class=""><?php echo $diskInCart["Artista"]?></p>
-                                <div class="mt-2 row mx-0 py-0">
-                                    <div class="col-2 px-0 text-end">
-                                        <button class="btn btn-default mx-0">
-                                            <img src="../../img/icon/minus2.png" class="icon-cart" alt=""/>
-                                        </button> 
-                                    </div>
-                                    <div class="col-1 px-0 text-center">
-                                        <p class="pt-1"><?php echo $diskInCart["Quantita"]?></p>
-                                    </div>
-                                    <div class="col-2 px-0 text-start">
-                                        <button class="btn btn-default mx-0">
-                                            <img src="../../img/icon/plus2.png" class="icon-cart" alt=""/> 
-                                        </button> 
-                                    </div>
-                                    <div class="col-5"></div>
-                                    <div class="col-2">
-                                        <p class="pt-1"><?php echo ($diskInCart["Prezzo"]*$diskInCart["Quantita"])?>€</p>
+            <?php if(isUserLoggedIn()):?>
+                <ul class="list-group list-group-flush scrollarea">
+                    <?php foreach($templateParams["disksInCart"] as $diskInCart): ?>
+                        <li class="list-group-item row m-0 border-bottom ">
+                            <div class="align-top row">
+                                <div class="col-4">
+                                    <img class="rounded d-block" src="<?php echo UPLOAD_DIR.$diskInCart["Copertina"] ;?>" alt=""/>
+                                </div>
+                                <div class="col-8">
+                                    <p class="fw-bold mb-0"><?php echo $diskInCart["Titolo"]?></p>
+                                    <p class=""><?php echo $diskInCart["Artista"]?></p>
+                                    <div class="mt-2 row mx-0 py-0">
+                                        <div class="col-2 px-0 text-end">
+                                            <button class="btn btn-default mx-0">
+                                                <img src="../../img/icon/minus2.png" class="icon-cart" alt=""/>
+                                            </button> 
+                                        </div>
+                                        <div class="col-1 px-0 text-center">
+                                            <p class="pt-1"><?php echo $diskInCart["Quantita"]?></p>
+                                        </div>
+                                        <div class="col-2 px-0 text-start">
+                                            <button class="btn btn-default mx-0">
+                                                <img src="../../img/icon/plus2.png" class="icon-cart" alt=""/> 
+                                            </button> 
+                                        </div>
+                                        <div class="col-5"></div>
+                                        <div class="col-2">
+                                            <p class="pt-1"><?php echo ($diskInCart["Prezzo"]*$diskInCart["Quantita"])?>€</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            
 
-            <footer class="mt-3">
-                <div class="row"></div>
-                    <div class="row mx-3">
-                        <p class="fw-bold">Totale: <?php echo round($templateParams["cartTotal"][0]["Totale"], 2);?>€</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-9"></div>
-                        <div class="col-3">
-                            <a class="btn btn-primary btn-sm" href="#" role="button">Paga</a>
+                <footer class="mt-3">
+                    <div class="row"></div>
+                        <div class="row mx-3">
+                            <p class="fw-bold">Totale: <?php echo round($templateParams["cartTotal"][0]["Totale"], 2);?>€</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-9"></div>
+                            <div class="col-3">
+                                <a class="btn btn-primary btn-sm" href="#" role="button">Paga</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </footer>
+                </footer>
+            <?php endif;?>
         </aside>
 
         <!--menu-->
@@ -137,24 +140,29 @@
                     </div>
                     <div class="col-3"></div>
                 </div>
-                <div class="row text-center">
-                    <p>Ciao, <?php echo $templateParams["userInfo"][0]["Nome"]?> <?php echo $templateParams["userInfo"][0]["Cognome"]?></p>
+                <div class="row text-center mt-3">
+                    <?php if(isUserLoggedIn()):?>
+                        <p>Ciao, <?php echo $_SESSION["nome"]?> <?php echo $_SESSION["cognome"]?></p>
+                    <?php else:?>
+                        <p>Ciao, effettua il <a href="../../php/common/login.php" class="text-primary">Login</a></p>
+                    <?php endif;?>
                 </div>
             </header>
 
             
-
-            <ul class="nav flex-column text-center">
-                <li class="nav-item py-2">
-                    <a href="../../php/common/profile.php" class="text-dark">Profilo</a>
-                </li>
-                <li class="nav-item py-2">
-                    <a href="#" class="text-dark">Notifiche</a>
-                </li>
-                <li class="nav-item py-2">
-                    <a href="../../php/common/login.php" class="text-danger">Logout</a>
-                </li>
-            </ul>
+            <?php if(isUserLoggedIn()):?>
+                <ul class="nav flex-column text-center">
+                    <li class="nav-item py-2">
+                        <a href="../../php/common/profile.php" class="text-dark">Profilo</a>
+                    </li>
+                    <li class="nav-item py-2">
+                        <a href="#" class="text-dark">Notifiche</a>
+                    </li>
+                    <li class="nav-item py-2">
+                        <a href="../../php/common/logout.php" class="text-danger">Logout</a>
+                    </li>
+                </ul>
+            <?php endif;?>
         </aside>
     </div>
 </body>
