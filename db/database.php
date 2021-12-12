@@ -139,14 +139,21 @@ class DatabaseHelper{
         $query = "INSERT INTO account(nome, cognome, mail, psw, cellulare, isAdmin)
                   VALUES (?, ?, ?, ?, ?, 0)";
         $stmt = $this->db->prepare($query);
-        var_dump($name);
-        var_dump($surname);
-        var_dump($mail);
-        var_dump($phone);
-        var_dump($password);
         $stmt->bind_param('sssss', $name, $surname, $mail, $password, $phone);
         $stmt->execute();
     }
+    public function modifyAccount($mail, $password, $phone){
+        $query = "UPDATE account 
+                    SET mail = ?, psw = ?, cellulare = ?
+                    WHERE mail = ?";
+        var_dump($mail);
+        var_dump($password);
+        var_dump($phone);
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('ssss', $mail, $password, $phone, $mail);
+        $stmt->execute();
+    }
+
 
 }
 ?>
