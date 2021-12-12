@@ -59,8 +59,8 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/classica/InATimeLapse-LudovicoE
 
 /*ACCOUNT*/
 INSERT INTO Account(Mail, Psw, Nome, Cognome, Cellulare, ImmagineProfilo, isAdmin)
-VALUES("gigi@gmail.com", "GGGG", "Gigi", "Rossi", 2462742, NULL, 0),
-("admin@gmail.com", "AdminPW", "Admin", "", 242245, NULL, 1);
+VALUES("gigi@gmail.com", "GGGG", "Gigi", "Rossi", '1234567890', NULL, 0),
+("admin@gmail.com", "AdminPW", "Admin", "", '0987654321', NULL, 1);
 
 /*CARTE DI CREDITO*/
 INSERT INTO Carta_Di_Credito(CodiceCarta, DataScadenza, Cvv, MailAccount)

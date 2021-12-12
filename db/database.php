@@ -125,5 +125,28 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function isMailAvailable($mail){
+        $query = "SELECT mail FROM account WHERE mail = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s',$email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return mysqli_num_rows($result)==0;
+    }
+
+    public function registerUser($name, $surname, $mail, $password, $phone){
+        $query = "INSERT INTO account(nome, cognome, mail, psw, cellulare, isAdmin)
+                  VALUES (?, ?, ?, ?, ?, 0)";
+        $stmt = $this->db->prepare($query);
+        var_dump($name);
+        var_dump($surname);
+        var_dump($mail);
+        var_dump($phone);
+        var_dump($password);
+        $stmt->bind_param('sssss', $name, $surname, $mail, $password, $phone);
+        $stmt->execute();
+    }
+
 }
 ?>

@@ -5,8 +5,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
     $login_result = $dbh->checkLogin($_POST["email"], $_POST["password"]);
     if(count($login_result)==0){
         //Login fallito
-        //$templateParams["errorelogin"] = "Errore! Controllare username o password!";
-        echo "errore";
+        $templateParams["errorelogin"] = "Errore Login! Controllare username o password!";
     }
     else{
         registerLoggedUser($login_result[0]);

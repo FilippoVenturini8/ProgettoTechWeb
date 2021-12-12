@@ -6,7 +6,7 @@ create table ACCOUNT (
      Psw varchar(256) not null,
      Nome varchar(15) not null,
      Cognome varchar(15) not null,
-     Cellulare int not null,
+     Cellulare varchar(10) not null,
      ImmagineProfilo varchar(40),
      isAdmin boolean not null,
      constraint ID_ACCOUNT_ID primary key (Mail));

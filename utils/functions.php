@@ -22,5 +22,12 @@ function logout(){
     unset($_SESSION['isadmin']);
 }
 
+function isMailValid($mail){
+    return filter_var($mail, FILTER_VALIDATE_EMAIL);
+}
+
+function isPhoneValid($phone){
+    return preg_match("/^[0-9]{10}$/", $phone);
+}
 
 ?>
