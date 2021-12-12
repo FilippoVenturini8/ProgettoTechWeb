@@ -55,8 +55,10 @@ create table DISCO_IN_CARRELLO (
 create table NOTIFICA (
      Codice int not null AUTO_INCREMENT,
      Testo varchar(256) not null,
+     Titolo varchar(30) not null,
      Link varchar(30),
-     Visualizzata varchar(1) not null,
+     Visualizzata boolean not null DEFAULT 0,
+     `Data` datetime,
      MailAccount varchar(30) REFERENCES Account(Mail),
      constraint ID_NOTIFICA_ID primary key (Codice));
 

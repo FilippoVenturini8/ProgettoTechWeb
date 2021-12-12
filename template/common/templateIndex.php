@@ -42,7 +42,7 @@
 <!--categorie-->
 <div class="row" >
     <?php foreach($templateParams["categories"] as $category) : ?>
-        <div class="col-6 col-md-4">
+        <div class="col-6 col-md-4 col-lg-3">
         <div class="d-flex justify-content-center mt-3 mb-0">
             <a href="../../php/common/category.php?nomeCategoria=<?php echo $category["Nome"];?>">
                 <img class="pb-1 border-bottom border-danger" src="<?php echo UPLOAD_DIR.$category["Copertina"];?>" alt="" style="width: 200px;"/>

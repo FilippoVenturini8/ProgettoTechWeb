@@ -31,4 +31,9 @@ $(document).ready(function () {
         $('aside.float-start').addClass('active');
         $('aside.float-start').removeClass('collapse');
     });
+
+    //open notifics
+    $('#myModal').on('shown.bs.modal', function () {
+        $('#myInput').trigger('focus')
+    })
 });

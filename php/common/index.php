@@ -5,12 +5,13 @@ require_once '../common/bootstrap.php';
 $templateParams["title"] = "LP Shop - Home";
 $templateParams["templateName"] = "../../template/common/templateIndex.php";
 $templateParams["categories"] = $dbh->getAllCategories();
-$templateParams["userMail"] = "gigi@gmail.com";
-$templateParams["userInfo"] = $dbh->getUserInfo($templateParams["userMail"]);
-$templateParams["disksInCart"] = $dbh->getDisksInCart($templateParams["userMail"]);
-$templateParams["cartTotal"] = $dbh->getCartTotal($templateParams["userMail"]);
-$templateParams["isAdmin"] = $dbh->isAdmin($templateParams["userMail"]);
 $templateParams["popularsDisks"] = $dbh->getPopularsDisks();
+
+if(isUserLoggedIn()){
+    $templateParams["disksInCart"] = $dbh->getDisksInCart($_SESSION["mail"]);
+    $templateParams["cartTotal"] = $dbh->getCartTotal($_SESSION["mail"]);
+    $templateParams["messages"] = $dbh->getMessages($_SESSION["mail"]);
+}
 
 require '../../template/common/base.php';
 ?>

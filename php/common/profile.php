@@ -11,7 +11,7 @@ $templateParams["title"] = "LP Shop - Profile";
 $templateParams["templateName"] = "../../template/common/templateProfile.php";
 $templateParams["disksInCart"] = $dbh->getDisksInCart($_SESSION["mail"]);
 $templateParams["cartTotal"] = $dbh->getCartTotal($_SESSION["mail"]);
-$templateParams["isAdmin"] = $dbh->isAdmin($_SESSION["mail"]);
+
 
 require '../../template/common/base.php';
 ?>

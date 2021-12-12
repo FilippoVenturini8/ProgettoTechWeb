@@ -142,18 +142,27 @@ class DatabaseHelper{
         $stmt->bind_param('sssss', $name, $surname, $mail, $password, $phone);
         $stmt->execute();
     }
+
     public function modifyAccount($mail, $password, $phone){
         $query = "UPDATE account 
-                    SET mail = ?, psw = ?, cellulare = ?
+                    SET mail = ?, cellulare = ?
                     WHERE mail = ?";
-        var_dump($mail);
-        var_dump($password);
-        var_dump($phone);
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('ssss', $mail, $password, $phone, $mail);
+        $stmt->bind_param('sss', $mail, $phone, $_SESSION["mail"]);
         $stmt->execute();
     }
 
+    public function getMessages($mail){
+        $query = "SELECT Testo, Titolo, Link, MailAccount, `data`
+                  FROM notifica WHERE MailAccount = ?
+                  ORDER BY `data` DESC";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $mail);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 
 }
 ?>

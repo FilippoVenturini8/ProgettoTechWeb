@@ -8,6 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../../js/base.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
 </head>
 <body>
     <div class="container-fluid p-0">
@@ -24,7 +25,7 @@
                 </a>
             </div>
             <div class="col-2 text-end">
-                <button class="btn btn-default">
+                <button class="btn btn-default" type="button" data-toggle="modal" data-target="#exampleModal">
                     <img src="../../img/icon/bell.png" alt=""/>
                 </button>
             </div>
@@ -164,5 +165,36 @@
                 </ul>
             <?php endif;?>
         </aside>
+
+    <!--notifiche-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="exampleModalLabel">
+                        <spam class="border-bottom border-danger">
+                            Notifiche
+                        </spam>
+                    </h1>
+                    <button class="btn btn-default" data-dismiss="modal">
+                        <img src="../../img/icon/close.png" alt=""/>
+                    </button>
+                </div>
+                <?php if(isUserLoggedIn()): ?>
+                    <div class="modal-body">
+                        <ul class="list-unstyled">
+                            <?php foreach($templateParams["messages"] as $message):?>
+                                <li class="border-bottom">
+                                    <header>
+                                        <h2><?php echo $message["Titolo"]?></h2>
+                                    </header>
+                                    <p><?php echo $message["Testo"]?></p>
+                                </li>
+                            <?php endforeach;?>
+                        </ul>
+                    </div>
+                <?php endif;?>
+            </div>
+        </div>
     </div>
 </body>

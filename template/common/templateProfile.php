@@ -30,33 +30,35 @@
     </div>
     <div class="col-4"></div>
 </div>
-<div class="row text-center m-5">
-    <div class="col-1"></div>
-    <div class="col-4 text-end ">
-        <p>EMAIL:</p>
-    </div>
-    <div class="col-3">
-        <input tag="text" value="<?php echo $_SESSION["mail"] ?>" readonly/>
-    </div>
-    <div class="col-5"></div>
-</div>
-<div class="row text-center m-5">
-    <div class="col-1"></div>
-    <div class="col-4 text-end ">
-        <p>PASSWORD:</p>
-    </div>
-    <div class="col-3">
-        <input tag="text" value="********" readonly/>
-    </div>
-    <div class="col-5"></div>
-</div>
-<div class="row text-center m-5">
-    <div class="col-1"></div>
-    <div class="col-4 text-end ">
-        <p>CELLULARE:</p>
-    </div>
-    <div class="col-3">
-        <input tag="text" value="<?php echo $_SESSION["cellulare"] ?>" readonly/>
-    </div>
-    <div class="col-5"></div>
-</div>
+<ul>
+    <li class="row">
+        <div class="col-1"></div>
+        <div class="col-4 text-end ">
+            <p>EMAIL:</p>
+        </div>
+        <div class="col-3">
+            <input tag="text" value="<?php echo $_SESSION["mail"] ?>" readonly/>
+        </div>
+        <div class="col-5"></div>
+    </li>
+    <li class="row">
+        <div class="col-1"></div>
+        <div class="col-4 text-end ">
+            <p>PASSWORD:</p>
+        </div>
+        <div class="col-3">
+            <input tag="text" value="********" readonly/>
+        </div>
+        <div class="col-5"></div>
+    </li>
+    <li class="row">
+        <div class="col-1"></div>
+        <div class="col-4 text-end ">
+            <p>CELLULARE:</p>
+        </div>
+        <div class="col-3">
+            <input tag="text" value="<?php echo $_SESSION["cellulare"] ?>" readonly/>
+        </div>
+        <div class="col-5"></div>
+    </li>
+</ul>

@@ -66,6 +66,10 @@ VALUES("gigi@gmail.com", "93ccf25b78706fdc6a82f98b6b7a1ca441de9d5522fd27d7ed7913
 INSERT INTO Carta_Di_Credito(CodiceCarta, DataScadenza, Cvv, MailAccount)
 VALUES(12345, '2022-10-01', 123, "gigi@gmail.com");
 
+INSERT INTO Notifica(Testo, Titolo, Link, MailAccount, `data`)
+VALUES ("Benvenuto", "Benvenuto in LPShop!", null, "gigi@gmail.com", "2021-12-12 17:07:00"),
+ ("Benvenuto ancora, scusa ma non sapevo cosa altro scrivere", "RiBenvenuto in LPShop!", null, "gigi@gmail.com", "2021-12-12 17:10:00");
+
 /*DISCO IN CARRELLO*/
 INSERT INTO Disco_in_carrello(CodiceDisco, MailAccount, Quantita)
 VALUES (1, "gigi@gmail.com", 2),
