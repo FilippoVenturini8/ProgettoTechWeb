@@ -1,7 +1,12 @@
 <!---->
+<script src="../../js/profile.js"></script>
 <div class="row text-center m-5">
     <div class="col-3">
-        <h4>PROFILO</h4>
+        <h1>
+            <spam class="border-bottom border-danger">    
+                Profilo
+            </spam>
+        </h1>
     </div>
 </div>
 <div class="row text-center m-5">
@@ -21,7 +26,7 @@
 <div class="row text-center m-5">
     <div class="col-4"></div>
     <div class="col-4">
-        <h5>Mirko Viroli</h5>
+        <h5><?php echo $_SESSION["nome"] ?> <?php echo $_SESSION["cognome"] ?></h5>
     </div>
     <div class="col-4"></div>
 </div>
@@ -31,7 +36,7 @@
         <p>EMAIL:</p>
     </div>
     <div class="col-3">
-        <input tag="text" placeholder="mirko.viroli@unibo.it"/>
+        <input tag="text" value="<?php echo $_SESSION["mail"] ?>" readonly/>
     </div>
     <div class="col-5"></div>
 </div>
@@ -41,7 +46,7 @@
         <p>PASSWORD:</p>
     </div>
     <div class="col-3">
-        <input tag="text" placeholder="******"/>
+        <input tag="text" value="********" readonly/>
     </div>
     <div class="col-5"></div>
 </div>
@@ -51,7 +56,7 @@
         <p>CELLULARE:</p>
     </div>
     <div class="col-3">
-        <input tag="text" placeholder="340 2574860"/>
+        <input tag="text" value="<?php echo $_SESSION["cellulare"] ?>" readonly/>
     </div>
     <div class="col-5"></div>
 </div>

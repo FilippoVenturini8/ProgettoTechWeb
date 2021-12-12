@@ -6,9 +6,9 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["conferma
     //campi settati
     if(isMailValid($_POST["email"]) && $dbh->isMailAvailable($_POST["email"]) && isPhoneValid($_POST["cellulare"]) && $_POST["password"] == $_POST["confermapassword"]){
         //new user registration
-        $dbh->registerUser($_POST["nome"], $_POST["cognome"], $_POST["email"], $_POST["password"], $_POST["cellulare"]);
+        $dbh->registerUser($_POST["nome"], $_POST["cognome"], $_POST["email"], hash('sha256', $_POST['password']), $_POST["cellulare"]);
         //logging in new user
-        $login_result = $dbh->checkLogin($_POST["email"], $_POST["password"]);
+        $login_result = $dbh->checkLogin($_POST["email"], hash('sha256', $_POST['password']));
         registerLoggedUser($login_result[0]);
     } else {
         $templateParams["erroreRegistrazione"] = "Errore registrazione!";
