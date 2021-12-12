@@ -1,11 +1,11 @@
 /*CATEGORIE*/
 INSERT INTO Categoria(Nome,Copertina)
-VALUES ("Indie",'categories/indie.png'),
-        ("Musica Classica",'categories/classica.jpg'),
-        ("Punk",'categories/punk.png'),
-        ("Reggae",'categories/reggae.png'),
-        ("Rap",'categories/rap.jpg'),
-        ("Rock",'categories/rock.jpg');
+VALUES ("Indie",'categories/indie2.png'),
+        ("Musica Classica",'categories/classica2.png'),
+        ("Punk",'categories/punk2.png'),
+        ("Reggae",'categories/reggae2.png'),
+        ("Rap",'categories/rap2.png'),
+        ("Rock",'categories/rock2.png');
 
 /*ARTISTI*/
 INSERT INTO Artista(Nome)
