@@ -111,3 +111,8 @@ aside{
     color: white !important;
     border-color: black !important;
 }
+
+.list-group-item.list-group-item-action{
+    border-color: #d9534f !important;
+    background-color: #a7130e93 !important;
+}
