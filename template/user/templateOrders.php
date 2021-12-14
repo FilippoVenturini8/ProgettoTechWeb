@@ -1,7 +1,6 @@
 <h1>Ordini</h1>
     <!--singolo ordine-->
     <?php foreach($templateParams["orders"] as $order) :?>
-     
         <div class="row p-2 mt-2 border-bottom border-danger">
             <div  class="col-4">
                 <div id="carousel<?php echo $order["Codice"] ?>" class="carousel slide" data-interval="false" style="width: 180px;">
@@ -32,7 +31,7 @@
                 <?php foreach($dbh->getOrderDetails($order["Codice"]) as $disk) :?>
                     <p> <?php echo $disk["Artista"]?> - <?php echo $disk["Titolo"]?></p>
                 <?php endforeach; ?>
-                <a href="../../php/user/trackMyPackage.php" class="btn btn-primary float-end">Traccia il mio pacco</a>
+                <a href="../../php/user/trackMyPackage.php?idOrder=<?php echo $order["Codice"]?>" class="btn btn-primary float-end">Traccia il mio pacco</a>
             </div>
         </div>
     <?php endforeach; ?>

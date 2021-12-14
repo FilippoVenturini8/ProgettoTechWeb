@@ -69,7 +69,7 @@ class DatabaseHelper{
     }
 
     public function getOrderDetails($orderID){
-        $stmt = $this->db->prepare("SELECT Titolo, Copertina, Artista, Quantita, Prezzo*Quantita as Totale
+        $stmt = $this->db->prepare("SELECT CodiceDisco, CodiceOrdine, Titolo, Copertina, Artista, Quantita, Prezzo*Quantita as Totale
                                     FROM Disco_Ordinato, Disco
                                     WHERE Disco_Ordinato.CodiceOrdine = $orderID
                                     AND Disco_Ordinato.CodiceDisco = Disco.Codice");
