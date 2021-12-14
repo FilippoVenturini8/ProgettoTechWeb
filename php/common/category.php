@@ -5,6 +5,7 @@ require_once '../common/bootstrap.php';
 $templateParams["title"] = "LP Shop - Category";
 $templateParams["templateName"] = "../../template/common/templateCategory.php";
 $templateParams["popularClicked"] = NULL;
+$templateParams["disksVotes"] = $dbh->getDisksVotes();
 
 if(isUserLoggedIn()){
     $templateParams["disksInCart"] = $dbh->getDisksInCart($_SESSION["mail"]);
@@ -12,7 +13,7 @@ if(isUserLoggedIn()){
     $templateParams["messages"] = $dbh->getMessages($_SESSION["mail"]);
 }
 
-if(isset($_GET)){
+if(isset($_GET["nomeCategoria"])){
     $templateParams["categoryName"] = $_GET["nomeCategoria"];
     if($_GET["nomeCategoria"] == "Popolari"){
         $templateParams["disks"] = $dbh->getPopularsDisks();

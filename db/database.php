@@ -19,7 +19,7 @@ class DatabaseHelper{
     }
 
     public function getDisksFromCategory($category){
-        $stmt = $this->db->prepare("SELECT Categoria, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista
+        $stmt = $this->db->prepare("SELECT Codice, Categoria, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista
                                     FROM disco
                                     WHERE Categoria = \"$category\"");
         $stmt->execute();
@@ -164,7 +164,19 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+<<<<<<< HEAD
     
+=======
+    public function getDisksVotes(){
+        $stmt = $this->db->prepare("SELECT CodiceDisco, AVG(Voto) AS VotoMedio
+                                    FROM Disco_Ordinato
+                                    GROUP BY CodiceDisco");
+        //$stmt->bind_param("i",$diskID);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+>>>>>>> b1a892ac81c7b871e5c56beab29c6e99b17f8059
 
 }
 ?>

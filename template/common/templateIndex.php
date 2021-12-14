@@ -1,6 +1,6 @@
 <div class="row my-3">
     <h1>
-        <spam class="mx-5 border-bottom border-danger">
+        <spam class="mx-5 border-bottom border-danger border-2">
             Popolari
         </spam>
     </h1>
@@ -33,7 +33,7 @@
 
 <div class="row mt-4 mb-3">
     <h1>
-        <spam class="mx-5 border-bottom border-danger">
+        <spam class="mx-5 border-bottom border-danger border-2">
             Categorie
         </spam>
     </h1>

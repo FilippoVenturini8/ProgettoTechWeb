@@ -28,10 +28,11 @@
             <div class="col-8 mt-2">
                 <p class="m-0 fw-bold">Ordine #<?php echo $order["Codice"]?></p>
                 <p class="fw-bold">Ordine ricevuto</p>
+                <p>Data Ordine: <?php echo $order["DataOrdine"]?></p>
                 <?php foreach($dbh->getOrderDetails($order["Codice"]) as $disk) :?>
                     <p> <?php echo $disk["Artista"]?> - <?php echo $disk["Titolo"]?></p>
                 <?php endforeach; ?>
-                <button type="button" class="btn btn-primary float-end">Traccia il mio pacco</button>
+                <a href="../../php/user/trackMyPackage.php" class="btn btn-primary float-end">Traccia il mio pacco</a>
             </div>
         </div>
     <?php endforeach; ?>

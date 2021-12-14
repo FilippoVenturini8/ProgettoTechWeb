@@ -30,4 +30,17 @@ function isPhoneValid($phone){
     return preg_match("/^[0-9]{10}$/", $phone);
 }
 
+function getVoteStars($vote){
+    $stars = "";
+    $tmpVote = $vote;
+    while($tmpVote >= 1){
+        $stars = $stars.'★';
+        $tmpVote--;
+    }
+    for($i = $vote; $i < 5; $i++){
+        $stars = $stars.'☆';
+    }
+    return $stars;
+}
+
 ?>
