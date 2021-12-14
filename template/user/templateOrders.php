@@ -26,7 +26,7 @@
             </div>
             <div class="col-8 mt-2">
                 <p class="m-0 fw-bold">Ordine #<?php echo $order["Codice"]?></p>
-                <p class="fw-bold">Ordine ricevuto</p>
+                <p class="fw-bold"><?php echo getOrderState($order["DataOrdine"], $order["DataSpedizione"], $order["DataConsegna"]);?></p>
                 <p>Data Ordine: <?php echo $order["DataOrdine"]?></p>
                 <?php foreach($dbh->getOrderDetails($order["Codice"]) as $disk) :?>
                     <p> <?php echo $disk["Artista"]?> - <?php echo $disk["Titolo"]?></p>

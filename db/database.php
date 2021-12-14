@@ -69,10 +69,11 @@ class DatabaseHelper{
     }
 
     public function getOrderDetails($orderID){
-        $stmt = $this->db->prepare("SELECT CodiceDisco, CodiceOrdine, Titolo, Copertina, Artista, Quantita, Prezzo*Quantita as Totale
-                                    FROM Disco_Ordinato, Disco
+        $stmt = $this->db->prepare("SELECT CodiceDisco, CodiceOrdine, Titolo, Copertina, Artista, Quantita, Prezzo*Quantita as Totale, DataOrdine, DataSpedizione, DataConsegna
+                                    FROM Disco_Ordinato, Disco, Ordine
                                     WHERE Disco_Ordinato.CodiceOrdine = $orderID
-                                    AND Disco_Ordinato.CodiceDisco = Disco.Codice");
+                                    AND Disco_Ordinato.CodiceDisco = Disco.Codice
+                                    AND Disco_Ordinato.CodiceOrdine = Ordine.Codice");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
