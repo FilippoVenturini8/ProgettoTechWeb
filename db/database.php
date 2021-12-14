@@ -164,9 +164,7 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-<<<<<<< HEAD
-    
-=======
+
     public function getDisksVotes(){
         $stmt = $this->db->prepare("SELECT CodiceDisco, AVG(Voto) AS VotoMedio
                                     FROM Disco_Ordinato
@@ -176,7 +174,7 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
     }
->>>>>>> b1a892ac81c7b871e5c56beab29c6e99b17f8059
+
 
 }
 ?>

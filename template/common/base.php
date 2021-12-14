@@ -157,14 +157,11 @@
                         <a href="../../php/common/profile.php" class="text-dark">Profilo</a>
                     </li>
                     <li class="nav-item py-2">
-<<<<<<< HEAD
-                        <a href="../../php/common/notify.php" class="text-dark">Notifiche</a>
-=======
                         <a href="../../php/user/orders.php" class="text-dark">I Miei Ordini</a>
                     </li>
                     <li class="nav-item py-2">
-                        <a href="#" class="text-dark">Notifiche</a>
->>>>>>> b1a892ac81c7b871e5c56beab29c6e99b17f8059
+                    <a href="../../php/common/notify.php" class="text-dark">Notifiche</a>
+
                     </li>
                     <li class="nav-item py-2">
                         <a href="../../php/common/logout.php" class="text-danger">Logout</a>
