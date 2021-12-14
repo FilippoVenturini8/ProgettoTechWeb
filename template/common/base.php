@@ -157,7 +157,7 @@
                         <a href="../../php/common/profile.php" class="text-dark">Profilo</a>
                     </li>
                     <li class="nav-item py-2">
-                        <a href="#" class="text-dark">Notifiche</a>
+                        <a href="../../php/common/notify.php" class="text-dark">Notifiche</a>
                     </li>
                     <li class="nav-item py-2">
                         <a href="../../php/common/logout.php" class="text-danger">Logout</a>
