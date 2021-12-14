@@ -157,6 +157,9 @@
                         <a href="../../php/common/profile.php" class="text-dark">Profilo</a>
                     </li>
                     <li class="nav-item py-2">
+                        <a href="../../php/user/orders.php" class="text-dark">I Miei Ordini</a>
+                    </li>
+                    <li class="nav-item py-2">
                         <a href="#" class="text-dark">Notifiche</a>
                     </li>
                     <li class="nav-item py-2">
