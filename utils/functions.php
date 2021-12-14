@@ -33,7 +33,7 @@ function isPhoneValid($phone){
 function getVoteStars($vote){
     $stars = "";
     $tmpVote = $vote;
-    while($tmpVote > 0){
+    while($tmpVote >= 1){
         $stars = $stars.'★';
         $tmpVote--;
     }

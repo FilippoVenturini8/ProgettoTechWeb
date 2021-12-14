@@ -10,7 +10,7 @@
             <p class="m-0">
                 <?php foreach($templateParams["disksVotes"] as $diskVote) :?>
                     <?php if($diskVote["CodiceDisco"] == $disk["Codice"]){
-                        echo getVoteStars($diskVote["VotoMedio"]);   
+                        echo getVoteStars($diskVote["VotoMedio"])." (".round($diskVote["VotoMedio"], 2).")";   
                     }?>
                 <?php endforeach; ?>
             </p>
