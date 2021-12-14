@@ -81,12 +81,12 @@ VALUES(NULL,'2007-09-14', NULL, NULL,"gigi@gmail.com"),
 (NULL,'2018-08-03', NULL, NULL,"gigi@gmail.com"),
 (NULL,'2018-08-03', NULL, NULL,"gigi@gmail.com"),
 (NULL,'1999-06-08', '1999-06-10', NULL,"gigi@gmail.com"),
+(NULL,'2018-03-08', NULL, NULL,"gigi@gmail.com"),
 (NULL,'2020-10-26', '2020-10-26', '2020-10-30',"gigi@gmail.com");
 
 /*DISCHI ORDINATI*/
 INSERT INTO Disco_Ordinato(CodiceDisco, CodiceOrdine, Quantita, Voto)
 VALUES(12,1,1,NULL),
-(3,1,3,NULL),
 (17,1,1,NULL),
 (2,1,1,NULL),
 (10,2,1,NULL),
@@ -95,4 +95,9 @@ VALUES(12,1,1,NULL),
 (5,5,1,NULL),
 (7,2,1,NULL),
 (9,3,1,NULL),
-(3,4,1,NULL);
+(3,1,1,1),
+(3,2,1,3),
+(3,3,2,4),
+(3,4,3,5),
+(3,5,3,5),
+(3,6,3,4);

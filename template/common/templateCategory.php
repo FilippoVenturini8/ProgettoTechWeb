@@ -5,11 +5,21 @@
         <div class="col-4 mt-2">
             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
         </div>
-        <div class="col-8 mt-2">
+        <div class="col-7 mt-2">
             <p class="m-0"><?php echo $disk["Artista"];?> - <?php echo $disk["Titolo"]?></p>
-            <p class="m-0">★★★☆☆</p>
+            <p class="m-0">
+                <?php foreach($templateParams["disksVotes"] as $diskVote) :?>
+                    <?php if($diskVote["CodiceDisco"] == $disk["Codice"]){
+                        echo getVoteStars($diskVote["VotoMedio"]);   
+                    }?>
+                <?php endforeach; ?>
+            </p>
             <p><?php echo $disk["Prezzo"];?>€</p>
-            <button type="button" class="btn btn-primary float-end rounded-circle">+</button>
+        </div>
+        <div class="col-1">
+            <button class="btn btn-default mx-0">
+                <img src="../../img/icon/plus2.png" class="icon-cart" alt=""/> 
+            </button>
         </div>
     </div>
 <?php endforeach; ?>
