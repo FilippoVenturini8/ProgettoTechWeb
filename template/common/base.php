@@ -113,7 +113,7 @@
                         <div class="row">
                             <div class="col-9"></div>
                             <div class="col-3">
-                                <a class="btn btn-primary btn-sm" href="#" role="button">Paga</a>
+                                <a class="btn btn-primary btn-sm" href="../../php/user/payment.php" role="button">Paga</a>
                             </div>
                         </div>
                     </div>
