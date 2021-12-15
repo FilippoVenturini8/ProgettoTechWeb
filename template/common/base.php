@@ -156,9 +156,22 @@
                     <li class="nav-item py-2">
                         <a href="../../php/common/profile.php" class="text-dark">Profilo</a>
                     </li>
-                    <li class="nav-item py-2">
-                        <a href="../../php/user/orders.php" class="text-dark">I Miei Ordini</a>
-                    </li>
+                    <?php if($_SESSION["isadmin"]):?>
+                        <li class="nav-item py-2">
+                            <a href="../../php/admin/addProduct.php" class="text-dark">Aggiungi Prodotto</a>
+                        </li>
+                        <li class="nav-item py-2">
+                            <a href="../../php/admin/productsList.php" class="text-dark">Gestisci Prodotti</a>
+                        </li>
+                        <li class="nav-item py-2">
+                            <a href="../../php/admin/ordersList.php" class="text-dark">Gestisci Ordini</a>
+                        </li>
+                    <?php endif;?>
+                    <?php if(!$_SESSION["isadmin"]):?>
+                        <li class="nav-item py-2">
+                            <a href="../../php/user/orders.php" class="text-dark">I Miei Ordini</a>
+                        </li>
+                    <?php endif;?>
                     <li class="nav-item py-2">
                     <a href="../../php/common/notify.php" class="text-dark">Notifiche</a>
 
