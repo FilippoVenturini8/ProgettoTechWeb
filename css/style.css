@@ -13,7 +13,7 @@ button{
     padding: 0 !important;
 }
 
-button img{
+header button img{
     width: 30px;
 }
 
@@ -31,8 +31,6 @@ body > div > div:nth-last-of-type(2) > input{
     background-color: #d9534f !important;
     border-color: black !important;
 }
-
-
 
 body > div > div > div:nth-child(3) >  div:nth-child(3) > div > p{
     color:#d9534f;
@@ -92,7 +90,7 @@ div > aside > ul > li{
     background-color: #ebebeb !important;
 }
 
-.icon-cart{
+.cart-minus > img, .cart-plus > img{
     width: 20px !important;
     height: 20px !important;
 }

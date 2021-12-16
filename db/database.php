@@ -179,11 +179,28 @@ class DatabaseHelper{
     public function insertNewDisk($titolo, $dataPubblicazione, $quantitaDisponibile, $copertina, $prezzo, $artista, $categoria){
         $stmt = $this->db->prepare("INSERT INTO Disco(Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, Artista, Categoria)
                                     VALUES (?,?,?,?,?,?,?)");
-        //TODO: LA COPERTINA VA STRINGA?
         $stmt->bind_param("ssisdss",$titolo, $dataPubblicazione, $quantitaDisponibile, $copertina, $prezzo, $artista, $categoria);
         return $stmt->execute();
     }
 
+    public function alterQuantityInCart($codiceDisco, $mail, $op){
+        if($op == "increase"){
+            $stmt = $this->db->prepare("UPDATE Disco_In_Carrello
+                                    SET Quantita = Quantita + 1
+                                    WHERE CodiceDisco = ?
+                                    AND mailAccount = ?");
+            $stmt->bind_param("is",$codiceDisco, $mail);
+            return $stmt->execute();
+        } else if($op == "decrease"){
+            $stmt = $this->db->prepare("UPDATE Disco_In_Carrello
+                                    SET Quantita = Quantita - 1
+                                    WHERE CodiceDisco = ?
+                                    AND mailAccount = ?");
+            $stmt->bind_param("is",$codiceDisco, $mail);
+            return $stmt->execute();
+        }
+        
+    }
 
 }
 ?>

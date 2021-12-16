@@ -9,6 +9,7 @@
     <script src="../../js/base.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
+    <script src="../../js/cartManage.js" type="text/javascript"></script>
 </head>
 <body>
     <div class="container-fluid p-0">
@@ -81,16 +82,16 @@
                                     <p class=""><?php echo $diskInCart["Artista"]?></p>
                                     <div class="mt-2 row mx-0 py-0">
                                         <div class="col-2 px-0 text-end">
-                                            <button class="btn btn-default mx-0">
-                                                <img src="../../img/icon/minus2.png" class="icon-cart" alt=""/>
+                                            <button class="btn btn-default mx-0 cart-minus">
+                                                <img src="../../img/icon/minus2.png" alt=""/>
                                             </button> 
                                         </div>
                                         <div class="col-1 px-0 text-center">
                                             <p class="pt-1"><?php echo $diskInCart["Quantita"]?></p>
                                         </div>
                                         <div class="col-2 px-0 text-start">
-                                            <button class="btn btn-default mx-0">
-                                                <img src="../../img/icon/plus2.png" class="icon-cart" alt=""/> 
+                                            <button class="btn btn-default mx-0 cart-plus">
+                                                <img src="../../img/icon/plus2.png" alt=""/> 
                                             </button> 
                                         </div>
                                         <div class="col-5"></div>
@@ -135,9 +136,7 @@
                 <div class="row">
                     <div class="col-3"></div>
                     <div class="col-6 text-center">
-                        <button class="btn btn-default">
-                            <img src="../../img/icon/User.png" alt=""/>
-                        </button>
+                        <img src="../../img/icon/User.png" alt=""/>
                     </div>
                     <div class="col-3"></div>
                 </div>
