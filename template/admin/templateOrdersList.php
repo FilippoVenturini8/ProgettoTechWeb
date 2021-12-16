@@ -27,25 +27,70 @@
             <h2 class="accordion-header" id="headingAdminOrder<?php echo $order["CodiceOrdine"]?>">
             <button class="accordion-button row" type="button" data-bs-toggle="collapse" data-bs-target="#adminOrder<?php echo $order["CodiceOrdine"]?>" aria-controls="adminOrder<?php echo $order["CodiceOrdine"]?>">
                 <div class="col-5">
-                    <label>Codice ordine: <?php echo $order["CodiceOrdine"]?></label>
+                    <label>Ordine: <?php echo $order["CodiceOrdine"]?></label>
                 </div>
                 <div class="col-3">
                     <label>54.99€</label>
                 </div>
                 <div class="col-4">
-                    <label>In consegna</label>
+                    <label><?php echo getOrderState($order["DataOrdine"],$order["DataSpedizione"],$order["DataConsegna"]);?></label>
                 </div>
             </button>
             </h2>
             <div id="adminOrder<?php echo $order["CodiceOrdine"]?>" class="accordion-collapse collapse" aria-labelledby="headingAdminOrder<?php echo $order["CodiceOrdine"]?>" data-bs-parent="#adminOrdersAccordion">
                 <div class="accordion-body">
-                    <label class="row">Codice ordine: <?php echo $order["CodiceOrdine"]?></label>
-                    <label class="row">Cliente: <?php echo $order["Nome"]." ".$order["Cognome"]?></label>
-                    <label class="row">Stato: In consegna</label>
-                    <?php foreach($dbh->getOrderDetails($order["CodiceOrdine"]) as $disk) : ?>
-                        <label class="row"><?php echo $disk["Quantita"] ?>x <?php echo $disk["Titolo"] ?> - <?php echo $disk["Artista"] ?></label>
-                    <?php endforeach; ?>
-                    <label class="row">Totale: 54.99€</label>
+                    <label class="row fw-bold">#<?php echo $order["CodiceOrdine"]?></label>
+                    <label class="row">
+                        <div class="col-1"></div>
+                        <div class="col-4 fw-bold">Cliente:</div>
+                    </label>
+                    <label class="row">
+                        <div class="col-1"></div>
+                        <div class="col-4"><?php echo $order["Nome"]." ".$order["Cognome"]?></div>
+                    </label>
+                    <label class="row">
+                        <div class="col-1"></div>
+                        <div class="col-4"><?php echo $order["MailAccount"]?></div>
+                    </label>
+                    <label class="row">
+                        <div class="col-1"></div>
+                        <div class="col-4"><?php echo $order["Cellulare"]?></div>
+                    </label>
+                    <label class="row">
+                        <div class="col-1"></div>
+                        <div class="col-8">
+                            <?php foreach($dbh->getOrderDetails($order["CodiceOrdine"]) as $disk) : ?>
+                                <label class="row"><?php echo $disk["Quantita"] ?>x <?php echo $disk["Titolo"] ?> - <?php echo $disk["Artista"] ?></label>
+                            <?php endforeach; ?>
+                        </div>
+                    </label>
+
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-4">
+                            <label class="fw-bold">Data Ordine:</label>
+                        </div>
+                        <div class="col-4">
+                            <label><?php echo $order["DataOrdine"]?></label>
+                        </div>
+                    </div>
+                        
+                        <div class="row">
+                            <label class="fw-bold">Data Spedizione:</label>
+                            <label><?php echo $order["DataSpedizione"]?></label>
+                        </div>
+                        <div class="row">
+                            <label class="fw-bold">Data Consegna:</label>
+                            <label><?php echo $order["DataConsegna"]?></label>
+                        </div>
+                    </label>
+                    
+                    <label class="row">
+                        <div class="col-8"></div>
+                        <div class="col-4 text-end fw-bold">
+                            Totale: 54.99€
+                        </div>
+                    </label>
                 </div>
             </div>
         </div>

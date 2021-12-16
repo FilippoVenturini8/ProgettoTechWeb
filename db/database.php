@@ -60,7 +60,7 @@ class DatabaseHelper{
     }
 
     public function getAllOrders(){
-        $stmt = $this->db->prepare("SELECT Ordine.Codice as CodiceOrdine, CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome
+        $stmt = $this->db->prepare("SELECT Ordine.Codice as CodiceOrdine, CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome, Cellulare
                                     FROM Ordine, Account
                                     WHERE Ordine.MailAccount = Account.Mail");
         $stmt->execute();
@@ -80,7 +80,7 @@ class DatabaseHelper{
     }
 
     public function getUserInfo($accountMail){
-        $stmt = $this->db->prepare("SELECT Nome, Cognome
+        $stmt = $this->db->prepare("SELECT Nome, Cognome, Mail
                                     FROM Account
                                     WHERE Mail = \"$accountMail\"");
         $stmt->execute();
@@ -200,6 +200,13 @@ class DatabaseHelper{
             return $stmt->execute();
         }
         
+    }
+
+    public function insertNewDiskInCart($codiceDisco, $quantita, $mailAccount){
+        $stmt = $this->db->prepare("INSERT INTO Disco_In_Carrello(CodiceDisco, Quantita, MailAccount)
+                                    VALUES (?,?,?)");
+        $stmt->bind_param("iis",$codiceDisco, $quantita, $mailAccount);
+        return $stmt->execute();
     }
 
 }

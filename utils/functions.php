@@ -51,7 +51,7 @@ function getOrderState($orderDate, $shipmentDate, $DeliveryDate){
         return "Ordine Spedito";
     }
     else{
-        return "In Consegna";
+        return "Consegnato";
     }
 }
 
