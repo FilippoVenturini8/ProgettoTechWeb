@@ -21,11 +21,11 @@
 <div class="row py-3">
     <h5>Ordini</h5>
 </div>
-<div class="accordion">
+<div class="accordion" id="adminOrdersAccordion">
     <?php foreach($templateParams["allOrders"] as $order) : ?>
         <div class="accordion-item">
-            <h2 class="accordion-header">
-            <button class="accordion-button row" type="button" data-bs-toggle="collapse" data-bs-target="#order<?php echo $order["CodiceOrdine"]?>">
+            <h2 class="accordion-header" id="headingAdminOrder<?php echo $order["CodiceOrdine"]?>">
+            <button class="accordion-button row" type="button" data-bs-toggle="collapse" data-bs-target="#adminOrder<?php echo $order["CodiceOrdine"]?>" aria-controls="adminOrder<?php echo $order["CodiceOrdine"]?>">
                 <div class="col-5">
                     <label>Codice ordine: <?php echo $order["CodiceOrdine"]?></label>
                 </div>
@@ -37,7 +37,7 @@
                 </div>
             </button>
             </h2>
-            <div id="order<?php echo $order["CodiceOrdine"]?>" class="accordion-collapse collapse">
+            <div id="adminOrder<?php echo $order["CodiceOrdine"]?>" class="accordion-collapse collapse" aria-labelledby="headingAdminOrder<?php echo $order["CodiceOrdine"]?>" data-bs-parent="#adminOrdersAccordion">
                 <div class="accordion-body">
                     <label class="row">Codice ordine: <?php echo $order["CodiceOrdine"]?></label>
                     <label class="row">Cliente: <?php echo $order["Nome"]." ".$order["Cognome"]?></label>

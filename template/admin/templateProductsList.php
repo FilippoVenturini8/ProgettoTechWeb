@@ -34,11 +34,11 @@
         <div class="col-2"></div>
     </div>
 
-    <div class="accordion">
+    <div class="accordion" id="diskAccordion">
         <?php foreach($templateParams["allDisks"] as $disk): ?> 
             <div class="accordion-item">
-                <h2 class="accordion-header">
-                <button class="accordion-button row" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>">
+                <h2 class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
+                <button class="accordion-button row" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
                     <div class="col-1">
                         <label>#<?php echo $disk["Codice"]?></label>
                     </div>
@@ -56,7 +56,7 @@
                     </div>
                 </button>
                 </h2>
-                <div id="disk<?php echo $disk["Codice"]?>" class="accordion-collapse collapse">
+                <div id="disk<?php echo $disk["Codice"]?>" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $disk["Codice"]?>" data-bs-parent="#diskAccordion">
                     <div class="row accordion-body">
                         <div class="col-4">
                             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
