@@ -169,6 +169,7 @@ class DatabaseHelper{
     public function getDisksVotes(){
         $stmt = $this->db->prepare("SELECT CodiceDisco, AVG(Voto) AS VotoMedio
                                     FROM Disco_Ordinato
+                                    WHERE Voto IS NOT NULL
                                     GROUP BY CodiceDisco");
         //$stmt->bind_param("i",$diskID);
         $stmt->execute();
