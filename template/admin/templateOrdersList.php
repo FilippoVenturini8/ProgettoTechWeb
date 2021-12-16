@@ -41,33 +41,25 @@
                 <div class="accordion-body">
                     <label class="row fw-bold">#<?php echo $order["CodiceOrdine"]?></label>
                     <label class="row">
-                        <div class="col-1"></div>
+                        <div class="col-2"></div>
                         <div class="col-4 fw-bold">Cliente:</div>
                     </label>
                     <label class="row">
-                        <div class="col-1"></div>
+                        <div class="col-2"></div>
                         <div class="col-4"><?php echo $order["Nome"]." ".$order["Cognome"]?></div>
                     </label>
                     <label class="row">
-                        <div class="col-1"></div>
+                        <div class="col-2"></div>
                         <div class="col-4"><?php echo $order["MailAccount"]?></div>
                     </label>
                     <label class="row">
-                        <div class="col-1"></div>
+                        <div class="col-2"></div>
                         <div class="col-4"><?php echo $order["Cellulare"]?></div>
                     </label>
-                    <label class="row">
-                        <div class="col-1"></div>
-                        <div class="col-8">
-                            <?php foreach($dbh->getOrderDetails($order["CodiceOrdine"]) as $disk) : ?>
-                                <label class="row"><?php echo $disk["Quantita"] ?>x <?php echo $disk["Titolo"] ?> - <?php echo $disk["Artista"] ?></label>
-                            <?php endforeach; ?>
-                        </div>
-                    </label>
 
-                    <div class="row">
-                        <div class="col-3"></div>
-                        <div class="col-4">
+                    <div class="row mt-3">
+                        <div class="col-4"></div>
+                        <div class="col-3">
                             <label class="fw-bold">Data Ordine:</label>
                         </div>
                         <div class="col-4">
@@ -75,15 +67,38 @@
                         </div>
                     </div>
                         
-                        <div class="row">
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-3">
                             <label class="fw-bold">Data Spedizione:</label>
+                        </div>
+                        <div class="col-4">
                             <label><?php echo $order["DataSpedizione"]?></label>
                         </div>
-                        <div class="row">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-3">
                             <label class="fw-bold">Data Consegna:</label>
+                        </div>
+                        <div class="col-4">
                             <label><?php echo $order["DataConsegna"]?></label>
                         </div>
+                    </div>
+
+
+                    <label class="row mt-3">
+                        <div class="col-4"></div>
+                        <div class="col-5">
+                            <?php foreach($dbh->getOrderDetails($order["CodiceOrdine"]) as $disk) : ?>
+                                <label><?php echo $disk["Quantita"] ?>x <?php echo $disk["Titolo"] ?> - <?php echo $disk["Artista"] ?></label>
+                            <?php endforeach; ?>
+                        </div>
+                        <div class="col-3"></div>
                     </label>
+
+                    
                     
                     <label class="row">
                         <div class="col-8"></div>

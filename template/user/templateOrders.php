@@ -1,4 +1,7 @@
-<h1>Ordini</h1>
+<div class="m-4">
+    <h1>Ordini</h1>
+</div>
+
     <!--singolo ordine-->
     <?php foreach($templateParams["orders"] as $order) :?>
         <div class="row p-2 mt-2 border-bottom border-danger">
