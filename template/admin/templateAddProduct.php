@@ -5,38 +5,60 @@
     </div>
 </div>
 
-<form>
+<form action="processNewProduct.php" method="POST">
     <div class="row mt-4 mb-4">
         <div class="col-1"></div>
-        <div class="col-2 pt-1">
-            <label>Titolo:</label>
+        <div class="col-3 pt-1">
+            <label for="titolo">Titolo:</label>
         </div>
         <div class="col-6">
-            <input class="form-control" type="text"/>
+            <input id="titolo" name="titolo" class="form-control" type="text"/>
         </div>
-        <div class="col-3"></div>            
+        <div class="col-2"></div>            
     </div>
 
     <div class="row mb-4">
         <div class="col-1"></div>
-        <div class="col-2 pt-1">
-            <label>Artista:</label>
+        <div class="col-3 pt-1">
+            <label for="artista">Artista:</label>
         </div>
         <div class="col-6">
-            <input class="form-control" type="text"/>
+            <input id="artista" name="artista" class="form-control" type="text"/>
         </div>
-        <div class="col-3"></div>                 
+        <div class="col-2"></div>                 
     </div> 
 
     <div class="row mb-4">
         <div class="col-1"></div>
-        <div class="col-2 pt-1">
-            <label>Prezzo:</label>
+        <div class="col-3 pt-1">
+            <label for="prezzo">Prezzo:</label>
         </div>
         <div class="col-6">
-            <input class="form-control" type="text"/>
+            <input id="prezzo" name="prezzo" class="form-control" type="text"/>
         </div>
-        <div class="col-3"></div>                 
+        <div class="col-2"></div>                 
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-1"></div>
+        <div class="col-3 pt-1">
+            <label for="quantita">Quantità:</label>
+        </div>
+        <div class="col-6">
+            <input id="quantita" name="quantita" class="form-control" type="text"/>
+        </div>
+        <div class="col-2"></div>                 
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-1"></div>
+        <div class="col-3 pt-1">
+            <label for="datauscita">Data uscita:</label>
+        </div>
+        <div class="col-6">
+            <input id="datauscita" name="datauscita" class="form-control" type="date"/>
+        </div>
+        <div class="col-2"></div>                 
     </div>
 
     <div class="row mb-4">
@@ -65,6 +87,11 @@
         <div class="col-2"></div>
     </div>
 
-    <div>
+    <div class="row mt-5 mx-5">
+        <div class="col-4"></div>
+        <div class="col-4 mx-3">
+            <input class="btn btn-primary" type="submit" value="Aggiungi"/>
+        </div>
     </div>
+
 </form>

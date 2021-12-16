@@ -171,10 +171,17 @@ class DatabaseHelper{
                                     FROM Disco_Ordinato
                                     WHERE Voto IS NOT NULL
                                     GROUP BY CodiceDisco");
-        //$stmt->bind_param("i",$diskID);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertNewDisk($titolo, $dataPubblicazione, $quantitaDisponibile, $copertina, $prezzo, $artista, $categoria){
+        $stmt = $this->db->prepare("INSERT INTO Disco(Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, Artista, Categoria)
+                                    VALUES (?,?,?,?,?,?,?)");
+        //TODO: LA COPERTINA VA STRINGA?
+        $stmt->bind_param("ssisdss",$titolo, $dataPubblicazione, $quantitaDisponibile, $copertina, $prezzo, $artista, $categoria);
+        return $stmt->execute();
     }
 
 
