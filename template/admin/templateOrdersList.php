@@ -41,19 +41,19 @@
                 <div class="accordion-body">
                     <label class="row fw-bold">#<?php echo $order["CodiceOrdine"]?></label>
                     <label class="row">
-                        <div class="col-2"></div>
+                        <div class="col-4"></div>
                         <div class="col-4 fw-bold">Cliente:</div>
                     </label>
                     <label class="row">
-                        <div class="col-2"></div>
+                        <div class="col-4"></div>
                         <div class="col-4"><?php echo $order["Nome"]." ".$order["Cognome"]?></div>
                     </label>
                     <label class="row">
-                        <div class="col-2"></div>
+                        <div class="col-4"></div>
                         <div class="col-4"><?php echo $order["MailAccount"]?></div>
                     </label>
                     <label class="row">
-                        <div class="col-2"></div>
+                        <div class="col-4"></div>
                         <div class="col-4"><?php echo $order["Cellulare"]?></div>
                     </label>
 

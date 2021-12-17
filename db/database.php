@@ -183,6 +183,16 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
+
+    public function getDisk($codice){
+        $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
+                                    FROM Disco
+                                    WHERE Codice = ?");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
     public function alterQuantityInCart($codiceDisco, $mail, $op){
         if($op == "increase"){
             $stmt = $this->db->prepare("UPDATE Disco_In_Carrello
@@ -206,6 +216,7 @@ class DatabaseHelper{
                                     VALUES (?,1,?)");
         $stmt->bind_param("is",$codiceDisco, $mailAccount);
         return $stmt->execute();
+
     }
 
 }

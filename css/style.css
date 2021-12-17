@@ -138,3 +138,7 @@ aside{
     border-color: black !important;
     box-shadow: none !important;
 }
+
+.orderState{
+    color: #d9534f !important;
+}
