@@ -87,7 +87,7 @@
                                     <p class=""><?php echo $diskInCart["Artista"]?></p>
                                     <div class="mt-2 row mx-0 py-0">
                                         <div class="col-2 px-0 text-end">
-                                            <button class="btn btn-default mx-0 cart-minus">
+                                            <button class="btn btn-default mx-0 cart-minus" onclick="alterQuantity(<?php echo $diskInCart['CodiceDisco']?>, 'd')">
                                                 <img src="../../img/icon/minus2.png" alt=""/>
                                             </button> 
                                         </div>
@@ -95,7 +95,7 @@
                                             <p class="pt-1"><?php echo $diskInCart["Quantita"]?></p>
                                         </div>
                                         <div class="col-2 px-0 text-start">
-                                            <button class="btn btn-default mx-0 cart-plus">
+                                            <button class="btn btn-default mx-0 cart-plus" onclick="alterQuantity(<?php echo $diskInCart['CodiceDisco']?>, 'i')">
                                                 <img src="../../img/icon/plus2.png" alt=""/> 
                                             </button> 
                                         </div>

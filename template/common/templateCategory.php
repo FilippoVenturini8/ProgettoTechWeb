@@ -17,7 +17,7 @@
             <p><?php echo $disk["Prezzo"];?>€</p>
         </div>
         <div class="col-1">
-            <button class="btn btn-default mx-0 add-to-cart-button" id="addDisk<?php echo $disk["Codice"]?>">
+            <button class="btn btn-default mx-0 add-to-cart-button" onclick="addDiskToCart(<?php echo $disk['Codice']?>)">
                 <img src="../../img/icon/plus2.png" alt=""/> 
             </button>
         </div>

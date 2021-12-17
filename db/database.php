@@ -194,14 +194,14 @@ class DatabaseHelper{
     }
     
     public function alterQuantityInCart($codiceDisco, $mail, $op){
-        if($op == "increase"){
+        if($op == "i"){
             $stmt = $this->db->prepare("UPDATE Disco_In_Carrello
                                     SET Quantita = Quantita + 1
                                     WHERE CodiceDisco = ?
                                     AND mailAccount = ?");
             $stmt->bind_param("is",$codiceDisco, $mail);
             return $stmt->execute();
-        } else if($op == "decrease"){
+        } else if($op == "d"){
             $stmt = $this->db->prepare("UPDATE Disco_In_Carrello
                                     SET Quantita = Quantita - 1
                                     WHERE CodiceDisco = ?
@@ -216,7 +216,6 @@ class DatabaseHelper{
                                     VALUES (?,1,?)");
         $stmt->bind_param("is",$codiceDisco, $mailAccount);
         return $stmt->execute();
-
     }
 
 }

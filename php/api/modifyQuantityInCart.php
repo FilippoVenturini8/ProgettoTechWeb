@@ -2,5 +2,7 @@
 require_once '../common/bootstrap.php';
 
 //TODO cambia codice disco
-$dbh->alterQuantityInCart(1, $_SESSION["mail"], $_POST["op"]);
+if(isUserLoggedIn() && !$_SESSION["isadmin"]){
+    $dbh->alterQuantityInCart($_POST["codiceDisco"], $_SESSION["mail"], $_POST["op"]);
+}
 ?>

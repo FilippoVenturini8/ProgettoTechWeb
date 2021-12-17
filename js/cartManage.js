@@ -1,41 +1,43 @@
-$(document).ready(function (event) {
-    $(".cart-minus").on('click', function () {
-        $.ajax({
-            url:"../../php/api/modifyQuantityInCart.php",    //the page containing php script
-            type: "post",    //request type,
-            data: {codiceDisco: "aaa", op:"decrease"},
-            error: function (xhr, status) {
-                console.log(status);
-            }
-        });
-    });
-
-    $(".cart-plus").on('click', function () {
+function alterQuantity(codiceDisco, operazione){
+    if(operazione == "i"){
         $.ajaxSetup ({
             cache: false
         });
         $.ajax({
             url:"../../php/api/modifyQuantityInCart.php",    //the page containing php script
             type: "post",    //request type,
-            data: {codiceDisco: "aaa", op:"increase"},
+            data: {codiceDisco: codiceDisco, op: operazione},
             error: function (xhr, status) {
                 console.log(status);
             },
             success: function(data) {
-               location.reload();
+                console.log(data);
+               //location.reload();
             }
         });
-    });
-
-    $(".add-to-cart-button").on('click', function () {
+    } else if(operazione == "d"){
         $.ajax({
-            url:"../../php/api/addToCart.php",
-            type: "post",
-            data: {codiceDisco: this.id},
+            url:"../../php/api/modifyQuantityInCart.php",    //the page containing php script
+            type: "post",    //request type,
+            data: {codiceDisco: codiceDisco, op: operazione},
             error: function (xhr, status) {
                 console.log(status);
-            },
+            }
         });
+    }
+}
+
+function addDiskToCart(codiceDisco){
+    $.ajax({
+        url:"../../php/api/addToCart.php",
+        type: "post",
+        data: {codiceDisco: codiceDisco},
+        error: function (xhr, status) {
+            console.log(status);
+        },
+        success: function(data) {
+            console.log(data);
+            //location.reload();
+        }
     });
-    
-});
+}
