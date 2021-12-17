@@ -1,7 +1,6 @@
 <div class="m-4">
     <h1>Ordini</h1>
 </div>
-
     <!--singolo ordine-->
     <?php foreach($templateParams["orders"] as $order) :?>
         <div class="row p-2 mt-2 border-bottom border-danger">
@@ -25,11 +24,19 @@
                 </div>
             </div>
             <div class="col-8 mt-2">
-                <p class="m-0 fw-bold">Ordine #<?php echo $order["Codice"]?></p>
-                <p class="fw-bold"><?php echo getOrderState($order["DataOrdine"], $order["DataSpedizione"], $order["DataConsegna"]);?></p>
-                <p>Data Ordine: <?php echo $order["DataOrdine"]?></p>
+                <div class="row mb-0">
+                    <div class="col-3">
+                        <label class="m-0 fw-bold">Ordine #<?php echo $order["Codice"]?></label>
+                    </div>
+                    <div class="col-3"></div>
+                    <div class="col-6 text-end">
+                        <label class="fw-bold orderState"><?php echo getOrderState($order["DataOrdine"], $order["DataSpedizione"], $order["DataConsegna"]);?></label>
+                    </div>
+                </div>
+                
+                <p class="text-end m-0"><?php echo $order["DataOrdine"]?></p>
                 <?php foreach($templateParams["ordersDetails"][$order["Codice"]] as $disk) :?>
-                    <p> <?php echo $disk["Artista"]?> - <?php echo $disk["Titolo"]?></p>
+                    <p>| <?php echo $disk["Artista"]?> - <?php echo $disk["Titolo"]?></p>
                 <?php endforeach; ?>
                 <a href="../../php/user/trackMyPackage.php?idOrder=<?php echo $order["Codice"]?>" class="btn btn-primary float-end">Traccia il mio pacco</a>
             </div>

@@ -26,11 +26,9 @@
     <div class="col-3"></div>
     <div class="col-9">
         <ul>
-            <li>1x Disco1 - Artista</li>
-            <li>1x Disco1 - Artista</li>
-            <li>1x Disco1 - Artista</li>
-            <li>1x Disco1 - Artista</li>
-            <li>1x Disco1 - Artista</li>
+            <?php foreach ($templateParams["disksInCart"] as $disk):?>
+                <li><?php echo $disk["Quantita"]?>x <?php echo $disk["Titolo"]?> - <?php echo $disk["Artista"]?></li>
+            <?php endforeach?>
         </ul>
     </div>
 </div>
@@ -40,7 +38,7 @@
         <label>Totale:</label>
     </div>
     <div class="col-2">
-        <label>39,90€</label>
+        <label><?php echo $templateParams["cartTotal"][0]["Totale"]?></label>
     </div>
 </div>
 

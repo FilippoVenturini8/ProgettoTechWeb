@@ -114,3 +114,7 @@ aside{
     border-color: #d9534f !important;
     background-color: #a7130e93 !important;
 }
+
+.orderState{
+    color: #d9534f !important;
+}
