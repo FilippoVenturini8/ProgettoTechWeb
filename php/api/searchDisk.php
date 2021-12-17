@@ -3,6 +3,6 @@
 
     if(isUserLoggedIn() && $_SESSION["isadmin"]){
         $templateParams["allDisks"] =  $dbh->searchDisk($_POST["pattern"]);
-        var_dump($templateParams["allDisks"]);
+        print require("../../template/admin/templateProductsList.php");
     }
 ?>

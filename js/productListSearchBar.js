@@ -12,17 +12,15 @@
 });*/
 
 function search(){
-    console.log($(this).val());
     $.ajax({
         url:"../../php/api/searchDisk.php",    //the page containing php script
         type: "post",    //request type,
-        data: {pattern: $(this).val()},
+        data: {pattern: $(".disk-searchbar").val()},
         error: function (xhr, status) {
             console.log(status);
         },
         success: function(data) {
-            console.log(data);
-           //location.reload();
+            $("main").html(data);
         }
     });
 }
