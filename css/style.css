@@ -142,3 +142,14 @@ aside{
 .orderState{
     color: #d9534f !important;
 }
+
+.modal-body{
+    height: 300px !important;
+    overflow-y: auto;
+}
+
+.cart{
+    height: 70% !important;
+    overflow-y: auto;
+    direction: ltr;
+}

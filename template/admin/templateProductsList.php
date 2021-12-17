@@ -4,7 +4,7 @@
             <div class="row">
                 <nav class="navbar">
                     <div class="col-8">
-                        <input class="form-control " type="search" placeholder="Scrivi qui" aria-label="search">
+                        <input class="form-control " type="search" placeholder="Scrivi qui" aria-label="search" onchange="search()">
                     </div>
                     <div class="col-2">
                         <button class="btn btn-outline-success " style="border-color:darkred; color:darkred;" type="submit">Cerca</button>

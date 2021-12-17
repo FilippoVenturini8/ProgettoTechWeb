@@ -75,7 +75,7 @@
             </header>
 
             <?php if(isUserLoggedIn()):?>
-                <ul class="list-group list-group-flush scrollarea">
+                <ul class="list-group list-group-flush scrollarea cart">
                     <?php foreach($templateParams["disksInCart"] as $diskInCart): ?>
                         <li class="list-group-item row m-0 border-bottom ">
                             <div class="align-top row">

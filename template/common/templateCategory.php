@@ -6,20 +6,22 @@
             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
         </div>
         <div class="col-7 mt-2">
-            <p class="m-0"><?php echo $disk["Artista"];?> - <?php echo $disk["Titolo"]?></p>
-            <p class="m-0">
-                <?php foreach($templateParams["disksVotes"] as $diskVote) :?>
-                    <?php if($diskVote["CodiceDisco"] == $disk["Codice"]){
-                        echo getVoteStars($diskVote["VotoMedio"])." (".round($diskVote["VotoMedio"], 2).")";   
-                    }?>
-                <?php endforeach; ?>
-            </p>
-            <p><?php echo $disk["Prezzo"];?>€</p>
-        </div>
-        <div class="col-1">
-            <button class="btn btn-default mx-0 add-to-cart-button" onclick="addDiskToCart(<?php echo $disk['Codice']?>)">
-                <img src="../../img/icon/plus2.png" alt=""/> 
-            </button>
+            <div class="row">
+                <p class="m-0"><?php echo $disk["Artista"];?> - <?php echo $disk["Titolo"]?></p>
+                <p class="m-0">
+                    <?php foreach($templateParams["disksVotes"] as $diskVote) :?>
+                        <?php if($diskVote["CodiceDisco"] == $disk["Codice"]){
+                            echo getVoteStars($diskVote["VotoMedio"])." (".round($diskVote["VotoMedio"], 2).")";   
+                        }?>
+                    <?php endforeach; ?>
+                </p>
+                <p><?php echo $disk["Prezzo"];?>€</p>
+            </div>
+            <div class="row">
+                <button class="btn btn-default mx-0 add-to-cart-button text-end" onclick="addDiskToCart(<?php echo $disk['Codice']?>)">
+                    <img src="../../img/icon/plus2.png" alt=""/> 
+                </button>
+            </div>
         </div>
     </div>
 <?php endforeach; ?>
