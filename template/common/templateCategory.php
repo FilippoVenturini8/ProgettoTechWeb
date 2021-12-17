@@ -1,7 +1,7 @@
 <h1><?php echo $templateParams["categoryName"]?></h1>
 <!--singolo disco-->
 <?php foreach($templateParams["disks"] as $disk) :?>
-    <div class="row p-2 border-bottom border-danger <?php if(isset($templateParams["popularClicked"]) && $disk["Codice"] == $templateParams["popularClicked"]){ echo "bg-danger";}?>">
+    <div class="row p-2 border-bottom border-danger <?php if(isset($templateParams["popularClicked"]) && $disk["Codice"] == $templateParams["popularClicked"]){ echo "bg-danger text-light";}?>">
         <div class="col-4 mt-2">
             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
         </div>
