@@ -35,7 +35,7 @@
 <div class="row">
     <div class="col-3 my-5 py-4 text-end">
         <div class="progress rotated my-5" style="width: 200px;">
-            <div class="progress-bar bg-danger" role="progressbar" style="width: 70%"></div>
+            <div class="progress-bar bg-danger" role="progressbar" style="width: 80%"></div>
         </div>
     </div>
     <div class="col-8">
