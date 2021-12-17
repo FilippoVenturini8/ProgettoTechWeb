@@ -114,3 +114,27 @@ aside{
     border-color: #d9534f !important;
     background-color: #a7130e93 !important;
 }
+
+.add-to-cart-button > img{
+    height: 30px !important;
+    width: 30px !important;
+}
+
+/*accordion*/
+
+.accordion-button:not(.collapsed) {
+    color: white !important;
+    background-color: #d9534f !important;
+    box-shadow: none !important;
+}
+
+.accordion-button.collapsed {
+    color: black !important;
+    background-color: white !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:focus {
+    border-color: black !important;
+    box-shadow: none !important;
+}

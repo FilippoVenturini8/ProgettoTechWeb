@@ -38,7 +38,7 @@
         <?php foreach($templateParams["allDisks"] as $disk): ?> 
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
-                <button class="accordion-button row" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
+                <button class="accordion-button row mx-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
                     <div class="col-1">
                         <label>#<?php echo $disk["Codice"]?></label>
                     </div>
@@ -57,13 +57,14 @@
                 </button>
                 </h2>
                 <div id="disk<?php echo $disk["Codice"]?>" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $disk["Codice"]?>" data-bs-parent="#diskAccordion">
-                    <div class="row accordion-body">
-                        <div class="col-4">
+                    <div class="accordion-body">
+                        <div class="d-inline-block align-top">
                             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
                         </div>
-                        <div class="col-8">
+                        <div class="d-inline-block align-top">
                             <p class="m-0"><?php echo $disk["Artista"];?> - <?php echo $disk["Titolo"]?></p>                          
-                            <p><?php echo $disk["Prezzo"];?>€</p>                           
+                            <p><?php echo $disk["Prezzo"];?>€</p>
+                            <p><a href="#">modifica</a> <a href="#">elimina</a><p>                         
                         </div>
                     </div>
                 </div>

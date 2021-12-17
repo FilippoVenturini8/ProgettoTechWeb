@@ -25,7 +25,7 @@
     <?php foreach($templateParams["allOrders"] as $order) : ?>
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingAdminOrder<?php echo $order["CodiceOrdine"]?>">
-            <button class="accordion-button row" type="button" data-bs-toggle="collapse" data-bs-target="#adminOrder<?php echo $order["CodiceOrdine"]?>" aria-controls="adminOrder<?php echo $order["CodiceOrdine"]?>">
+            <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#adminOrder<?php echo $order["CodiceOrdine"]?>" aria-controls="adminOrder<?php echo $order["CodiceOrdine"]?>">
                 <div class="col-5">
                     <label>Ordine: <?php echo $order["CodiceOrdine"]?></label>
                 </div>

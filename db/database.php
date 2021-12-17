@@ -199,13 +199,12 @@ class DatabaseHelper{
             $stmt->bind_param("is",$codiceDisco, $mail);
             return $stmt->execute();
         }
-        
     }
 
-    public function insertNewDiskInCart($codiceDisco, $quantita, $mailAccount){
+    public function insertNewDiskInCart($codiceDisco, $mailAccount){
         $stmt = $this->db->prepare("INSERT INTO Disco_In_Carrello(CodiceDisco, Quantita, MailAccount)
-                                    VALUES (?,?,?)");
-        $stmt->bind_param("iis",$codiceDisco, $quantita, $mailAccount);
+                                    VALUES (?,1,?)");
+        $stmt->bind_param("is",$codiceDisco, $mailAccount);
         return $stmt->execute();
     }
 
