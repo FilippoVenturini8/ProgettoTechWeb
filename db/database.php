@@ -60,7 +60,7 @@ class DatabaseHelper{
     }
 
     public function getAllOrders(){
-        $stmt = $this->db->prepare("SELECT Ordine.Codice as CodiceOrdine, CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome
+        $stmt = $this->db->prepare("SELECT Ordine.Codice as CodiceOrdine, CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome, Cellulare
                                     FROM Ordine, Account
                                     WHERE Ordine.MailAccount = Account.Mail");
         $stmt->execute();
@@ -80,7 +80,7 @@ class DatabaseHelper{
     }
 
     public function getUserInfo($accountMail){
-        $stmt = $this->db->prepare("SELECT Nome, Cognome
+        $stmt = $this->db->prepare("SELECT Nome, Cognome, Mail
                                     FROM Account
                                     WHERE Mail = \"$accountMail\"");
         $stmt->execute();
@@ -179,10 +179,10 @@ class DatabaseHelper{
     public function insertNewDisk($titolo, $dataPubblicazione, $quantitaDisponibile, $copertina, $prezzo, $artista, $categoria){
         $stmt = $this->db->prepare("INSERT INTO Disco(Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, Artista, Categoria)
                                     VALUES (?,?,?,?,?,?,?)");
-        //TODO: LA COPERTINA VA STRINGA?
         $stmt->bind_param("ssisdss",$titolo, $dataPubblicazione, $quantitaDisponibile, $copertina, $prezzo, $artista, $categoria);
         return $stmt->execute();
     }
+
 
     public function getDisk($codice){
         $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
@@ -191,6 +191,33 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    public function alterQuantityInCart($codiceDisco, $mail, $op){
+        if($op == "increase"){
+            $stmt = $this->db->prepare("UPDATE Disco_In_Carrello
+                                    SET Quantita = Quantita + 1
+                                    WHERE CodiceDisco = ?
+                                    AND mailAccount = ?");
+            $stmt->bind_param("is",$codiceDisco, $mail);
+            return $stmt->execute();
+        } else if($op == "decrease"){
+            $stmt = $this->db->prepare("UPDATE Disco_In_Carrello
+                                    SET Quantita = Quantita - 1
+                                    WHERE CodiceDisco = ?
+                                    AND mailAccount = ?");
+            $stmt->bind_param("is",$codiceDisco, $mail);
+            return $stmt->execute();
+        }
+        
+    }
+
+    public function insertNewDiskInCart($codiceDisco, $quantita, $mailAccount){
+        $stmt = $this->db->prepare("INSERT INTO Disco_In_Carrello(CodiceDisco, Quantita, MailAccount)
+                                    VALUES (?,?,?)");
+        $stmt->bind_param("iis",$codiceDisco, $quantita, $mailAccount);
+        return $stmt->execute();
+
     }
 
 }

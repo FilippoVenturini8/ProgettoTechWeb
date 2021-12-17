@@ -1,16 +1,16 @@
-<h1>Ordini</h1>
+<div class="m-4">
+    <h1>Ordini</h1>
+</div>
+
     <!--singolo ordine-->
     <?php foreach($templateParams["orders"] as $order) :?>
         <div class="row p-2 mt-2 border-bottom border-danger">
-            <div  class="col-4">
+            <div  class="col-4 ">
                 <div id="carousel<?php echo $order["Codice"] ?>" class="carousel slide" data-interval="false" style="width: 180px;">
                     <div class="carousel-inner w-100">
-                        <?php $i=0; foreach($dbh->getOrderDetails($order["Codice"]) as $disk) :?>
+                        <?php $i=0; foreach($templateParams["ordersDetails"][$order["Codice"]] as $disk) :?>
                             <div class="carousel-item <?php if($i==0){ echo "active";}?> w-100">
                                 <img src="<?php echo UPLOAD_DIR.$disk["Copertina"]?>" class="d-block w-100" alt="...">
-                                <div class="carousel-caption">
-                                    <h5><?php echo $disk["Titolo"]?> - <?php echo $disk["Artista"];?></h5>
-                                </div>
                             </div>
                         <?php $i=$i+1; endforeach; ?>
                     </div>
@@ -28,7 +28,7 @@
                 <p class="m-0 fw-bold">Ordine #<?php echo $order["Codice"]?></p>
                 <p class="fw-bold"><?php echo getOrderState($order["DataOrdine"], $order["DataSpedizione"], $order["DataConsegna"]);?></p>
                 <p>Data Ordine: <?php echo $order["DataOrdine"]?></p>
-                <?php foreach($dbh->getOrderDetails($order["Codice"]) as $disk) :?>
+                <?php foreach($templateParams["ordersDetails"][$order["Codice"]] as $disk) :?>
                     <p> <?php echo $disk["Artista"]?> - <?php echo $disk["Titolo"]?></p>
                 <?php endforeach; ?>
                 <a href="../../php/user/trackMyPackage.php?idOrder=<?php echo $order["Codice"]?>" class="btn btn-primary float-end">Traccia il mio pacco</a>

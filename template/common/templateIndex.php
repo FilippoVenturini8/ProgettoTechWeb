@@ -45,7 +45,7 @@
         <div class="col-6 col-md-4 col-lg-3">
         <div class="d-flex justify-content-center mt-3 mb-0">
             <a href="../../php/common/category.php?nomeCategoria=<?php echo $category["Nome"];?>">
-                <img class="pb-1 border-bottom border-danger" src="<?php echo UPLOAD_DIR.$category["Copertina"];?>" alt="" style="width: 200px;"/>
+                <img class="pb-1 border-2 border-bottom border-danger" src="<?php echo UPLOAD_DIR.$category["Copertina"];?>" alt="" style="width: 200px;"/>
             </a>
         </div>
         <p class="text-center fw-bold"><?php echo $category["Nome"]?></p>
