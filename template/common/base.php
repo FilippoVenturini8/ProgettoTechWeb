@@ -92,7 +92,7 @@
                                             </button> 
                                         </div>
                                         <div class="col-1 px-0 text-center">
-                                            <p class="pt-1"><?php echo $diskInCart["Quantita"]?></p>
+                                            <p id="quantity" class="pt-1"><?php echo $diskInCart["Quantita"]?></p>
                                         </div>
                                         <div class="col-2 px-0 text-start">
                                             <button class="btn btn-default mx-0 cart-plus" onclick="alterQuantity(<?php echo $diskInCart['CodiceDisco']?>, 'i')">

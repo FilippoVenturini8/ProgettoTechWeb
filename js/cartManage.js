@@ -10,9 +10,11 @@ function alterQuantity(codiceDisco, operazione){
             error: function (xhr, status) {
                 console.log(status);
             },
-            success: function(data) {
-                console.log(data);
+            success: function() {
+                //console.log(data);
                //location.reload();
+               //$("#quantity").html(`&lt;?php echo $diskInCart["Quantita"]?&gt;`);
+               console.log( $("#quantity").html());
             }
         });
     } else if(operazione == "d"){

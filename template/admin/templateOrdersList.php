@@ -1,31 +1,36 @@
-<div class="row py-3">
-    <div class="form-outline col-7">
-        <input type="search" id="form1" class="form-control" placeholder="Search" />
-    </div>
-    <div class="col-2 text-start">
-        <button type="button" class="btn btn-primary te">Cerca</button>
-    </div>
-    <div class="col-3">
-        <div class="input-group">
-            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Ordina per</button>
-            <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Codice decrescente</a></li>
-            <li><a class="dropdown-item" href="#">Codice crescente</a></li>
-            <li><a class="dropdown-item" href="#">Totale decrescente</a></li>
-            <li><a class="dropdown-item" href="#">Totale crescente</a></li>
-            </ul>
+    <div class="row pt-5">
+        <div class="col-1"></div>
+        <div class="col-7">
+            <div class="input-group form-outline">
+                <div class="form-outline">
+                    <input type="search" id="form1" class="form-control" placeholder="Search"/>
+                </div>
+                <button type="button" class="btn btn-primary">
+                    <img src="../../img/icon/search.png" alt=""/>
+                </button>
+            </div>
+        </div> 
+        <div class="col-3">
+            <div class="input-group">
+                <button class="btn btn-outline-secondary dropdown-toggle orderBy" type="button" data-bs-toggle="dropdown" aria-expanded="false">Ordina per</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Codice decrescente</a></li>
+                    <li><a class="dropdown-item" href="#">Codice crescente</a></li>
+                    <li><a class="dropdown-item" href="#">Totale decrescente</a></li>
+                    <li><a class="dropdown-item" href="#">Totale crescente</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="row py-3">
+<div class="row py-3 px-4">
     <h1>
         <span class="border-bottom border-2 border-danger">
             Ordini
         </span>
     </h1>
 </div>
-<div class="accordion" id="adminOrdersAccordion">
+<div class="accordion px-4" id="adminOrdersAccordion">
     <?php foreach($templateParams["allOrders"] as $order) : ?>
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingAdminOrder<?php echo $order["CodiceOrdine"]?>">
@@ -91,7 +96,6 @@
                         </div>
                     </div>
 
-
                     <label class="row mt-3">
                         <div class="col-4"></div>
                         <div class="col-5">
@@ -102,8 +106,6 @@
                         <div class="col-3"></div>
                     </label>
 
-                    
-                    
                     <label class="row">
                         <div class="col-8"></div>
                         <div class="col-4 text-end fw-bold">

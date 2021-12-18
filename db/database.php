@@ -221,7 +221,7 @@ class DatabaseHelper{
     public function searchDisk($str){
         $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
                                     FROM Disco
-                                    WHERE Titolo LIKE '$str%'");
+                                    WHERE Titolo LIKE '%$str%'");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
