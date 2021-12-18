@@ -34,7 +34,7 @@
         <div class="col-2"></div>
     </div>
 
-    <div class="accordion" id="diskAccordion">
+    <div class="accordion px-4" id="diskAccordion">
         <?php foreach($templateParams["allDisks"] as $disk): ?> 
             <div class="accordion-item">
                 <h2 class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
