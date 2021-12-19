@@ -83,7 +83,16 @@
                                     <img class="rounded d-block" src="<?php echo UPLOAD_DIR.$diskInCart["Copertina"] ;?>" alt=""/>
                                 </div>
                                 <div class="col-8">
-                                    <p class="fw-bold mb-0"><?php echo $diskInCart["Titolo"]?></p>
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <p class="fw-bold mb-0"><?php echo $diskInCart["Titolo"]?></p>
+                                        </div>
+                                        <div class="col-2 text-end">
+                                            <button class="btn btn-default cart-delete" onclick="removeFromCart(<?php echo $diskInCart['CodiceDisco']?>)">
+                                                <img src="../../img/icon/close.png" alt=""/>
+                                            </button> 
+                                        </div>
+                                    </div>
                                     <p class=""><?php echo $diskInCart["Artista"]?></p>
                                     <div class="mt-2 row mx-0 py-0">
                                         <div class="col-2 px-0 text-end">
@@ -92,7 +101,7 @@
                                             </button> 
                                         </div>
                                         <div class="col-1 px-0 text-center">
-                                            <p id="quantity" class="pt-1"><?php echo $diskInCart["Quantita"]?></p>
+                                            <p id="cartQt<?php echo $diskInCart['CodiceDisco']?>" class="pt-1"><?php echo $diskInCart["Quantita"]?></p>
                                         </div>
                                         <div class="col-2 px-0 text-start">
                                             <button class="btn btn-default mx-0 cart-plus" onclick="alterQuantity(<?php echo $diskInCart['CodiceDisco']?>, 'i')">
@@ -101,7 +110,7 @@
                                         </div>
                                         <div class="col-5"></div>
                                         <div class="col-2">
-                                            <p class="pt-1"><?php echo ($diskInCart["Prezzo"]*$diskInCart["Quantita"])?>€</p>
+                                            <p id="diskSubTotal<?php echo $diskInCart['CodiceDisco']?>" class="pt-1"><?php echo ($diskInCart["Prezzo"]*$diskInCart["Quantita"])?>€</p>
                                         </div>
                                     </div>
                                 </div>
@@ -114,7 +123,7 @@
                 <footer class="mt-3">
                     <div class="row"></div>
                         <div class="row mx-3">
-                            <p class="fw-bold">Totale: <?php echo round($templateParams["cartTotal"][0]["Totale"], 2);?>€</p>
+                            <p class="fw-bold" id="cartTotal">Totale: <?php echo round($templateParams["cartTotal"][0]["Totale"], 2);?>€</p>
                         </div>
                         <div class="row">
                             <div class="col-9"></div>

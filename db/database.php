@@ -39,6 +39,19 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getDiskInCart($codiceDisco, $accountMail){
+        $stmt = $this->db->prepare("SELECT quantita, (prezzo * quantita) as totale
+                                    FROM Disco_In_Carrello, Disco
+                                    WHERE Disco_In_Carrello.CodiceDisco = ?
+                                    AND Disco_In_Carrello.CodiceDisco = Disco.Codice
+                                    AND Disco_In_Carrello.MailAccount = ?");
+        $stmt->bind_param('is',$codiceDisco, $accountMail);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
     public function getCartTotal($accountMail){
         $stmt = $this->db->prepare("SELECT Sum(Quantita*Disco.Prezzo) as Totale
                                     FROM Disco_In_Carrello, Disco
@@ -218,6 +231,13 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
+    public function removeDiskFromCart($codiceDisco, $mailAccount){
+        $stmt = $this->db->prepare("DELETE FROM DiscoInCarrello
+                                    WHERE CodiceDisco = ? AND mailAccount = ?");
+        $stmt->bind_param("is", $codiceDisco, $mailAccount);
+        return $stmt->execute();
+    }
+
     public function searchDisk($str){
         $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
                                     FROM Disco
@@ -225,6 +245,16 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAvailableQuantity($codiceDisco){
+        $stmt = $this->db->prepare("SELECT QuantitaDisponibile
+                                    FROM Disco
+                                    WHERE Codice = ?");
+        $stmt->bind_param("i", $codiceDisco);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]["QuantitaDisponibile"];
     }
 }
 ?>

@@ -90,7 +90,7 @@ div > aside > ul > li{
     background-color: #ebebeb !important;
 }
 
-.cart-minus > img, .cart-plus > img{
+.cart-minus > img, .cart-plus > img, .cart-delete > img{
     width: 20px !important;
     height: 20px !important;
 }
