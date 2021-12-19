@@ -232,8 +232,8 @@ class DatabaseHelper{
     }
 
     public function removeDiskFromCart($codiceDisco, $mailAccount){
-        $stmt = $this->db->prepare("DELETE FROM DiscoInCarrello
-                                    WHERE CodiceDisco = ? AND mailAccount = ?");
+        $stmt = $this->db->prepare("DELETE FROM Disco_In_Carrello
+                                    WHERE CodiceDisco = ? AND MailAccount = ?");
         $stmt->bind_param("is", $codiceDisco, $mailAccount);
         return $stmt->execute();
     }

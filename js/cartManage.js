@@ -62,8 +62,9 @@ function removeFromCart(codiceDisco){
         success: function(data) {
             console.log(data);
             data = JSON.parse(data); 
-            if(data.hasOwnProperty('errore')){
-
+            if(!data.hasOwnProperty('errore')){
+                document.getElementById("diskInCart" + codiceDisco).remove();
+                document.getElementById("cartTotal").innerHTML = "Totale: " + data.totale + "€";
             }
         }
     });
