@@ -5,14 +5,14 @@
     </div>
 </div>
 
-<form action="processNewProduct.php" method="POST">
+<form action="../api/processNewProduct.php" method="POST">
     <div class="row mt-4 mb-4">
         <div class="col-1"></div>
         <div class="col-3 pt-1">
             <label for="titolo">Titolo:</label>
         </div>
         <div class="col-6">
-            <input id="titolo" name="titolo" class="form-control" type="text"/>
+            <input id="titolo" name="titolo" class="form-control" type="text" autocomplete="off"/>
         </div>
         <div class="col-2"></div>            
     </div>
@@ -23,7 +23,7 @@
             <label for="artista">Artista:</label>
         </div>
         <div class="col-6">
-            <input id="artista" name="artista" class="form-control" type="text"/>
+            <input id="artista" name="artista" class="form-control" type="text" autocomplete="off"/>
         </div>
         <div class="col-2"></div>                 
     </div> 
@@ -34,7 +34,7 @@
             <label for="prezzo">Prezzo:</label>
         </div>
         <div class="col-6">
-            <input id="prezzo" name="prezzo" class="form-control" type="text"/>
+            <input id="prezzo" name="prezzo" class="form-control" type="text" autocomplete="off"/>
         </div>
         <div class="col-2"></div>                 
     </div>
@@ -45,7 +45,7 @@
             <label for="quantita">Quantità:</label>
         </div>
         <div class="col-6">
-            <input id="quantita" name="quantita" class="form-control" type="text"/>
+            <input id="quantita" name="quantita" class="form-control" type="text" autocomplete="off"/>
         </div>
         <div class="col-2"></div>                 
     </div>
@@ -93,5 +93,4 @@
             <input class="btn btn-primary" type="submit" value="Aggiungi"/>
         </div>
     </div>
-
 </form>
