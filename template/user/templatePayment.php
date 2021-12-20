@@ -1,3 +1,5 @@
+<script src="../../js/payment.js" type="text/javascript"></script>
+
 <div class="row mx-2 my-4">
     <h1>Pagamento e spedizione</h1>
 </div>
@@ -78,13 +80,13 @@
     <div class="row my-4">
         <div class ="col-4"></div>
         <div class ="col-4 text-center">
-            <input class="btn btn-primary" type="button" value="Paga" data-toggle="modal" data-target="#exampleModal"/>
+            <input class="btn btn-primary" type="button" value="Paga"/>
         </div>
     </div>
 </form>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalPayment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

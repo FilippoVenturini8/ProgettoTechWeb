@@ -9,9 +9,11 @@ $dataUscita = htmlspecialchars($_POST["datauscita"]);
 
 $idDisco = $dbh->insertNewDisk($titolo, $dataUscita, $quantita, NULL, $prezzo, $artista, NULL);
 
+$msg = "";
 if($idDisco != false){
-    echo "Inserimento avvenuto correttamente";
+    $msg="Disco aggiunto correttamente!";
 }else{
-    echo "Errore inserimento";
+    $msg="Errore inserimento";
 }
+header("location: ../admin/productsList.php?formmsg=".$msg);
 ?>

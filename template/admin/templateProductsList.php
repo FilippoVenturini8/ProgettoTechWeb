@@ -34,6 +34,32 @@
         <div class="col-2"></div>
     </div>
 
+    <div class="modal fade" id="modalResultInsert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Aggiunta nuovo disco</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label></label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Chiudi</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <?php if(isset($templateParams["formmsg"])):?>
+        <script>
+            $('#modalResultInsert').modal('show');
+            $('.modal-body').text('<?php echo $templateParams["formmsg"];?>');
+        </script>
+    <?php endif; ?>
+
     <div class="accordion px-4" id="diskAccordion">
         <?php foreach($templateParams["allDisks"] as $disk): ?> 
             <div class="accordion-item">
