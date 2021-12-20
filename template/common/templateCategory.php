@@ -17,10 +17,20 @@
                 </p>
                 <p><?php echo $disk["Prezzo"];?>€</p>
             </div>
-            <div class="row">
-                <button class="btn btn-default mx-0 add-to-cart-button text-end" onclick="addDiskToCart(<?php echo $disk['Codice']?>)">
-                    <img src="../../img/icon/plus2.png" alt=""/> 
-                </button>
+            <div class="row mx-0">
+                <div class="col-10 px-0"></div>
+                <div class="col-2 px-0">
+                    <?php if(isUserLoggedIn() && count($templateParams["disksInCartCodes"]) != 0 && 
+                             in_array($disk["Codice"], array_keys($templateParams["disksInCartCodes"]))):?>
+                        <button id="remove<?php echo $disk["Codice"]?>" class="btn btn-default mx-0 add-to-cart-button text-end" onclick="removeFromCart(<?php echo $disk['Codice']?>)">
+                            <img src="../../img/icon/minus2.png" alt=""/> 
+                        </button>
+                    <?php else:?>
+                        <button id="add<?php echo $disk["Codice"]?>" class="btn btn-default mx-0 add-to-cart-button text-end" onclick="addDiskToCart(<?php echo $disk['Codice']?>)">
+                            <img src="../../img/icon/plus2.png" alt=""/> 
+                        </button>
+                    <?php endif;?>
+                </div>
             </div>
         </div>
     </div>

@@ -9,6 +9,10 @@ $templateParams["disksVotes"] = $dbh->getDisksVotes();
 
 if(isUserLoggedIn()){
     $templateParams["disksInCart"] = $dbh->getDisksInCart($_SESSION["mail"]);
+    $templateParams["disksInCartCodes"] = array();
+    foreach($templateParams["disksInCart"] as $disk){
+        $templateParams["disksInCartCodes"][$disk["CodiceDisco"]] = $disk["Quantita"];
+    }
     $templateParams["cartTotal"] = $dbh->getCartTotal($_SESSION["mail"]);
     $templateParams["messages"] = $dbh->getMessages($_SESSION["mail"]);
 }

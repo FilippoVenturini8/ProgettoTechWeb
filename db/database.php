@@ -49,7 +49,11 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC)[0];
+        if(count($result->fetch_all(MYSQLI_ASSOC)) > 0){
+            return $result->fetch_all(MYSQLI_ASSOC)[0];
+        } else{
+            return $result->fetch_all(MYSQLI_ASSOC);
+        }
     }
 
     public function getCartTotal($accountMail){
@@ -201,9 +205,10 @@ class DatabaseHelper{
         $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
                                     FROM Disco
                                     WHERE Codice = ?");
+        $stmt->bind_param('i', $codice);
         $stmt->execute();
         $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
     }
     
     public function alterQuantityInCart($codiceDisco, $mail, $op){
@@ -256,5 +261,6 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC)[0]["QuantitaDisponibile"];
     }
+
 }
 ?>
