@@ -14,6 +14,7 @@
     <script src="../../js/productListSearchBar.js" type="text/javascript"></script>
 
     <script src="../../js/cartManage.js" type="text/javascript"></script>
+    <script src="../../js/deleteProduct.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -227,4 +228,5 @@
             </div>
         </div>
     </div>
+    
 </body>
