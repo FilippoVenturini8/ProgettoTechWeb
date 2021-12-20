@@ -48,9 +48,11 @@ function addDiskToCart(codiceDisco){
             console.log(data);
             data = JSON.parse(data);
             if(!data.hasOwnProperty('errore')){
-                document.getElementById("add" + codiceDisco).outerHTML = `<button id="remove` + codiceDisco + `" class="btn btn-default mx-0 add-to-cart-button text-end" onclick="removeFromCart(` + data.codice + `)">
+                if(document.getElementById("add" + codiceDisco) != null){
+                    document.getElementById("add" + codiceDisco).outerHTML = `<button id="remove` + codiceDisco + `" class="btn btn-default mx-0 add-to-cart-button text-end" onclick="removeFromCart(` + data.codice + `)">
                                                                               <img src="../../img/icon/minus2.png" alt=""/> 
                                                                           </button>`;
+                }
                 $("aside.float-end ul").append(`<li class="list-group-item row m-0 border-bottom " id="diskInCart` + data.codice + `">
                                                     <div class="align-top row">
                                                         <div class="col-4">
@@ -107,9 +109,11 @@ function removeFromCart(codiceDisco){
             console.log(data);
             data = JSON.parse(data); 
             if(!data.hasOwnProperty('errore')){
-                document.getElementById("remove" + codiceDisco).outerHTML = `<button id="add` + codiceDisco + `" class="btn btn-default mx-0 add-to-cart-button text-end" onclick="addDiskToCart` + codiceDisco + `">
-                                                                                <img src="../../img/icon/plus2.png" alt=""/> 
-                                                                             </button>`;
+                if(document.getElementById("remove" + codiceDisco) != null){
+                    document.getElementById("remove" + codiceDisco).outerHTML = `<button id="add` + codiceDisco + `" class="btn btn-default mx-0 add-to-cart-button text-end" onclick="addDiskToCart(` + codiceDisco + `)">
+                                                                                    <img src="../../img/icon/plus2.png" alt=""/> 
+                                                                                </button>`;
+                }
                 document.getElementById("diskInCart" + codiceDisco).remove();
                 document.getElementById("cartTotal").innerHTML = "Totale: " + data.totale + "€";
             }
