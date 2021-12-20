@@ -10,6 +10,10 @@ if(!isUserLoggedIn() || !$_SESSION["isadmin"]){
     //Redirect a pagina "Sorry, You Are Not Allowed to Access This Page" 
 }
 
+if(isset($_GET["formmsg"])){
+    $templateParams["formmsg"] = $_GET["formmsg"];
+}
+
 $templateParams["messages"] = $dbh->getMessages($_SESSION["mail"]);
 
 require '../../template/common/base.php';

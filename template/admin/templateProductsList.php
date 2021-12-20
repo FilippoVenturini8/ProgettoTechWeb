@@ -1,16 +1,13 @@
 <!--LISTINO VINILI-->
 <div class="row m-3">
         <div class="col-7">
-            <div class="row">
-                <nav class="navbar">
-                    <div class="col-8">
-                        <input class="form-control disk-searchbar" type="search" placeholder="Scrivi qui" aria-label="search" onchange="search()">
-                    </div>
-                    <div class="col-2">
-                        <button class="btn btn-outline-success " style="border-color:darkred; color:darkred;" type="submit">Cerca</button>
-                    </div>
-                    <div class="col-1"></div>                  
-                </nav>
+            <div class="input-group form-outline">
+                <div class="form-outline">
+                    <input type="search" class="form-control disk-searchbar" placeholder="Search" onchange="search()"/>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <img src="../../img/icon/search.png" alt=""/>
+                </button>
             </div>
         </div>
         <div class="col-5 mt-2">

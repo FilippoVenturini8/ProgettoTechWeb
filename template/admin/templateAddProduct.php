@@ -5,7 +5,33 @@
     </div>
 </div>
 
-<form action="../api/processNewProduct.php" method="POST">
+<div class="modal fade" id="modalResultInsert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Errore aggiunta disco</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
+                </button>
+            </div>
+            <div class="modal-body">
+                <label></label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Chiudi</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php if(isset($templateParams["formmsg"])):?>
+    <script>
+        $('#modalResultInsert').modal('show');
+        $('.modal-body').text('<?php echo $templateParams["formmsg"];?>');
+    </script>
+<?php endif; ?>
+
+<form action="../../php/api/processNewProduct.php" method="POST">
     <div class="row mt-4 mb-4">
         <div class="col-1"></div>
         <div class="col-3 pt-1">
@@ -66,7 +92,7 @@
             <div class="col-5"></div>
             <div class="col-4">
                 <div class="input-group">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</button>
+                    <button class="btn btn-outline-secondary dropdown-toggle orderBy" type="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</button>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Rap</a></li>
                         <li><a class="dropdown-item" href="#">Rock</a></li>
@@ -82,7 +108,7 @@
     <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
-            <input class="form-control" type="file" accept=".jpg,.jpeg,.png"/>
+            <input id="copertina" name="copertina" class="form-control" type="file" accept=".jpg,.jpeg,.png"/>
         </div>
         <div class="col-2"></div>
     </div>
