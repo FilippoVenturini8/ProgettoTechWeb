@@ -1,7 +1,12 @@
+<script src="../../js/addProduct.js" type="text/javascript"></script>
 <div class="row mt-4">
     <div class="col-1"></div>
     <div class="col-11 ml-2">
-        <h5>Aggiungi Prodotto</h5>
+        <h1>
+            <span class="border-bottom border-danger border-2">
+                Aggiungi Disco
+            </span>
+        </h1>
     </div>
 </div>
 
@@ -31,7 +36,7 @@
     </script>
 <?php endif; ?>
 
-<form action="../../php/api/processNewProduct.php" method="POST">
+<form action="../../php/api/processNewProduct.php" method="POST" enctype="multipart/form-data">
     <div class="row mt-4 mb-4">
         <div class="col-1"></div>
         <div class="col-3 pt-1">
@@ -91,13 +96,14 @@
         <div class="row">
             <div class="col-5"></div>
             <div class="col-4">
+                <input class="span2" id="categoria" name="categoria" type="hidden"/>
                 <div class="input-group">
-                    <button class="btn btn-outline-secondary dropdown-toggle orderBy" type="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</button>
+                    <button class="btn btn-outline-secondary dropdown-toggle dropDown" type="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Rap</a></li>
-                        <li><a class="dropdown-item" href="#">Rock</a></li>
-                        <li><a class="dropdown-item" href="#">Musica Classica</a></li>
-                        <li><a class="dropdown-item" href="#">Reggae</a></li>
+                        <li onclick="$('#categoria').val('Rap');"><a class="dropdown-item" href="#">Rap</a></li>
+                        <li onclick="$('#categoria').val('Rock');"><a class="dropdown-item" href="#">Rock</a></li>
+                        <li onclick="$('#categoria').val('Musica Classica');"><a class="dropdown-item" href="#">Musica Classica</a></li>
+                        <li onclick="$('#categoria').val('Reggae');"><a class="dropdown-item"><a class="dropdown-item" href="#">Reggae</a></li>
                     </ul>
                 </div>  
             </div>

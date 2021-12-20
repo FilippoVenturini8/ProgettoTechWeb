@@ -1,4 +1,8 @@
-<h1><?php echo $templateParams["categoryName"]?></h1>
+<h1 class="p-3">
+    <span class="border-bottom border-danger border-2">
+        <?php echo $templateParams["categoryName"]?>
+    </span>    
+</h1>
 <!--singolo disco-->
 <?php foreach($templateParams["disks"] as $disk) :?>
     <div class="row p-2 border-bottom border-danger <?php if(isset($templateParams["popularClicked"]) && $disk["Codice"] == $templateParams["popularClicked"]){ echo "bg-danger text-light";}?>">

@@ -120,7 +120,6 @@
                     <?php endforeach; ?>
                 </ul>
             
-
                 <footer class="mt-3">
                     <div class="row"></div>
                         <div class="row mx-3">
@@ -172,7 +171,7 @@
                     </li>
                     <?php if($_SESSION["isadmin"]):?>
                         <li class="nav-item py-2">
-                            <a href="../../php/admin/addProduct.php" class="text-dark">Aggiungi Prodotto</a>
+                            <a href="../../php/admin/addProduct.php" class="text-dark">Aggiungi Disco</a>
                         </li>
                         <li class="nav-item py-2">
                             <a href="../../php/admin/productsList.php" class="text-dark">Gestisci Prodotti</a>

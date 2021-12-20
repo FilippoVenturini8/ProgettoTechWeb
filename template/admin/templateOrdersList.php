@@ -12,7 +12,7 @@
         </div> 
         <div class="col-3">
             <div class="input-group">
-                <button class="btn btn-outline-secondary dropdown-toggle orderBy" type="button" data-bs-toggle="dropdown" aria-expanded="false">Ordina per</button>
+                <button class="btn btn-outline-secondary dropdown-toggle dropDown" type="button" data-bs-toggle="dropdown" aria-expanded="false">Ordina per</button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Codice decrescente</a></li>
                     <li><a class="dropdown-item" href="#">Codice crescente</a></li>

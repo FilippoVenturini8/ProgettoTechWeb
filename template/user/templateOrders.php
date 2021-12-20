@@ -1,8 +1,8 @@
 <div class="m-4">
     <h1>
-        <spam class="border-bottom border-danger border-2">
+        <span class="border-bottom border-danger border-2">
             I Miei Ordini
-        </spam>
+        </span>
     </h1>
 </div>
     <!--singolo ordine-->

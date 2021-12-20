@@ -6,7 +6,11 @@ $artista = htmlspecialchars($_POST["artista"]);
 $prezzo = htmlspecialchars($_POST["prezzo"]);
 $quantita = htmlspecialchars($_POST["quantita"]);
 $dataUscita = htmlspecialchars($_POST["datauscita"]);
-$copertina = htmlspecialchars($_POST["copertina"]);
+$copertina = $_FILES["copertina"];
+
+$categoria = htmlspecialchars($_POST["categoria"]);
+
+list($result, $msg) = uploadImage(UPLOAD_DIR."LP/".$categoria."/", $copertina);
 
 if(!is_numeric($quantita)){
     $msg = "Quantità inserita errata.";
@@ -16,7 +20,7 @@ if(!is_numeric($quantita)){
     header("location: ../admin/addProduct.php?formmsg=".$msg);
 }
 else{
-    $idDisco = $dbh->insertNewDisk($titolo, $dataUscita, $quantita, NULL, $prezzo, $artista, NULL);
+    $idDisco = $dbh->insertNewDisk($titolo, $dataUscita, $quantita, "LP/".$categoria."/".$copertina["name"], $prezzo, $artista, $categoria);
 
     $msg = "";
     if($idDisco != false){
