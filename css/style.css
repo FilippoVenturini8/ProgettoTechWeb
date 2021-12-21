@@ -110,9 +110,11 @@ aside{
     border-color: black !important;
 }
 
+/*Notifiche*/
 .list-group-item.list-group-item-action{
-    border-color: #d9534f !important;
-    background-color: #a7130e93 !important;
+    border-color: #000 !important;
+    background-color: #d9534f !important;
+    color: #fff !important;
 }
 
 .add-to-cart-button > img{

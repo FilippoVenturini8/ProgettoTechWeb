@@ -34,6 +34,7 @@
                 <button class="btn btn-default" type="button" data-toggle="modal" data-target="#exampleModal">
                     <img src="../../img/icon/bell.png" alt=""/>
                 </button>
+                <span class=".tag-pill bg-danger text-light rounded-circle">14</span>
             </div>
             <div class="col-2 text-start">
                 <?php 

@@ -43,11 +43,23 @@ function getVoteStars($vote){
     return $stars;
 }
 
-function getOrderState($orderDate, $shipmentDate, $DeliveryDate){
+/*function getOrderState($orderDate, $shipmentDate, $DeliveryDate){
     if(!isset($shipmentDate)){
         return "Ordine Ricevuto";
     }
     if(!isset($DeliveryDate)){
+        return "Ordine Spedito";
+    }
+    else{
+        return "Consegnato";
+    }
+}*/
+
+function getOrderState($orderDate, $shipmentDate, $DeliveryDate){
+    if(date("Y-m-d") < $shipmentDate){
+        return "Ordine Ricevuto";
+    }
+    if(date("Y-m-d") < $DeliveryDate){
         return "Ordine Spedito";
     }
     else{

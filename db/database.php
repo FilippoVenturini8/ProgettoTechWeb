@@ -288,10 +288,10 @@ class DatabaseHelper{
     }
 
 
-    public function insertNewOrder($dataOrdine, $mailAccount){
-        $stmt = $this->db->prepare("INSERT INTO ORDINE(DataOrdine, MailAccount)
-                                    VALUES (?,?)");
-        $stmt->bind_param("ss",$dataOrdine, $mailAccount);
+    public function insertNewOrder($dataOrdine, $dataSpedizione, $dataConsegna, $mailAccount){
+        $stmt = $this->db->prepare("INSERT INTO ORDINE(DataOrdine, DataSpedizione, DataConsegna, MailAccount)
+                                    VALUES (?,?,?,?)");
+        $stmt->bind_param("ssss",$dataOrdine, $dataSpedizione, $dataConsegna, $mailAccount);
         $stmt->execute();
         return $stmt->insert_id;
     }

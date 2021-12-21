@@ -1,7 +1,7 @@
 <?php
 require_once "../common/bootstrap.php";
 
-$idOrder = $dbh->insertNewOrder(date("Y-m-d"), $_SESSION["mail"]);
+$idOrder = $dbh->insertNewOrder(date("Y-m-d"), date('Y-m-d', strtotime("+1 days")), date('Y-m-d', strtotime("+3 days")), $_SESSION["mail"]);
 
 $disksInCart = $dbh->getDisksInCart($_SESSION["mail"]);
 
