@@ -120,7 +120,7 @@ class DatabaseHelper{
     }
 
     public function getOrdersByAccount($accountMail){
-        $stmt = $this->db->prepare("SELECT Codice, CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount
+        $stmt = $this->db->prepare("SELECT Codice, DataOrdine, DataSpedizione, DataConsegna, MailAccount
                                     FROM Ordine
                                     WHERE MailAccount = \"$accountMail\"
                                     ORDER BY DataOrdine DESC");
