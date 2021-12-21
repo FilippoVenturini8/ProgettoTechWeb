@@ -13,6 +13,37 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 }
 
 if(isUserLoggedIn()){
+    $orders = $dbh->getOrdersByAccount($_SESSION["mail"]);
+    foreach($orders as $order){
+        $orderState = getOrderState($order["DataOrdine"],$order["DataSpedizione"],$order["DataConsegna"]);
+        $lastState = getOrderStateAtLastLogin($order["DataOrdine"],$order["DataSpedizione"],$order["DataConsegna"], $dbh->getLastLogin($_SESSION["mail"]));
+        if($orderState != $lastState){
+            if($lastState == "Ordine Ricevuto" && $orderState == "Ordine Spedito"){
+                $titolo = "Ordine Spedito";
+                $testo = "L'Ordine ".$order["Codice"]." è stato spedito.";
+                $link=" ";
+                $dbh->insertNotification($testo,$titolo,$link,$order["DataSpedizione"], $_SESSION["mail"]);
+            }
+            if($lastState == "Ordine Ricevuto" && $orderState == "Ordine Consegnato"){
+                $titoloSpedito = "Ordine Spedito";
+                $testoSpedito = "L'Ordine ".$order["Codice"]." è stato spedito.";
+                $linkSpedito=" ";
+                $dbh->insertNotification($testoSpedito,$titoloSpedito,$linkSpedito,$order["DataSpedizione"], $_SESSION["mail"]);
+
+                $titoloConsegnato = "Ordine Consegnato";
+                $testoConsegnato = "L'Ordine ".$order["Codice"]." è stato consegnato.";
+                $linkConsegnato=" ";
+                $dbh->insertNotification($testoConsegnato,$titoloConsegnato,$linkConsegnato,$order["DataConsegna"], $_SESSION["mail"]);
+            }
+            if($lastState == "Ordine Spedito" && $orderState == "Ordine Consegnato"){
+                $titolo = "Ordine Consegnato";
+                $testo = "L'Ordine ".$order["Codice"]." è stato consegnato.";
+                $link=" ";
+                $dbh->insertNotification($testo,$titolo,$link,$order["DataConsegna"], $_SESSION["mail"]);
+            }
+        }
+    }
+    $dbh->updateLastLogin($_SESSION["mail"]);
     header('Location: ../../php/common/index.php');
 }
 else{

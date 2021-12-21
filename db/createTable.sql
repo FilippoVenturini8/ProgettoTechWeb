@@ -9,6 +9,7 @@ create table ACCOUNT (
      Cellulare varchar(10) not null,
      ImmagineProfilo varchar(40),
      isAdmin boolean not null,
+     LastLogin date DEFAULT NOW(),
      constraint ID_ACCOUNT_ID primary key (Mail));
 
 create table ARTISTA (

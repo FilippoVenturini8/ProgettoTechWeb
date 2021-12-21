@@ -67,6 +67,18 @@ function getOrderState($orderDate, $shipmentDate, $DeliveryDate){
     }
 }
 
+function getOrderStateAtLastLogin($orderDate, $shipmentDate, $DeliveryDate, $lastLoginDate){
+    if($lastLoginDate < $shipmentDate){
+        return "Ordine Ricevuto";
+    }
+    if($lastLoginDate < $DeliveryDate){
+        return "Ordine Spedito";
+    }
+    else{
+        return "Consegnato";
+    }
+}
+
 function uploadImage($path, $image){
     $imageName = basename($image["name"]);
     $fullPath = $path.$imageName;

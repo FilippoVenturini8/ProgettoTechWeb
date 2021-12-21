@@ -342,5 +342,24 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function updateLastLogin($accountMail){
+        $stmt = $this->db->prepare("UPDATE Account
+                                    SET LastLogin = NOW()
+                                    WHERE Mail = ?");
+        $stmt->bind_param("s",$accountMail);
+        return $stmt->execute();
+    }
+
+    public function getLastLogin($accountMail){
+        $stmt = $this->db->prepare("SELECT LastLogin
+                                    FROM Account
+                                    WHERE Mail = ?");
+                                    
+        $stmt->bind_param("s",$accountMail);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]["LastLogin"];
+    }
+
 }
 ?>
