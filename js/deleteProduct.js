@@ -1,7 +1,24 @@
 $(document).ready(function () {
-    $("body div div div div div:nth-of-type(3) button:nth-of-type(2)").on('click', function () {
-
-        console.log("ciao");
+    $("#btnSi").on('click', function () {
+        var val = $("#dataid").val();
+        console.log(val);
         //richiamare query per eliminare l'lelemento selezionato
+        $.ajax({
+            url:"../../php/api/confirmationMessage.php",
+            type: "post",
+            data: {codiceDisco: val},
+            error: function (xhr, status) {
+                console.log("errore");
+                console.log(status);
+            },
+            success: function(data) {
+                console.log("ok");
+                console.log(data);
+                window.location.href = '../admin/productsList.php';
+                //data = JSON.parse(data); 
+                
+            }
+        });
+       
     });
 });

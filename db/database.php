@@ -262,5 +262,12 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC)[0]["QuantitaDisponibile"];
     }
 
+    public function removeDiskFromList($codiceDisco){
+        $stmt = $this->db->prepare("DELETE FROM Disco
+                                    WHERE Codice = ?");
+        $stmt->bind_param("i", $codiceDisco);
+        return $stmt->execute();
+    }
+
 }
 ?>
