@@ -262,5 +262,27 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC)[0]["QuantitaDisponibile"];
     }
 
+    public function insertNewOrder($dataOrdine, $mailAccount){
+        $stmt = $this->db->prepare("INSERT INTO ORDINE(DataOrdine, MailAccount)
+                                    VALUES (?,?)");
+        $stmt->bind_param("ss",$dataOrdine, $mailAccount);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+
+    public function insertNewDiskInOrder($codiceDisco, $codiceOrdine, $quantita){
+        $stmt = $this->db->prepare("INSERT INTO DISCO_ORDINATO(CodiceDisco, CodiceOrdine, Quantita)
+                                    VALUES (?,?,?)");
+        $stmt->bind_param("iii",$codiceDisco, $codiceOrdine, $quantita);
+        return $stmt->execute();
+    }
+
+    public function clearCart($mailAccount){
+        $stmt = $this->db->prepare("DELETE FROM DISCO_IN_CARRELLO WHERE MailAccount = ?");
+        $stmt->bind_param("s",$mailAccount);
+        return $stmt->execute();
+    }
+    
+
 }
 ?>
