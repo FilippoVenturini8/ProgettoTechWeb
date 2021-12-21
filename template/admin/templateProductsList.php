@@ -1,9 +1,10 @@
+<script src="../../js/productListSearchBar.js" type="text/javascript"></script>
 <!--LISTINO VINILI-->
 <div class="row mt-3">
     <div class="col-12">
         <div class="mx-5 input-group form-outline">
             <div class="form-outline">
-                <input type="search" class="form-control disk-searchbar" placeholder="Search" onchange="search()"/>
+                <input type="search" class="form-control" id="disk-searchbar" placeholder="Search" onchange="searchDisks()"/>
             </div>
             <button type="submit" class="btn btn-primary">
                 <img src="../../img/icon/search.png" alt=""/>

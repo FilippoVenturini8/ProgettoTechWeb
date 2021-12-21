@@ -73,9 +73,24 @@ class DatabaseHelper{
     }
 
     public function getAllOrders(){
-        $stmt = $this->db->prepare("SELECT Ordine.Codice as CodiceOrdine, CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome, Cellulare
+        $stmt = $this->db->prepare("SELECT Ordine.Codice as CodiceOrdine, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome, Cellulare
                                     FROM Ordine, Account
-                                    WHERE Ordine.MailAccount = Account.Mail");
+                                    WHERE Ordine.MailAccount = Account.Mail
+                                    ORDER BY Ordine.Codice DESC");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getMatchingOrders($str){
+        $stmt = $this->db->prepare("SELECT Ordine.Codice as CodiceOrdine, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome, Cellulare
+                                    FROM Ordine, Account
+                                    WHERE Ordine.MailAccount = Account.Mail
+                                    AND (Ordine.Codice = ?
+                                    OR MailAccount LIKE ?)
+                                    ORDER BY Ordine.Codice DESC");
+        $patternMail = "%".$str."%";
+        $stmt->bind_param("ss",$str, $patternMail,);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -120,7 +135,7 @@ class DatabaseHelper{
     }
 
     public function getOrdersByAccount($accountMail){
-        $stmt = $this->db->prepare("SELECT Codice, CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount
+        $stmt = $this->db->prepare("SELECT Codice, DataOrdine, DataSpedizione, DataConsegna, MailAccount
                                     FROM Ordine
                                     WHERE MailAccount = \"$accountMail\"
                                     ORDER BY DataOrdine DESC");

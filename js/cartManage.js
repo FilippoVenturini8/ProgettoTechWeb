@@ -92,6 +92,7 @@ function addDiskToCart(codiceDisco){
                                                         </div>
                                                     </div>
                                                 </li>`);
+                document.getElementById("cartTotal").innerHTML = "Totale: " + data.totale + "€";
             }
         }
     });

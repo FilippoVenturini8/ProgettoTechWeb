@@ -1,8 +1,9 @@
+<script src="../../js/ordersListSearchbar.js" type="text/javascript"></script>
 <div class="row pt-3">
     <div class="mx-5 col-12">
         <div class="input-group form-outline">
             <div class="form-outline">
-                <input type="search" id="form1" class="form-control" placeholder="Search"/>
+                <input type="search" id="order-searchbar" class="form-control" placeholder="Search"  onchange="searchOrders()"/>
             </div>
             <button type="button" class="btn btn-primary">
                 <img src="../../img/icon/search.png" alt=""/>
@@ -88,7 +89,7 @@
                         <div class="col-4"></div>
                         <div class="col-5">
                             <?php foreach($dbh->getOrderDetails($order["CodiceOrdine"]) as $disk) : ?>
-                                <label><?php echo $disk["Quantita"] ?>x <?php echo $disk["Titolo"] ?> - <?php echo $disk["Artista"] ?></label>
+                                <p class="mb-0"><?php echo $disk["Quantita"] ?>x <?php echo $disk["Titolo"] ?> - <?php echo $disk["Artista"] ?></p>
                             <?php endforeach; ?>
                         </div>
                         <div class="col-3"></div>
