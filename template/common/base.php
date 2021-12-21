@@ -207,7 +207,7 @@
                         </spam>
                     </h1>
                     <button class="btn btn-default" data-dismiss="modal">
-                        <img src="../../img/icon/close.png" alt=""/>
+                        <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
                     </button>
                 </div>
                 <?php if(isUserLoggedIn()): ?>

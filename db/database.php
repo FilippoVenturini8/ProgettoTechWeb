@@ -126,7 +126,8 @@ class DatabaseHelper{
     public function getOrdersByAccount($accountMail){
         $stmt = $this->db->prepare("SELECT Codice, CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount
                                     FROM Ordine
-                                    WHERE MailAccount = \"$accountMail\"");
+                                    WHERE MailAccount = \"$accountMail\"
+                                    ORDER BY DataOrdine DESC");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -171,9 +172,9 @@ class DatabaseHelper{
     }
 
     public function getMessages($mail){
-        $query = "SELECT Testo, Titolo, Link, MailAccount, `data`
+        $query = "SELECT Testo, Titolo, Link, MailAccount, DataNotifica
                   FROM notifica WHERE MailAccount = ?
-                  ORDER BY `data` DESC";
+                  ORDER BY DataNotifica DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $mail);
         $stmt->execute();
@@ -283,6 +284,12 @@ class DatabaseHelper{
         return $stmt->execute();
     }
     
+    public function insertNotification($testo, $titolo, $link, $dataNotifica, $mailAccount){
+        $stmt = $this->db->prepare("INSERT INTO NOTIFICA(Testo, Titolo, Link, DataNotifica, MailAccount)
+                                    VALUES (?,?,?,?,?)");
+        $stmt->bind_param("sssss",$testo, $titolo, $link, $dataNotifica, $mailAccount);
+        return $stmt->execute();
+    }
 
 }
 ?>

@@ -30,7 +30,7 @@
             <input type="password" id="confermapassword" name="confermapassword" />
         </li>
         <li class="mt-4 ">
-            <input class="btn btn-primary" type="submit" name="submit" value="Accedi" />
+            <input class="btn btn-primary" type="submit" name="submit" value="Registrati" />
         </li>
     </ul>
     <?php if(isset($templateParams["erroreRegistrazione"])):?>

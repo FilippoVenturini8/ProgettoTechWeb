@@ -51,7 +51,7 @@ create table NOTIFICA (
      Titolo varchar(30) not null,
      Link varchar(30),
      Visualizzata boolean not null DEFAULT 0,
-     `Data` datetime,
+     DataNotifica datetime,
      MailAccount varchar(30) REFERENCES Account(Mail),
      constraint ID_NOTIFICA_ID primary key (Codice));
 
