@@ -2,7 +2,11 @@
     require_once '../common/bootstrap.php';
 
     if(isUserLoggedIn() && $_SESSION["isadmin"]){
-        $templateParams["allDisks"] =  $dbh->searchDisk($_POST["pattern"]);
-        print require("../../template/admin/templateProductsList.php");
+        $res = $dbh->searchDisk($_POST["pattern"]);
+        $data = array();
+        foreach($res as $row) {
+            array_push($data, $row);
+        }
+        echo json_encode($data);
     }
 ?>

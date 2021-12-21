@@ -49,11 +49,7 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if(count($result->fetch_all(MYSQLI_ASSOC)) > 0){
-            return $result->fetch_all(MYSQLI_ASSOC)[0];
-        } else{
-            return $result->fetch_all(MYSQLI_ASSOC);
-        }
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getCartTotal($accountMail){
@@ -246,7 +242,12 @@ class DatabaseHelper{
     public function searchDisk($str){
         $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
                                     FROM Disco
-                                    WHERE Titolo LIKE '%$str%'");
+                                    WHERE Titolo LIKE ?
+                                    OR Artista LIKE ?
+                                    OR Codice = ?");
+        $patternNome = "%".$str."%";
+        $patternAutore = $str."%";
+        $stmt->bind_param("sss",$patternNome, $patternAutore, $str);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);

@@ -1,8 +1,8 @@
 <div class="row m-4">
     <h1>
-        <spam class="border-bottom border-danger">    
+        <span class="border-bottom border-danger">    
             Notifiche
-        </spam>
+        </span>
     </h1>
 </div>
 <div class="row">

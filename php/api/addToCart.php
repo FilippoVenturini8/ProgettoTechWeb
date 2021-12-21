@@ -11,6 +11,8 @@ if(isUserLoggedIn() && !$_SESSION["isadmin"]){
         $disk = $dbh->getDisk($_POST["codiceDisco"]);
         echo json_encode(array("codice"=>$disk["Codice"], "titolo"=>$disk["Titolo"], "copertina"=>$disk["Copertina"], "prezzo"=>$disk["Prezzo"], "artista"=>$disk["Artista"]));
     }
+} else {
+    echo json_encode(array("errore"=>"utente non loggato o admin"));
 }
 
 ?>

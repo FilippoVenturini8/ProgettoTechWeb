@@ -68,9 +68,9 @@
                 </div>
                 <div class="row mb-3">
                     <h3>
-                        <spam class="mx-4 border-bottom border-danger">
+                        <span class="mx-4 border-bottom border-danger">
                             Carrello
-                        </spam>
+                        </span>
                     </h3>
                 </div>
             </header>
@@ -202,9 +202,9 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title" id="exampleModalLabel">
-                        <spam class="border-bottom border-danger">
+                        <span class="border-bottom border-danger">
                             Notifiche
-                        </spam>
+                        </span>
                     </h1>
                     <button class="btn btn-default" data-dismiss="modal">
                         <img src="../../img/icon/close.png" alt=""/>
