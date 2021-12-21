@@ -55,7 +55,7 @@
             <label for="numerocarta">Numero carta:</label>
         </div>
         <div class="col-6">
-            <input type="text" placeholder="1234567890123456" id="numerocarta" name="numerocarta"/>
+            <input type="text" placeholder="1234567890123456" id="numerocarta" name="numerocarta" autocomplete="on"/>
         </div>
     </div>
     <div class="row mx-4 mt-3">
@@ -91,15 +91,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Pagamento</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="location.href = '../../php/user/orders.php';">
-            <img src="../../img/icon/close.png" alt=""/>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="location.href = '../../php/api/processOrder.php';">
+            <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
         </button>
       </div>
       <div class="modal-body">
         <label>Pagamento effettuato con successo!</label>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="location.href = '../../php/user/orders.php';">Chiudi</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="location.href = '../../php/api/processOrder.php';">Chiudi</button>
       </div>
     </div>
   </div>
