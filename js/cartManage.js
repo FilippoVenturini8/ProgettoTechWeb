@@ -8,6 +8,7 @@ function alterQuantity(codiceDisco, operazione){
                 console.log(status);
             },
             success: function(data) {
+               console.log(data);
                data = JSON.parse(data);
                if(!data.hasOwnProperty('errore')){
                     document.getElementById("cartQt" + codiceDisco).innerHTML = data.quantita;
@@ -45,7 +46,6 @@ function addDiskToCart(codiceDisco){
             console.log(status);
         },
         success: function(data) {
-            console.log(data);
             data = JSON.parse(data);
             if(!data.hasOwnProperty('errore')){
                 if(document.getElementById("add" + codiceDisco) != null){

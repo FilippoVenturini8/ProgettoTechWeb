@@ -13,7 +13,7 @@ button{
     padding: 0 !important;
 }
 
-header button img{
+header button img, .modal button img{
     width: 30px;
 }
 
