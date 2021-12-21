@@ -1,8 +1,8 @@
 <div class="row m-4">
     <h1>
-        <spam class="border-bottom border-danger">    
+        <span class="border-bottom border-danger border-2">    
             Notifiche
-        </spam>
+        </span>
     </h1>
 </div>
 <div class="row">
@@ -13,7 +13,7 @@
             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1"><?php echo $notify["Titolo"];?></h5>
-                    <small><?php echo $notify["data"];?></small>
+                    <small><?php echo $notify["DataNotifica"];?></small>
                 </div>
                 <p class="mb-1"><?php echo $notify["Testo"];?></p>
             </a>

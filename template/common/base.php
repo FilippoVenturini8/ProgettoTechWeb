@@ -11,7 +11,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
 
     <!--<script src="../../js/trackPackage.js" type="text/javascript"></script>-->
-    <script src="../../js/productListSearchBar.js" type="text/javascript"></script>
 
     <script src="../../js/cartManage.js" type="text/javascript"></script>
     <script src="../../js/deleteProduct.js" type="text/javascript"></script>
@@ -68,9 +67,9 @@
                 </div>
                 <div class="row mb-3">
                     <h3>
-                        <spam class="mx-4 border-bottom border-danger">
+                        <span class="mx-4 border-bottom border-danger">
                             Carrello
-                        </spam>
+                        </span>
                     </h3>
                 </div>
             </header>
@@ -202,12 +201,12 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title" id="exampleModalLabel">
-                        <spam class="border-bottom border-danger">
+                        <span class="border-bottom border-danger">
                             Notifiche
-                        </spam>
+                        </span>
                     </h1>
                     <button class="btn btn-default" data-dismiss="modal">
-                        <img src="../../img/icon/close.png" alt=""/>
+                        <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
                     </button>
                 </div>
                 <?php if(isUserLoggedIn()): ?>

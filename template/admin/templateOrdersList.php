@@ -1,31 +1,20 @@
-    <div class="row pt-5">
-        <div class="col-1"></div>
-        <div class="col-7">
-            <div class="input-group form-outline">
-                <div class="form-outline">
-                    <input type="search" id="form1" class="form-control" placeholder="Search"/>
-                </div>
-                <button type="button" class="btn btn-primary">
-                    <img src="../../img/icon/search.png" alt=""/>
-                </button>
+<script src="../../js/ordersListSearchbar.js" type="text/javascript"></script>
+<div class="row pt-3">
+    <div class="mx-5 col-12">
+        <div class="input-group form-outline">
+            <div class="form-outline">
+                <input type="search" id="order-searchbar" class="form-control" placeholder="Search"  onchange="searchOrders()"/>
             </div>
-        </div> 
-        <div class="col-3">
-            <div class="input-group">
-                <button class="btn btn-outline-secondary dropdown-toggle dropDown" type="button" data-bs-toggle="dropdown" aria-expanded="false">Ordina per</button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Codice decrescente</a></li>
-                    <li><a class="dropdown-item" href="#">Codice crescente</a></li>
-                    <li><a class="dropdown-item" href="#">Totale decrescente</a></li>
-                    <li><a class="dropdown-item" href="#">Totale crescente</a></li>
-                </ul>
-            </div>
+            <button type="button" class="btn btn-primary">
+                <img src="../../img/icon/search.png" alt=""/>
+            </button>
         </div>
     </div>
+</div>
 
 <div class="row py-3 px-4">
     <h1>
-        <span class="border-bottom border-2 border-danger">
+        <span class="mx-4 border-bottom border-2 border-danger">
             Ordini
         </span>
     </h1>
@@ -100,7 +89,7 @@
                         <div class="col-4"></div>
                         <div class="col-5">
                             <?php foreach($dbh->getOrderDetails($order["CodiceOrdine"]) as $disk) : ?>
-                                <label><?php echo $disk["Quantita"] ?>x <?php echo $disk["Titolo"] ?> - <?php echo $disk["Artista"] ?></label>
+                                <p class="mb-0"><?php echo $disk["Quantita"] ?>x <?php echo $disk["Titolo"] ?> - <?php echo $disk["Artista"] ?></p>
                             <?php endforeach; ?>
                         </div>
                         <div class="col-3"></div>

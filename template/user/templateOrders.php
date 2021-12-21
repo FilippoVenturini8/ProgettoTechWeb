@@ -40,7 +40,7 @@
                 
                 <p class="text-end m-0"><?php echo $order["DataOrdine"]?></p>
                 <?php foreach($templateParams["ordersDetails"][$order["Codice"]] as $disk) :?>
-                    <p>| <?php echo $disk["Artista"]?> - <?php echo $disk["Titolo"]?></p>
+                    <p>| <?php echo $disk["Quantita"]?>x <?php echo $disk["Artista"]?> - <?php echo $disk["Titolo"]?></p>
                 <?php endforeach; ?>
                 <a href="../../php/user/trackMyPackage.php?idOrder=<?php echo $order["Codice"]?>" class="btn btn-primary float-end">Traccia il mio pacco</a>
             </div>

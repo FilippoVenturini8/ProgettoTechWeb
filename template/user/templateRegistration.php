@@ -1,8 +1,8 @@
 <form class="mt-4" action="#" method="POST">
     <h1>
-        <spam class="mx-4 border-bottom border-danger">    
+        <span class="mx-4 border-bottom border-danger">    
             Registrazione
-        </spam>
+        </span>
     </h1>
     <ul class="text-center list-unstyled">
         <li class="mt-5 ">
@@ -30,7 +30,7 @@
             <input type="password" id="confermapassword" name="confermapassword" />
         </li>
         <li class="mt-4 ">
-            <input class="btn btn-primary" type="submit" name="submit" value="Accedi" />
+            <input class="btn btn-primary" type="submit" name="submit" value="Registrati" />
         </li>
     </ul>
     <?php if(isset($templateParams["erroreRegistrazione"])):?>

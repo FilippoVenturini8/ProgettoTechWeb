@@ -48,7 +48,7 @@
     <h3>Pagamento:</h3>
 </div>
 
-<form>
+<form autocomplete="on">
     <div class="row mx-4">
         <div class="col-1"></div>
         <div class="col-3">
@@ -91,15 +91,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Pagamento</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="location.href = '../../php/user/orders.php';">
-            <img src="../../img/icon/close.png" alt=""/>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="location.href = '../../php/api/processOrder.php';">
+            <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
         </button>
       </div>
       <div class="modal-body">
         <label>Pagamento effettuato con successo!</label>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="location.href = '../../php/user/orders.php';">Chiudi</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="location.href = '../../php/api/processOrder.php';">Chiudi</button>
       </div>
     </div>
   </div>

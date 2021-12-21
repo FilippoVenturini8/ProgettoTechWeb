@@ -69,11 +69,7 @@ INSERT INTO Account(Mail, Psw, Nome, Cognome, Cellulare, ImmagineProfilo, isAdmi
 VALUES("gigi@gmail.com", "93ccf25b78706fdc6a82f98b6b7a1ca441de9d5522fd27d7ed7913c19b6fb944", "Gigi", "Rossi", '1234567890', NULL, 0),
 ("admin@gmail.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "Admin", "", '0987654321', NULL, 1);
 
-/*CARTE DI CREDITO*/
-INSERT INTO Carta_Di_Credito(CodiceCarta, DataScadenza, Cvv, MailAccount)
-VALUES(12345, '2022-10-01', 123, "gigi@gmail.com");
-
-INSERT INTO Notifica(Testo, Titolo, Link, MailAccount, `data`)
+INSERT INTO Notifica(Testo, Titolo, Link, MailAccount, DataNotifica)
 VALUES ("Benvenuto", "Benvenuto in LPShop!", null, "gigi@gmail.com", "2021-12-12 17:07:00"),
  ("Benvenuto ancora, scusa ma non sapevo cosa altro scrivere", "RiBenvenuto in LPShop!", null, "gigi@gmail.com", "2021-12-12 17:10:00");
 
@@ -83,13 +79,13 @@ VALUES (1, "gigi@gmail.com", 2),
 (3, "gigi@gmail.com", 1);
 
 /*ORDINI*/
-INSERT INTO Ordine(CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount)
-VALUES(NULL,'2007-09-14', NULL, NULL,"gigi@gmail.com"),
-(NULL,'2018-08-03', NULL, NULL,"gigi@gmail.com"),
-(NULL,'2018-08-03', NULL, NULL,"gigi@gmail.com"),
-(NULL,'1999-06-08', '1999-06-10', NULL,"gigi@gmail.com"),
-(NULL,'2018-03-08', NULL, NULL,"gigi@gmail.com"),
-(NULL,'2020-10-26', '2020-10-26', '2020-10-30',"gigi@gmail.com");
+INSERT INTO Ordine(DataOrdine, DataSpedizione, DataConsegna, MailAccount)
+VALUES('2007-09-14', NULL, NULL,"gigi@gmail.com"),
+('2018-08-03', NULL, NULL,"gigi@gmail.com"),
+('2018-08-03', NULL, NULL,"gigi@gmail.com"),
+('1999-06-08', '1999-06-10', NULL,"gigi@gmail.com"),
+('2018-03-08', NULL, NULL,"gigi@gmail.com"),
+('2020-10-26', '2020-10-26', '2020-10-30',"gigi@gmail.com");
 
 /*DISCHI ORDINATI*/
 INSERT INTO Disco_Ordinato(CodiceDisco, CodiceOrdine, Quantita, Voto)

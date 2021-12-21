@@ -49,11 +49,7 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if(count($result->fetch_all(MYSQLI_ASSOC)) > 0){
-            return $result->fetch_all(MYSQLI_ASSOC)[0];
-        } else{
-            return $result->fetch_all(MYSQLI_ASSOC);
-        }
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function getCartTotal($accountMail){
@@ -77,9 +73,24 @@ class DatabaseHelper{
     }
 
     public function getAllOrders(){
-        $stmt = $this->db->prepare("SELECT Ordine.Codice as CodiceOrdine, CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome, Cellulare
+        $stmt = $this->db->prepare("SELECT Ordine.Codice as CodiceOrdine, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome, Cellulare
                                     FROM Ordine, Account
-                                    WHERE Ordine.MailAccount = Account.Mail");
+                                    WHERE Ordine.MailAccount = Account.Mail
+                                    ORDER BY Ordine.Codice DESC");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getMatchingOrders($str){
+        $stmt = $this->db->prepare("SELECT Ordine.Codice as CodiceOrdine, DataOrdine, DataSpedizione, DataConsegna, MailAccount, Nome, Cognome, Cellulare
+                                    FROM Ordine, Account
+                                    WHERE Ordine.MailAccount = Account.Mail
+                                    AND (Ordine.Codice = ?
+                                    OR MailAccount LIKE ?)
+                                    ORDER BY Ordine.Codice DESC");
+        $patternMail = "%".$str."%";
+        $stmt->bind_param("ss",$str, $patternMail,);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -124,9 +135,10 @@ class DatabaseHelper{
     }
 
     public function getOrdersByAccount($accountMail){
-        $stmt = $this->db->prepare("SELECT Codice, CodicePagamento, DataOrdine, DataSpedizione, DataConsegna, MailAccount
+        $stmt = $this->db->prepare("SELECT Codice, DataOrdine, DataSpedizione, DataConsegna, MailAccount
                                     FROM Ordine
-                                    WHERE MailAccount = \"$accountMail\"");
+                                    WHERE MailAccount = \"$accountMail\"
+                                    ORDER BY Codice DESC");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -171,9 +183,9 @@ class DatabaseHelper{
     }
 
     public function getMessages($mail){
-        $query = "SELECT Testo, Titolo, Link, MailAccount, `data`
+        $query = "SELECT Testo, Titolo, Link, MailAccount, DataNotifica
                   FROM notifica WHERE MailAccount = ?
-                  ORDER BY `data` DESC";
+                  ORDER BY DataNotifica DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $mail);
         $stmt->execute();
@@ -246,7 +258,12 @@ class DatabaseHelper{
     public function searchDisk($str){
         $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
                                     FROM Disco
-                                    WHERE Titolo LIKE '%$str%'");
+                                    WHERE Titolo LIKE ?
+                                    OR Artista LIKE ?
+                                    OR Codice = ?");
+        $patternNome = "%".$str."%";
+        $patternAutore = $str."%";
+        $stmt->bind_param("sss",$patternNome, $patternAutore, $str);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -262,11 +279,67 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC)[0]["QuantitaDisponibile"];
     }
 
+
     public function removeDiskFromList($codiceDisco){
         $stmt = $this->db->prepare("DELETE FROM Disco
                                     WHERE Codice = ?");
         $stmt->bind_param("i", $codiceDisco);
         return $stmt->execute();
+    }
+
+
+    public function insertNewOrder($dataOrdine, $mailAccount){
+        $stmt = $this->db->prepare("INSERT INTO ORDINE(DataOrdine, MailAccount)
+                                    VALUES (?,?)");
+        $stmt->bind_param("ss",$dataOrdine, $mailAccount);
+        $stmt->execute();
+        return $stmt->insert_id;
+    }
+
+    public function insertNewDiskInOrder($codiceDisco, $codiceOrdine, $quantita){
+        $stmt = $this->db->prepare("INSERT INTO DISCO_ORDINATO(CodiceDisco, CodiceOrdine, Quantita)
+                                    VALUES (?,?,?)");
+        $stmt->bind_param("iii",$codiceDisco, $codiceOrdine, $quantita);
+        return $stmt->execute();
+    }
+
+    public function clearCart($mailAccount){
+        $stmt = $this->db->prepare("DELETE FROM DISCO_IN_CARRELLO WHERE MailAccount = ?");
+        $stmt->bind_param("s",$mailAccount);
+        return $stmt->execute();
+    }
+    
+    public function insertNotification($testo, $titolo, $link, $dataNotifica, $mailAccount){
+        $stmt = $this->db->prepare("INSERT INTO NOTIFICA(Testo, Titolo, Link, DataNotifica, MailAccount)
+                                    VALUES (?,?,?,?,?)");
+        $stmt->bind_param("sssss",$testo, $titolo, $link, $dataNotifica, $mailAccount);
+        return $stmt->execute();
+    }
+
+    public function selectAdminMail(){
+        $stmt = $this->db->prepare("SELECT Mail
+                                    FROM Account
+                                    WHERE isAdmin = 1");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]["Mail"];
+    }
+
+    public function alterQuantityDisk($codiceDisco, $quantitaOrdinata){
+        $stmt = $this->db->prepare("UPDATE Disco
+                                    SET QuantitaDisponibile = QuantitaDisponibile - ?
+                                    WHERE Codice = ?");
+        $stmt->bind_param("ii",$quantitaOrdinata,$codiceDisco);
+        return $stmt->execute();
+    }
+
+    public function getFinishedDisks(){
+        $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
+                                    FROM Disco
+                                    WHERE QuantitaDisponibile = 0");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
 }
