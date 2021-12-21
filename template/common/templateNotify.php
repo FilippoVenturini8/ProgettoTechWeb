@@ -1,6 +1,6 @@
 <div class="row m-4">
     <h1>
-        <span class="border-bottom border-danger">    
+        <span class="border-bottom border-danger border-2">    
             Notifiche
         </span>
     </h1>

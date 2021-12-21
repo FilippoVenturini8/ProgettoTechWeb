@@ -138,7 +138,7 @@ class DatabaseHelper{
         $stmt = $this->db->prepare("SELECT Codice, DataOrdine, DataSpedizione, DataConsegna, MailAccount
                                     FROM Ordine
                                     WHERE MailAccount = \"$accountMail\"
-                                    ORDER BY DataOrdine DESC");
+                                    ORDER BY Codice DESC");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -307,5 +307,30 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
+    public function selectAdminMail(){
+        $stmt = $this->db->prepare("SELECT Mail
+                                    FROM Account
+                                    WHERE isAdmin = 1");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]["Mail"];
+    }
+
+    public function alterQuantityDisk($codiceDisco, $quantitaOrdinata){
+        $stmt = $this->db->prepare("UPDATE Disco
+                                    SET QuantitaDisponibile = QuantitaDisponibile - ?
+                                    WHERE Codice = ?");
+        $stmt->bind_param("ii",$quantitaOrdinata,$codiceDisco);
+        return $stmt->execute();
+    }
+
+    public function getFinishedDisks(){
+        $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
+                                    FROM Disco
+                                    WHERE QuantitaDisponibile = 0");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>

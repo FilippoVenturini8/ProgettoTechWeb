@@ -48,14 +48,14 @@
     <h3>Pagamento:</h3>
 </div>
 
-<form>
+<form autocomplete="on">
     <div class="row mx-4">
         <div class="col-1"></div>
         <div class="col-3">
             <label for="numerocarta">Numero carta:</label>
         </div>
         <div class="col-6">
-            <input type="text" placeholder="1234567890123456" id="numerocarta" name="numerocarta" autocomplete="on"/>
+            <input type="text" placeholder="1234567890123456" id="numerocarta" name="numerocarta"/>
         </div>
     </div>
     <div class="row mx-4 mt-3">
