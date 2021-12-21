@@ -111,10 +111,16 @@ aside{
 }
 
 /*Notifiche*/
-.list-group-item.list-group-item-action{
+.unReadNotify{
     border-color: #000 !important;
     background-color: #d9534f !important;
     color: #fff !important;
+}
+
+.readNotify{
+    border-color: #000 !important;
+    background-color: #ebebeb !important;
+    color: #000 !important;
 }
 
 .add-to-cart-button > img{

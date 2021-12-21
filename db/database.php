@@ -183,7 +183,7 @@ class DatabaseHelper{
     }
 
     public function getMessages($mail){
-        $query = "SELECT Testo, Titolo, Link, MailAccount, DataNotifica
+        $query = "SELECT Codice, Testo, Titolo, Link, MailAccount, DataNotifica, Visualizzata
                   FROM notifica WHERE MailAccount = ?
                   ORDER BY DataNotifica DESC";
         $stmt = $this->db->prepare($query);
@@ -359,6 +359,24 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC)[0]["LastLogin"];
+    }
+
+    public function readNotification($codiceNotifica){
+        $stmt = $this->db->prepare("UPDATE Notifica
+                                    SET Visualizzata = 1
+                                    WHERE Codice = ?");
+        $stmt->bind_param("i",$codiceNotifica);
+        return $stmt->execute();
+    }
+
+    public function isRead($codiceNotifica){
+        $stmt = $this->db->prepare("SELECT Visualizzata
+                                    FROM Notifica
+                                    WHERE Codice = ?");
+        $stmt->bind_param("i",$codiceNotifica);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]["Visualizzata"];
     }
 
 }
