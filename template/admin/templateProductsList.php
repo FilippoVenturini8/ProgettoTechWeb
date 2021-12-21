@@ -51,31 +51,24 @@
 <?php endif; ?>
 
 <div class="accordion px-4" id="diskAccordion">
-    <?php foreach($templateParams["allDisks"] as $disk): ?> 
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
-            <button class="accordion-button row mx-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
-                <div class="col-1">
-                    <label>#<?php echo $disk["Codice"]?></label>
-                </div>
-                <div class="col-4 ml-2">
-                    <label><?php echo $disk["Titolo"]?></label>
-                </div>
-                <div class="col-3">
-                    <label><?php echo $disk["Artista"]?></label>
-                </div>
-                <div class="col-2">
-                    <label><?php echo $disk["Prezzo"]?>€</label>
-                </div>
-                <div class="col-2">
-                    <label>Qtà: <?php echo $disk["QuantitaDisponibile"]?></label>
-                </div>
-            </button>
-            </h2>
-            <div id="disk<?php echo $disk["Codice"]?>" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $disk["Codice"]?>" data-bs-parent="#diskAccordion">
-                <div class="accordion-body">
-                    <div class="d-inline-block align-top">
-                        <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
+        <?php foreach($templateParams["allDisks"] as $disk): ?> 
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
+                <button class="accordion-button row mx-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
+                    <div class="col-1">
+                        <label>#<?php echo $disk["Codice"]?></label>
+                    </div>
+                    <div class="col-4 ml-2">
+                        <label><?php echo $disk["Titolo"]?></label>
+                    </div>
+                    <div class="col-3">
+                        <label><?php echo $disk["Artista"]?></label>
+                    </div>
+                    <div class="col-2">
+                        <label><?php echo $disk["Prezzo"]?>€</label>
+                    </div>
+                    <div class="col-2">
+                        <label>Qtà: <?php echo $disk["QuantitaDisponibile"]?></label>
                     </div>
                 </button>
                 </h2>
@@ -117,39 +110,6 @@
                     <button type="button" class="btn btn-primary" id="btnSi" >Si</button>
                 </div>
             </div>
-
-                    <div class="d-inline-block align-top">
-                        <p class="m-0"><?php echo $disk["Artista"];?> - <?php echo $disk["Titolo"]?></p>                          
-                        <p><?php echo $disk["Prezzo"];?>€</p>
-                        <p>
-                            <a href="#">modifica</a> 
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                Elimina
-                            </button>
-                        <p>                         
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
-</div>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Avviso!</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            Sei sicuro di voler eliminare il prodotto?
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-            <button type="button" class="btn btn-primary">Si</button>
-        </div>
-
         </div>
     </div>
-</div>
+<div>
