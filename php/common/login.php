@@ -24,7 +24,7 @@ if(isUserLoggedIn()){
                 $link=" ";
                 $dbh->insertNotification($testo,$titolo,$link,$order["DataSpedizione"], $_SESSION["mail"]);
             }
-            if($lastState == "Ordine Ricevuto" && $orderState == "Ordine Consegnato"){
+            if($lastState == "Ordine Ricevuto" && $orderState == "Consegnato"){
                 $titoloSpedito = "Ordine Spedito";
                 $testoSpedito = "L'Ordine ".$order["Codice"]." è stato spedito.";
                 $linkSpedito=" ";
@@ -35,7 +35,7 @@ if(isUserLoggedIn()){
                 $linkConsegnato=" ";
                 $dbh->insertNotification($testoConsegnato,$titoloConsegnato,$linkConsegnato,$order["DataConsegna"], $_SESSION["mail"]);
             }
-            if($lastState == "Ordine Spedito" && $orderState == "Ordine Consegnato"){
+            if($lastState == "Ordine Spedito" && $orderState == "Consegnato"){
                 $titolo = "Ordine Consegnato";
                 $testo = "L'Ordine ".$order["Codice"]." è stato consegnato.";
                 $link=" ";
