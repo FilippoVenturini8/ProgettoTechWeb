@@ -185,6 +185,9 @@
                     <li class="nav-item py-2">
                         <a href="../../php/common/profile.php" class="text-dark">Profilo</a>
                     </li>
+                    <li class="nav-item py-2">
+                        <a href="../../php/common/notify.php" class="text-dark">Notifiche</a>
+                    </li>
                     <?php if($_SESSION["isadmin"]):?>
                         <li class="nav-item py-2">
                             <a href="../../php/admin/addProduct.php" class="text-dark">Aggiungi Disco</a>
@@ -201,10 +204,6 @@
                             <a href="../../php/user/orders.php" class="text-dark">I Miei Ordini</a>
                         </li>
                     <?php endif;?>
-                    <li class="nav-item py-2">
-                    <a href="../../php/common/notify.php" class="text-dark">Notifiche</a>
-
-                    </li>
                     <li class="nav-item py-2">
                         <a href="../../php/common/logout.php" class="text-danger">Logout</a>
                     </li>
@@ -252,6 +251,11 @@
                                 </a>
                             <?php endforeach;?>
                         </ul>
+                    </div>
+                <?php endif;?>
+                <?php if(!isUserLoggedIn()): ?>
+                    <div class="modal-body text-center">
+                        <p>Effettua il login per visualizzare le notifiche.</p>
                     </div>
                 <?php endif;?>
             </div>
