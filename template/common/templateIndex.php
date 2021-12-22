@@ -7,7 +7,6 @@
 </div>
 
 <!--carosello-->
-
 <div id="carouselExampleControls" class="carousel slide mx-auto" data-bs-ride="carousel" style="width: 300px;">
     <div class="carousel-inner w-100">
         <?php $i=0; foreach($templateParams["popularsDisks"] as $popularDisk) :?>
@@ -16,7 +15,7 @@
                     <img src="<?php echo UPLOAD_DIR.$popularDisk["Copertina"]?>" class="d-block w-100" alt="...">
                 </a>
                 <div class="carousel-caption">
-                    <h5><?php echo $popularDisk["Titolo"]?> - <?php echo $popularDisk["Artista"];?></h5>
+                    <p class="fw-bold"><?php echo $popularDisk["Titolo"]?> - <?php echo $popularDisk["Artista"];?></p>
                 </div>
             </div>
         <?php $i=$i+1; endforeach; ?>

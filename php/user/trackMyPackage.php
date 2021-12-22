@@ -12,6 +12,9 @@ if(isUserLoggedIn()){
 
     if(isset($_GET["idOrder"])){
         $templateParams["order"] = $dbh->getOrderDetails($_GET["idOrder"]);
+        $templateParams["statoOrdine"] = getOrderState($templateParams["order"][0]["DataOrdine"], 
+                                                       $templateParams["order"][0]["DataSpedizione"], 
+                                                       $templateParams["order"][0]["DataConsegna"]);
     }
 }
 
