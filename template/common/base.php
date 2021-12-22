@@ -9,12 +9,8 @@
     <script src="../../js/base.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
-
-    <!--<script src="../../js/trackPackage.js" type="text/javascript"></script>-->
-
     <script src="../../js/cartManage.js" type="text/javascript"></script>
     <script src="../../js/deleteProduct.js" type="text/javascript"></script>
-
 </head>
 <body>
     <div class="container-fluid p-0">
@@ -84,7 +80,7 @@
                 </div>
                 <div class="row mb-3">
                     <h3>
-                        <span class="mx-4 border-bottom border-danger">
+                        <span class="mx-4 border-bottom border-danger border-2 py-1">
                             Carrello
                         </span>
                     </h3>
@@ -211,55 +207,55 @@
             <?php endif;?>
         </aside>
 
-    <!--notifiche-->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title" id="exampleModalLabel">
-                        <span class="border-bottom border-danger border-2">
-                            Notifiche
-                        </span>
-                    </h1>
-                    <button class="btn btn-default" data-dismiss="modal">
-                        <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
-                    </button>
-                </div>
-                <?php if(isUserLoggedIn()): ?>
-                    <div class="modal-body">
-                        <ul class="list-unstyled">
-                            <?php foreach($templateParams["messages"] as $message):?>
-                                <a href="../../php/api/readNotification.php?codiceNotifica=<?php echo $message["Codice"]?>" class="text-decoration-none iconDropdown">
-                                    <li class="row border-bottom">
-                                        <div class="row">
-                                            <div class ="col-8">
-                                                <header>
-                                                    <h2><?php echo $message["Titolo"]?></h2>
-                                                </header>
-                                            </div>
-                                            <div class ="col-2"></div>
-                                            <?php if($dbh->isRead($message["Codice"]) == 0):?>
-                                                <div class ="col-1 text-end pt-2">
-                                                    <img src="../../img/icon/red-circle.png" alt="" style="width:20px; height:20px;"/>
+        <!--notifiche-->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title" id="exampleModalLabel">
+                            <span class="border-bottom border-danger border-2">
+                                Notifiche
+                            </span>
+                        </h1>
+                        <button class="btn btn-default" data-dismiss="modal">
+                            <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
+                        </button>
+                    </div>
+                    <?php if(isUserLoggedIn()): ?>
+                        <div class="modal-body">
+                            <ul class="list-unstyled">
+                                <?php foreach($templateParams["messages"] as $message):?>
+                                    <a href="../../php/api/readNotification.php?codiceNotifica=<?php echo $message["Codice"]?>" class="text-decoration-none iconDropdown">
+                                        <li class="row border-bottom">
+                                            <div class="row">
+                                                <div class ="col-8">
+                                                    <header>
+                                                        <h2><?php echo $message["Titolo"]?></h2>
+                                                    </header>
                                                 </div>
-                                            <?php endif;?>
-                                        </div>
-                                        <div class="row">
-                                            <p><?php echo $message["Testo"]?></p>
-                                        <div>
-                                    </li>
-                                </a>
-                            <?php endforeach;?>
-                        </ul>
-                    </div>
-                <?php endif;?>
-                <?php if(!isUserLoggedIn()): ?>
-                    <div class="modal-body text-center">
-                        <p>Effettua il login per visualizzare le notifiche.</p>
-                    </div>
-                <?php endif;?>
+                                                <div class ="col-2"></div>
+                                                <?php if($dbh->isRead($message["Codice"]) == 0):?>
+                                                    <div class ="col-1 text-end pt-2">
+                                                        <img src="../../img/icon/red-circle.png" alt="" style="width:20px; height:20px;"/>
+                                                    </div>
+                                                <?php endif;?>
+                                            </div>
+                                            <div class="row">
+                                                <p><?php echo $message["Testo"]?></p>
+                                            <div>
+                                        </li>
+                                    </a>
+                                <?php endforeach;?>
+                            </ul>
+                        </div>
+                    <?php endif;?>
+                    <?php if(!isUserLoggedIn()): ?>
+                        <div class="modal-body text-center">
+                            <p>Effettua il login per visualizzare le notifiche.</p>
+                        </div>
+                    <?php endif;?>
+                </div>
             </div>
         </div>
     </div>
-    
 </body>
