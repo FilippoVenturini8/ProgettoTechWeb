@@ -23,12 +23,12 @@ $dbh->clearCart($_SESSION["mail"]);
 
 $titoloUser = "Ordine Ricevuto";
 $testoUser = "Il tuo ordine con codice ".$idOrder." è stato ricevuto. LP shop provvederà alla spedizione il prima possibile, controlla lo stato del tuo ordine nella pagina I Miei Ordini";
-$linkUser=" ";
+$linkUser="/user/orders.php";
 $dbh->insertNotification($testoUser,$titoloUser,$linkUser,date("Y-m-d h:i:s"), $_SESSION["mail"]);
 
 $titoloAdmin = "Ordine Ricevuto";
 $testoAdmin = "Hai ricevuto un ordine da: ".$_SESSION["mail"]."<br> Codice ordine: ".$idOrder;
-$linkAdmin=" ";
+$linkAdmin="/admin/ordersList.php";
 $dbh->insertNotification($testoAdmin,$titoloAdmin,$linkAdmin,date("Y-m-d h:i:s"), $dbh->selectAdminMail());
 
 header("location: ../user/orders.php");

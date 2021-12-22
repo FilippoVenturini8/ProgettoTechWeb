@@ -379,5 +379,15 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC)[0]["Visualizzata"];
     }
 
+    public function getNotificationLink($codiceNotifica){
+        $stmt = $this->db->prepare("SELECT Link
+                                    FROM Notifica
+                                    WHERE Codice = ?");
+        $stmt->bind_param("i",$codiceNotifica);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]["Link"];
+    }
+
 }
 ?>

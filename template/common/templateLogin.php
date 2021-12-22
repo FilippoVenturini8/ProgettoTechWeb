@@ -23,5 +23,5 @@
     <?php endif;?>
 </form>
 <div class="text-center mt-3">
-    <p>Noi hai un account? <a class="fw-bold text-danger" href="../../php/user/registration.php">Registrati</a>!</p>
+    <p>Non hai un account? <a class="fw-bold text-danger" href="../../php/user/registration.php">Registrati</a>!</p>
 </div>

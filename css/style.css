@@ -173,3 +173,8 @@ aside{
     height: 30px !important;
     width: 30px !important;
 }
+
+.iconDropdown{
+    background-color: #ebebeb !important;
+    color:#000 !important;
+}

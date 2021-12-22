@@ -50,7 +50,7 @@ create table NOTIFICA (
      Codice int not null AUTO_INCREMENT,
      Testo varchar(256) not null,
      Titolo varchar(30) not null,
-     Link varchar(30),
+     Link varchar(100),
      Visualizzata boolean not null DEFAULT 0,
      DataNotifica datetime,
      MailAccount varchar(30) REFERENCES Account(Mail),

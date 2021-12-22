@@ -218,7 +218,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title" id="exampleModalLabel">
-                        <span class="border-bottom border-danger">
+                        <span class="border-bottom border-danger border-2">
                             Notifiche
                         </span>
                     </h1>
@@ -230,12 +230,26 @@
                     <div class="modal-body">
                         <ul class="list-unstyled">
                             <?php foreach($templateParams["messages"] as $message):?>
-                                <li class="border-bottom">
-                                    <header>
-                                        <h2><?php echo $message["Titolo"]?></h2>
-                                    </header>
-                                    <p><?php echo $message["Testo"]?></p>
-                                </li>
+                                <a href="../../php/api/readNotification.php?codiceNotifica=<?php echo $message["Codice"]?>" class="text-decoration-none iconDropdown">
+                                    <li class="row border-bottom">
+                                        <div class="row">
+                                            <div class ="col-8">
+                                                <header>
+                                                    <h2><?php echo $message["Titolo"]?></h2>
+                                                </header>
+                                            </div>
+                                            <div class ="col-2"></div>
+                                            <?php if($dbh->isRead($message["Codice"]) == 0):?>
+                                                <div class ="col-1 text-end pt-2">
+                                                    <img src="../../img/icon/red-circle.png" alt="" style="width:20px; height:20px;"/>
+                                                </div>
+                                            <?php endif;?>
+                                        </div>
+                                        <div class="row">
+                                            <p><?php echo $message["Testo"]?></p>
+                                        <div>
+                                    </li>
+                                </a>
                             <?php endforeach;?>
                         </ul>
                     </div>
