@@ -118,8 +118,10 @@ class DatabaseHelper{
     
     public function getPopularsDisks(){
         $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
-                                    FROM Disco
-                                    ORDER BY DataPubblicazione DESC
+                                    FROM Disco_Ordinato, Disco
+                                    WHERE Disco_Ordinato.CodiceDisco = Disco.Codice
+                                    GROUP BY CodiceDisco
+                                    ORDER BY SUM(Disco_Ordinato.Quantita) DESC
                                     LIMIT 5");
         $stmt->execute();
         $result = $stmt->get_result();
