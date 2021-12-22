@@ -21,9 +21,9 @@
 </div>
 <div class="accordion px-4" id="adminOrdersAccordion">
     <?php foreach($templateParams["allOrders"] as $order) : ?>
-        <div class="accordion-item">
+        <div id="<?php echo $order["CodiceOrdine"];?>" class="accordion-item">
             <h2 class="accordion-header" id="headingAdminOrder<?php echo $order["CodiceOrdine"]?>">
-            <button class="accordion-button py-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#adminOrder<?php echo $order["CodiceOrdine"]?>" aria-controls="adminOrder<?php echo $order["CodiceOrdine"]?>">
+            <button class="accordion-button py-3 <?php if(!isset($templateParams["idOrderSelected"])){ echo "collapsed";}?> <?php if(isset($templateParams["idOrderSelected"]) && $order["CodiceOrdine"] != $templateParams["idOrderSelected"]){echo "collapsed";}?>" type="button" data-bs-toggle="collapse" data-bs-target="#adminOrder<?php echo $order["CodiceOrdine"]?>" aria-controls="adminOrder<?php echo $order["CodiceOrdine"]?>">
                 <div class="col-5">
                     <label>Ordine: <?php echo $order["CodiceOrdine"]?></label>
                 </div>
@@ -35,7 +35,8 @@
                 </div>
             </button>
             </h2>
-            <div id="adminOrder<?php echo $order["CodiceOrdine"]?>" class="accordion-collapse collapse" aria-labelledby="headingAdminOrder<?php echo $order["CodiceOrdine"]?>" data-bs-parent="#adminOrdersAccordion">
+            <!--TODO aggiungo show in class-->
+            <div id="adminOrder<?php echo $order["CodiceOrdine"]?>" class="accordion-collapse collapse <?php if(isset($templateParams["idOrderSelected"]) && $order["CodiceOrdine"] == $templateParams["idOrderSelected"]){echo "show";}?>" aria-labelledby="headingAdminOrder<?php echo $order["CodiceOrdine"]?>" data-bs-parent="#adminOrdersAccordion">
                 <div class="accordion-body">
                     <label class="row fw-bold">#<?php echo $order["CodiceOrdine"]?></label>
                     <label class="row">

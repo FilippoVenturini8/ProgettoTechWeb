@@ -3,5 +3,13 @@ $(document).ready(function () {
         $(".dropDown").text($(this).text());
         $(".dropDown").val($(this).text());
     });
+
+    copertina.onchange = evt => {
+        const [file] = copertina.files
+        $("#preview").removeClass("d-none");
+        if (file) {
+            preview.src = URL.createObjectURL(file)
+        }
+      }
 });
 

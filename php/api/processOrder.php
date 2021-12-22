@@ -21,14 +21,14 @@ foreach ($finishedDisks as $finishedDisk){
 
 $dbh->clearCart($_SESSION["mail"]);
 
-$titoloUser = "Ordine Ricevuto";
-$testoUser = "Il tuo ordine con codice ".$idOrder." è stato ricevuto. LP shop provvederà alla spedizione il prima possibile, controlla lo stato del tuo ordine nella pagina I Miei Ordini";
-$linkUser="/user/orders.php";
+$titoloUser = "Ordine #".$idOrder." ricevuto";
+$testoUser = "Il tuo ordine con codice ".$idOrder." è stato ricevuto. LP shop provvederà alla spedizione il prima possibile.<br>Clicca qui per verificare lo stato del tuo ordine.";
+$linkUser="/user/trackMyPackage.php?idOrder=".$idOrder;
 $dbh->insertNotification($testoUser,$titoloUser,$linkUser,date("Y-m-d h:i:s"), $_SESSION["mail"]);
 
-$titoloAdmin = "Ordine Ricevuto";
-$testoAdmin = "Hai ricevuto un ordine da: ".$_SESSION["mail"]."<br> Codice ordine: ".$idOrder;
-$linkAdmin="/admin/ordersList.php";
+$titoloAdmin = "Ordine #".$idOrder." ricevuto";
+$testoAdmin = "Hai ricevuto un ordine da: ".$_SESSION["mail"]."<br>Clicca qui per visualizzare i dettagli dell'ordine.";
+$linkAdmin="/admin/ordersList.php?idOrderSelected=".$idOrder."#".$idOrder;
 $dbh->insertNotification($testoAdmin,$titoloAdmin,$linkAdmin,date("Y-m-d h:i:s"), $dbh->selectAdminMail());
 
 header("location: ../user/orders.php");

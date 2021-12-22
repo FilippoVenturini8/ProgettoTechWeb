@@ -3,7 +3,7 @@
     <div class="col-1"></div>
     <div class="col-11 ml-2">
         <h1>
-            <span class="border-bottom border-danger border-2">
+            <span class="border-bottom border-danger border-2 py-1">
                 Aggiungi Disco
             </span>
         </h1>
@@ -37,62 +37,49 @@
 <?php endif; ?>
 
 <form action="../../php/api/processNewProduct.php" method="POST" enctype="multipart/form-data">
-    <div class="row mt-4 mb-4">
-        <div class="col-1"></div>
-        <div class="col-3 pt-1">
-            <label for="titolo">Titolo:</label>
+
+    <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6 text-center">
+            <img src="#" id="preview" class="img-thumbnail d-none" alt="...">
         </div>
-        <div class="col-6">
-            <input id="titolo" name="titolo" class="form-control" type="text" autocomplete="off"/>
-        </div>
-        <div class="col-2"></div>            
+        <div class="col-3"></div>
     </div>
 
-    <div class="row mb-4">
-        <div class="col-1"></div>
-        <div class="col-3 pt-1">
-            <label for="artista">Artista:</label>
-        </div>
-        <div class="col-6">
-            <input id="artista" name="artista" class="form-control" type="text" autocomplete="off"/>
-        </div>
-        <div class="col-2"></div>                 
-    </div> 
-
-    <div class="row mb-4">
-        <div class="col-1"></div>
-        <div class="col-3 pt-1">
-            <label for="prezzo">Prezzo:</label>
-        </div>
-        <div class="col-6">
-            <input id="prezzo" name="prezzo" class="form-control" type="text" autocomplete="off"/>
-        </div>
-        <div class="col-2"></div>                 
+    <div class="form-group mt-4 mx-5 px-5">
+        <label for="titolo">Titolo:</label>
+        <input id="titolo" name="titolo" class="form-control" type="text" autocomplete="off"/>
     </div>
 
-    <div class="row mb-4">
-        <div class="col-1"></div>
-        <div class="col-3 pt-1">
-            <label for="quantita">Quantità:</label>
-        </div>
-        <div class="col-6">
-            <input id="quantita" name="quantita" class="form-control" type="text" autocomplete="off"/>
-        </div>
-        <div class="col-2"></div>                 
+    <div class="form-group mt-3 mx-5 px-5">
+        <label for="artista">Artista:</label>
+        <input id="artista" name="artista" class="form-control" type="text" autocomplete="off"/>
     </div>
 
-    <div class="row mb-4">
-        <div class="col-1"></div>
-        <div class="col-3 pt-1">
-            <label for="datauscita">Data uscita:</label>
-        </div>
-        <div class="col-6">
-            <input id="datauscita" name="datauscita" class="form-control" type="date"/>
-        </div>
-        <div class="col-2"></div>                 
+    <div class="form-group mt-3 mx-5 px-5">
+        <label for="prezzo">Prezzo:</label>
+        <input id="prezzo" name="prezzo" class="form-control" type="text" autocomplete="off"/>
     </div>
 
-    <div class="row mb-4">
+    <div class="form-group mt-3 mx-5 px-5">
+        <label for="quantita">Quantità:</label>
+        <input id="quantita" name="quantita" class="form-control" type="text" autocomplete="off"/>
+    </div>
+
+    <div class="form-group mt-3 mx-5 px-5">
+        <label for="datauscita">Data uscita:</label>
+        <input id="datauscita" name="datauscita" class="form-control" type="date"/>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <input id="copertina" name="copertina" class="form-control" type="file" accept=".jpg,.jpeg,.png"/>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+    <div class="row mt-3 mb-4">
         <div class="row">
             <div class="col-5"></div>
             <div class="col-4">
@@ -109,14 +96,6 @@
             </div>
             <div class="col-3"></div>            
         </div>
-    </div>
-
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-8">
-            <input id="copertina" name="copertina" class="form-control" type="file" accept=".jpg,.jpeg,.png"/>
-        </div>
-        <div class="col-2"></div>
     </div>
 
     <div class="row mt-5 mx-5">
