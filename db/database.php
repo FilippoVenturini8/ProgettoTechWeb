@@ -390,7 +390,7 @@ class DatabaseHelper{
         WHERE Codice = ?");
         $stmt->bind_param("issif",$Codice,$Artista, $Titolo, $quantitaDisponibile, $prezzo);
         return $stmt->execute();
-
+    }
     public function getNotificationLink($codiceNotifica){
         $stmt = $this->db->prepare("SELECT Link
                                     FROM Notifica
