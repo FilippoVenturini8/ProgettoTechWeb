@@ -32,18 +32,22 @@
             </div>
             <div class="col-2 text-end">
                 <button class="btn btn-default" type="button" data-toggle="modal" data-target="#exampleModal">
-                    <img src="../../img/icon/<?php 
-                    $newNotify = false;
-                    foreach($templateParams["messages"] as $notify){
-                        if($notify["Visualizzata"] == 0){
-                            $newNotify = true;
-                            break;
-                        }
-                    }
-                    if($newNotify){
-                        echo "bellNotify.png";
-                    }else{
+                    <img src="../../img/icon/<?php
+                    if(!isset($templateParams["messages"])){
                         echo "bell.png";
+                    }else{
+                        $newNotify = false;
+                        foreach($templateParams["messages"] as $notify){
+                            if($notify["Visualizzata"] == 0){
+                                $newNotify = true;
+                                break;
+                            }
+                        }
+                        if($newNotify){
+                            echo "bellNotify.png";
+                        }else{
+                            echo "bell.png";
+                        }
                     }
                     ?>" alt="" />
                 </button>
