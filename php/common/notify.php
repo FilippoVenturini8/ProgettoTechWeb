@@ -11,6 +11,8 @@ $templateParams["title"] = "LP Shop - Notify";
 $templateParams["templateName"] = "../../template/common/templateNotify.php";
 $templateParams["disksInCart"] = $dbh->getDisksInCart($_SESSION["mail"]);
 $templateParams["cartTotal"] = $dbh->getCartTotal($_SESSION["mail"]);
+$templateParams["allNotifications"] = $dbh->getAllNotifications($_SESSION["mail"]);
+
 $templateParams["messages"] = $dbh->getMessages($_SESSION["mail"]);
 
 

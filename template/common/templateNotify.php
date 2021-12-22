@@ -9,7 +9,7 @@
     <div class="col-1"></div>
     <div class="col-10">
         <div class="list-group mt-5 ">
-        <?php foreach($templateParams["messages"]  as $notify) :?>
+        <?php foreach($templateParams["allNotifications"]  as $notify) :?>
             <a href="../../php/api/readNotification.php?codiceNotifica=<?php echo $notify["Codice"]?>" class="unReadNotify <?php if($dbh->isRead($notify["Codice"]) == 1) { echo "readNotify";}?> list-group-item list-group-item-action" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1"><?php echo $notify["Titolo"];?></h5>

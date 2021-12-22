@@ -3,7 +3,7 @@
 <div class="row text-center m-5">
     <div class="col-3">
         <h1>
-            <spam class="border-bottom border-danger">    
+            <spam class="border-bottom border-danger border-2">    
                 Profilo
             </spam>
         </h1>

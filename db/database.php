@@ -187,6 +187,19 @@ class DatabaseHelper{
     public function getMessages($mail){
         $query = "SELECT Codice, Testo, Titolo, Link, MailAccount, DataNotifica, Visualizzata
                   FROM notifica WHERE MailAccount = ?
+                  ORDER BY Codice DESC
+                  LIMIT 7";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $mail);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getAllNotifications($mail){
+        $query = "SELECT Codice, Testo, Titolo, Link, MailAccount, DataNotifica, Visualizzata
+                  FROM notifica WHERE MailAccount = ?
                   ORDER BY Codice DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $mail);
