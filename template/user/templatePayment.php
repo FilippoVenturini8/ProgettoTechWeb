@@ -1,51 +1,41 @@
 <script src="../../js/payment.js" type="text/javascript"></script>
 
 <div class="row mx-2 my-4">
-    <h1>Pagamento e spedizione</h1>
+    <h1>
+        <span class="border-bottom border-danger border-2 py-1">Pagamento e spedizione</span>
+    </h1>
 </div>
 
 <div class="row m-4">
-    <h2>Indirizzo di spedizione:</h2>
+    <h2>
+        <span class="border-bottom border-danger border-2 py-1">Indirizzo di spedizione:</span>
+    </h2>
 </div>
 
-<div class="text-center">
-    <img src="../../img/icon/spedizione.png" class="icon-map" alt="" />
+<div class="card mx-auto" style="width: 25rem;">
+  <img src="../../img/icon/spedizione.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text fst-italic text-center">Via Cesare Pavese, 50, Cesena, FC</p>
+  </div>
 </div>
 
-<div class="row mt-2">
-    <div class="col-1"></div>
-    <div class="col-3"></div>
-    <div class="col-8 text-start">
-        <p>Via Cesare Pavese, 50, Cesena, FC</p>
-    </div>
+<div class="row mx-4 mt-4">
+    <h3>
+        <span class="border-bottom border-danger border-2 py-1">Riepilogo:</span>
+    </h3>
 </div>
 
-<div class="row mx-4">
-    <h3>Riepilogo:</h3>
-</div>
-
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-9">
-        <ul class="list-unstyled">
-            <?php foreach ($templateParams["disksInCart"] as $disk):?>
-                <li class="mb-1">|<?php echo $disk["Quantita"]?>x <?php echo $disk["Titolo"]?> - <?php echo $disk["Artista"]?></li>
-            <?php endforeach?>
-        </ul>
-    </div>
-</div>
-
-<div class="row mx-4">
-    <div class="col-4">
-        <label>Totale:</label>
-    </div>
-    <div class="col-2">
-        <label><?php echo round($templateParams["cartTotal"][0]["Totale"], 2)?></label>
-    </div>
-</div>
+<ul class="list-group list-group-flush mx-5 mt-3">
+    <?php foreach ($templateParams["disksInCart"] as $disk):?>
+        <li class="list-group-item"><?php echo $disk["Quantita"]?>x <?php echo $disk["Titolo"]?> - <?php echo $disk["Artista"]?></li>
+    <?php endforeach?>
+    <li class="list-group-item text-end"><label>Totale:</label><label class="fw-bold mx-3"><?php echo round($templateParams["cartTotal"][0]["Totale"], 2)?>€</label></li>
+</ul>
 
 <div class="row m-4">
-    <h3>Pagamento:</h3>
+    <h3>
+        <span class="border-bottom border-danger border-2 py-1">Pagamento:</span>
+    </h3>
 </div>
 
 <form autocomplete="on">

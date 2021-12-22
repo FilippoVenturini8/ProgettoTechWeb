@@ -118,8 +118,10 @@ class DatabaseHelper{
     
     public function getPopularsDisks(){
         $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
-                                    FROM Disco
-                                    ORDER BY DataPubblicazione DESC
+                                    FROM Disco_Ordinato, Disco
+                                    WHERE Disco_Ordinato.CodiceDisco = Disco.Codice
+                                    GROUP BY CodiceDisco
+                                    ORDER BY SUM(Disco_Ordinato.Quantita) DESC
                                     LIMIT 5");
         $stmt->execute();
         $result = $stmt->get_result();
@@ -185,7 +187,7 @@ class DatabaseHelper{
     public function getMessages($mail){
         $query = "SELECT Codice, Testo, Titolo, Link, MailAccount, DataNotifica, Visualizzata
                   FROM notifica WHERE MailAccount = ?
-                  ORDER BY DataNotifica DESC";
+                  ORDER BY Codice DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $mail);
         $stmt->execute();
@@ -388,6 +390,16 @@ class DatabaseHelper{
         WHERE Codice = ?");
         $stmt->bind_param("issif",$Codice,$Artista, $Titolo, $quantitaDisponibile, $prezzo);
         return $stmt->execute();
+
+    public function getNotificationLink($codiceNotifica){
+        $stmt = $this->db->prepare("SELECT Link
+                                    FROM Notifica
+                                    WHERE Codice = ?");
+        $stmt->bind_param("i",$codiceNotifica);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0]["Link"];
+
     }
 
 }

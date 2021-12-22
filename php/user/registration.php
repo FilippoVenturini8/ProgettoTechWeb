@@ -13,7 +13,7 @@ if(isset($_POST["email"]) && isset($_POST["password"]) && isset($_POST["conferma
 
         $titolo = "Benvenuto in LP Shop!";
         $testo = "Benvenuto nella piattaforma di acquisto online di vinili. Scegli la categoria che preferisci e procedi all'acquisto dei prodotti migliori per te!";
-        $link=" ";
+        $link="/common/index.php";
         $dbh->insertNotification($testo,$titolo,$link,date("Y-m-d h:i:s"), $_SESSION["mail"]);
     } else {
         $templateParams["erroreRegistrazione"] = "Errore registrazione!";

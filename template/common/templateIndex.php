@@ -1,22 +1,21 @@
 <div class="row my-3">
     <h1>
-        <span class="mx-5 border-bottom border-danger border-2">
+        <span class="mx-5 border-bottom border-danger border-2 py-1">
             Popolari
         </span>
     </h1>
 </div>
 
 <!--carosello-->
-
 <div id="carouselExampleControls" class="carousel slide mx-auto" data-bs-ride="carousel" style="width: 300px;">
     <div class="carousel-inner w-100">
         <?php $i=0; foreach($templateParams["popularsDisks"] as $popularDisk) :?>
             <div class="carousel-item <?php if($i==0){ echo "active";}?> w-100">
-                <a href="../../php/common/category.php?nomeCategoria=Popolari&CodiceDisco=<?php echo $popularDisk["Codice"];?>">
+                <a href="../../php/common/category.php?nomeCategoria=Popolari&CodiceDisco=<?php echo $popularDisk["Codice"];?>#<?php echo $popularDisk['Codice']?>">
                     <img src="<?php echo UPLOAD_DIR.$popularDisk["Copertina"]?>" class="d-block w-100" alt="...">
                 </a>
                 <div class="carousel-caption">
-                    <h5><?php echo $popularDisk["Titolo"]?> - <?php echo $popularDisk["Artista"];?></h5>
+                    <p class="fw-bold"><?php echo $popularDisk["Titolo"]?> - <?php echo $popularDisk["Artista"];?></p>
                 </div>
             </div>
         <?php $i=$i+1; endforeach; ?>
@@ -33,7 +32,7 @@
 
 <div class="row mt-4 mb-3">
     <h1>
-        <span class="mx-5 border-bottom border-danger border-2">
+        <span class="mx-5 border-bottom border-danger border-2 py-1">
             Categorie
         </span>
     </h1>

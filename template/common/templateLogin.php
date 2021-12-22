@@ -1,6 +1,6 @@
 <form class="mt-4" action="#" method="POST">
     <h1>
-        <span class="mx-4 border-bottom border-danger">    
+        <span class="mx-4 border-bottom border-danger border-2">    
             Login
         </span>
     </h1>
@@ -23,5 +23,5 @@
     <?php endif;?>
 </form>
 <div class="text-center mt-3">
-    <p>Noi hai un account? <a class="fw-bold text-danger" href="../../php/user/registration.php">Registrati</a>!</p>
+    <p>Non hai un account? <a class="fw-bold text-danger" href="../../php/user/registration.php">Registrati</a>!</p>
 </div>
