@@ -1,4 +1,7 @@
 <script src="../../js/productListSearchBar.js" type="text/javascript"></script>
+<script src="../../js/modifyProduct.js" type="text/javascript"></script>
+<script src="../../js/saveModifyProduct.js" type="text/javascript"></script>
+<script src="../../js/cancelChangesProduct.js" type="text/javascript"></script>
 <!--LISTINO VINILI-->
 <div class="row mt-3">
     <div class="col-12">
@@ -73,7 +76,7 @@
                 </button>
                 </h2>
                 <div id="disk<?php echo $disk["Codice"]?>" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $disk["Codice"]?>" data-bs-parent="#diskAccordion">
-                    <div class="accordion-body">
+                    <div class="accordion-body" id="modifyAccordion">
                         <div class="d-inline-block align-top">
                             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
                         </div>
@@ -81,7 +84,10 @@
                             <p class="m-0"><?php echo $disk["Artista"];?> - <?php echo $disk["Titolo"]?></p>                          
                             <p><?php echo $disk["Prezzo"];?>€</p>
                             <p>
-                                <a href="#">modifica</a> 
+                                <button type="button" class="btn btn-primary" id="btnModifica" data-id="<?php echo $disk["Codice"]?>"  onclick="">
+                                <input type="hidden"  id="idDisk" value="<?php echo $disk["Codice"]?>"/>
+                                    Modifica
+                                </button>
                                 <button type="button" class="btn btn-primary" id="idElimina" data-id="<?php echo $disk["Codice"]?>" onclick="$('#dataid').val($(this).data('id'));" data-toggle="modal" data-target="#exampleModal">
                                     Elimina
                                 </button>

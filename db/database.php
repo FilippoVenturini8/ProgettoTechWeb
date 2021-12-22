@@ -379,5 +379,16 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC)[0]["Visualizzata"];
     }
 
+    public function modifyProduct($Codice, $Artista, $Titolo, $quantitaDisponibile, $prezzo){
+        $stmt = $this->db->prepare("UPDATE Disco
+        SET QuantitaDisponibile = ?,
+            Artista = ?,
+            Titolo = ?,
+            Prezzo = ?
+        WHERE Codice = ?");
+        $stmt->bind_param("issif",$Codice,$Artista, $Titolo, $quantitaDisponibile, $prezzo);
+        return $stmt->execute();
+    }
+
 }
 ?>
