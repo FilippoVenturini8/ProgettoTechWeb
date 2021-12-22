@@ -13,7 +13,7 @@
                     <div class="carousel-inner w-100">
                         <?php $i=0; foreach($templateParams["ordersDetails"][$order["Codice"]] as $disk) :?>
                             <div class="carousel-item <?php if($i==0){ echo "active";}?> w-100">
-                                <img src="<?php echo UPLOAD_DIR.$disk["Copertina"]?>" class="d-block w-100" alt="...">
+                                <img src="<?php echo UPLOAD_DIR.$disk["Copertina"]?>" class="diskInOrder" alt="...">
                             </div>
                         <?php $i=$i+1; endforeach; ?>
                     </div>
@@ -29,16 +29,16 @@
             </div>
             <div class="col-8 mt-2 px-4">
                 <div class="row mb-0">
-                    <div class="col-4">
+                    <div class="col-5">
                         <label class="m-0 fw-bold">Ordine #<?php echo $order["Codice"]?></label>
                     </div>
-                    <div class="col-2"></div>
+                    <div class="col-1"></div>
                     <div class="col-6 text-end">
                         <label class="fw-bold orderState"><?php echo getOrderState($order["DataOrdine"], $order["DataSpedizione"], $order["DataConsegna"]);?></label>
                     </div>
                 </div>
                 
-                <p class="text-end m-0"><?php echo $order["DataOrdine"]?></p>
+                <p class="text-end m-0 mb-3"><?php echo $order["DataOrdine"]?></p>
                 <?php foreach($templateParams["ordersDetails"][$order["Codice"]] as $disk) :?>
                     <p>| <?php echo $disk["Quantita"]?>x <?php echo $disk["Artista"]?> - <?php echo $disk["Titolo"]?></p>
                 <?php endforeach; ?>

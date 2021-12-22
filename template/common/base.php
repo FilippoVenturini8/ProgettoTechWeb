@@ -80,7 +80,7 @@
                 </div>
                 <div class="row mb-3">
                     <h3>
-                        <span class="mx-4 border-bottom border-danger">
+                        <span class="mx-4 border-bottom border-danger border-2 py-1">
                             Carrello
                         </span>
                     </h3>

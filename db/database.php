@@ -187,7 +187,7 @@ class DatabaseHelper{
     public function getMessages($mail){
         $query = "SELECT Codice, Testo, Titolo, Link, MailAccount, DataNotifica, Visualizzata
                   FROM notifica WHERE MailAccount = ?
-                  ORDER BY DataNotifica DESC";
+                  ORDER BY Codice DESC";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param('s', $mail);
         $stmt->execute();

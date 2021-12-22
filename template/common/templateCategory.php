@@ -1,11 +1,11 @@
 <h1 class="p-3">
-    <span class="border-bottom border-danger border-2">
+    <span class="border-bottom border-danger border-2 py-1">
         <?php echo $templateParams["categoryName"]?>
     </span>    
 </h1>
 <!--singolo disco-->
 <?php foreach($templateParams["disks"] as $disk) :?>
-    <div class="row p-2 border-bottom border-danger <?php if(isset($templateParams["popularClicked"]) && $disk["Codice"] == $templateParams["popularClicked"]){ echo "bg-danger text-light";}?>">
+    <div id="<?php echo $disk["Codice"]?>" class="row p-2 border-bottom border-danger <?php if(isset($templateParams["popularClicked"]) && $disk["Codice"] == $templateParams["popularClicked"]){ echo "popularClicked";}?>">
         <div class="col-4 mt-2">
             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
         </div>

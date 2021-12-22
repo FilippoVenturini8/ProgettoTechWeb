@@ -1,6 +1,6 @@
 <div class="row my-3">
     <h1>
-        <span class="mx-5 border-bottom border-danger border-2">
+        <span class="mx-5 border-bottom border-danger border-2 py-1">
             Popolari
         </span>
     </h1>
@@ -12,7 +12,7 @@
     <div class="carousel-inner w-100">
         <?php $i=0; foreach($templateParams["popularsDisks"] as $popularDisk) :?>
             <div class="carousel-item <?php if($i==0){ echo "active";}?> w-100">
-                <a href="../../php/common/category.php?nomeCategoria=Popolari&CodiceDisco=<?php echo $popularDisk["Codice"];?>">
+                <a href="../../php/common/category.php?nomeCategoria=Popolari&CodiceDisco=<?php echo $popularDisk["Codice"];?>#<?php echo $popularDisk['Codice']?>">
                     <img src="<?php echo UPLOAD_DIR.$popularDisk["Copertina"]?>" class="d-block w-100" alt="...">
                 </a>
                 <div class="carousel-caption">
@@ -33,7 +33,7 @@
 
 <div class="row mt-4 mb-3">
     <h1>
-        <span class="mx-5 border-bottom border-danger border-2">
+        <span class="mx-5 border-bottom border-danger border-2 py-1">
             Categorie
         </span>
     </h1>

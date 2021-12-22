@@ -95,11 +95,6 @@ div > aside > ul > li{
     height: 20px !important;
 }
 
-.icon-map{
-    width: 500px !important;
-    height: 350px !important;
-}
-
 aside{
     z-index: 2;
 }
@@ -175,6 +170,11 @@ aside{
 }
 
 .iconDropdown{
+    background-color: #ebebeb !important;
+    color:#000 !important;
+}
+
+.popularClicked{
     background-color: #ebebeb !important;
     color:#000 !important;
 }
