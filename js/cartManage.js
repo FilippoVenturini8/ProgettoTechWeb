@@ -38,6 +38,9 @@ function alterQuantity(codiceDisco, operazione){
 }
 
 function addDiskToCart(codiceDisco){
+    if($("#btnPaga").hasClass("disabled")){
+        $("#btnPaga").removeClass("disabled");
+    }
     $.ajax({
         url:"../../php/api/addToCart.php",
         type: "post",
@@ -48,6 +51,7 @@ function addDiskToCart(codiceDisco){
         success: function(data) {
             data = JSON.parse(data);
             if(!data.hasOwnProperty('errore')){
+                let orderTotal = 0;
                 if(document.getElementById("add" + codiceDisco) != null){
                     document.getElementById("add" + codiceDisco).outerHTML = `<button id="remove` + codiceDisco + `" class="btn btn-default mx-0 add-to-cart-button text-end" onclick="removeFromCart(` + data.codice + `)">
                                                                               <img src="../../img/icon/minus2.png" alt=""/> 
@@ -92,6 +96,7 @@ function addDiskToCart(codiceDisco){
                                                         </div>
                                                     </div>
                                                 </li>`);
+                
                 document.getElementById("cartTotal").innerHTML = "Totale: " + data.totale + "€";
             }
         }
@@ -99,6 +104,7 @@ function addDiskToCart(codiceDisco){
 }
 
 function removeFromCart(codiceDisco){
+    
     $.ajax({
         url:"../../php/api/removeFromCart.php",
         type: "post",
@@ -108,7 +114,10 @@ function removeFromCart(codiceDisco){
         },
         success: function(data) {
             console.log(data);
-            data = JSON.parse(data); 
+            data = JSON.parse(data);
+            if(data.totale==0 && !$("#btnPaga").hasClass("disabled")){
+                $("#btnPaga").addClass("disabled");
+            } 
             if(!data.hasOwnProperty('errore')){
                 if(document.getElementById("remove" + codiceDisco) != null){
                     document.getElementById("remove" + codiceDisco).outerHTML = `<button id="add` + codiceDisco + `" class="btn btn-default mx-0 add-to-cart-button text-end" onclick="addDiskToCart(` + codiceDisco + `)">

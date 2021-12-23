@@ -131,7 +131,7 @@
                         </li>
                     <?php endforeach; ?>
                 </ul>
-            
+                        
                 <footer class="mt-3">
                     <div class="row">
                         <div class="row mx-3">
@@ -140,7 +140,7 @@
                         <div class="row">
                             <div class="col-9"></div>
                             <div class="col-3">
-                                <a class="btn btn-primary btn-sm" href="../../php/user/payment.php" role="button">Paga</a>
+                                <a id="btnPaga" class="btn btn-primary btn-sm" href="../../php/user/payment.php" role="button">Paga</a>
                             </div>
                         </div>
                     </div>
