@@ -27,7 +27,7 @@
                 </a>
             </div>
             <div class="col-2 text-end">
-                <button class="btn btn-default" type="button" data-toggle="modal" data-target="#exampleModal">
+                <button class="btn btn-default" type="button" data-toggle="modal" data-target="#MessagesModal">
                     <img src="../../img/icon/<?php
                     if(!isset($templateParams["messages"])){
                         echo "bell.png";
@@ -212,11 +212,11 @@
         </aside>
 
         <!--notifiche-->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="MessagesModal" tabindex="-1" role="dialog" aria-labelledby="MessagesModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title" id="exampleModalLabel">
+                        <h1 class="modal-title" id="MessagesModalLabel">
                             <span class="border-bottom border-danger border-2">
                                 Notifiche
                             </span>

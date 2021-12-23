@@ -52,12 +52,7 @@ $(document).ready(function () {
     var footerHeight = $("body > div > footer").height();
     var footerTop = $("body > div > footer").position().top + footerHeight;
 
-    console.log(docHeight);
-    console.log(footerTop);
-    console.log()
-
     if(footerTop < docHeight){
-        console.log("ciao");
         $("body > div > footer").css("margin-top", 16 + (docHeight - footerTop) + "px");
     }
 });

@@ -31,6 +31,7 @@ create table DISCO (
      VotoMedio int,
      Artista varchar(30) REFERENCES Artista(Nome),
      Categoria varchar(15) REFERENCES Categoria(Nome),
+     Eliminato boolean not null DEFAULT 0,
      constraint ID_DISCO_ID primary key (Codice));
 
 create table DISCO_ORDINATO (

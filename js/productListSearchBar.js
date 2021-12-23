@@ -40,9 +40,12 @@ function searchDisks(){
                             <div class="d-inline-block align-top">
                                 <p class="m-0">` + disk.Artista+ ` - ` + disk.Titolo+ `</p>                          
                                 <p>` + disk.Prezzo+ `€</p>
-                                <p>
-                                    <a href="#">modifica</a> 
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                <p class="m-3">
+                                    <button type="button" class="btn btn-primary" name="btnModifica" data-id="` + disk.Codice + `"  onclick="">
+                                    <input type="hidden"  id="idDisk" value="` + disk.Codice + `"/>
+                                        Modifica
+                                    </button>
+                                    <button type="button" class="btn btn-primary m-3" id="idElimina" data-id="` + disk.Codice + `" onclick="$('#dataid').val($(this).data('id'));" data-toggle="modal" data-target="#modalDelete">
                                         Elimina
                                     </button>
                                 <p>                         
