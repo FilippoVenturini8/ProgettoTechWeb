@@ -41,13 +41,19 @@
 <!--categorie-->
 <div class="row" >
     <?php foreach($templateParams["categories"] as $category) : ?>
-        <div class="col-6 col-md-4 col-lg-3">
+        <div class="col-6 col-md-4 col-lg-3 mt-5">
         <div class="d-flex justify-content-center mt-3 mb-0">
             <a href="../../php/common/category.php?nomeCategoria=<?php echo $category["Nome"];?>">
-                <img class="pb-1 border-2 border-bottom border-danger" src="<?php echo UPLOAD_DIR.$category["Copertina"];?>" alt="" style="width: 200px;"/>
+                <img class="" src="<?php echo UPLOAD_DIR.$category["Copertina"];?>" alt="" style="width: 200px;"/>
             </a>
         </div>
-        <p class="text-center fw-bold"><?php echo $category["Nome"]?></p>
+        <div class= "row">
+            <div class="col-2"></div>
+            <div class="col-8 text-center">
+                <span class="badge rounded-pill px-3" style="background-color:#d9534f !important; width:150px;"><?php echo $category["Nome"]?></span>
+            </div>
+            <div class="col-2"></div>
+        </div>
     </div>
     <?php endforeach; ?>
 </div>

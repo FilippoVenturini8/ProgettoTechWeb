@@ -66,7 +66,7 @@
         <?php if($templateParams["statoOrdine"] == "Ordine Ricevuto" || $templateParams["statoOrdine"] == "Ordine Spedito"): ?>
             <div class="mb-2">
                 <img class="d-inline-block img-orderState" src="../../img/icon/clock.png" alt=""/>
-                <span> Consegna prevista il <?php echo $order["DataSpedizione"] ?> </span>
+                <span> Consegna prevista il <?php echo $order["DataConsegna"] ?> </span>
             </div>
         <?php else: ?>
             <div class="mb-2">
