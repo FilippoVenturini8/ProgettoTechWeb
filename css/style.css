@@ -196,3 +196,8 @@ body > div > footer{
     font-size: 75%;
     background-color: #d9534f !important;
 }
+
+.contactIcon{
+    height: 20px !important;
+    width: 20px !important;
+}

@@ -14,7 +14,7 @@ function searchOrders(){
                 let dettagli = ""
                 JSON.parse(order.Dettagli).forEach( disco => {
                     dettagli = dettagli + `
-                    <p class="mb-0">` + disco.Quantita + `x ` + disco.Titolo + ` - ` + disco.Artista + `</p>`;
+                    <li class="list-group-item">` + disco.Quantita + `x ` + disco.Titolo + ` - ` + disco.Artista + `</li>`;
                 });
 
                 document.getElementById("adminOrdersAccordion").innerHTML = document.getElementById("adminOrdersAccordion").innerHTML +`
@@ -36,25 +36,28 @@ function searchOrders(){
                         <div class="accordion-body">
                             <label class="row fw-bold">#` + order.CodiceOrdine + `</label>
                             <label class="row">
-                                <div class="col-4"></div>
+                                <div class="col-2"></div>
                                 <div class="col-4 fw-bold">Cliente:</div>
                             </label>
                             <label class="row">
-                                <div class="col-4"></div>
-                                <div class="col-4">` + order.Nome + " " + order.Cognome + `</div>
+                                <div class="col-5"></div>
+                                <div class="col-4 text-end">` + order.Nome + " " + order.Cognome + `</div>
+                                <div class="col-2"><img src="../../img/icon/user-icon.png" alt="" class="contactIcon"/></div>
                             </label>
                             <label class="row">
-                                <div class="col-4"></div>
-                                <div class="col-4">` + order.MailAccount + `</div>
+                                <div class="col-5"></div>
+                                <div class="col-4 text-end">` + order.MailAccount + `</div>
+                                <div class="col-2"><img src="../../img/icon/email-icon.png" alt="" class="contactIcon"/></div>
                             </label>
                             <label class="row">
-                                <div class="col-4"></div>
-                                <div class="col-4">` + order.Cellulare+ `</div>
+                                <div class="col-5"></div>
+                                <div class="col-4 text-end">` + order.Cellulare+ `</div>
+                                <div class="col-2"><img src="../../img/icon/phone-icon.png" alt="" class="contactIcon"/></div>
                             </label>
 
                             <div class="row mt-3">
-                                <div class="col-4"></div>
-                                <div class="col-3">
+                                <div class="col-2"></div>
+                                <div class="col-5">
                                     <label class="fw-bold">Data Ordine:</label>
                                 </div>
                                 <div class="col-4">
@@ -63,8 +66,8 @@ function searchOrders(){
                             </div>
                                 
                             <div class="row">
-                                <div class="col-4"></div>
-                                <div class="col-3">
+                                <div class="col-2"></div>
+                                <div class="col-5">
                                     <label class="fw-bold">Data Spedizione:</label>
                                 </div>
                                 <div class="col-4">
@@ -73,8 +76,8 @@ function searchOrders(){
                             </div>
 
                             <div class="row">
-                                <div class="col-4"></div>
-                                <div class="col-3">
+                                <div class="col-2"></div>
+                                <div class="col-5">
                                     <label class="fw-bold">Data Consegna:</label>
                                 </div>
                                 <div class="col-4">
@@ -82,13 +85,9 @@ function searchOrders(){
                                 </div>
                             </div>
 
-                            <label class="row mt-3">
-                                <div class="col-4"></div>
-                                <div class="col-5">` +
+                            <ul class="list-group list-group-flush mb-4 mt-4 text-center">` +
                                     dettagli
-                                + `</div>
-                                <div class="col-3"></div>
-                            </label>
+                                + `</ul>
 
                             <label class="row">
                                 <div class="col-8"></div>

@@ -2,7 +2,7 @@
     require_once '../common/bootstrap.php';
 
     if(isUserLoggedIn() && $_SESSION["isadmin"]){
-        $res = $dbh->searchDisk($_POST["pattern"]);
+        $res = $dbh->getDiskFromId($_POST["Codice"]);
         $data = array();
         foreach($res as $row) {
             array_push($data, $row);

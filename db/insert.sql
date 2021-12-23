@@ -66,26 +66,18 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/musica classica/InATimeLapse-Lu
 
 /*ACCOUNT*/
 INSERT INTO Account(Mail, Psw, Nome, Cognome, Cellulare, ImmagineProfilo, isAdmin)
-VALUES("gigi@gmail.com", "93ccf25b78706fdc6a82f98b6b7a1ca441de9d5522fd27d7ed7913c19b6fb944", "Gigi", "Rossi", '1234567890', NULL, 0),
-("admin@gmail.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "Admin", "", '0987654321', NULL, 1);
+VALUES ("lpshop@gmail.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "LP Shop", "", '0987654321', "lpProfile.png", 1),
+("federico@gmail.com", "93ccf25b78706fdc6a82f98b6b7a1ca441de9d5522fd27d7ed7913c19b6fb944", "Federico", "Minotti", '1234567890', NULL, 0);
 
-INSERT INTO Notifica(Testo, Titolo, Link, MailAccount, DataNotifica)
-VALUES ("Benvenuto", "Benvenuto in LPShop!", null, "gigi@gmail.com", "2021-12-12 17:07:00"),
- ("Benvenuto ancora, scusa ma non sapevo cosa altro scrivere", "RiBenvenuto in LPShop!", null, "gigi@gmail.com", "2021-12-12 17:10:00");
-
-/*DISCO IN CARRELLO*/
-INSERT INTO Disco_in_carrello(CodiceDisco, MailAccount, Quantita)
-VALUES (1, "gigi@gmail.com", 2),
-(3, "gigi@gmail.com", 1);
 
 /*ORDINI*/
 INSERT INTO Ordine(DataOrdine, DataSpedizione, DataConsegna, MailAccount)
-VALUES('2007-09-14', NULL, NULL,"gigi@gmail.com"),
-('2018-08-03', NULL, NULL,"gigi@gmail.com"),
-('2018-08-03', NULL, NULL,"gigi@gmail.com"),
-('1999-06-08', '1999-06-10', NULL,"gigi@gmail.com"),
-('2018-03-08', NULL, NULL,"gigi@gmail.com"),
-('2020-10-26', '2020-10-26', '2020-10-30',"gigi@gmail.com");
+VALUES('2007-09-14', NULL, NULL,"federico@gmail.com"),
+('2018-08-03', NULL, NULL,"federico@gmail.com"),
+('2018-08-03', NULL, NULL,"federico@gmail.com"),
+('1999-06-08', '1999-06-10', NULL,"federico@gmail.com"),
+('2018-03-08', NULL, NULL,"federico@gmail.com"),
+('2020-10-26', '2020-10-26', '2020-10-30',"federico@gmail.com");
 
 /*DISCHI ORDINATI*/
 INSERT INTO Disco_Ordinato(CodiceDisco, CodiceOrdine, Quantita, Voto)

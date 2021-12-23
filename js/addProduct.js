@@ -6,10 +6,9 @@ $(document).ready(function () {
 
     copertina.onchange = evt => {
         const [file] = copertina.files
-        $("#preview").removeClass("d-none");
         if (file) {
             preview.src = URL.createObjectURL(file)
         }
-      }
+    }
 });
 

@@ -162,7 +162,11 @@
                 <div class="row">
                     <div class="col-3"></div>
                     <div class="col-6 text-center">
-                        <img src="../../img/icon/User.png" alt=""/>
+                        <?php if(isset($_SESSION["immagineprofilo"]) && $_SESSION["immagineprofilo"] != NULL):?>
+                            <img src="../../img/icon/<?php echo($_SESSION["immagineprofilo"])?>" alt=""/>
+                        <?php else : ?>
+                            <img src="../../img/icon/User.png" alt=""/>
+                        <?php endif; ?>
                     </div>
                     <div class="col-3"></div>
                 </div>

@@ -41,7 +41,7 @@
     <div class="row mt-5">
         <div class="col-3"></div>
         <div class="col-6 text-center">
-            <img src="#" id="preview" class="img-thumbnail d-none" alt="...">
+            <img src="../../img/icon/noImage.png" id="preview" class="img-thumbnail" alt="...">
         </div>
         <div class="col-3"></div>
     </div>
