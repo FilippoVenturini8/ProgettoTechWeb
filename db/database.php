@@ -394,14 +394,14 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC)[0]["Visualizzata"];
     }
 
-    public function modifyProduct($Codice, $Artista, $Titolo, $quantitaDisponibile, $prezzo){
+    public function modifyProduct($Codice, $Artista, $Titolo, $QuantitaDisponibile, $Prezzo){
         $stmt = $this->db->prepare("UPDATE Disco
-        SET QuantitaDisponibile = ?,
-            Artista = ?,
-            Titolo = ?,
+        SET QuantitaDisponibile = ? ,
+            Artista = ? ,
+            Titolo = ? ,
             Prezzo = ?
-        WHERE Codice = ?");
-        $stmt->bind_param("issif",$Codice,$Artista, $Titolo, $quantitaDisponibile, $prezzo);
+        WHERE Codice = ? ");
+        $stmt->bind_param("issdi",$QuantitaDisponibile,$Artista, $Titolo, $Prezzo, $Codice);
         return $stmt->execute();
     }
     public function getNotificationLink($codiceNotifica){
@@ -413,6 +413,16 @@ class DatabaseHelper{
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC)[0]["Link"];
 
+    }
+
+    public function getDiskFromId($id){
+        $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
+                                    FROM Disco
+                                    WHERE Codice = ?");
+        $stmt->bind_param("i",$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
 }

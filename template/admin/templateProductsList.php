@@ -84,11 +84,11 @@
                             <p class="m-0"><?php echo $disk["Artista"];?> - <?php echo $disk["Titolo"]?></p>                          
                             <p><?php echo $disk["Prezzo"];?>€</p>
                             <p>
-                                <button type="button" class="btn btn-primary" id="btnModifica" data-id="<?php echo $disk["Codice"]?>"  onclick="">
+                                <button type="button" class="btn btn-primary" name="btnModifica" data-id="<?php echo $disk["Codice"]?>"  onclick="">
                                 <input type="hidden"  id="idDisk" value="<?php echo $disk["Codice"]?>"/>
                                     Modifica
                                 </button>
-                                <button type="button" class="btn btn-primary" id="idElimina" data-id="<?php echo $disk["Codice"]?>" onclick="$('#dataid').val($(this).data('id'));" data-toggle="modal" data-target="#exampleModal">
+                                <button type="button" class="btn btn-primary" id="idElimina" data-id="<?php echo $disk["Codice"]?>" onclick="$('#dataid').val($(this).data('id'));" data-toggle="modal" data-target="#modalDelete">
                                     Elimina
                                 </button>
                             <p>                         
@@ -98,11 +98,11 @@
             </div>
         <?php endforeach; ?>
     </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Avviso!</h5>
+                    <h5 class="modal-title" id="modalDeleteLabel">Avviso!</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
