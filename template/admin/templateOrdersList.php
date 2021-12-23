@@ -40,25 +40,28 @@
                 <div class="accordion-body">
                     <label class="row fw-bold">#<?php echo $order["CodiceOrdine"]?></label>
                     <label class="row">
-                        <div class="col-4"></div>
+                        <div class="col-2"></div>
                         <div class="col-4 fw-bold">Cliente:</div>
                     </label>
-                    <label class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4"><?php echo $order["Nome"]." ".$order["Cognome"]?></div>
+                    <label class="row mb-2">
+                        <div class="col-5"></div>
+                        <div class="col-4 text-end"><?php echo $order["Nome"]." ".$order["Cognome"]?></div>
+                        <div class="col-2"><img src="../../img/icon/user-icon.png" alt="" class="contactIcon"/></div>
                     </label>
-                    <label class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4"><?php echo $order["MailAccount"]?></div>
+                    <label class="row mb-2">
+                        <div class="col-5"></div>
+                        <div class="col-4 text-end"><?php echo $order["MailAccount"]?></div>
+                        <div class="col-2"><img src="../../img/icon/email-icon.png" alt="" class="contactIcon"/></div>
                     </label>
-                    <label class="row">
-                        <div class="col-4"></div>
-                        <div class="col-4"><?php echo $order["Cellulare"]?></div>
+                    <label class="row mb-2">
+                        <div class="col-5"></div>
+                        <div class="col-4 text-end"><?php echo $order["Cellulare"]?></div>
+                        <div class="col-2"><img src="../../img/icon/phone-icon.png" alt="" class="contactIcon"/></div>
                     </label>
 
                     <div class="row mt-3">
-                        <div class="col-4"></div>
-                        <div class="col-3">
+                        <div class="col-2"></div>
+                        <div class="col-5">
                             <label class="fw-bold">Data Ordine:</label>
                         </div>
                         <div class="col-4">
@@ -67,8 +70,8 @@
                     </div>
                         
                     <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-3">
+                        <div class="col-2"></div>
+                        <div class="col-5">
                             <label class="fw-bold">Data Spedizione:</label>
                         </div>
                         <div class="col-4">
@@ -77,8 +80,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-4"></div>
-                        <div class="col-3">
+                        <div class="col-2"></div>
+                        <div class="col-5">
                             <label class="fw-bold">Data Consegna:</label>
                         </div>
                         <div class="col-4">
@@ -86,15 +89,11 @@
                         </div>
                     </div>
 
-                    <label class="row mt-3">
-                        <div class="col-4"></div>
-                        <div class="col-5">
-                            <?php foreach($dbh->getOrderDetails($order["CodiceOrdine"]) as $disk) : ?>
-                                <p class="mb-0"><?php echo $disk["Quantita"] ?>x <?php echo $disk["Titolo"] ?> - <?php echo $disk["Artista"] ?></p>
-                            <?php endforeach; ?>
-                        </div>
-                        <div class="col-3"></div>
-                    </label>
+                    <ul class="list-group list-group-flush mb-4 mt-4 text-center">
+                        <?php foreach($dbh->getOrderDetails($order["CodiceOrdine"]) as $disk) : ?>
+                            <li class="list-group-item"><?php echo $disk["Quantita"] ?>x <?php echo $disk["Titolo"] ?> - <?php echo $disk["Artista"] ?></li>
+                        <?php endforeach; ?>
+                    </ul>
 
                     <label class="row">
                         <div class="col-8"></div>

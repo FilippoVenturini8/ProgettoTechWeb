@@ -42,7 +42,7 @@
                 
                 <p class="text-end m-0 mb-3"><?php echo $order["DataOrdine"]?></p>
 
-                <ul class="list-group list-group-flush mb-3">
+                <ul class="list-group list-group-flush mb-4">
                     <?php foreach($templateParams["ordersDetails"][$order["Codice"]] as $disk) :?>
                         <li class="list-group-item"><?php echo $disk["Quantita"]?>x <?php echo $disk["Artista"]?> - <?php echo $disk["Titolo"]?></li>
                     <?php endforeach; ?>

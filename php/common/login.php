@@ -19,25 +19,25 @@ if(isUserLoggedIn()){
         $lastState = getOrderStateAtLastLogin($order["DataOrdine"],$order["DataSpedizione"],$order["DataConsegna"], $dbh->getLastLogin($_SESSION["mail"]));
         if($orderState != $lastState){
             if($lastState == "Ordine Ricevuto" && $orderState == "Ordine Spedito"){
-                $titolo = "Ordine Spedito";
-                $testo = "L'Ordine ".$order["Codice"]." è stato spedito.";
+                $titolo = "Ordine #".$idOrder." spedito";
+                $testo = "Il tuo ordine è stato spedito.<br>Clicca qui per verificare lo stato del tuo ordine.";
                 $link="/user/trackMyPackage.php?idOrder=".$order['Codice'];
                 $dbh->insertNotification($testo,$titolo,$link,$order["DataSpedizione"], $_SESSION["mail"]);
             }
             if($lastState == "Ordine Ricevuto" && $orderState == "Consegnato"){
-                $titoloSpedito = "Ordine Spedito";
-                $testoSpedito = "L'Ordine ".$order["Codice"]." è stato spedito.";
+                $titoloSpedito = "Ordine #".$idOrder." spedito";
+                $testoSpedito = "Il tuo ordine è stato spedito.<br>Clicca qui per verificare lo stato del tuo ordine.";
                 $linkSpedito="/user/trackMyPackage.php?idOrder=".$order['Codice'];
                 $dbh->insertNotification($testoSpedito,$titoloSpedito,$linkSpedito,$order["DataSpedizione"], $_SESSION["mail"]);
 
-                $titoloConsegnato = "Ordine Consegnato";
-                $testoConsegnato = "L'Ordine ".$order["Codice"]." è stato consegnato.";
+                $titoloConsegnato = "Ordine #".$idOrder." consegnato";
+                $testoConsegnato = "Il tuo ordine è stato consegnato.<br>Clicca qui per verificare lo stato del tuo ordine.";
                 $linkConsegnato="/user/trackMyPackage.php?idOrder=".$order['Codice'];
                 $dbh->insertNotification($testoConsegnato,$titoloConsegnato,$linkConsegnato,$order["DataConsegna"], $_SESSION["mail"]);
             }
             if($lastState == "Ordine Spedito" && $orderState == "Consegnato"){
-                $titolo = "Ordine Consegnato";
-                $testo = "L'Ordine ".$order["Codice"]." è stato consegnato.";
+                $titolo = "Ordine #".$idOrder." consegnato";
+                $testo = "Il tuo ordine è stato consegnato.<br>Clicca qui per verificare lo stato del tuo ordine.";
                 $link="/user/trackMyPackage.php?idOrder=".$order['Codice'];
                 $dbh->insertNotification($testo,$titolo,$link,$order["DataConsegna"], $_SESSION["mail"]);
             }

@@ -1,6 +1,6 @@
 <form class="mt-4" action="#" method="POST">
     <h1>
-        <span class="mx-4 border-bottom border-danger">    
+        <span class="mx-4 border-bottom border-danger border-2 py-1">    
             Registrazione
         </span>
     </h1>
