@@ -77,20 +77,33 @@
 
 <!-- Modal -->
 <div class="modal fade" id="modalPayment" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Pagamento</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="location.href = '../../php/api/processOrder.php';">
-            <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
-        </button>
-      </div>
-      <div class="modal-body">
-        <label>Pagamento effettuato con successo!</label>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="location.href = '../../php/api/processOrder.php';">Chiudi</button>
-      </div>
+      <div class="modal-header row">
+        <div class="col-4">
+            <img src="../../img/icon/logo.png" alt="" style="width:80px; height:60px;"/>
+        </div>
+        <div class="col-4 text-center">
+            <h5 class="modal-title" id="exampleModalLabel">Pagamento</h5>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-2">
+            <button class="btn btn-default" data-dismiss="modal">
+                <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
+            </button>
+        </div>
+        </div>
+        <div class="modal-body text-center">
+                <img class="fw-bold mt-5" src="../../img/icon/tick.png" alt="" style="width:100px; height:100px;"/>
+                <p class="fw-bold mt-5">Pagamento effettuato con successo!</p>
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col-10"></div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-primary px-2 py-1" data-dismiss="modal" onclick="location.href = '../../php/api/processOrder.php';">Chiudi</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

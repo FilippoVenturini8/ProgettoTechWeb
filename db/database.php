@@ -167,11 +167,11 @@ class DatabaseHelper{
         return mysqli_num_rows($result)==0;
     }
 
-    public function registerUser($name, $surname, $mail, $password, $phone){
-        $query = "INSERT INTO account(nome, cognome, mail, psw, cellulare, isAdmin)
-                  VALUES (?, ?, ?, ?, ?, 0)";
+    public function registerUser($name, $surname, $mail, $password, $phone, $immagineProfilo){
+        $query = "INSERT INTO account(nome, cognome, mail, psw, cellulare, ImmagineProfilo, isAdmin)
+                  VALUES (?, ?, ?, ?, ?, ?, 0)";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param('sssss', $name, $surname, $mail, $password, $phone);
+        $stmt->bind_param('ssssss', $name, $surname, $mail, $password, $phone, $immagineProfilo);
         $stmt->execute();
     }
 

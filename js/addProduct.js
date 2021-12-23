@@ -9,6 +9,6 @@ $(document).ready(function () {
         if (file) {
             preview.src = URL.createObjectURL(file)
         }
-      }
+    }
 });
 
