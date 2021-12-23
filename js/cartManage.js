@@ -104,9 +104,7 @@ function addDiskToCart(codiceDisco){
 }
 
 function removeFromCart(codiceDisco){
-    if(!$("#btnPaga").hasClass("disabled")){
-        $("#btnPaga").addClass("disabled");
-    }
+    
     $.ajax({
         url:"../../php/api/removeFromCart.php",
         type: "post",
@@ -116,7 +114,10 @@ function removeFromCart(codiceDisco){
         },
         success: function(data) {
             console.log(data);
-            data = JSON.parse(data); 
+            data = JSON.parse(data);
+            if(data.totale==0 && !$("#btnPaga").hasClass("disabled")){
+                $("#btnPaga").addClass("disabled");
+            } 
             if(!data.hasOwnProperty('errore')){
                 if(document.getElementById("remove" + codiceDisco) != null){
                     document.getElementById("remove" + codiceDisco).outerHTML = `<button id="add` + codiceDisco + `" class="btn btn-default mx-0 add-to-cart-button text-end" onclick="addDiskToCart(` + codiceDisco + `)">
