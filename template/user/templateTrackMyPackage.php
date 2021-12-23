@@ -8,8 +8,8 @@
 </div>
 
 <!--carosello-->
-<div class="mx-5 mt-4">
-    <div id="carousel<?php echo $order["CodiceOrdine"] ?>" class="carousel slide d-inline-block" data-interval="false" style="width: 180px;">
+<div class="mx-5 mt-4 d-flex justify-content-center">
+    <div id="carousel<?php echo $order["CodiceOrdine"] ?>" class="carousel slide d-inline-block" data-interval="false" style="width: 200px;">
         <div class="carousel-inner w-100">
             <?php $i=0; foreach($dbh->getOrderDetails($order["CodiceOrdine"]) as $disk) :?>
                 <div class="carousel-item <?php if($i==0){ echo "active";}?> w-100">
@@ -31,45 +31,71 @@
     </div>
 </div>
 
-<div class="mx-5 mt-2">
+<div class="mx-5 mt-2 d-flex justify-content-center">
     <div class="progress" style="height: 20px; width: 180px">
         <div class="progress-bar bg-danger text-center
-         <?php if($templateParams["statoOrdine"] == "Ordine Ricevuto"){
+        <?php if($templateParams["statoOrdine"] == "Ordine Ricevuto"){
                 echo " w-25";
-             } else if($templateParams["statoOrdine"] == "Ordine Spedito"){
+            } else if($templateParams["statoOrdine"] == "Ordine Spedito"){
                 echo " w-75";
-             } else {
+            } else {
                 echo " w-100";
-             }
+            }
         ?>" role="progressbar"></div>
         <p class="position-absolute text-dark mx-5"><?php echo $templateParams["statoOrdine"]?></p>
     </div>
 </div> 
-<div class="mx-5 mt-5">
-    <div class="mb-2">
-        <img class="d-inline-block img-orderState" src="../../img/icon/tick.png" alt=""/>
-        <span><?php echo "Ordinato il ".$order["DataOrdine"];?></span>
+
+<div class="d-flex justify-content-center">
+    <div>
+        <div class="mb-2 mt-5">
+            <img class="d-inline-block img-orderState" src="../../img/icon/tick.png" alt=""/>
+            <span><?php echo "Ordinato il ".$order["DataOrdine"];?></span>
+        </div>
+        <?php if($templateParams["statoOrdine"] == "Ordine Ricevuto"): ?>
+            <div class="mb-2">
+                <img class="d-inline-block img-orderState" src="../../img/icon/clock.png" alt=""/>
+                <span> Spedizione prevista il <?php echo $order["DataSpedizione"] ?> </span>
+            </div>
+        <?php else: ?>
+            <div class="mb-2">
+                <img class="d-inline-block img-orderState" src="../../img/icon/tick.png" alt=""/>
+                <span> Spedito il <?php echo $order["DataSpedizione"] ?> </span>
+            </div>
+        <?php endif; ?>
+        <?php if($templateParams["statoOrdine"] == "Ordine Ricevuto" || $templateParams["statoOrdine"] == "Ordine Spedito"): ?>
+            <div class="mb-2">
+                <img class="d-inline-block img-orderState" src="../../img/icon/clock.png" alt=""/>
+                <span> Consegna prevista il <?php echo $order["DataSpedizione"] ?> </span>
+            </div>
+        <?php else: ?>
+            <div class="mb-2">
+                <img class="d-inline-block img-orderState" src="../../img/icon/tick.png" alt=""/>
+                <span> Consegnato il <?php echo $order["DataSpedizione"] ?> </span>
+            </div>
+        <?php endif; ?>
     </div>
-    <?php if($templateParams["statoOrdine"] == "Ordine Ricevuto"): ?>
-        <div class="mb-2">
-            <img class="d-inline-block img-orderState" src="../../img/icon/clock.png" alt=""/>
-            <span> Spedizione prevista il <?php echo $order["DataSpedizione"] ?> </span>
+</div>
+
+
+<div class=" d-flex justify-content-center mt-5 ">
+    <div class="accordion" id="accordionExample" style="width: 25rem;">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed d-block text-center py-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Informazioni di consegna ⋁
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="card w-100">
+                        <img src="../../img/icon/spedizione.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text fst-italic text-center">Via Cesare Pavese, 50, Cesena, FC</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    <?php else: ?>
-        <div class="mb-2">
-            <img class="d-inline-block img-orderState" src="../../img/icon/tick.png" alt=""/>
-            <span> Spedito il <?php echo $order["DataSpedizione"] ?> </span>
-        </div>
-    <?php endif; ?>
-    <?php if($templateParams["statoOrdine"] == "Ordine Ricevuto" || $templateParams["statoOrdine"] == "Ordine Spedito"): ?>
-        <div class="mb-2">
-            <img class="d-inline-block img-orderState" src="../../img/icon/clock.png" alt=""/>
-            <span> Consegna prevista il <?php echo $order["DataSpedizione"] ?> </span>
-        </div>
-    <?php else: ?>
-        <div class="mb-2">
-            <img class="d-inline-block img-orderState" src="../../img/icon/tick.png" alt=""/>
-            <span> Consegnato il <?php echo $order["DataSpedizione"] ?> </span>
-        </div>
-    <?php endif; ?>
+    </div>
 </div>
