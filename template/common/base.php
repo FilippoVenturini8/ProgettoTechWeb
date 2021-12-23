@@ -133,7 +133,7 @@
                 </ul>
             
                 <footer class="mt-3">
-                    <div class="row"></div>
+                    <div class="row">
                         <div class="row mx-3">
                             <p class="fw-bold" id="cartTotal">Totale: <?php echo round($templateParams["cartTotal"][0]["Totale"], 2);?>€</p>
                         </div>
@@ -257,5 +257,16 @@
                 </div>
             </div>
         </div>
+
+        <footer class="row text-white text-center ">
+            <div class="col-12">
+                <p class="mb-2">LPShop® - all rights reserved</p>
+                <ul class="mb-1">
+                    <li class="d-inline-block mx-3">+39 333 6835952</li>
+                    <li class="d-inline-block mx-3">Via Cesare Pavese, 5047521 Cesena FC</li>
+                    <li class="d-inline-block mx-3">lpshop@gmail.com</li>
+                <ul>
+            <div>
+        </footer>
     </div>
 </body>

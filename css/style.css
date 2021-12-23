@@ -83,7 +83,7 @@ div > aside > ul > li{
 }
 
 aside{
-    z-index: 2;
+    z-index: 5;
 }
 
 .btn-primary{
@@ -180,4 +180,19 @@ aside{
 .popularClicked{
     background-color: #ebebeb !important;
     color:#000 !important;
+}
+
+.progress-bar{
+    background-color: #d9534f !important;
+}
+
+.progress > p{
+    color: black !important;
+}
+
+/* footer */
+
+body > div > footer{ 
+    font-size: 75%;
+    background-color: #d9534f !important;
 }

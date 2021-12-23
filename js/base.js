@@ -36,4 +36,28 @@ $(document).ready(function () {
     $('#myModal').on('shown.bs.modal', function () {
         $('#myInput').trigger('focus')
     })
+
+
+    $('body > div > header > div:first-of-type > button').on('click', function () {
+        $("aside.active")
+            .addClass("collapse")
+            .removeClass("active");
+        
+        $('aside.float-start').addClass('active');
+        $('aside.float-start').removeClass('collapse');
+    });
+    
+    //footer
+    var docHeight = $(window).height();
+    var footerHeight = $("body > div > footer").height();
+    var footerTop = $("body > div > footer").position().top + footerHeight;
+
+    console.log(docHeight);
+    console.log(footerTop);
+    console.log()
+
+    if(footerTop < docHeight){
+        console.log("ciao");
+        $("body > div > footer").css("margin-top", 16 + (docHeight - footerTop) + "px");
+    }
 });

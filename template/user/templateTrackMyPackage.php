@@ -32,8 +32,8 @@
 </div>
 
 <div class="mx-5 mt-2 d-flex justify-content-center">
-    <div class="progress" style="height: 20px; width: 180px">
-        <div class="progress-bar bg-danger text-center
+    <div class="progress" style="height: 20px; width: 280px">
+        <div class="progress-bar text-center
         <?php if($templateParams["statoOrdine"] == "Ordine Ricevuto"){
                 echo " w-25";
             } else if($templateParams["statoOrdine"] == "Ordine Spedito"){
@@ -42,7 +42,7 @@
                 echo " w-100";
             }
         ?>" role="progressbar"></div>
-        <p class="position-absolute text-dark mx-5"><?php echo $templateParams["statoOrdine"]?></p>
+        <p class="position-absolute mx-5 px-5 fw-bold"><?php echo $templateParams["statoOrdine"]?></p>
     </div>
 </div> 
 
@@ -71,7 +71,7 @@
         <?php else: ?>
             <div class="mb-2">
                 <img class="d-inline-block img-orderState" src="../../img/icon/tick.png" alt=""/>
-                <span> Consegnato il <?php echo $order["DataSpedizione"] ?> </span>
+                <span> Consegnato il <?php echo $order["DataConsegna"] ?> </span>
             </div>
         <?php endif; ?>
     </div>
@@ -79,14 +79,14 @@
 
 
 <div class=" d-flex justify-content-center mt-5 ">
-    <div class="accordion" id="accordionExample" style="width: 25rem;">
+    <div class="accordion" id="mapAccordion" style="width: 25rem;">
         <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button collapsed d-block text-center py-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            <h2 class="accordion-header" id="headingMap">
+                <button class="accordion-button collapsed d-block text-center py-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMap" aria-expanded="false" aria-controls="collapseMap">
                     Informazioni di consegna ⋁
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div id="collapseMap" class="accordion-collapse collapse" aria-labelledby="headingMap" data-bs-parent="#mapAccordion">
                 <div class="accordion-body">
                     <div class="card w-100">
                         <img src="../../img/icon/spedizione.png" class="card-img-top" alt="...">
