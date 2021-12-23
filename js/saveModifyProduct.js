@@ -5,8 +5,11 @@ function saveDisks(){
     var prz = $("#txtPrezzo").val();
     var qta = $("#txtQta").val();
     var id = $("#txtIdDisk").val();
-    console.log(id);
-    console.log("ciao");
+
+    if(!$.isNumeric(prz) || !$.isNumeric(qta)){
+        console.log("Errore");
+        return;
+    }
     $.ajax({
         url:"../../php/api/modifyProduct.php",
         type: "post",    //request type,

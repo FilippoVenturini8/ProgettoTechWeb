@@ -81,14 +81,14 @@
                             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
                         </div>
                         <div class="d-inline-block align-top">
-                            <p class="m-0"><?php echo $disk["Artista"];?> - <?php echo $disk["Titolo"]?></p>                          
+                            <p class="m-0"><?php echo $disk["Titolo"]?> - <?php echo $disk["Artista"];?></p>                          
                             <p><?php echo $disk["Prezzo"];?>€</p>
-                            <p>
+                            <p class="m-3">
                                 <button type="button" class="btn btn-primary" name="btnModifica" data-id="<?php echo $disk["Codice"]?>"  onclick="">
                                 <input type="hidden"  id="idDisk" value="<?php echo $disk["Codice"]?>"/>
                                     Modifica
                                 </button>
-                                <button type="button" class="btn btn-primary" id="idElimina" data-id="<?php echo $disk["Codice"]?>" onclick="$('#dataid').val($(this).data('id'));" data-toggle="modal" data-target="#modalDelete">
+                                <button type="button" class="btn btn-primary m-3" id="idElimina" data-id="<?php echo $disk["Codice"]?>" onclick="$('#dataid').val($(this).data('id'));" data-toggle="modal" data-target="#modalDelete">
                                     Elimina
                                 </button>
                             <p>                         
