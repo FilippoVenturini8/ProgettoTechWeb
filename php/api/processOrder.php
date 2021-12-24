@@ -14,8 +14,8 @@ $finishedDisks = $dbh->getFinishedDisks();
 
 foreach ($finishedDisks as $finishedDisk){
     $titolo = "Disco Terminato";
-    $testo = "Il Disco : \"".$finishedDisk["Titolo"]. "\" di : ".$finishedDisk["Artista"]." è terminato.";
-    $link=" ";
+    $testo = "Il Disco: \"".$finishedDisk["Titolo"]. "\" di ".$finishedDisk["Artista"]." è terminato.<br>Clicca qui per visualizzare la gestione del disco.";
+    $link="/admin/productsList.php?idFinishedDisk=".$finishedDisk["Codice"]."#header".$finishedDisk["Codice"];
     $dbh->insertNotification($testo,$titolo,$link,date("Y-m-d h:i:s"), $dbh->selectAdminMail());
 }
 

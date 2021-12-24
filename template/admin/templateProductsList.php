@@ -56,8 +56,8 @@
 <div class="accordion px-4" id="diskAccordion">
         <?php foreach($templateParams["allDisks"] as $disk): ?> 
             <div class="accordion-item">
-                <h2 class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
-                <button class="accordion-button row mx-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
+                <h2 id="header<?php echo $disk["Codice"]?>" class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
+                <button class="accordion-button row mx-0 <?php if(!isset($templateParams["idFinishedDisk"])){ echo "collapsed";}?> <?php if(isset($templateParams["idFinishedDisk"]) && $disk["Codice"] != $templateParams["idFinishedDisk"]){echo "collapsed";}?>" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
                     <div class="col-1">
                         <label>#<?php echo $disk["Codice"]?></label>
                     </div>
@@ -75,7 +75,7 @@
                     </div>
                 </button>
                 </h2>
-                <div id="disk<?php echo $disk["Codice"]?>" class="accordion-collapse collapse" aria-labelledby="heading<?php echo $disk["Codice"]?>" data-bs-parent="#diskAccordion">
+                <div id="disk<?php echo $disk["Codice"]?>" class="accordion-collapse collapse <?php if(isset($templateParams["idFinishedDisk"]) && $disk["Codice"] == $templateParams["idFinishedDisk"]){echo "show";}?>" aria-labelledby="heading<?php echo $disk["Codice"]?>" data-bs-parent="#diskAccordion">
                     <div class="accordion-body" id="modifyAccordion">
                         <div class="d-inline-block align-top">
                             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>

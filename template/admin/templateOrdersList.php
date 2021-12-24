@@ -35,7 +35,6 @@
                 </div>
             </button>
             </h2>
-            <!--TODO aggiungo show in class-->
             <div id="adminOrder<?php echo $order["CodiceOrdine"]?>" class="accordion-collapse collapse <?php if(isset($templateParams["idOrderSelected"]) && $order["CodiceOrdine"] == $templateParams["idOrderSelected"]){echo "show";}?>" aria-labelledby="headingAdminOrder<?php echo $order["CodiceOrdine"]?>" data-bs-parent="#adminOrdersAccordion">
                 <div class="accordion-body">
                     <label class="row fw-bold">#<?php echo $order["CodiceOrdine"]?></label>
