@@ -2,19 +2,17 @@ $(document).ready(function () {
     $("button[name='btnModifica']").on('click', function () {
         var val = $(this).attr("data-id");
         var id ="disk" + val;
-        /*console.log(val);*/
-        console.log(val);
         $.ajax({
-            url:"../../php/api/searchDisk.php",    //the page containing php script
-            type: "post",    //request type,
+            url:"../../php/api/searchDisk.php", 
+            type: "post",  
             data: {Codice: val},
             error: function (xhr, status) {
                 console.log(status);
             },
             success: function(data) {
-                //console.log(data);
+                console.log(data);
                 data = JSON.parse(data);
-                //console.log(data);
+
                 data.forEach(disk => {
                     document.getElementById(id).innerHTML =`
                     <div class="accordion-body" id="modifyAccordion">
