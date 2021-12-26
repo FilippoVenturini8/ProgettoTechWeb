@@ -79,7 +79,7 @@
                 </h2>
                 <div id="disk<?php echo $disk["Codice"]?>" class="accordion-collapse collapse <?php if(isset($templateParams["idFinishedDisk"]) && $disk["Codice"] == $templateParams["idFinishedDisk"]){echo "show";}?>" aria-labelledby="heading<?php echo $disk["Codice"]?>" data-bs-parent="#diskAccordion">
                     <div class="accordion-body row" id="modifyAccordion">
-                        <div class="d-inline-block align-top col-5">
+                        <div class="col-5 d-flex flex-wrap align-items-center">
                             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
                         </div>
                         <div class="d-inline-block align-top col-7">
@@ -92,7 +92,7 @@
                                 <p><?php echo $disk["Prezzo"];?>€</p>
                             </div>
                             <div class="row text-center">
-                                <p>Qtà:<?php echo $disk["QuantitaDisponibile"];?></p>
+                                <p>Qtà: <?php echo $disk["QuantitaDisponibile"];?></p>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-5">
