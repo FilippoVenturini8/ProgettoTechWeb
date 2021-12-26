@@ -1,10 +1,9 @@
-function saveDisks(){
+function saveDisks(id){
 
-    var art = $("#txtArtista").val();
-    var tit = $("#txtTitolo").val();
-    var prz = $("#txtPrezzo").val();
-    var qta = $("#txtQta").val();
-    var id = $("#txtIdDisk").val();
+    var art = $("#txtArtista"+id).val();
+    var tit = $("#txtTitolo"+id).val();
+    var prz = $("#txtPrezzo"+id).val();
+    var qta = $("#txtQta"+id).val();
 
     if(!$.isNumeric(prz) || !$.isNumeric(qta)){
         console.log("Errore");

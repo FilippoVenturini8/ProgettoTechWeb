@@ -10,7 +10,6 @@ $(document).ready(function () {
                 console.log(status);
             },
             success: function(data) {
-                console.log(data);
                 data = JSON.parse(data);
 
                 data.forEach(disk => {
@@ -22,11 +21,11 @@ $(document).ready(function () {
                         <div class="d-inline-block align-top">
                             <form action="../../php/api/processModifyProduct.php" method="POST" enctype="multipart/form-data">
                             
-                                <p class="m-0"><input type="text" size="9"  id="txtTitolo" value="`+ disk.Titolo +`"/> - <input type="text" size="9" id="txtArtista" value="`+ disk.Artista +`"/></p>                          
-                                <p><input type="text"  size="2" id="txtPrezzo" value="`+ disk.Prezzo +`"/>€  &emsp;&emsp; Qtà: <input type="text"  size="2" id="txtQta" value="`+ disk.QuantitaDisponibile +`"/></p>
+                                <p class="m-0"><input type="text" size="9"  id="txtTitolo`+ disk.Codice + `" value="`+ disk.Titolo +`"/> - <input type="text" size="9" id="txtArtista`+ disk.Codice + `" value="`+ disk.Artista +`"/></p>                          
+                                <p><input type="text"  size="2" id="txtPrezzo`+ disk.Codice + `" value="`+ disk.Prezzo +`"/>€  &emsp;&emsp; Qtà: <input type="text"  size="2" id="txtQta`+ disk.Codice + `" value="`+ disk.QuantitaDisponibile +`"/></p>
                                 <p class="m-3">
-                                    <button type="button" class="btn btn-primary" id="btnSalva" data-id="`+ disk.Codice +`"  onclick="saveDisks()">
-                                    <input type="hidden"  id="txtIdDisk" value="`+ disk.Codice +`"/>
+                                    <button type="button" class="btn btn-primary" id="btnSalva" data-id="`+ disk.Codice +`"  onclick="saveDisks(`+ disk.Codice +`)">
+                                    <input type="hidden"  id="txtIdDisk`+ disk.Codice + `" value="`+ disk.Codice +`"/>
                                         Salva
                                     
                                     </button>
