@@ -3,10 +3,23 @@
 <script src="../../js/saveModifyProduct.js" type="text/javascript"></script>
 <script src="../../js/cancelChangesProduct.js" type="text/javascript"></script>
 <!--LISTINO VINILI-->
-<div class="row mt-3">
-    <div class="col-12">
-        <div class="mx-5 input-group form-outline">
-            <div class="form-outline">
+    
+<div class="row mt-4 mx-2 mb-4">
+    <div class="col-10">
+        <h1>
+            <span class="mx-2 border-bottom border-danger border-2">    
+                LISTINO VINILI
+            </span>
+        </h1>
+    </div>
+    <div class="col-2"></div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-2"></div>
+    <div class="col-8 px-5">
+        <div class="input-group form-outline">
+            <div class="form-outline p-0">
                 <input type="search" class="form-control" id="disk-searchbar" placeholder="Search" onchange="searchDisks()"/>
             </div>
             <button type="submit" class="btn btn-primary">
@@ -14,17 +27,6 @@
             </button>
         </div>
     </div>
-</div>
-    
-<div class="row m-5">
-    <div class="col-10">
-        <h1>
-            <span class="mx-4 border-bottom border-danger">    
-                LISTINO VINILI
-            </span>
-        </h1>
-    </div>
-    <div class="col-2"></div>
 </div>
 
 <div class="modal fade" id="modalResultInsert" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -76,22 +78,36 @@
                 </button>
                 </h2>
                 <div id="disk<?php echo $disk["Codice"]?>" class="accordion-collapse collapse <?php if(isset($templateParams["idFinishedDisk"]) && $disk["Codice"] == $templateParams["idFinishedDisk"]){echo "show";}?>" aria-labelledby="heading<?php echo $disk["Codice"]?>" data-bs-parent="#diskAccordion">
-                    <div class="accordion-body" id="modifyAccordion">
-                        <div class="d-inline-block align-top">
+                    <div class="accordion-body row" id="modifyAccordion">
+                        <div class="d-inline-block align-top col-5">
                             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
                         </div>
-                        <div class="d-inline-block align-top">
-                            <p class="m-0"><?php echo $disk["Titolo"]?> - <?php echo $disk["Artista"];?></p>                          
-                            <p><?php echo $disk["Prezzo"];?>€</p>
-                            <p class="m-3">
-                                <button type="button" class="btn btn-primary" name="btnModifica" data-id="<?php echo $disk["Codice"]?>"  onclick="">
-                                <input type="hidden"  id="idDisk" value="<?php echo $disk["Codice"]?>"/>
-                                    Modifica
-                                </button>
-                                <button type="button" class="btn btn-primary m-3" id="idElimina" data-id="<?php echo $disk["Codice"]?>" onclick="$('#dataid').val($(this).data('id'));" data-toggle="modal" data-target="#modalDelete">
-                                    Elimina
-                                </button>
-                            <p>                         
+                        <div class="d-inline-block align-top col-7">
+                            <div class="row mt-2">
+                                <div class="col-12 text-center">
+                                    <p><?php echo $disk["Titolo"]?> - <?php echo $disk["Artista"];?></p>                          
+                                </div>
+                            </div>
+                            <div class="row text-center">
+                                <p><?php echo $disk["Prezzo"];?>€</p>
+                            </div>
+                            <div class="row text-center">
+                                <p>Qtà:<?php echo $disk["QuantitaDisponibile"];?></p>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-5">
+                                    <button type="button" class="btn btn-primary p-1" id="idElimina" data-id="<?php echo $disk["Codice"]?>" onclick="$('#dataid').val($(this).data('id'));" data-toggle="modal" data-target="#modalDelete">
+                                        Elimina
+                                    </button>
+                                </div>
+                                <div class="col-2"></div>
+                                <div class="col-5">
+                                    <input type="hidden"  id="idDisk" value="<?php echo $disk["Codice"]?>"/>
+                                    <button type="button" class="btn btn-primary p-1" name="btnModifica" data-id="<?php echo $disk["Codice"]?>"  onclick="">
+                                        Modifica
+                                    </button>
+                                </div>
+                            </div>                         
                         </div>
                     </div>
                 </div>
