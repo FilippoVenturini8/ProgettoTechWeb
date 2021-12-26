@@ -1,6 +1,8 @@
 /*CATEGORIE*/
 INSERT INTO Categoria(Nome,Copertina)
-VALUES ("Indie",'categories/indie2.png'),
+VALUES ("Blues",'categories/rap2.png'),
+        ("Indie",'categories/indie2.png'),
+        ("Jazz",'categories/rap2.png'),
         ("Musica Classica",'categories/classica2.png'),
         ("Punk",'categories/punk2.png'),
         ("Reggae",'categories/reggae2.png'),
@@ -62,7 +64,14 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/musica classica/InATimeLapse-Lu
 ("Californication", '1999-06-08', 26, 'LP/rock/Californication-RedHotChiliPeppers.png', 35.22, 'Red Hot Chili Peppers', 'Rock'),
 ("Higway To Hell", '1979-08-27', 26, 'LP/rock/HighwayToHell-ACDC.jpg', 23.49, 'ACDC', 'Rock'),
 ("Minutes To Midnite", '2007-09-14', 26, 'LP/rock/MinutesToMidnight-LinkinPark.png', 25.68, 'Linkin Park', 'Rock'),
-("The Dark Side Of The Moon", '1973-03-01', 26, 'LP/rock/TheDarkSideOfTheMoon-Pinkfloyd.jpg', 41.50, 'Pink Floyd', 'Rock');
+("The Dark Side Of The Moon", '1973-03-01', 26, 'LP/rock/TheDarkSideOfTheMoon-Pinkfloyd.jpg', 41.50, 'Pink Floyd', 'Rock'),
+("Easy Blues", '2000-04-27', 26, 'LP/blues/EasyBlues-LafayetteLeake.jpg', 30.99, 'Lafayette Leake', 'Blues'),
+("The BB King Story", '1980-02-13', 26, 'LP/blues/TheBBKingStory-BBKing.jpg', 20.99, 'BB King', 'Blues'),
+("Calling All Blues", '2000-09-17', 26, 'LP/blues/CallingAllBlues-JuniorWells.jpg', 25.39, 'Junior Wells', 'Blues'),
+("My Way", '1969-03-15', 26, 'LP/jazz/MyWay-FrankSinatra.jpg', 22.99, 'Frank Sinatra', 'Jazz'),
+("Crystal Silence", '1973-05-20', 26, 'LP/jazz/CrystalSilence-GaryBurton.jpg', 27.50, 'Gary Burton', 'Jazz'),
+("Taking A Train", '1939-01-22', 26, 'LP/jazz/TakeATrain-DukeEllington.jpg', 19.50, 'Duke Ellington', 'Jazz'),
+("What A Wonderful World", '1968-11-01', 26, 'LP/jazz/WhatAWonderfulWorld-LouisArmstrong.jpg', 22.50, 'Louis Armstrong', 'Jazz');
 
 /*ACCOUNT*/
 INSERT INTO Account(Mail, Psw, Nome, Cognome, Cellulare, ImmagineProfilo, isAdmin)
