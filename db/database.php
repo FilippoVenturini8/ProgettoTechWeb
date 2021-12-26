@@ -109,6 +109,15 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getOrderTotal($orderID){
+        $order = $this->getOrderDetails($orderID);
+        $total=0;
+        foreach($order as $orderedDisk){
+            $total += $orderedDisk["Totale"];
+        }
+        return $total;
+    }
+
     public function getUserInfo($accountMail){
         $stmt = $this->db->prepare("SELECT Nome, Cognome, Mail
                                     FROM Account

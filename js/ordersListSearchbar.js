@@ -40,19 +40,19 @@ function searchOrders(){
                                 <div class="col-4 fw-bold">Cliente:</div>
                             </label>
                             <label class="row">
-                                <div class="col-5"></div>
-                                <div class="col-4 text-end">` + order.Nome + " " + order.Cognome + `</div>
-                                <div class="col-2"><img src="../../img/icon/user-icon.png" alt="" class="contactIcon"/></div>
+                                <div class="col-3"></div>
+                                <div class="col-6 text-end">` + order.Nome + " " + order.Cognome + `</div>
+                                <div class="col-1"><img src="../../img/icon/user-icon.png" alt="" class="contactIcon"/></div>
                             </label>
                             <label class="row">
-                                <div class="col-5"></div>
-                                <div class="col-4 text-end">` + order.MailAccount + `</div>
-                                <div class="col-2"><img src="../../img/icon/email-icon.png" alt="" class="contactIcon"/></div>
+                                <div class="col-3"></div>
+                                <div class="col-6 text-end">` + order.MailAccount + `</div>
+                                <div class="col-1"><img src="../../img/icon/email-icon.png" alt="" class="contactIcon"/></div>
                             </label>
                             <label class="row">
-                                <div class="col-5"></div>
-                                <div class="col-4 text-end">` + order.Cellulare+ `</div>
-                                <div class="col-2"><img src="../../img/icon/phone-icon.png" alt="" class="contactIcon"/></div>
+                                <div class="col-3"></div>
+                                <div class="col-6 text-end">` + order.Cellulare+ `</div>
+                                <div class="col-1"><img src="../../img/icon/phone-icon.png" alt="" class="contactIcon"/></div>
                             </label>
 
                             <div class="row mt-3">
