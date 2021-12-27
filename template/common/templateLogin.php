@@ -5,7 +5,7 @@
 </h1>
 <form class="mt-4" action="#" method="POST">
     <ul class="text-center list-unstyled">
-        <li class="mt-5 pt-5">
+        <li class="mt-5 pt-3">
             <label class="fw-bold d-block" for="email">EMAIL </label><input type="text" id="email" name="email" value="<?php if(isset($_POST['email'])) { echo $_POST['email']; } ?>"/>
         </li>
         <li class="mt-5">

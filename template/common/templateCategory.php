@@ -9,7 +9,7 @@
         <div class="col-4 mt-2">
             <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
         </div>
-        <div class="col-7 mt-2">
+        <div class="col-8 mt-2">
             <div class="row">
                 <p class="m-0"><?php echo $disk["Titolo"]?> - <?php echo $disk["Artista"];?></p>
                 <p class="m-0 fw-light"><?php echo $disk["DataPubblicazione"]?></p>
@@ -22,7 +22,7 @@
                 </p>
             </div>
             <div class="row mx-0 mt-5 py-0">
-                <div class="col-5"></div>
+                <div class="col-6"></div>
                 <div class="col-3 px-0 text-end pt-3">
                     <p class="fw-bold"><?php echo $disk["Prezzo"];?>€</p>
                 </div>
