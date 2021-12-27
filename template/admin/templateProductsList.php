@@ -1,4 +1,4 @@
-<script src="../../js/productListSearchBar.js" type="text/javascript"></script>
+<script src="../../js/catalogSearchBar.js" type="text/javascript"></script>
 <script src="../../js/modifyProduct.js" type="text/javascript"></script>
 <script src="../../js/saveModifyProduct.js" type="text/javascript"></script>
 <script src="../../js/cancelChangesProduct.js" type="text/javascript"></script>
@@ -20,7 +20,7 @@
     <div class="col-8 px-5">
         <div class="input-group form-outline">
             <div class="form-outline p-0">
-                <input type="search" class="form-control" id="disk-searchbar" placeholder="Search" onchange="searchDisks()"/>
+                <input type="search" class="form-control" id="catalog-searchbar" placeholder="Search" onchange="searchDisks()"/>
             </div>
             <button type="submit" class="btn btn-primary">
                 <img src="../../img/icon/search.png" alt=""/>
@@ -59,7 +59,7 @@
         <?php foreach($templateParams["allDisks"] as $disk): ?> 
             <div class="accordion-item">
                 <h2 id="header<?php echo $disk["Codice"]?>" class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
-                <button class="accordion-button row mx-0 <?php if(!isset($templateParams["idFinishedDisk"])){ echo "collapsed";}?> <?php if(isset($templateParams["idFinishedDisk"]) && $disk["Codice"] != $templateParams["idFinishedDisk"]){echo "collapsed";}?>" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
+                <button class="accordion-button row mx-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
                     <div class="col-1">
                         <label>#<?php echo $disk["Codice"]?></label>
                     </div>

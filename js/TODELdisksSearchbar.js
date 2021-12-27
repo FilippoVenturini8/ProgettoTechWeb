@@ -7,9 +7,7 @@ function searchDisk(){
             console.log(status);
         },
         success: function(data) {
-            console.log(data);
             data = JSON.parse(data);
-            //console.log(data);
             document.getElementById("disk-group").innerHTML = "";
             data.forEach(disk => {
 
@@ -18,12 +16,11 @@ function searchDisk(){
                     valutazione = disk.Stelle + " (" + disk.Voto + ")";
                 }
 
+                /*
                 let button =`<button id="add<?php echo $disk["Codice"]?>" class="btn btn-default mx-0 add-to-cart-button text-end" onclick="addDiskToCart(<?php echo $disk['Codice']?>)">
                                 <img src="../../img/icon/plus2.png" alt=""/> 
                              </button>`;
-
-                
-
+                */
 
                 document.getElementById("disk-group").innerHTML = document.getElementById("disk-group").innerHTML +`
                 <div class="row p-2 border-bottom border-danger">

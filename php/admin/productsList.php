@@ -5,7 +5,7 @@ require_once '../common/bootstrap.php';
 $templateParams["title"] = "LP Shop - Products";
 $templateParams["templateName"] = "../../template/admin/templateProductsList.php";
 /*$templateParams["isAdmin"] = $dbh->isAdmin("gigi@gmail.com");*/
-$templateParams["allDisks"] = $dbh->getAllDisks();
+$templateParams["allDisks"] = $dbh->getAllDisks(false);
 $templateParams["messages"] = $dbh->getMessages($_SESSION["mail"]);
 
 if(isset($_GET["formmsg"])){

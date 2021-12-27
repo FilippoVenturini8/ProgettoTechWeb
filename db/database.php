@@ -18,42 +18,6 @@ class DatabaseHelper{
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    public function getDisksFromCategory($category){
-        $stmt = $this->db->prepare("SELECT Codice, Categoria, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista
-                                    FROM Disco
-                                    WHERE Categoria = ?
-                                    AND Eliminato = 0");
-        $stmt->bind_param('s',$category);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getDisksInCart($accountMail){
-        $stmt = $this->db->prepare("SELECT Disco.Codice as CodiceDisco, Quantita, Copertina, Titolo, Prezzo, VotoMedio, Artista, Disco.Categoria as CodiceCategoria
-                                    FROM Disco_In_Carrello, Disco
-                                    WHERE Disco_In_Carrello.CodiceDisco = Disco.Codice
-                                    AND Disco_In_Carrello.MailAccount = ?");
-        $stmt->bind_param('s',$accountMail);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getDiskInCart($codiceDisco, $accountMail){
-        $stmt = $this->db->prepare("SELECT quantita, (prezzo * quantita) as totale
-                                    FROM Disco_In_Carrello, Disco
-                                    WHERE Disco_In_Carrello.CodiceDisco = ?
-                                    AND Disco_In_Carrello.CodiceDisco = Disco.Codice
-                                    AND Disco_In_Carrello.MailAccount = ?");
-        $stmt->bind_param('is',$codiceDisco, $accountMail);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
     public function getCartTotal($accountMail){
         $stmt = $this->db->prepare("SELECT Sum(Quantita*Disco.Prezzo) as Totale
                                     FROM Disco_In_Carrello, Disco
@@ -122,28 +86,6 @@ class DatabaseHelper{
         $stmt = $this->db->prepare("SELECT Nome, Cognome, Mail
                                     FROM Account
                                     WHERE Mail = \"$accountMail\"");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-    
-    public function getPopularsDisks(){
-        $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
-                                    FROM Disco_Ordinato, Disco
-                                    WHERE Disco_Ordinato.CodiceDisco = Disco.Codice
-                                    AND Disco.Eliminato = 0
-                                    GROUP BY CodiceDisco
-                                    ORDER BY SUM(Disco_Ordinato.Quantita) DESC
-                                    LIMIT 5");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function getAllDisks(){
-        $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
-                                    FROM Disco
-                                    WHERE Disco.Eliminato = 0");
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -221,36 +163,6 @@ class DatabaseHelper{
 
         return $result->fetch_all(MYSQLI_ASSOC);
     }
-
-
-    public function getDisksVotes(){
-        $stmt = $this->db->prepare("SELECT CodiceDisco, AVG(Voto) AS VotoMedio
-                                    FROM Disco_Ordinato
-                                    WHERE Voto IS NOT NULL
-                                    GROUP BY CodiceDisco");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function insertNewDisk($titolo, $dataPubblicazione, $quantitaDisponibile, $copertina, $prezzo, $artista, $categoria){
-        $stmt = $this->db->prepare("INSERT INTO Disco(Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, Artista, Categoria)
-                                    VALUES (?,?,?,?,?,?,?)");
-        $stmt->bind_param("ssisdss",$titolo, $dataPubblicazione, $quantitaDisponibile, $copertina, $prezzo, $artista, $categoria);
-        return $stmt->execute();
-    }
-
-
-    public function getDisk($codice){
-        $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
-                                    FROM Disco
-                                    WHERE Codice = ?
-                                    AND Eliminato = 0");
-        $stmt->bind_param('i', $codice);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC)[0];
-    }
     
     public function alterQuantityInCart($codiceDisco, $mail, $op){
         if($op == "i"){
@@ -270,35 +182,6 @@ class DatabaseHelper{
         }
     }
 
-    public function insertNewDiskInCart($codiceDisco, $mailAccount){
-        $stmt = $this->db->prepare("INSERT INTO Disco_In_Carrello(CodiceDisco, Quantita, MailAccount)
-                                    VALUES (?,1,?)");
-        $stmt->bind_param("is",$codiceDisco, $mailAccount);
-        return $stmt->execute();
-    }
-
-    public function removeDiskFromCart($codiceDisco, $mailAccount){
-        $stmt = $this->db->prepare("DELETE FROM Disco_In_Carrello
-                                    WHERE CodiceDisco = ? AND MailAccount = ?");
-        $stmt->bind_param("is", $codiceDisco, $mailAccount);
-        return $stmt->execute();
-    }
-
-    public function searchDisk($str){
-        $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
-                                    FROM Disco
-                                    WHERE (Titolo LIKE ?
-                                    OR Artista LIKE ?
-                                    OR Codice = ?)
-                                    AND Eliminato = 0");
-        $patternNome = "%".$str."%";
-        $patternAutore = $str."%";
-        $stmt->bind_param("sss",$patternNome, $patternAutore, $str);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
-
     public function getAvailableQuantity($codiceDisco){
         $stmt = $this->db->prepare("SELECT QuantitaDisponibile
                                     FROM Disco
@@ -315,13 +198,6 @@ class DatabaseHelper{
         $stmt->bind_param("ssss",$dataOrdine, $dataSpedizione, $dataConsegna, $mailAccount);
         $stmt->execute();
         return $stmt->insert_id;
-    }
-
-    public function insertNewDiskInOrder($codiceDisco, $codiceOrdine, $quantita){
-        $stmt = $this->db->prepare("INSERT INTO DISCO_ORDINATO(CodiceDisco, CodiceOrdine, Quantita)
-                                    VALUES (?,?,?)");
-        $stmt->bind_param("iii",$codiceDisco, $codiceOrdine, $quantita);
-        return $stmt->execute();
     }
 
     public function clearCart($mailAccount){
@@ -344,23 +220,6 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC)[0]["Mail"];
-    }
-
-    public function alterQuantityDisk($codiceDisco, $quantitaOrdinata){
-        $stmt = $this->db->prepare("UPDATE Disco
-                                    SET QuantitaDisponibile = QuantitaDisponibile - ?
-                                    WHERE Codice = ?");
-        $stmt->bind_param("ii",$quantitaOrdinata,$codiceDisco);
-        return $stmt->execute();
-    }
-
-    public function getFinishedDisks(){
-        $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
-                                    FROM Disco
-                                    WHERE QuantitaDisponibile = 0");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function updateLastLogin($accountMail){
@@ -421,31 +280,50 @@ class DatabaseHelper{
 
     }
 
-    public function getDiskFromId($id){
-        $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
-                                    FROM Disco
-                                    WHERE Codice = ?");
-        $stmt->bind_param("i",$id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
+    /*___________________________DISK IN ORDER___________________________*/
 
-    public function deleteDisk($id){
-        $stmt = $this->db->prepare("UPDATE Disco
-                                    SET Eliminato = 1
-                                    WHERE Codice = ?");
-        $stmt->bind_param("i",$id);
-        $stmt->execute();
-    }
-
-    public function removeDiskFromAllCart($codiceDisco){
-        $stmt = $this->db->prepare("DELETE FROM Disco_In_Carrello
-                                    WHERE CodiceDisco = ?");
-        $stmt->bind_param("i", $codiceDisco);
+    public function insertNewDiskInOrder($codiceDisco, $codiceOrdine, $quantita){
+        $stmt = $this->db->prepare("INSERT INTO DISCO_ORDINATO(CodiceDisco, CodiceOrdine, Quantita)
+                                    VALUES (?,?,?)");
+        $stmt->bind_param("iii",$codiceDisco, $codiceOrdine, $quantita);
         return $stmt->execute();
     }
 
+    /*___________________________DISK IN CART___________________________*/
+
+    public function getDisksInCart($accountMail){
+        $stmt = $this->db->prepare("SELECT Disco.Codice as CodiceDisco, Quantita, Copertina, Titolo, Prezzo, VotoMedio, Artista, Disco.Categoria as CodiceCategoria
+                                    FROM Disco_In_Carrello, Disco
+                                    WHERE Disco_In_Carrello.CodiceDisco = Disco.Codice
+                                    AND Disco_In_Carrello.MailAccount = ?");
+        $stmt->bind_param('s',$accountMail);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getDiskInCart($codiceDisco, $accountMail){
+        $stmt = $this->db->prepare("SELECT quantita, (prezzo * quantita) as totale
+                                    FROM Disco_In_Carrello, Disco
+                                    WHERE Disco_In_Carrello.CodiceDisco = ?
+                                    AND Disco_In_Carrello.CodiceDisco = Disco.Codice
+                                    AND Disco_In_Carrello.MailAccount = ?");
+        $stmt->bind_param('is',$codiceDisco, $accountMail);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function insertNewDiskInCart($codiceDisco, $mailAccount){
+        $stmt = $this->db->prepare("INSERT INTO Disco_In_Carrello(CodiceDisco, Quantita, MailAccount)
+                                    VALUES (?,1,?)");
+        $stmt->bind_param("is",$codiceDisco, $mailAccount);
+        return $stmt->execute();
+    }
+
+    //restituisce le mail di tutti gli utenti con quel disco nel carrello (usato per notificare i clienti della non disponibilità)
     public function getUserWithDiskInCart($codiceDisco){
         $stmt = $this->db->prepare("SELECT MailAccount as mail
                                     FROM Disco_In_Carrello
@@ -454,6 +332,155 @@ class DatabaseHelper{
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    //rimuove il disco dal carrello dell'utente indicato
+    public function removeDiskFromCart($codiceDisco, $mailAccount){
+        $stmt = $this->db->prepare("DELETE FROM Disco_In_Carrello
+                                    WHERE CodiceDisco = ? AND MailAccount = ?");
+        $stmt->bind_param("is", $codiceDisco, $mailAccount);
+        return $stmt->execute();
+    }
+
+    //rimuove il disco dal carrello da tutti i carrelli in cui è presente
+    public function removeDiskFromAllCart($codiceDisco){
+        $stmt = $this->db->prepare("DELETE FROM Disco_In_Carrello
+                                    WHERE CodiceDisco = ?");
+        $stmt->bind_param("i", $codiceDisco);
+        return $stmt->execute();
+    }
+
+    /*___________________________DISK___________________________*/
+
+    //doppia opzione
+    public function getAllDisks($ancheEliminati = true){
+        if($ancheEliminati){
+            $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
+                                        FROM Disco");
+        } else {
+            $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
+                                        FROM Disco
+                                        WHERE Eliminato = 0");
+        }
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    //doppia opzione
+    public function searchDisk($str, $ancheEliminati = true){
+        if($ancheEliminati){
+            $stmt = $this->db->prepare("SELECT Codice, Eliminato, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
+                                        FROM Disco
+                                        WHERE Titolo LIKE ?
+                                        OR Artista LIKE ?
+                                        OR Codice = ?");
+        } else {
+            $stmt = $this->db->prepare("SELECT Codice, Eliminato, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
+                                        FROM Disco
+                                        WHERE (Titolo LIKE ?
+                                        OR Artista LIKE ?
+                                        OR Codice = ?)
+                                        AND Eliminato = 0");
+        }
+        $patternNome = "%".$str."%";
+        $patternAutore = $str."%";
+        $stmt->bind_param("sss",$patternNome, $patternAutore, $str);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    //solo dischi non eliminati
+    public function getDisksFromCategory($category){
+        $stmt = $this->db->prepare("SELECT Codice, Categoria, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista
+                                    FROM Disco
+                                    WHERE Categoria = ?
+                                    AND Eliminato = 0");
+        $stmt->bind_param('s',$category);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    //solo dischi non eliminati
+    public function getPopularsDisks(){
+        $stmt = $this->db->prepare("SELECT Codice, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
+                                    FROM Disco_Ordinato, Disco
+                                    WHERE Disco_Ordinato.CodiceDisco = Disco.Codice
+                                    AND Eliminato = 0
+                                    GROUP BY CodiceDisco
+                                    ORDER BY SUM(Disco_Ordinato.Quantita) DESC
+                                    LIMIT 5");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    //solo dischi non eliminati
+    public function getFinishedDisks(){
+        $stmt = $this->db->prepare("SELECT Codice, Eliminato, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
+                                    FROM Disco
+                                    WHERE QuantitaDisponibile = 0
+                                    AND Eliminato = 0");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getDiskFromId($id){
+        $stmt = $this->db->prepare("SELECT Codice, Eliminato, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
+                                    FROM Disco
+                                    WHERE Codice = ?");
+        $stmt->bind_param("i",$id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function getDisk($codice){
+        $stmt = $this->db->prepare("SELECT Codice, Eliminato, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
+                                    FROM Disco
+                                    WHERE Codice = ?");
+        $stmt->bind_param('i', $codice);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC)[0];
+    }
+
+    public function getDisksVotes(){
+        $stmt = $this->db->prepare("SELECT CodiceDisco, AVG(Voto) AS VotoMedio
+                                    FROM Disco_Ordinato
+                                    WHERE Voto IS NOT NULL
+                                    GROUP BY CodiceDisco");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_all(MYSQLI_ASSOC);
+    }
+
+    /*______________________AGGIUNTA/MODIFICA/RIMOZIONE DISCO______________________*/
+
+    public function insertNewDisk($titolo, $dataPubblicazione, $quantitaDisponibile, $copertina, $prezzo, $artista, $categoria){
+        $stmt = $this->db->prepare("INSERT INTO Disco(Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, Artista, Categoria)
+                                    VALUES (?,?,?,?,?,?,?)");
+        $stmt->bind_param("ssisdss",$titolo, $dataPubblicazione, $quantitaDisponibile, $copertina, $prezzo, $artista, $categoria);
+        return $stmt->execute();
+    }
+
+    public function alterQuantityDisk($codiceDisco, $quantitaOrdinata){
+        $stmt = $this->db->prepare("UPDATE Disco
+                                    SET QuantitaDisponibile = QuantitaDisponibile - ?
+                                    WHERE Codice = ?");
+        $stmt->bind_param("ii",$quantitaOrdinata,$codiceDisco);
+        return $stmt->execute();
+    }
+
+    public function deleteDisk($id){
+        $stmt = $this->db->prepare("UPDATE Disco
+                                    SET Eliminato = 1
+                                    WHERE Codice = ?");
+        $stmt->bind_param("i",$id);
+        $stmt->execute();
     }
 
 }

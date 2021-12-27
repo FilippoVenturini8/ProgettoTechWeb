@@ -52,8 +52,6 @@ $(document).ready(function () {
     var footerHeight = $("body > div > footer").height();
     var footerTop = $("body > div > footer").position().top + footerHeight;
 
-    console.log(footerTop);
-    console.log(docHeight);
     if(footerTop < docHeight){
         $("body > div > footer").addClass("footerEmptyPage");
     }
