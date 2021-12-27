@@ -31,7 +31,7 @@
     </div>
 </div>
 
-<div class="mx-5 mt-2 d-flex justify-content-center">
+<div class="mx-5 mt-5 d-flex justify-content-center">
     <div class="progress" style="height: 20px; width: 280px">
         <div class="progress-bar text-center
         <?php if($templateParams["statoOrdine"] == "Ordine Ricevuto"){

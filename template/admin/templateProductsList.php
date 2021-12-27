@@ -119,8 +119,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalDeleteLabel">Avviso!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <button class="btn btn-default" data-dismiss="modal">
+                    <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -128,8 +128,8 @@
                     <input type="hidden"  id="dataid" value=""/>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
-                    <button type="button" class="btn btn-primary" id="btnSi" >Si</button>
+                    <button type="button" class="btn btn-secondary px-2" data-dismiss="modal">Chiudi</button>
+                    <button type="button" class="btn btn-primary px-2" id="btnSi" >Si</button>
                 </div>
             </div>
         </div>

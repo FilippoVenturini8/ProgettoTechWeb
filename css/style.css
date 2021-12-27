@@ -91,6 +91,7 @@ aside{
     background-color: #d9534f !important;
     color: white !important;
     border-color: black !important;
+    box-shadow: none !important;
 }
 
 /*Notifiche*/

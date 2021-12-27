@@ -47,7 +47,7 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/musica classica/InATimeLapse-Lu
 ("Natura Molta", '2019-10-21', 26, 'LP/indie/NaturaMolta-GioEvans.jpg', 20.61, 'Gio Evans', 'Indie'),
 ("Solo Cose Belle", '2021-06-04', 26, 'LP/indie/SoloCoseBelle-Comete.jpeg', 25.51, 'Comete', 'Indie'),
 ("Regardez Moi", '2017-11-24', 26, 'LP/indie/RegardezMoi-FrahQuintale.png', 26.91, 'Frah Quintale', 'Indie'),
-("Spazio", '2020-05-15', 26, 'LP/indie/Spazio-Ariete.png', 26.50, 'Spazio', 'Indie'),
+("Spazio", '2020-05-15', 26, 'LP/indie/Spazio-Ariete.png', 26.50, 'Ariete', 'Indie'),
 ("Americana", '1998-11-17', 26, 'LP/punk/Americana-TheOffspring.png', 25.23, 'The Offsprings', 'Punk'),
 ("American Idiot", '2004-09-20', 26, 'LP/punk/AmericanIdiot-GreenDay.png', 31.29, 'Green Day', 'Punk'),
 ("California", '2016-07-01', 26, 'LP/punk/California-Blink182.png', 25.99, 'Blink182', 'Punk'),
@@ -75,7 +75,7 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/musica classica/InATimeLapse-Lu
 
 /*ACCOUNT*/
 INSERT INTO Account(Mail, Psw, Nome, Cognome, Cellulare, ImmagineProfilo, isAdmin)
-VALUES ("lpshop@gmail.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "LP Shop", "", '0987654321', "lpProfile.png", 1),
+VALUES ("lpshop@gmail.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "LP Shop", "", '0987654321', "logoProfile.png", 1),
 ("federico@gmail.com", "93ccf25b78706fdc6a82f98b6b7a1ca441de9d5522fd27d7ed7913c19b6fb944", "Federico", "Minotti", '1234567890', NULL, 0);
 
 
