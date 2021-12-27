@@ -46,13 +46,15 @@ $(document).ready(function () {
         $('aside.float-start').addClass('active');
         $('aside.float-start').removeClass('collapse');
     });
-    
+
     //footer
     var docHeight = $(window).height();
     var footerHeight = $("body > div > footer").height();
     var footerTop = $("body > div > footer").position().top + footerHeight;
 
+    console.log(footerTop);
+    console.log(docHeight);
     if(footerTop < docHeight){
-        $("body > div > footer").css("margin-top", 16 + (docHeight - footerTop) + "px");
+        $("body > div > footer").addClass("footerEmptyPage");
     }
 });

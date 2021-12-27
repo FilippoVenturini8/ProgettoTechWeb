@@ -196,6 +196,11 @@ aside{
 body > div > footer{ 
     font-size: 75%;
     background-color: #d9534f !important;
+    margin-top: 100px !important;
+}
+
+.footerEmptyPage{
+    margin-top: 450px !important;
 }
 
 .contactIcon{
