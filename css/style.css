@@ -7,7 +7,7 @@ body > div > header{
 
 body{
     overflow-x: hidden;
-    /*background-image: url("../img/triangle-mosaic.png") !important;*/
+    background-image: url("../img/triangle-mosaic.png") !important;
 }
 
 button{
