@@ -56,8 +56,8 @@
 <?php endif; ?>
 
 <div class="row">
-    <div class="col-md-1 col-0"></div>
-    <div class="col-md-10 col-12 accordion px-4" id="diskAccordion">
+    <div class="col-md-2 col-0"></div>
+    <div class="col-md-8 col-12 accordion px-4" id="diskAccordion">
         <?php foreach($templateParams["allDisks"] as $disk): ?> 
             <div class="accordion-item">
                 <h2 id="header<?php echo $disk["Codice"]?>" class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
