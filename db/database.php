@@ -396,7 +396,8 @@ class DatabaseHelper{
         $stmt = $this->db->prepare("SELECT Codice, Categoria, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista
                                     FROM Disco
                                     WHERE Categoria = ?
-                                    AND Eliminato = 0");
+                                    AND Eliminato = 0
+                                    ORDER BY Titolo");
         $stmt->bind_param('s',$category);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -420,7 +421,8 @@ class DatabaseHelper{
     public function getDiskFromId($id){
         $stmt = $this->db->prepare("SELECT Codice, Eliminato, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
                                     FROM Disco
-                                    WHERE Codice = ?");
+                                    WHERE Codice = ?
+                                    ORDER BY Titolo");
         $stmt->bind_param("i",$id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -430,7 +432,8 @@ class DatabaseHelper{
     public function getDisk($codice){
         $stmt = $this->db->prepare("SELECT Codice, Eliminato, Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, VotoMedio, Artista, Categoria
                                     FROM Disco
-                                    WHERE Codice = ?");
+                                    WHERE Codice = ?
+                                    ORDER BY Titolo");
         $stmt->bind_param('i', $codice);
         $stmt->execute();
         $result = $stmt->get_result();
