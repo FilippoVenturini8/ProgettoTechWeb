@@ -11,6 +11,8 @@ function searchOrders(){
             document.getElementById("adminOrdersAccordion").innerHTML = "";
             data.forEach(order => {
 
+                console.log(order);
+
                 let dettagli = ""
                 JSON.parse(order.Dettagli).forEach( disco => {
                     dettagli = dettagli + `
@@ -25,7 +27,7 @@ function searchOrders(){
                             <label>Ordine: ` + order.CodiceOrdine + `</label>
                         </div>
                         <div class="col-3">
-                            <label>54.99€</label>
+                            <label>` + order.Totale + `€</label>
                         </div>
                         <div class="col-4">
                             <label>` + order.Stato + `</label>
@@ -92,7 +94,7 @@ function searchOrders(){
                             <label class="row">
                                 <div class="col-8"></div>
                                 <div class="col-4 text-end fw-bold">
-                                    Totale: 54.99€
+                                    Totale: ` + order.Totale + `€
                                 </div>
                             </label>
                         </div>
