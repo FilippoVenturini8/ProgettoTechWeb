@@ -97,7 +97,7 @@
                                 <p>Qtà: <?php echo $disk["QuantitaDisponibile"];?></p>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-5">
+                                <div class="col-5 text-end">
                                     <button type="button" class="btn btn-primary p-1" id="idElimina" data-id="<?php echo $disk["Codice"]?>" onclick="$('#dataid').val($(this).data('id'));" data-toggle="modal" data-target="#modalDelete">
                                         Elimina
                                     </button>
