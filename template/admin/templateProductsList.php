@@ -105,7 +105,7 @@
                                 <div class="col-2"></div>
                                 <div class="col-5">
                                     <input type="hidden"  id="idDisk" value="<?php echo $disk["Codice"]?>"/>
-                                    <button type="button" class="btn btn-primary p-1" name="btnModifica" data-id="<?php echo $disk["Codice"]?>"  onclick="">
+                                    <button type="button" class="btn btn-primary p-1" name="btnModifica" data-id="<?php echo $disk["Codice"]?>"  onclick="modifyProduct(<?php echo $disk['Codice']?>)">
                                         Modifica
                                     </button>
                                 </div>
