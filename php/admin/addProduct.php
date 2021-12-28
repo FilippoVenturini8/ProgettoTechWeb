@@ -9,6 +9,7 @@ if(!isUserLoggedIn() || !$_SESSION["isadmin"]){
 } else {
     $templateParams["templateName"] = "../../template/admin/templateAddProduct.php";
     $templateParams["messages"] = $dbh->getMessages($_SESSION["mail"]);
+    $templateParams["categories"] = $dbh->getAllCategories();
     
     if(isset($_GET["formmsg"])){
         $templateParams["formmsg"] = $_GET["formmsg"];

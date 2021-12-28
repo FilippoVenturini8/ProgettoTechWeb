@@ -46,55 +46,67 @@
         <div class="col-3"></div>
     </div>
 
-    <div class="form-group mt-4 mx-5 px-5">
-        <label for="titolo">Titolo:</label>
-        <input id="titolo" name="titolo" class="form-control" type="text" autocomplete="off"/>
+    <div class="row form-group mt-4">
+        <div class="col-2 col-md-4"></div>
+        <div class="col-8 col-md-4">
+            <label for="titolo">Titolo:</label>
+            <input id="titolo" name="titolo" class="form-control" type="text" autocomplete="off"/>
+        </div>
     </div>
 
-    <div class="form-group mt-3 mx-5 px-5">
-        <label for="artista">Artista:</label>
-        <input id="artista" name="artista" class="form-control" type="text" autocomplete="off"/>
+    <div class="row form-group mt-3">
+        <div class="col-2 col-md-4"></div>
+        <div class="col-8 col-md-4">
+            <label for="artista">Artista:</label>
+            <input id="artista" name="artista" class="form-control" type="text" autocomplete="off"/>
+        </div>
     </div>
 
-    <div class="form-group mt-3 mx-5 px-5">
-        <label for="prezzo">Prezzo:</label>
-        <input id="prezzo" name="prezzo" class="form-control" type="text" autocomplete="off"/>
+    <div class="row form-group mt-3">
+        <div class="col-2 col-md-4"></div>
+        <div class="col-8 col-md-4">
+            <label for="prezzo">Prezzo:</label>
+            <input id="prezzo" name="prezzo" class="form-control" type="numeric" autocomplete="off"/>
+        </div>
     </div>
 
-    <div class="form-group mt-3 mx-5 px-5">
-        <label for="quantita">Quantità:</label>
-        <input id="quantita" name="quantita" class="form-control" type="text" autocomplete="off"/>
+    <div class="row form-group mt-3">
+        <div class="col-2 col-md-4"></div>
+        <div class="col-8 col-md-4">
+            <label for="quantita">Quantità:</label>
+            <input id="quantita" name="quantita" class="form-control" type="numeric" autocomplete="off"/>
+        </div>
     </div>
 
-    <div class="form-group mt-3 mx-5 px-5">
-        <label for="datauscita">Data uscita:</label>
-        <input id="datauscita" name="datauscita" class="form-control" type="date"/>
+    <div class="row form-group mt-3">
+        <div class="col-2 col-md-4"></div>
+        <div class="col-8 col-md-4">
+            <label for="datauscita">Data uscita:</label>
+            <input id="datauscita" name="datauscita" class="form-control" type="date"/>
+        </div>
     </div>
 
     <div class="row mt-5">
-        <div class="col-2"></div>
-        <div class="col-8">
+        <div class="col-2 col-md-4"></div>
+        <div class="col-8 col-md-4">
             <input id="copertina" name="copertina" class="form-control" type="file" accept=".jpg,.jpeg,.png"/>
         </div>
-        <div class="col-2"></div>
     </div>
 
-    <div class="row mt-3 mb-4">
+    <div class="row mt-5 mb-4">
         <div class="row">
-            <div class="col-5"></div>
-            <div class="col-4">
+            <div class="col-2 col-md-4"></div>
+            <div class="col-8 col-md-4 px-0">
                 <input class="span2" id="categoria" name="categoria" type="hidden"/>
                 <div class="input-group">
-                    <button class="btn btn-outline-secondary dropdown-toggle dropDown" type="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</button>
-                    <ul class="dropdown-menu">
-                        <li onclick="$('#categoria').val('Rap');"><a class="dropdown-item" href="#">Rap</a></li>
-                        <li onclick="$('#categoria').val('Rock');"><a class="dropdown-item" href="#">Rock</a></li>
-                        <li onclick="$('#categoria').val('Musica Classica');"><a class="dropdown-item" href="#">Musica Classica</a></li>
-                        <li onclick="$('#categoria').val('Reggae');"><a class="dropdown-item"><a class="dropdown-item" href="#">Reggae</a></li>
+                    <button class="btn btn-outline-secondary dropdown-toggle dropDown py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</button>
+                    <ul class="dropdown-menu w-100">
+                        <?php foreach($templateParams["categories"] as $category):?>
+                            <li onclick="$('#categoria').val('Rap');"><a class="dropdown-item"><?php echo $category["Nome"]?></a></li>
+                        <?php endforeach;?>
                     </ul>
                 </div>  
-            </div>
-            <div class="col-3"></div>            
+            </div>           
         </div>
     </div>
 

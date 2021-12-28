@@ -55,7 +55,9 @@
     </script>
 <?php endif; ?>
 
-<div class="accordion px-4" id="diskAccordion">
+<div class="row">
+    <div class="col-md-1 col-0"></div>
+    <div class="col-md-10 col-12 accordion px-4" id="diskAccordion">
         <?php foreach($templateParams["allDisks"] as $disk): ?> 
             <div class="accordion-item">
                 <h2 id="header<?php echo $disk["Codice"]?>" class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
@@ -114,6 +116,7 @@
             </div>
         <?php endforeach; ?>
     </div>
+</div>
     <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

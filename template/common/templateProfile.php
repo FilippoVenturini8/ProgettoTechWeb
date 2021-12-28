@@ -31,19 +31,31 @@
         </div>
     </div>
 
-    <div class="form-group mt-3 mx-5 px-5">
-        <label for="mail">EMAIL:</label>
-        <input id="mail" name="mail" type="mail" class="form-control" value="<?php echo $_SESSION["mail"] ?>" readonly/>
+    <div class="row form-group mt-3 mx-5 px-5">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <label for="mail">EMAIL:</label>
+            <input id="mail" name="mail" type="mail" class="form-control" value="<?php echo $_SESSION["mail"] ?>" readonly/>
+        </div>
+        <div class="col-md-4"></div>
     </div>
 
-    <div class="form-group mt-3 mx-5 px-5">
-        <label for="password">PASSWORD:</label>
-        <input id="password" name="password" class="form-control" type="text" autocomplete="off" value="*******" readonly/>
+    <div class="row form-group mt-3 mx-5 px-5">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <label for="password">PASSWORD:</label>
+            <input id="password" name="password" class="form-control" type="text" autocomplete="off" value="*******" readonly/>
+        </div>
+        <div class="col-md-4"></div>    
     </div>
 
-    <div class="form-group mt-3 mx-5 px-5">
-        <label for="cellulare">CELLULARE:</label>
-        <input id="cellulare" name="cellulare" class="form-control" type="text" autocomplete="off" value="<?php echo $_SESSION["cellulare"] ?>" readonly/>
+    <div class="row form-group mt-3 mx-5 px-5">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <label for="cellulare">CELLULARE:</label>
+            <input id="cellulare" name="cellulare" class="form-control" type="text" autocomplete="off" value="<?php echo $_SESSION["cellulare"] ?>" readonly/>
+        </div>
+        <div class="col-md-4"></div>
     </div>
 </form>
 

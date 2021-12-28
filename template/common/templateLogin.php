@@ -1,4 +1,4 @@
-<h1 class="mt-4 mx-4">
+<h1 class="mt-4 mx-4 mx-md-5 px-md-5">
     <span class="border-bottom border-danger border-2 py-1">    
         Login
     </span>
