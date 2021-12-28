@@ -47,7 +47,7 @@ if(isUserLoggedIn()){
     header('Location: ../../php/common/index.php');
 }
 else{
-    $templateParams["title"] = "Blog TW - Login";
+    $templateParams["title"] = "LP Shop - Login";
     $templateParams["templateName"] = "../../template/common/templateLogin.php";
 }
 /*
