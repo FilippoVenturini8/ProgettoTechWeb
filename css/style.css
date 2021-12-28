@@ -147,10 +147,9 @@ aside{
 }
 
 .dropDown{
-    background-color: #d9534f !important;
-    color:white !important;
-    width: 150px;
-    height: 40px;
+    background-color: #ebebeb !important;
+    color:black !important;
+    width: 100%;
 }
 
 .closeIcon{
