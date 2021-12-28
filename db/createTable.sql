@@ -50,7 +50,7 @@ create table DISCO_IN_CARRELLO (
 create table NOTIFICA (
      Codice int not null AUTO_INCREMENT,
      Testo varchar(256) not null,
-     Titolo varchar(30) not null,
+     Titolo varchar(100) not null,
      Link varchar(100),
      Visualizzata boolean not null DEFAULT 0,
      DataNotifica datetime,

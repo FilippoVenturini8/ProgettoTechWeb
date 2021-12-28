@@ -232,12 +232,12 @@
                                     <a href="../../php/api/readNotification.php?codiceNotifica=<?php echo $message["Codice"]?>" class="text-decoration-none iconDropdown">
                                         <li class="row border-bottom">
                                             <div class="row">
-                                                <div class ="col-9">
+                                                <div class ="col-10">
                                                     <header>
-                                                        <h2><?php echo $message["Titolo"]?></h2>
+                                                        <h3><?php echo $message["Titolo"]?></h3>
                                                     </header>
                                                 </div>
-                                                <div class ="col-2"></div>
+                                                <div class ="col-1"></div>
                                                 <?php if($dbh->isRead($message["Codice"]) == 0):?>
                                                     <div class ="col-1 text-end pt-1">
                                                         <img src="../../img/icon/exclamation-mark.png" alt="" style="width:20px; height:20px;"/>

@@ -8,15 +8,13 @@ $disksInCart = $dbh->getDisksInCart($_SESSION["mail"]);
 foreach ($disksInCart as $diskInCart){
     $dbh->insertNewDiskInOrder($diskInCart["CodiceDisco"], $idOrder, $diskInCart["Quantita"]);
     $dbh->alterQuantityDisk($diskInCart["CodiceDisco"], $diskInCart["Quantita"]);
-}
-
-$finishedDisks = $dbh->getFinishedDisks();
-
-foreach ($finishedDisks as $finishedDisk){
-    $titolo = "Disco Terminato";
-    $testo = "Il Disco: \"".$finishedDisk["Titolo"]. "\" di ".$finishedDisk["Artista"]." è terminato.<br>Clicca qui per visualizzare la gestione del disco.";
-    $link="/admin/productsList.php?idFinishedDisk=".$finishedDisk["Codice"]."#header".$finishedDisk["Codice"];
-    $dbh->insertNotification($testo,$titolo,$link,date("Y-m-d h:i:s"), $dbh->selectAdminMail());
+    $disk = $dbh->getDisk($diskInCart["CodiceDisco"]);
+    if($disk["QuantitaDisponibile"] == 0){
+        $titolo = "\"".$disk["Titolo"]. "\" Terminato";
+        $testo = "Il Disco: \"".$disk["Titolo"]. "\" di ".$disk["Artista"]." è terminato.<br>Clicca qui per visualizzare la gestione del disco.";
+        $link="/admin/productsList.php?idFinishedDisk=".$disk["Codice"]."#header".$disk["Codice"];
+        $dbh->insertNotification($testo,$titolo,$link,date("Y-m-d h:i:s"), $dbh->selectAdminMail());
+    }
 }
 
 $dbh->clearCart($_SESSION["mail"]);
