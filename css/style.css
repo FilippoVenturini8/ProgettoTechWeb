@@ -1,3 +1,4 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&display=swap');*/
 body > div > header{
     border-bottom: solid 3px #d9534f;
     box-sizing: content-box !important;
@@ -7,6 +8,9 @@ body > div > header{
 
 body{
     overflow-x: hidden;
+    font-family: 'Alegreya Sans SC' !important;
+    font-weight: 500 !important;
+    font-style: normal !important;
     background-image: url("../img/triangle-mosaic.png") !important;
 }
 
@@ -208,6 +212,6 @@ body > div > footer{
     width: 20px !important;
 }
 
-starReview{
+.starReview{
     font-size: 2rem !important;
 }
