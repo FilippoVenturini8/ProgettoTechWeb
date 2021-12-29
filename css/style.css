@@ -183,6 +183,11 @@ aside{
     color:#000 !important;
 }
 
+.notClicked{
+    background-color: white !important;
+    color:#000 !important;
+}
+
 .progress-bar{
     background-color: #d9534f !important;
 }
