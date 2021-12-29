@@ -7,7 +7,7 @@ VALUES ("Blues",'categories/rap2.png'),
         ("Punk",'categories/punk2.png'),
         ("Reggae",'categories/reggae2.png'),
         ("Rap",'categories/rap2.png'),
-        ("Rock",'categories/rock2.png');
+        ("Rock",'categories/rock3.png');
 
 /*ARTISTI*/
 INSERT INTO Artista(Nome)
@@ -41,6 +41,11 @@ VALUES("Pink Floyd"),
 INSERT INTO Disco(Titolo, DataPubblicazione, QuantitaDisponibile, Copertina, Prezzo, Artista, Categoria)
 VALUES ("In a time lapse", '2013-01-21', 26, 'LP/musica classica/InATimeLapse-LudovicoEinaudi.png', 17.99, 'Ludovico Einaudi', 'Musica Classica'),
 ("The 12th Room", '2015-10-30', 26, 'LP/musica classica/The12thRoom-EzioBosso.png', 28.89, 'Ezio Bosso', 'Musica Classica'),
+("The Best Of Mozart", '1982-05-28', 26, 'LP/musica classica/TheBestOfMozart-Mozart.jpg', 20.99, 'Mozart', 'Musica Classica'),
+("Requiem", '1978-12-10', 26, 'LP/musica classica/Requiem-Mozart.jpg', 27.55, 'Mozart', 'Musica Classica'),
+("The Best Of Beethoven", '1980-10-08', 26, 'LP/musica classica/TheBestOfBeethoven-Beethoven.jpg', 17.55, 'Beethoven', 'Musica Classica'),
+("Le Quattro Stagioni", '1972-05-18', 26, 'LP/musica classica/LeQuattroStagioni-Vivaldi.jpg', 15.55, 'Vivaldi', 'Musica Classica'),
+("Seven Days Walking", '2019-11-22', 26, 'LP/musica classica/SevenDaysWalking-LudovicoEinaudi.jpg', 23.99, 'Ludovico Einaudi', 'Musica Classica'),
 ("Ahia", '2020-12-04', 26, 'LP/indie/Ahia-PinguiniTatticiNucleari.png', 21.51, 'Pinguini Tattici Nucleari', 'Indie'),
 ("Gemelli", '2020-06-19', 26, 'LP/indie/Gemelli-Ernia.png', 23.67, 'Ernia', 'Indie'),
 ("Love", '2018-09-21', 26, 'LP/indie/Love-TheGiornalisti.jpg', 30.33, 'The Giornalisti', 'Indie'),
