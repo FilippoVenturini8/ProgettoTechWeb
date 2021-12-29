@@ -47,12 +47,33 @@ $(document).ready(function () {
         $('aside.float-start').removeClass('collapse');
     });
 
+    
+    $( window ).resize(function() {
+        //footer
+        var docHeight = $(window).height();
+        var footerHeight = $("body > div > footer").height();
+        var footerTop = $("body > div > footer").position().top + footerHeight;
+
+        if(footerTop < docHeight){
+            console.log(docHeight - footerTop);
+            $("body > div > footer").css("margin-top", 16 + (docHeight - footerTop) + "px");
+        } else {
+            $("body > div > footer").css("margin-top", 100 + "px");
+        }
+    });
+    
     //footer
     var docHeight = $(window).height();
     var footerHeight = $("body > div > footer").height();
     var footerTop = $("body > div > footer").position().top + footerHeight;
 
     if(footerTop < docHeight){
-        $("body > div > footer").addClass("footerEmptyPage");
+        console.log(docHeight - footerTop);
+        $("body > div > footer").css("margin-top", 16 + (docHeight - footerTop) + "px");
+    } else {
+        $("body > div > footer").css("margin-top", 100 + "px");
     }
+
+
+
 });
