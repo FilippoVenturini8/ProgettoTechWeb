@@ -90,27 +90,27 @@ VALUES ("lpshop@gmail.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81
 
 /*ORDINI*/
 INSERT INTO Ordine(DataOrdine, DataSpedizione, DataConsegna, MailAccount)
-VALUES('2007-09-14', NULL, NULL,"federico@gmail.com"),
-('2018-08-03', NULL, NULL,"federico@gmail.com"),
-('2018-08-03', NULL, NULL,"federico@gmail.com"),
-('1999-06-08', '1999-06-10', NULL,"federico@gmail.com"),
-('2018-03-08', NULL, NULL,"federico@gmail.com"),
+VALUES('2018-06-22', '2018-06-23', '2018-06-25',"federico@gmail.com"),
+('2019-04-01', '2019-04-04', '2019-04-10',"federico@gmail.com"),
+('2019-07-01', '2019-07-02', '2019-07-03',"federico@gmail.com"),
+('2019-10-10', '2019-10-12', '2019-10-15',"federico@gmail.com"),
+('2020-10-10', '2020-10-13', '2020-10-20',"federico@gmail.com"),
 ('2020-10-26', '2020-10-26', '2020-10-30',"federico@gmail.com");
 
 /*DISCHI ORDINATI*/
 INSERT INTO Disco_Ordinato(CodiceDisco, CodiceOrdine, Quantita, Voto)
-VALUES(12,1,1,NULL),
-(17,1,1,NULL),
-(2,1,1,NULL),
-(10,2,1,NULL),
-(14,3,1,NULL),
-(16,4,1,NULL),
-(5,5,1,NULL),
-(7,2,1,NULL),
-(9,3,1,NULL),
+VALUES(12,1,1,4),
+(17,1,1,5),
 (3,1,1,1),
-(3,2,1,3),
-(3,3,2,4),
-(3,4,3,5),
-(3,5,3,5),
-(3,6,3,4);
+(2,1,1,2),
+(10,2,1,1),
+(5,2,1,3),
+(7,2,1,3),
+(9,3,1,4),
+(10,3,2,4),
+(14,3,1,3),
+(16,4,1,2),
+(15,4,3,5),
+(5,5,1,3),
+(20,5,3,5),
+(17,6,3,4);
