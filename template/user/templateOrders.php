@@ -7,7 +7,7 @@
 </div>
     <!--singolo ordine-->
     <?php foreach($templateParams["orders"] as $order) :?>
-        <div class="row p-2 mt-2 border-bottom border-danger">
+        <div class="row p-2 mt-2 border-bottom border-danger bg-white">
             <div class="col-4 py-2 px-4 d-flex flex-wrap align-items-center">
                 <div id="carousel<?php echo $order["Codice"] ?>" class="carousel slide" data-interval="false" style="width: 150px;">
                     <div class="carousel-inner w-100">
