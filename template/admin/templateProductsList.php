@@ -61,7 +61,7 @@
         <?php foreach($templateParams["allDisks"] as $disk): ?> 
             <div class="accordion-item">
                 <h2 id="header<?php echo $disk["Codice"]?>" class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
-                <button class="accordion-button row mx-0 <?php if(!isset($templateParams["idFinishedDisk"])){ echo "collapsed";}?> <?php if(isset($templateParams["idFinishedDisk"]) && $disk["Codice"] != $templateParams["idFinishedDisk"]){echo "collapsed";}?>"" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
+                <button class="accordion-button py-sm-1 py-md-2 row mx-0 <?php if(!isset($templateParams["idFinishedDisk"])){ echo "collapsed";}?> <?php if(isset($templateParams["idFinishedDisk"]) && $disk["Codice"] != $templateParams["idFinishedDisk"]){echo "collapsed";}?>"" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
                     <div class="col-1">
                         <label>#<?php echo $disk["Codice"]?></label>
                     </div>
@@ -86,29 +86,37 @@
                         </div>
                         <div class="d-inline-block align-top col-7">
                             <div class="row mt-2">
-                                <div class="col-12 text-center">
+                                <div class="col-12 col-md-6 text-center">
                                     <p><?php echo $disk["Titolo"]?> - <?php echo $disk["Artista"];?></p>                          
                                 </div>
+                                <div class="col-0 col-md-3"></div>
                             </div>
-                            <div class="row text-center">
-                                <p><?php echo $disk["Prezzo"];?>€</p>
+                            <div class="row">
+                                <div class="col-12 col-md-6 text-center">
+                                    <p><?php echo $disk["Prezzo"];?>€</p>
+                                </div>
+                                <div class="col-0 col-md-3"></div>
                             </div>
-                            <div class="row text-center">
-                                <p>Qtà: <?php echo $disk["QuantitaDisponibile"];?></p>
+                            <div class="row">
+                                <div class="col-12 col-md-6 text-center">
+                                    <p>Qtà: <?php echo $disk["QuantitaDisponibile"];?></p>
+                                </div>
+                                <div class="col-0 col-md-3"></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-5 text-end">
+                                <div class="col-5 col-md-2 text-end">
                                     <button type="button" class="btn btn-primary p-1" id="idElimina" data-id="<?php echo $disk["Codice"]?>" onclick="$('#dataid').val($(this).data('id'));" data-toggle="modal" data-target="#modalDelete">
                                         Elimina
                                     </button>
                                 </div>
                                 <div class="col-2"></div>
-                                <div class="col-5">
+                                <div class="col-5 col-md-2">
                                     <input type="hidden"  id="idDisk" value="<?php echo $disk["Codice"]?>"/>
                                     <button type="button" class="btn btn-primary p-1" name="btnModifica" data-id="<?php echo $disk["Codice"]?>"  onclick="modifyProduct(<?php echo $disk['Codice']?>)">
                                         Modifica
                                     </button>
                                 </div>
+                                <div class="col-0 col-md-6"></div>
                             </div>                         
                         </div>
                     </div>

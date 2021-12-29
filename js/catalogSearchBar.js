@@ -40,29 +40,37 @@ function searchDisks(){
                         </div>
                         <div class="d-inline-block align-top col-7">
                             <div class="row mt-2">
-                                <div class="col-12 text-center">
+                                <div class="col-12 col-md-6 text-center">
                                     <p>${disk.Titolo} - ${disk.Artista}</p>                          
                                 </div>
+                                <div class="col-0 col-md-3"></div>
                             </div>
                             <div class="row text-center">
-                                <p>${disk.Prezzo}€</p>
+                                <div class="col-12 col-md-6 text-center">
+                                    <p>${disk.Prezzo}€</p>
+                                </div>
+                                <div class="col-0 col-md-3"></div>
                             </div>
                             <div class="row text-center">
-                                <p>Qtà: ${disk.QuantitaDisponibile}</p>
+                                <div class="col-12 col-md-6 text-center">
+                                    <p>Qtà: ${disk.QuantitaDisponibile}</p>
+                                </div>
+                                <div class="col-0 col-md-3"></div>    
                             </div>
                             <div class="row mt-3">
-                                <div class="col-5">
+                                <div class="col-5 col-md-2">
                                     <button type="button" class="btn btn-primary p-1" id="idElimina" data-id="${disk.Codice}" onclick="$('#dataid').val($(this).data('id'));" data-toggle="modal" data-target="#modalDelete">
                                         Elimina
                                     </button>
                                 </div>
                                 <div class="col-2"></div>
-                                <div class="col-5">
+                                <div class="col-5 col-md-2">
                                     <input type="hidden"  id="idDisk" value="${disk.Codice}"/>
                                     <button type="button" class="btn btn-primary p-1" name="btnModifica" data-id="${disk.Codice}"  onclick="">
                                         Modifica
                                     </button>
                                 </div>
+                                <div class="col-0 col-md-6"></div>
                             </div>                         
                         </div>
                     </div>
