@@ -61,7 +61,7 @@
         <?php foreach($templateParams["allDisks"] as $disk): ?> 
             <div class="accordion-item">
                 <h2 id="header<?php echo $disk["Codice"]?>" class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
-                <button class="accordion-button row mx-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
+                <button class="accordion-button row mx-0 <?php if(!isset($templateParams["idFinishedDisk"])){ echo "collapsed";}?> <?php if(isset($templateParams["idFinishedDisk"]) && $disk["Codice"] != $templateParams["idFinishedDisk"]){echo "collapsed";}?>"" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
                     <div class="col-1">
                         <label>#<?php echo $disk["Codice"]?></label>
                     </div>
