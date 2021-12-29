@@ -7,7 +7,7 @@
 <?php $i=0; foreach($templateParams["disks"] as $disk) :?>
 <div class="row">
     <div class="col-lg-3"></div>
-    <div id="<?php echo $disk["Codice"]?>" class="bg-white col-lg-6 p-2 <?php if($i==0){echo "border-top";}?> border-start border-end border-bottom border-danger <?php if(isset($templateParams["popularClicked"]) && $disk["Codice"] == $templateParams["popularClicked"]){ echo "popularClicked";}?>">
+    <div id="<?php echo $disk["Codice"]?>" class="col-lg-6 p-2 <?php if($i==0){echo "border-top";}?> border-start border-end border-bottom border-danger <?php if(isset($templateParams["popularClicked"]) && $disk["Codice"] == $templateParams["popularClicked"]){ echo "popularClicked";}else{echo "notClicked";}?>">
         <div class="row px-2">
             <div class="col-4 mt-2">
                 <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
