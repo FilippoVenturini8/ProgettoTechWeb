@@ -66,7 +66,7 @@ function searchDisks(){
                                 <div class="col-2"></div>
                                 <div class="col-5 col-md-2">
                                     <input type="hidden"  id="idDisk" value="${disk.Codice}"/>
-                                    <button type="button" class="btn btn-primary p-1" name="btnModifica" data-id="${disk.Codice}"  onclick="">
+                                    <button type="button" class="btn btn-primary p-1" name="btnModifica" data-id="${disk.Codice}"  onclick="modifyProduct(${disk.Codice})">
                                         Modifica
                                     </button>
                                 </div>

@@ -4,8 +4,8 @@ function saveDisks(id){
     var tit = $("#txtTitolo"+id).val();
     var prz = $("#txtPrezzo"+id).val();
     var qta = $("#txtQta"+id).val();
-
-    if(!$.isNumeric(prz) || !$.isNumeric(qta)){
+    //console.log(prz);
+    if(!$.isNumeric(prz) || !$.isNumeric(qta) || parseFloat(prz) <0 ||  parseInt(qta)<0 || Math.floor(qta) != qta){
         console.log("Errore");
         return;
     }
@@ -18,7 +18,7 @@ function saveDisks(id){
             console.log(status);
         },
         success: function(data) {
-           window.location.href = '../admin/productsList.php';
+            window.location.href = '../admin/productsList.php';
 
         }
     });

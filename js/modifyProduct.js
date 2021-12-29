@@ -13,21 +13,19 @@ function modifyProduct(val){
             $("head").append(``);
             data.forEach(disk => {
                 document.getElementById(id).innerHTML =`
-                <script src="../../js/catalogSearchBar.js" type="text/javascript"></script>
-                <script src="../../js/modifyProduct.js" type="text/javascript"></script>
-                <script src="../../js/saveModifyProduct.js" type="text/javascript"></script>
-                <script src="../../js/cancelChangesProduct.js" type="text/javascript"></script>
+                
                 <div class="row accordion-body" id="modifyAccordion">
                     <div class="col-5 d-flex flex-wrap align-items-center">
                         <img src="../../img/`+ disk.Copertina +`" alt="" class="diskInOrder"></img>
                     </div>
                     <form class = "col-7" action="../../php/api/processModifyProduct.php" method="POST" enctype="multipart/form-data">
                         <div class="row text-center mt-2">
-                            <div class="col-5 px-0">
+                            <div class="col-0 col-md-1"></div>
+                            <div class="col-5 col-md-5 px-0">
                                 <input type="text" size="8"  id="txtTitolo`+ disk.Codice + `" value="`+ disk.Titolo +`"/>                     
                             </div>
-                            <div class="col-1 px-0"><label class="text-center">-</label></div>
-                            <div class="col-5 px-0">
+                            <div class="col-1 col-md-1 px-0"><label class="text-center">-</label></div>
+                            <div class="col-6 col-md-5 px-0">
                                 <input type="text" size="8" id="txtArtista`+ disk.Codice + `" value="`+ disk.Artista +`"/>  
                             </div>
                         </div>
