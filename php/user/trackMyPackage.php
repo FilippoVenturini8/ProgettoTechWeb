@@ -15,6 +15,10 @@ if(isUserLoggedIn()){
         $templateParams["statoOrdine"] = getOrderState($templateParams["order"][0]["DataOrdine"], 
                                                        $templateParams["order"][0]["DataSpedizione"], 
                                                        $templateParams["order"][0]["DataConsegna"]);
+
+        if(isset($_GET["openReview"]) && $_GET["openReview"] == 1){
+            $templateParams["openReview"] = $_GET["openReview"];
+        }
     }
 }
 

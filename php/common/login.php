@@ -31,14 +31,14 @@ if(isUserLoggedIn()){
                 $dbh->insertNotification($testoSpedito,$titoloSpedito,$linkSpedito,$order["DataSpedizione"], $_SESSION["mail"]);
 
                 $titoloConsegnato = "Ordine #".$order['Codice']." consegnato";
-                $testoConsegnato = "Il tuo ordine è stato consegnato.<br>Clicca qui per verificare lo stato del tuo ordine.";
-                $linkConsegnato="/user/trackMyPackage.php?idOrder=".$order['Codice'];
+                $testoConsegnato = "Il tuo ordine è stato consegnato.<br>Clicca qui per lasciare una recensione.";
+                $linkConsegnato="/user/trackMyPackage.php?idOrder=".$order['Codice']."&openReview=1";
                 $dbh->insertNotification($testoConsegnato,$titoloConsegnato,$linkConsegnato,$order["DataConsegna"], $_SESSION["mail"]);
             }
             if($lastState == "Ordine Spedito" && $orderState == "Consegnato"){
                 $titolo = "Ordine #".$order['Codice']." consegnato";
-                $testo = "Il tuo ordine è stato consegnato.<br>Clicca qui per verificare lo stato del tuo ordine.";
-                $link="/user/trackMyPackage.php?idOrder=".$order['Codice'];
+                $testo = "Il tuo ordine è stato consegnato.<br>Clicca qui per lasciare una recensione.";
+                $link="/user/trackMyPackage.php?idOrder=".$order['Codice']."&openReview=1";
                 $dbh->insertNotification($testo,$titolo,$link,$order["DataConsegna"], $_SESSION["mail"]);
             }
         }

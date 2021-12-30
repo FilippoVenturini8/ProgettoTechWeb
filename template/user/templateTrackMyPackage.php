@@ -1,3 +1,4 @@
+<script src="../../js/trackPackage.js" type="text/javascript"></script>
 <?php $order = $templateParams["order"][0]?>
 <div class="row mt-4">
     <h1>
@@ -95,6 +96,28 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<span id="openModal" class="hidden" value="<?php if(isset($templateParams["openReview"])){echo "open";}?>"></span>
+
+<div class="modal fade" id="ReviewModal" tabindex="10" role="dialog" aria-labelledby="ReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="ReviewModalLabel">
+                    <span class="border-bottom border-danger border-2">
+                        Recensione
+                    </span>
+                </h1>
+                <button class="btn btn-default" data-dismiss="modal">
+                    <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
+                </button>
+            </div>
+            <div class="modal-body">
+                    
             </div>
         </div>
     </div>

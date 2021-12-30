@@ -7,7 +7,6 @@ $disksInCart = $dbh->getDisksInCart($_SESSION["mail"]);
 
 foreach ($disksInCart as $diskInCart){
     $dbh->insertNewDiskInOrder($diskInCart["CodiceDisco"], $idOrder, $diskInCart["Quantita"]);
-    //$dbh->alterQuantityDisk($diskInCart["CodiceDisco"], $diskInCart["Quantita"]);
     $disk = $dbh->getDisk($diskInCart["CodiceDisco"]);
     if($disk["QuantitaDisponibile"] == 0){
         $titolo = "\"".$disk["Titolo"]. "\" Terminato";

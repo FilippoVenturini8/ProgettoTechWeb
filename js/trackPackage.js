@@ -1,8 +1,6 @@
 $(document).ready(function () {
-    //getOrderState($orderDate, $shipmentDate, $DeliveryDate)
-    if($("main > div > div > div:nth-of-type(1) > p").hasClass('text-danger')){
-        $("main > div > div > div > div").style = 'width: 10%';
-        console.log("arrivato");
+    if($("#openModal").attr("value")){
+        console.log("ciao");
+        $('#ReviewModal').modal('show');
     }
-    
 });
