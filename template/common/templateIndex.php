@@ -30,7 +30,7 @@
     </button>
 </div>
 
-<div class="row mt-4 mb-3">
+<div class="row mt-5 mb-2">
     <h1>
         <span class="mx-5 border-bottom border-danger border-2 py-1">
             Categorie
