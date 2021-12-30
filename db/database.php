@@ -459,12 +459,21 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
+    
     public function alterQuantityDisk($codiceDisco, $quantitaOrdinata){
         $stmt = $this->db->prepare("UPDATE Disco
                                     SET QuantitaDisponibile = QuantitaDisponibile - ?
                                     WHERE Codice = ?");
         $stmt->bind_param("ii",$quantitaOrdinata,$codiceDisco);
         return $stmt->execute();
+    }
+
+    public function increaseDiskQuantity($codiceDisco){
+        return $this->alterQuantityDisk($codiceDisco, -1);
+    }
+
+    public function decreaseDiskQuantity($codiceDisco){
+        return $this->alterQuantityDisk($codiceDisco, 1);
     }
 
     public function deleteDisk($id){
