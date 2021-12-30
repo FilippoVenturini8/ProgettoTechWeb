@@ -219,3 +219,12 @@ body > div > footer{
 div.starReview{
     font-size: 2rem !important;
 }
+
+button[id*="btnStar"]{
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button[id*="btnStar"]:hover{
+    font-size: 170% !important;
+}
