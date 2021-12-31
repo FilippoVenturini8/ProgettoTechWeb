@@ -16,8 +16,8 @@
 </div>
 
 <div class="row mb-4">
-    <div class="col-2"></div>
-    <div class="col-8 px-5">
+    <div class="col-1"></div>
+    <div class="col-10 px-5">
         <div class="input-group form-outline">
             <div class="form-outline p-0">
                 <input type="search" class="form-control" id="catalog-searchbar" placeholder="Search" onchange="searchDisks()"/>

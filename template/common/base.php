@@ -226,15 +226,15 @@
                         </button>
                     </div>
                     <?php if(isUserLoggedIn()): ?>
-                        <div class="modal-body">
+                        <div class="modal-body pt-0">
                             <ul class="list-unstyled">
                                 <?php foreach($templateParams["messages"] as $message):?>
                                     <a href="../../php/api/readNotification.php?codiceNotifica=<?php echo $message["Codice"]?>" class="text-decoration-none iconDropdown">
                                         <li class="row border-bottom">
                                             <div class="row">
-                                                <div class ="col-11">
+                                                <div class ="col-11 pt-1">
                                                     <header>
-                                                        <h3><?php echo $message["Titolo"]?></h3>
+                                                        <h3 class="mb-0"><?php echo $message["Titolo"]?></h3>
                                                     </header>
                                                 </div>
                                                 <?php if($dbh->isRead($message["Codice"]) == 0):?>
@@ -242,6 +242,9 @@
                                                         <img src="../../img/icon/exclamation-mark.png" alt="" style="width:20px; height:20px;"/>
                                                     </div>
                                                 <?php endif;?>
+                                            </div>
+                                            <div class="row mb-2 fw-light">
+                                                <label><?php echo $message["DataNotifica"]?></label>
                                             </div>
                                             <div class="row">
                                                 <p><?php echo $message["Testo"]?></p>

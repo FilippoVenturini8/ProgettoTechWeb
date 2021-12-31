@@ -27,7 +27,7 @@
             <div id="<?php echo $order["CodiceOrdine"];?>" class="accordion-item">
                 <h2 class="accordion-header" id="headingAdminOrder<?php echo $order["CodiceOrdine"]?>">
                 <button class="accordion-button py-3 <?php if(!isset($templateParams["idOrderSelected"])){ echo "collapsed";}?> <?php if(isset($templateParams["idOrderSelected"]) && $order["CodiceOrdine"] != $templateParams["idOrderSelected"]){echo "collapsed";}?>" type="button" data-bs-toggle="collapse" data-bs-target="#adminOrder<?php echo $order["CodiceOrdine"]?>" aria-controls="adminOrder<?php echo $order["CodiceOrdine"]?>">
-                    <div class="col-5">
+                    <div class="col-5 ps-2">
                         <label>Ordine: <?php echo $order["CodiceOrdine"]?></label>
                     </div>
                     <div class="col-3">
