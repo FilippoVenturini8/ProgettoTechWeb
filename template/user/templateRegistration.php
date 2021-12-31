@@ -42,11 +42,10 @@
         
         <li class="mt-3 ">
             <div class="row mt-5">
-                <div class="col-2"></div>
-                <div class="col-8">
+                <div class="col-2 col-md-4"></div>
+                <div class="col-8 col-md-4">
                     <input id="changeImg" name="changeImg" class="form-control" type="file" accept=".jpg,.jpeg,.png"/>
                 </div>
-                <div class="col-2"></div>
             </div>
         </li>
 
