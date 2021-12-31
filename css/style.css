@@ -100,14 +100,12 @@ aside{
 /*Notifiche*/
 .unReadNotify{
     border-color: #000 !important;
-    background-color: #d9534f !important;
-    color: #fff !important;
+    background-color: #ebebeb !important;
 }
 
 .readNotify{
     border-color: #000 !important;
-    background-color: #ebebeb !important;
-    color: #000 !important;
+    background-color: white !important;
 }
 
 .add-to-cart-button > img{

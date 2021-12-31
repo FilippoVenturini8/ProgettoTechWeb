@@ -41,7 +41,7 @@
                                 <?php endif;?>
                             <?php endif;?>
                         <?php else: ?>
-                            <p>disco terminato</p>
+                            <p class="fw-bold">Disco Terminato</p>
                         <?php endif; ?>
                     </div>
                 </div>
