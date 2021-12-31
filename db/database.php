@@ -484,5 +484,14 @@ class DatabaseHelper{
         $stmt->execute();
     }
 
+    public function addReview($codiceDisco, $voto, $orderID){
+        $stmt = $this->db->prepare("UPDATE disco_ordinato
+                                    SET Voto = ?
+                                    WHERE CodiceDisco = ?
+                                    AND CodiceOrdine = ?");
+        $stmt->bind_param("iii", $voto, $codiceDisco, $orderID);
+        return $stmt->execute();
+    }
+
 }
 ?>

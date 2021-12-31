@@ -229,9 +229,23 @@ div.starReview{
 button[id*="btnStar"]{
     outline: none !important;
     box-shadow: none !important;
+    transition: font-size 0s, color 0.2s, height 0.7s;
+    /*transition: all 2s;*/
 }
 
 button[id*="btnStar"]:hover{
     font-size: 170% !important;
+}
 
+.starSelected{
+    color: #fcc201 !important;
+}
+
+li[id*="review"]{
+    opacity: 1;
+    transition: opacity 0.7s;
+}
+
+.reviewRemoving{
+    opacity: 0 !important;
 }
