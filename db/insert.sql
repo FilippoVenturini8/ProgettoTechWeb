@@ -85,6 +85,8 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/musica classica/InATimeLapse-Lu
 ("Calling All Blues", '2000-09-17', 26, 'LP/blues/CallingAllBlues-JuniorWells.jpg', 25.39, 'Junior Wells', 'Blues'),
 ("My Way", '1969-03-15', 26, 'LP/jazz/MyWay-FrankSinatra.jpg', 22.99, 'Frank Sinatra', 'Jazz'),
 ("Crystal Silence", '1973-05-20', 26, 'LP/jazz/CrystalSilence-GaryBurton.jpg', 27.50, 'Gary Burton', 'Jazz'),
+("I Put A Spell On You", '1965-06-01', 26, 'LP/jazz/IPutASpellOnYou-NinaSimone.jpg', 25.99, 'Nina Simone', 'Jazz'),
+("Time Out", '1959-12-14', 26, 'LP/jazz/TimeOut-DaveBrubeck.jpg', 20.99, 'Dave Brubeck', 'Jazz'),
 ("What A Wonderful World", '1968-11-01', 26, 'LP/jazz/WhatAWonderfulWorld-LouisArmstrong.jpg', 22.50, 'Louis Armstrong', 'Jazz');
 
 /*ACCOUNT*/
