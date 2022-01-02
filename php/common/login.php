@@ -14,12 +14,6 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
 if(isUserLoggedIn()){
     $orders = $dbh->getOrdersByAccount($_SESSION["mail"]);
-    $unvotedDisks = array();
-    foreach($orders as $disk){
-        if($disk["Voto"] == NULL){
-            array_push($templateParams["unvotedDisks"], $disk);
-        }
-    }
 
     foreach($orders as $order){
         $orderState = getOrderState($order["DataOrdine"],$order["DataSpedizione"],$order["DataConsegna"]);
@@ -40,9 +34,6 @@ if(isUserLoggedIn()){
                 $titoloConsegnato = "Ordine #".$order['Codice']." consegnato";
                 $testoConsegnato = "Il tuo ordine è stato consegnato.<br>Clicca qui per lasciare una recensione.";
                 $linkConsegnato="/user/trackMyPackage.php?idOrder=".$order['Codice'];
-                if(count($unvotedDisks) != 0){
-                    $linkConsegnato="/user/trackMyPackage.php?idOrder=".$order['Codice'];
-                }
                 $dbh->insertNotification($testoConsegnato,$titoloConsegnato,$linkConsegnato,$order["DataConsegna"], $_SESSION["mail"]);
             }
             if($lastState == "Ordine Spedito" && $orderState == "Consegnato"){
