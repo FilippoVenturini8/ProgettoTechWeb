@@ -92,8 +92,8 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/musica classica/InATimeLapse-Lu
 /*ACCOUNT*/
 INSERT INTO Account(Mail, Psw, Nome, Cognome, Cellulare, ImmagineProfilo, isAdmin)
 VALUES ("lpshop@gmail.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "LP Shop", "", '0987654321', "logoProfile.png", 1),
-("federico@gmail.com", "93ccf25b78706fdc6a82f98b6b7a1ca441de9d5522fd27d7ed7913c19b6fb944", "Federico", "Minotti", '1234567890', NULL, 0);
-
+("federico@gmail.com", "93ccf25b78706fdc6a82f98b6b7a1ca441de9d5522fd27d7ed7913c19b6fb944", "Federico", "Minotti", '1234567890', NULL, 0),
+("toni@gmail.com", "bb37067afeb4ee16d668eef073ca6eea4f3b4a1fc6c68e3c0b1fd01a5fb7f5ad", "Toni", "Greco", '3405471220', "gatto.jpg", 0);
 
 /*ORDINI*/
 INSERT INTO Ordine(DataOrdine, DataSpedizione, DataConsegna, MailAccount)
@@ -102,7 +102,17 @@ VALUES('2018-06-22', '2018-06-23', '2018-06-25',"federico@gmail.com"),
 ('2019-07-01', '2019-07-02', '2019-07-03',"federico@gmail.com"),
 ('2019-10-10', '2019-10-12', '2019-10-15',"federico@gmail.com"),
 ('2020-10-10', '2020-10-13', '2020-10-20',"federico@gmail.com"),
-('2020-10-26', '2020-10-26', '2020-10-30',"federico@gmail.com");
+('2020-10-26', '2020-10-26', '2020-10-30',"federico@gmail.com"),
+('2021-10-03','2021-10-05','2021-10-09',"toni@gmail.com"),
+('2021-11-03','2021-11-05','2021-11-09',"toni@gmail.com"),
+('2021-10-13','2021-10-15','2021-10-19',"toni@gmail.com"),
+('2021-10-23','2021-10-25','2021-10-29',"toni@gmail.com"),
+('2021-01-03','2021-01-05','2021-01-09',"toni@gmail.com"),
+('2021-03-08','2021-03-10','2021-03-11',"toni@gmail.com"),
+('2021-03-03','2021-03-05','2021-03-09',"toni@gmail.com"),
+('2021-04-10','2021-04-13','2021-04-14',"toni@gmail.com"),
+('2021-04-16','2021-04-15','2021-04-18',"toni@gmail.com");
+
 
 /*DISCHI ORDINATI*/
 INSERT INTO Disco_Ordinato(CodiceDisco, CodiceOrdine, Quantita, Voto)
@@ -120,4 +130,13 @@ VALUES(12,1,1,4),
 (15,4,3,5),
 (5,5,1,3),
 (20,5,3,5),
-(17,6,3,4);
+(17,6,3,4),
+(15,7,1,4), 
+(25,8,3,2),
+(17,9,2,4), 
+(18,10,1,4), 
+(23,11,7,5), 
+(20,12,4,4), 
+(21,13,2,3), 
+(22,14,1,2), 
+(24,15,3,5);
