@@ -91,9 +91,9 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/musica classica/InATimeLapse-Lu
 
 /*ACCOUNT*/
 INSERT INTO Account(Mail, Psw, Nome, Cognome, Cellulare, ImmagineProfilo, isAdmin)
-VALUES ("lpshop@gmail.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "LP Shop", "", '0987654321', "logoProfile.png", 1),
-("federico@gmail.com", "93ccf25b78706fdc6a82f98b6b7a1ca441de9d5522fd27d7ed7913c19b6fb944", "Federico", "Minotti", '1234567890', NULL, 0),
-("toni@gmail.com", "bb37067afeb4ee16d668eef073ca6eea4f3b4a1fc6c68e3c0b1fd01a5fb7f5ad", "Toni", "Greco", '3405471220', "gatto.jpg", 0);
+VALUES ("lpshop@gmail.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "LP Shop", "", '0987654321', "manager.png", 1),
+("federico@gmail.com", "93ccf25b78706fdc6a82f98b6b7a1ca441de9d5522fd27d7ed7913c19b6fb944", "Federico", "Minotti", '1234567890', NULL, 0);
+
 
 /*ORDINI*/
 INSERT INTO Ordine(DataOrdine, DataSpedizione, DataConsegna, MailAccount)
