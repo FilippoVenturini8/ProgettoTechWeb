@@ -16,9 +16,9 @@
         <div class="col-3"></div>
         <div class="col-6 text-center">
             <?php if($_SESSION["immagineprofilo"] != NULL):?>
-                <img id="profileImage" class="rounded-circle" style="max-width: 100px;" src= "../../img/icon/<?php echo($_SESSION["immagineprofilo"])?>" alt=""/>
+                <img id="profileImage" class="rounded-circle" style="max-width: 100px;" src= "../../img/profileImage/<?php echo($_SESSION["immagineprofilo"])?>" alt=""/>
             <?php else : ?>
-                <img id="profileImage" class="rounded-circle" style="max-width: 100px;" src="../../img/icon/User.png" alt=""/>
+                <img id="profileImage" class="rounded-circle" style="max-width: 100px;" src="../../img/profileImage/User.png" alt=""/>
             <?php endif; ?>
         </div>
         <div class="col-3"></div>
