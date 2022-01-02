@@ -140,7 +140,7 @@
                         <div class="row">
                             <div class="col-9"></div>
                             <div class="col-3">
-                                <a id="btnPaga" class="btn btn-primary btn-sm disabled" href="../../php/user/payment.php" role="button">Paga</a>
+                                <a id="btnPaga" class="btn btn-primary btn-sm <?php if(count($templateParams["disksInCart"]) == 0){echo "disabled";}?>" href="../../php/user/payment.php" role="button">Paga</a>
                             </div>
                         </div>
                     </div>
