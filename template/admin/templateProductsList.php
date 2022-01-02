@@ -16,10 +16,10 @@
 </div>
 
 <div class="row mb-4">
-    <div class="col-1"></div>
-    <div class="col-10 px-5">
-        <div class="input-group form-outline">
-            <div class="form-outline p-0">
+    <div class="col-2 col-md-4"></div>
+    <div class="col-8 col-md-4">
+        <div class="input-group form-outline d-flex justify-content-center">
+            <div class="w-75 form-outline">
                 <input type="search" class="form-control" id="catalog-searchbar" placeholder="Search" onchange="searchDisks()"/>
             </div>
             <button type="submit" class="btn btn-primary">
@@ -61,18 +61,15 @@
         <?php foreach($templateParams["allDisks"] as $disk): ?> 
             <div class="accordion-item">
                 <h2 id="header<?php echo $disk["Codice"]?>" class="accordion-header" id="heading<?php echo $disk["Codice"]?>">
-                <button class="accordion-button py-sm-1 py-md-2 row mx-0 <?php if(!isset($templateParams["idFinishedDisk"])){ echo "collapsed";}?> <?php if(isset($templateParams["idFinishedDisk"]) && $disk["Codice"] != $templateParams["idFinishedDisk"]){echo "collapsed";}?>"" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
+                <button class="accordion-button pt-3 row mx-0 <?php if(!isset($templateParams["idFinishedDisk"])){ echo "collapsed";}?> <?php if(isset($templateParams["idFinishedDisk"]) && $disk["Codice"] != $templateParams["idFinishedDisk"]){echo "collapsed";}?>"" type="button" data-bs-toggle="collapse" data-bs-target="#disk<?php echo $disk["Codice"]?>" aria-controls="disk<?php echo $disk["Codice"]?>">
                     <div class="col-1">
                         <label>#<?php echo $disk["Codice"]?></label>
                     </div>
                     <div class="col-4 ml-2">
                         <label><?php echo $disk["Titolo"]?></label>
                     </div>
-                    <div class="col-3">
+                    <div class="col-5">
                         <label><?php echo $disk["Artista"]?></label>
-                    </div>
-                    <div class="col-2">
-                        <label><?php echo $disk["Prezzo"]?>€</label>
                     </div>
                     <div class="col-2">
                         <label>Qtà: <?php echo $disk["QuantitaDisponibile"]?></label>

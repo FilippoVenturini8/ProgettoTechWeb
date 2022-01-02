@@ -1,8 +1,17 @@
 <script src="../../js/ordersListSearchbar.js" type="text/javascript"></script>
-<div class="row pt-3">
-    <div class="mx-5 col-12">
-        <div class="input-group form-outline">
-            <div class="form-outline">
+<div class="row py-3 px-4">
+    <h1>
+        <span class="mx-sm-2 mx-md-5 border-bottom border-2 border-danger">
+            Ordini
+        </span>
+    </h1>
+</div>
+
+<div class="row pb-4">
+    <div class="col-2 col-md-4"></div>
+    <div class="col-8 col-md-4">
+        <div class="input-group form-outline d-flex justify-content-center">
+            <div class="w-75 form-outline">
                 <input type="search" id="order-searchbar" class="form-control" placeholder="Search"  onchange="searchOrders()"/>
             </div>
             <button type="button" class="btn btn-primary">
@@ -12,19 +21,11 @@
     </div>
 </div>
 
-<div class="row py-3 px-4">
-    <h1>
-        <span class="mx-4 border-bottom border-2 border-danger">
-            Ordini
-        </span>
-    </h1>
-</div>
-
 <div class="row">
     <div class="col-md-2 col-1"></div>
     <div class="col-md-8 col-12 accordion px-4" id="adminOrdersAccordion">
         <?php foreach($templateParams["allOrders"] as $order) : ?>
-            <div id="<?php echo $order["CodiceOrdine"];?>" class="accordion-item">
+            <div id="<?php echo $order["CodiceOrdine"];?>" class="accordion-item ms-2">
                 <h2 class="accordion-header" id="headingAdminOrder<?php echo $order["CodiceOrdine"]?>">
                 <button class="accordion-button py-3 <?php if(!isset($templateParams["idOrderSelected"])){ echo "collapsed";}?> <?php if(isset($templateParams["idOrderSelected"]) && $order["CodiceOrdine"] != $templateParams["idOrderSelected"]){echo "collapsed";}?>" type="button" data-bs-toggle="collapse" data-bs-target="#adminOrder<?php echo $order["CodiceOrdine"]?>" aria-controls="adminOrder<?php echo $order["CodiceOrdine"]?>">
                     <div class="col-5 ps-2">
