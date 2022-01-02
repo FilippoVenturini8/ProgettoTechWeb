@@ -25,6 +25,8 @@ if(isUserLoggedIn()){
             $templateParams["openReview"] = 1;
         }
     }
+} else {
+    $templateParams["templateName"] = "../../template/common/templateError401user.php";
 }
 
 require '../../template/common/base.php';
