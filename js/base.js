@@ -55,7 +55,6 @@ $(document).ready(function () {
         var footerTop = $("body > div > footer").position().top + footerHeight;
 
         if(footerTop < docHeight){
-            console.log(docHeight - footerTop);
             $("body > div > footer").css("margin-top", 16 + (docHeight - footerTop) + "px");
         } else {
             $("body > div > footer").css("margin-top", 100 + "px");

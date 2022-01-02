@@ -95,8 +95,8 @@
 
     <div class="row mt-5 mb-4">
         <div class="row">
-            <div class="col-2 col-md-4"></div>
-            <div class="col-8 col-md-4 px-0">
+            <div class="col-2 col-md-4 me-3"></div>
+            <div class="col-8 col-md-4 px-0 pe-2">
                 <input class="span2" id="categoria" name="categoria" type="hidden"/>
                 <div class="input-group">
                     <button class="btn btn-outline-secondary dropdown-toggle dropDown py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</button>
@@ -110,9 +110,9 @@
         </div>
     </div>
 
-    <div class="row mt-5 mx-5">
+    <div class="row mt-5">
         <div class="col-4"></div>
-        <div class="col-4 mx-3">
+        <div class="col-4 mt-5 d-flex justify-content-center">
             <input class="btn btn-primary" type="submit" value="Aggiungi"/>
         </div>
     </div>
