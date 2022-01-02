@@ -120,7 +120,7 @@
             </div>
             <div class="modal-body">
                 <ul class="list-group list-group-flush">
-                    <?php foreach($templateParams["order"] as $disk):?>
+                    <?php foreach($templateParams["unvotedDisks"] as $disk):?>
                         <li id="review<?php echo $disk["CodiceDisco"]?>" class="list-group-item">
                             <div class="row">
                                 <div class="col-3">

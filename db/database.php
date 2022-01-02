@@ -63,7 +63,7 @@ class DatabaseHelper{
     }
 
     public function getOrderDetails($orderID){
-        $stmt = $this->db->prepare("SELECT CodiceDisco, CodiceOrdine, Titolo, Copertina, Artista, Quantita, Prezzo*Quantita as Totale, DataOrdine, DataSpedizione, DataConsegna
+        $stmt = $this->db->prepare("SELECT CodiceDisco, CodiceOrdine, Titolo, Copertina, Artista, Quantita, Prezzo*Quantita as Totale, DataOrdine, DataSpedizione, DataConsegna, Voto
                                     FROM Disco_Ordinato, Disco, Ordine
                                     WHERE Disco_Ordinato.CodiceOrdine = $orderID
                                     AND Disco_Ordinato.CodiceDisco = Disco.Codice
@@ -492,6 +492,5 @@ class DatabaseHelper{
         $stmt->bind_param("iii", $voto, $codiceDisco, $orderID);
         return $stmt->execute();
     }
-
 }
 ?>

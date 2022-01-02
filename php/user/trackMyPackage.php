@@ -12,12 +12,17 @@ if(isUserLoggedIn()){
 
     if(isset($_GET["idOrder"])){
         $templateParams["order"] = $dbh->getOrderDetails($_GET["idOrder"]);
+        $templateParams["unvotedDisks"] = array();
+        foreach($templateParams["order"] as $disk){
+            if($disk["Voto"] == NULL){
+                array_push($templateParams["unvotedDisks"], $disk);
+            }
+        }
         $templateParams["statoOrdine"] = getOrderState($templateParams["order"][0]["DataOrdine"], 
                                                        $templateParams["order"][0]["DataSpedizione"], 
                                                        $templateParams["order"][0]["DataConsegna"]);
-
-        if(isset($_GET["openReview"]) && $_GET["openReview"] == 1){
-            $templateParams["openReview"] = $_GET["openReview"];
+        if($templateParams["statoOrdine"] == "Consegnato" && count($templateParams["unvotedDisks"]) > 0){
+            $templateParams["openReview"] = 1;
         }
     }
 }
