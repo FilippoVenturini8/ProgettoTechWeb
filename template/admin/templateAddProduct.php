@@ -1,4 +1,4 @@
-<script src="../../js/addProduct.js" type="text/javascript"></script>
+<script src="../../js/addProduct.js"></script>
 <div class="row mt-4">
     <div class="col-1"></div>
     <div class="col-11 ml-2">
@@ -66,7 +66,7 @@
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4">
             <label for="prezzo">Prezzo:</label>
-            <input id="prezzo" name="prezzo" class="form-control" type="numeric" autocomplete="off"/>
+            <input id="prezzo" name="prezzo" class="form-control" type="numeric"/>
         </div>
     </div>
 
@@ -74,7 +74,7 @@
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4">
             <label for="quantita">Quantità:</label>
-            <input id="quantita" name="quantita" class="form-control" type="numeric" autocomplete="off"/>
+            <input id="quantita" name="quantita" class="form-control" type="numeric"/>
         </div>
     </div>
 

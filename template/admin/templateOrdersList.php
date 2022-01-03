@@ -1,4 +1,4 @@
-<script src="../../js/ordersListSearchbar.js" type="text/javascript"></script>
+<script src="../../js/ordersListSearchbar.js"></script>
 <div class="row py-3 px-4">
     <h1>
         <span class="mx-sm-2 mx-md-5 border-bottom border-2 border-danger">
