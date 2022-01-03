@@ -2,9 +2,9 @@
 INSERT INTO Categoria(Nome,Copertina)
 VALUES ("Blues",'categories/blues.png'),
         ("Indie",'categories/indie.png'),
-        ("Jazz",'categories/rap2.png'),
+        ("Jazz",'categories/jazz.png'),
         ("Musica Classica",'categories/classica.png'),
-        ("Punk",'categories/punk2.png'),
+        ("Punk",'categories/punk.png'),
         ("Reggae",'categories/reggae.png'),
         ("Rap",'categories/rap2.png'),
         ("Rock",'categories/rock.png');
@@ -72,6 +72,7 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/musica classica/InATimeLapse-Lu
 ("The Eminem Show", '2002-05-26', 26, 'LP/rap/TheEminemShow-Eminem.jpg', 31.36, 'Eminem', 'Rap'),
 ("Deca Dance", '2009-06-11', 26, 'LP/rap/DecaDance-Jax.jpg', 29.47, 'J-Ax', 'Rap'),
 ("Playlist", '2018-11-09', 26, 'LP/rap/Playlist-Salmo.jpg', 29.99, 'Salmo', 'Rap'),
+("Davide", '2018-04-20', 26, 'LP/rap/Davide-Gemitaiz.jpg', 25.99, 'Gemitaiz', 'Rap'),
 ("Astroworld", '2018-08-03', 26, 'LP/rap/AstroWorld-TravisScott.jpg', 25.72, 'Travis Scott', 'Rap'),
 ("Californication", '1999-06-08', 26, 'LP/rock/Californication-RedHotChiliPeppers.png', 35.22, 'Red Hot Chili Peppers', 'Rock'),
 ("Higway To Hell", '1979-08-27', 26, 'LP/rock/HighwayToHell-ACDC.jpg', 23.49, 'ACDC', 'Rock'),
@@ -82,11 +83,17 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/musica classica/InATimeLapse-Lu
 ("Apetite For Destruction", '1986-06-21', 26, 'LP/rock/ApetiteForDestruction-GunsNRoses.jpg', 20.79, 'Guns n Roses', 'Rock'),
 ("Easy Blues", '2000-04-27', 26, 'LP/blues/EasyBlues-LafayetteLeake.jpg', 30.99, 'Lafayette Leake', 'Blues'),
 ("The BB King Story", '1980-02-13', 26, 'LP/blues/TheBBKingStory-BBKing.jpg', 20.99, 'BB King', 'Blues'),
-("Calling All Blues", '2000-09-17', 26, 'LP/blues/CallingAllBlues-JuniorWells.jpg', 25.39, 'Junior Wells', 'Blues'),
+("Indianola Mississippi Seeds", '1970-10-27', 26, 'LP/blues/IndianolaMississippiSeeds-BBKing.jpg', 20.99, 'BB King', 'Blues'),
+("Calling All Blues", '2000-09-17', 26, 'LP/blues/CallingAllBlues-JuniorWells.jpg', 20.99, 'Junior Wells', 'Blues'),
+("I Was Walking Through the Woods", '1970-07-01', 26, 'LP/blues/IWasWalking-BuddyGuy.jpg', 18.35, 'Buddy Guy', 'Blues'),
+("My Feeling For the Blues", '1969-12-15', 26, 'LP/blues/MyFeelingFortheBlues-FreddieKing.jpg', 19.99, 'Freddie King', 'Blues'),
+("T-Bone Blues", '1959-11-26', 26, 'LP/blues/TBoneBlues-TBoneWalker.jpg', 22.99, 'T-Bone Walker', 'Blues'),
 ("My Way", '1969-03-15', 26, 'LP/jazz/MyWay-FrankSinatra.jpg', 22.99, 'Frank Sinatra', 'Jazz'),
 ("Crystal Silence", '1973-05-20', 26, 'LP/jazz/CrystalSilence-GaryBurton.jpg', 27.50, 'Gary Burton', 'Jazz'),
 ("I Put A Spell On You", '1965-06-01', 26, 'LP/jazz/IPutASpellOnYou-NinaSimone.jpg', 25.99, 'Nina Simone', 'Jazz'),
 ("Time Out", '1959-12-14', 26, 'LP/jazz/TimeOut-DaveBrubeck.jpg', 20.99, 'Dave Brubeck', 'Jazz'),
+("Sonny Crib", '1998-02-10', 26, 'LP/jazz/SonnyCrib-SonnyClark.jpg', 30.99, 'Sonny Clark', 'Jazz'),
+("Lady In Satin", '1958-06-13', 26, 'LP/jazz/LadyInSatin-BillieHoliday.jpg', 30.99, 'Billie Holiday', 'Jazz'),
 ("What A Wonderful World", '1968-11-01', 26, 'LP/jazz/WhatAWonderfulWorld-LouisArmstrong.jpg', 22.50, 'Louis Armstrong', 'Jazz');
 
 /*ACCOUNT*/
