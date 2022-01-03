@@ -9,15 +9,6 @@
     </div>
 </div>
 
-<div class="row m-4">
-    <div class="col-0 col-md-1"></div>
-    <div class="col-12 col-md-11">
-        <h2>
-            <span class="border-bottom border-danger border-2 py-1">Indirizzo di spedizione:</span>
-        </h2>
-    </div>
-</div>
-
 <div class="card mx-auto" style="width: 25rem;">
   <img src="../../img/icon/spedizione.png" class="card-img-top" alt="...">
   <div class="card-body">

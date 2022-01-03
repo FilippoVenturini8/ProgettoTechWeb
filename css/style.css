@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-/*@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap');
 body > div > header{
     border-bottom: solid 3px #d9534f;
     box-sizing: content-box !important;
@@ -12,7 +13,7 @@ body > div > header{
 body{
     overflow-x: hidden;
     /*font-family:'Alegreya Sans SC', sans-serif !important;*/
-    font-family: 'Source Sans Pro', sans-serif !important;;
+    font-family: 'Work Sans', sans-serif !important;
     font-size: 200%;
     background-image: url("../img/triangle-mosaic.png") !important;
 }
