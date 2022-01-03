@@ -23,7 +23,7 @@ create table CATEGORIA (
 
 create table DISCO (
      Codice int not null AUTO_INCREMENT,
-     Titolo varchar(30) not null,
+     Titolo varchar(50) not null,
      DataPubblicazione date not null,
      QuantitaDisponibile int not null,
      Copertina varchar(70),
