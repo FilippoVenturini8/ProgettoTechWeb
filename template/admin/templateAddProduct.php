@@ -66,7 +66,7 @@
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4">
             <label for="prezzo">Prezzo:</label>
-            <input id="prezzo" name="prezzo" class="form-control" type="numeric"/>
+            <input id="prezzo" name="prezzo" class="form-control" type="number" step="0.01"/>
         </div>
     </div>
 
@@ -74,7 +74,7 @@
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4">
             <label for="quantita">Quantità:</label>
-            <input id="quantita" name="quantita" class="form-control" type="numeric"/>
+            <input id="quantita" name="quantita" class="form-control" type="number" min="1"/>
         </div>
     </div>
 
@@ -102,7 +102,7 @@
                     <button class="btn btn-outline-secondary dropdown-toggle dropDown py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</button>
                     <ul class="dropdown-menu w-100">
                         <?php foreach($templateParams["categories"] as $category):?>
-                            <li onclick="$('#categoria').val('Rap');"><a class="dropdown-item"><?php echo $category["Nome"]?></a></li>
+                            <li onclick="$('#categoria').val(`<?php echo $category['Nome']?>`);"><a class="dropdown-item"><?php echo $category["Nome"]?></a></li>
                         <?php endforeach;?>
                     </ul>
                 </div>  

@@ -249,7 +249,7 @@
                                             </div>
                                             <div class="row">
                                                 <p><?php echo $message["Testo"]?></p>
-                                            <div>
+                                            </div>
                                         </li>
                                     </a>
                                 <?php endforeach;?>
@@ -272,8 +272,8 @@
                     <li class="d-inline-block mx-3">+39 333 6835952</li>
                     <li class="d-inline-block mx-3">Via Cesare Pavese, 5047521 Cesena FC</li>
                     <li class="d-inline-block mx-3">lpshop@gmail.com</li>
-                <ul>
-            <div>
+                </ul>
+            </div>
         </footer>
     </div>
 </body>

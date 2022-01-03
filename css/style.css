@@ -223,8 +223,10 @@ div.starReview{
     font-size: 2rem !important;
 }
 
-#contentCategory{
-    font-size: medium;
+.contentCategory{
+    font-size: medium !important;
+    background-color:#d9534f !important;
+    width:150px !important;
 }
 
 button[id*="btnStar"]{

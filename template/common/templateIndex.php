@@ -50,7 +50,7 @@
         <div class= "row">
             <div class="col-2"></div>
             <div class="col-8 text-center">
-                <span id="contentCategory" class="badge rounded-pill px-3" style="background-color:#d9534f !important; width:150px;"><?php echo $category["Nome"]?></span>
+                <span class="badge rounded-pill px-3 contentCategory"><?php echo $category["Nome"]?></span>
             </div>
             <div class="col-2"></div>
         </div>

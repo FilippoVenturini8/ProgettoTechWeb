@@ -10,7 +10,7 @@
     <div id="<?php echo $disk["Codice"]?>" class="col-lg-6 p-2 <?php if($i==0){echo "border-top";}?> border-start border-end border-bottom border-danger <?php if(isset($templateParams["popularClicked"]) && $disk["Codice"] == $templateParams["popularClicked"]){ echo "popularClicked";}else{echo "notClicked";}?>">
         <div class="row px-2">
             <div class="col-4 mt-2">
-                <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"></img>
+                <img src="<?php echo UPLOAD_DIR.$disk["Copertina"] ;?>" alt="" class="diskInOrder"/>
             </div>
             <div class="col-8 mt-2">
                 <div class="row">
