@@ -103,7 +103,7 @@
     </div>
 </div>
 
-<span id="openModal" class="hidden" value="<?php if(isset($templateParams["openReview"])){echo "open";}?>"></span>
+<span id="openModal" class="hidden" data-id="<?php if(isset($templateParams["openReview"])){echo "open";}?>"></span>
 
 <div class="modal fade" id="ReviewModal" tabindex="-1" role="dialog" aria-labelledby="ReviewModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -135,7 +135,7 @@
                                         <button id="btnStar3-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(3, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px" >☆</button>
                                         <button id="btnStar4-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(4, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px" >☆</button>
                                         <button id="btnStar5-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(5, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px" >☆</button>
-                                        <span>
+                                    </span>
                                     </div>
                                     <div class="text-end row">
                                         <div class="col-10"></div>
