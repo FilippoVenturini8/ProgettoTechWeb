@@ -164,9 +164,9 @@
                     <div class="col-3"></div>
                     <div class="col-6 text-center">
                         <?php if(isset($_SESSION["immagineprofilo"]) && $_SESSION["immagineprofilo"] != NULL):?>
-                            <img src="../../img/profileImage/<?php echo($_SESSION["immagineprofilo"])?>" alt=""/>
+                            <img class="rounded-circle" src="../../img/profileImage/<?php echo($_SESSION["immagineprofilo"])?>" alt=""/>
                         <?php else : ?>
-                            <img src="../../img/profileImage/User.png" alt=""/>
+                            <img class="rounded-circle" src="../../img/profileImage/User.png" alt=""/>
                         <?php endif; ?>
                     </div>
                     <div class="col-3"></div>
