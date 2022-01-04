@@ -5,7 +5,7 @@ require_once '../common/bootstrap.php';
 $templateParams["title"] = "LP Shop - Add Product";
 
 if(!isUserLoggedIn() || !$_SESSION["isadmin"]){
-    $templateParams["templateName"] = "../../template/common/templateError401.php";
+    $templateParams["templateName"] = "../../template/common/templateError401admin.php";
 } else {
     $templateParams["templateName"] = "../../template/admin/templateAddProduct.php";
     $templateParams["messages"] = $dbh->getMessages($_SESSION["mail"]);

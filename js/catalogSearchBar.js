@@ -15,18 +15,15 @@ function searchDisks(){
                 document.getElementById("diskAccordion").innerHTML = document.getElementById("diskAccordion").innerHTML +`
                 <div class="accordion-item">
                 <h2 id="header${disk.Codice}" class="accordion-header" id="heading${disk.Codice}">
-                <button class="accordion-button row mx-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#disk${disk.Codice}" aria-controls="disk${disk.Codice}">
+                <button class="accordion-button pt-3 row mx-0 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#disk${disk.Codice}" aria-controls="disk${disk.Codice}">
                     <div class="col-1">
                         <label>#${disk.Codice}</label>
                     </div>
                     <div class="col-4 ml-2">
                         <label>${disk.Titolo}</label>
                     </div>
-                    <div class="col-3">
+                    <div class="col-5">
                         <label>${disk.Artista}</label>
-                    </div>
-                    <div class="col-2">
-                        <label>${disk.Prezzo}€</label>
                     </div>
                     <div class="col-2">
                         <label>Qtà: ${disk.QuantitaDisponibile}</label>
@@ -66,7 +63,7 @@ function searchDisks(){
                                 <div class="col-2"></div>
                                 <div class="col-5 col-md-2">
                                     <input type="hidden"  id="idDisk" value="${disk.Codice}"/>
-                                    <button type="button" class="btn btn-primary p-1" name="btnModifica" data-id="${disk.Codice}"  onclick="">
+                                    <button type="button" class="btn btn-primary p-1" name="btnModifica" data-id="${disk.Codice}"  onclick="modifyProduct(${disk.Codice})">
                                         Modifica
                                     </button>
                                 </div>

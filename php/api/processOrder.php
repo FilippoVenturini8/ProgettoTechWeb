@@ -7,7 +7,6 @@ $disksInCart = $dbh->getDisksInCart($_SESSION["mail"]);
 
 foreach ($disksInCart as $diskInCart){
     $dbh->insertNewDiskInOrder($diskInCart["CodiceDisco"], $idOrder, $diskInCart["Quantita"]);
-    $dbh->alterQuantityDisk($diskInCart["CodiceDisco"], $diskInCart["Quantita"]);
     $disk = $dbh->getDisk($diskInCart["CodiceDisco"]);
     if($disk["QuantitaDisponibile"] == 0){
         $titolo = "\"".$disk["Titolo"]. "\" Terminato";
@@ -20,7 +19,7 @@ foreach ($disksInCart as $diskInCart){
 $dbh->clearCart($_SESSION["mail"]);
 
 $titoloUser = "Ordine #".$idOrder." ricevuto";
-$testoUser = "Il tuo ordine con codice ".$idOrder." è stato ricevuto. LP shop provvederà alla spedizione il prima possibile.<br>Clicca qui per verificare lo stato del tuo ordine.";
+$testoUser = "Il tuo ordine con codice ".$idOrder." è stato ricevuto.<br>LP shop provvederà alla spedizione il prima possibile.<br>Clicca qui per verificare lo stato del tuo ordine.";
 $linkUser="/user/trackMyPackage.php?idOrder=".$idOrder;
 $dbh->insertNotification($testoUser,$titoloUser,$linkUser,date("Y-m-d h:i:s"), $_SESSION["mail"]);
 

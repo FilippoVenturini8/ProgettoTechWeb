@@ -63,7 +63,7 @@ class DatabaseHelper{
     }
 
     public function getOrderDetails($orderID){
-        $stmt = $this->db->prepare("SELECT CodiceDisco, CodiceOrdine, Titolo, Copertina, Artista, Quantita, Prezzo*Quantita as Totale, DataOrdine, DataSpedizione, DataConsegna
+        $stmt = $this->db->prepare("SELECT CodiceDisco, CodiceOrdine, Titolo, Copertina, Artista, Quantita, Prezzo*Quantita as Totale, DataOrdine, DataSpedizione, DataConsegna, Voto
                                     FROM Disco_Ordinato, Disco, Ordine
                                     WHERE Disco_Ordinato.CodiceOrdine = $orderID
                                     AND Disco_Ordinato.CodiceDisco = Disco.Codice
@@ -459,12 +459,21 @@ class DatabaseHelper{
         return $stmt->execute();
     }
 
+    
     public function alterQuantityDisk($codiceDisco, $quantitaOrdinata){
         $stmt = $this->db->prepare("UPDATE Disco
                                     SET QuantitaDisponibile = QuantitaDisponibile - ?
                                     WHERE Codice = ?");
         $stmt->bind_param("ii",$quantitaOrdinata,$codiceDisco);
         return $stmt->execute();
+    }
+
+    public function increaseDiskQuantity($codiceDisco){
+        return $this->alterQuantityDisk($codiceDisco, -1);
+    }
+
+    public function decreaseDiskQuantity($codiceDisco){
+        return $this->alterQuantityDisk($codiceDisco, 1);
     }
 
     public function deleteDisk($id){
@@ -475,5 +484,13 @@ class DatabaseHelper{
         $stmt->execute();
     }
 
+    public function addReview($codiceDisco, $voto, $orderID){
+        $stmt = $this->db->prepare("UPDATE disco_ordinato
+                                    SET Voto = ?
+                                    WHERE CodiceDisco = ?
+                                    AND CodiceOrdine = ?");
+        $stmt->bind_param("iii", $voto, $codiceDisco, $orderID);
+        return $stmt->execute();
+    }
 }
 ?>

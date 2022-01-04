@@ -1,3 +1,4 @@
+<script src="../../js/trackPackage.js" type="text/javascript"></script>
 <?php $order = $templateParams["order"][0]?>
 <div class="row mt-4">
     <h1>
@@ -19,15 +20,17 @@
                     </div>
                 </div>
             <?php $i=$i+1; endforeach; ?>
+            <?php if($i > 1): ?>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel<?php echo $order["CodiceOrdine"] ?>" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel<?php echo $order["CodiceOrdine"] ?>" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            <?php endif;?>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carousel<?php echo $order["CodiceOrdine"] ?>" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carousel<?php echo $order["CodiceOrdine"] ?>" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
 </div>
 
@@ -95,6 +98,59 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<span id="openModal" class="hidden" value="<?php if(isset($templateParams["openReview"])){echo "open";}?>"></span>
+
+<div class="modal fade" id="ReviewModal" tabindex="-1" role="dialog" aria-labelledby="ReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="ReviewModalLabel">
+                    <span class="border-bottom border-danger border-2">
+                        Recensione
+                    </span>
+                </h1>
+                <button class="btn btn-default" data-bs-dismiss="modal">
+                    <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group list-group-flush">
+                    <?php foreach($templateParams["unvotedDisks"] as $disk):?>
+                        <li id="review<?php echo $disk["CodiceDisco"]?>" class="list-group-item">
+                            <div class="row">
+                                <div class="col-3">
+                                    <img src="<?php echo UPLOAD_DIR.$disk["Copertina"]?>" alt="" style="height: 80px;"/>
+                                </div>
+                                <div class="col-9 align-top">
+                                    <div class="row">
+                                        <p class="mb-0"><?php echo $disk["Titolo"]." - ".$disk["Artista"]?></p>
+                                        <span style="height: 25px">
+                                        <button id="btnStar1-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(1, <?php echo $disk['CodiceDisco']?>)" class="ms-2 btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px;" >☆</button>
+                                        <button id="btnStar2-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(2, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px" >☆</button>
+                                        <button id="btnStar3-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(3, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px" >☆</button>
+                                        <button id="btnStar4-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(4, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px" >☆</button>
+                                        <button id="btnStar5-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(5, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px" >☆</button>
+                                        <span>
+                                    </div>
+                                    <div class="text-end row">
+                                        <div class="col-10"></div>
+                                        <div class="col-1">
+                                            <!--<a class=" btn btn-primary py-0 px-1 mb-0 mt-0">Vota</a>-->
+                                            <button class="btn">
+                                                <img src="../../img/icon/save.png" alt="" onclick="saveReview(<?php echo $disk['CodiceDisco']?>, <?php echo $order['CodiceOrdine'] ?>)" style="height: 20px; width: 20px"/>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    <?php endforeach;?>
+                </ul>
             </div>
         </div>
     </div>

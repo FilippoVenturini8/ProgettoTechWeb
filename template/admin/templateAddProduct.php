@@ -1,4 +1,4 @@
-<script src="../../js/addProduct.js" type="text/javascript"></script>
+<script src="../../js/addProduct.js"></script>
 <div class="row mt-4">
     <div class="col-1"></div>
     <div class="col-11 ml-2">
@@ -66,7 +66,7 @@
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4">
             <label for="prezzo">Prezzo:</label>
-            <input id="prezzo" name="prezzo" class="form-control" type="numeric" autocomplete="off"/>
+            <input id="prezzo" name="prezzo" class="form-control" type="number" step="0.01"/>
         </div>
     </div>
 
@@ -74,7 +74,7 @@
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4">
             <label for="quantita">Quantità:</label>
-            <input id="quantita" name="quantita" class="form-control" type="numeric" autocomplete="off"/>
+            <input id="quantita" name="quantita" class="form-control" type="number" min="1"/>
         </div>
     </div>
 
@@ -95,14 +95,14 @@
 
     <div class="row mt-5 mb-4">
         <div class="row">
-            <div class="col-2 col-md-4"></div>
-            <div class="col-8 col-md-4 px-0">
+            <div class="col-2 col-md-4 me-3"></div>
+            <div class="col-8 col-md-4 px-0 pe-2">
                 <input class="span2" id="categoria" name="categoria" type="hidden"/>
                 <div class="input-group">
                     <button class="btn btn-outline-secondary dropdown-toggle dropDown py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</button>
                     <ul class="dropdown-menu w-100">
                         <?php foreach($templateParams["categories"] as $category):?>
-                            <li onclick="$('#categoria').val('Rap');"><a class="dropdown-item"><?php echo $category["Nome"]?></a></li>
+                            <li onclick="$('#categoria').val(`<?php echo $category['Nome']?>`);"><a class="dropdown-item"><?php echo $category["Nome"]?></a></li>
                         <?php endforeach;?>
                     </ul>
                 </div>  
@@ -110,9 +110,9 @@
         </div>
     </div>
 
-    <div class="row mt-5 mx-5">
+    <div class="row mt-5">
         <div class="col-4"></div>
-        <div class="col-4 mx-3">
+        <div class="col-4 mt-5 d-flex justify-content-center">
             <input class="btn btn-primary" type="submit" value="Aggiungi"/>
         </div>
     </div>

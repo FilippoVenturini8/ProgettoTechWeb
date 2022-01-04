@@ -1,4 +1,8 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@100&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400&display=swap');
 body > div > header{
     border-bottom: solid 3px #d9534f;
     box-sizing: content-box !important;
@@ -8,9 +12,9 @@ body > div > header{
 
 body{
     overflow-x: hidden;
-    font-family: 'Alegreya Sans SC' !important;
-    font-weight: 500 !important;
-    font-style: normal !important;
+    /*font-family:'Alegreya Sans SC', sans-serif !important;*/
+    font-family: 'Work Sans', sans-serif !important;
+    font-size: 200%;
     background-image: url("../img/triangle-mosaic.png") !important;
 }
 
@@ -101,14 +105,12 @@ aside{
 /*Notifiche*/
 .unReadNotify{
     border-color: #000 !important;
-    background-color: #d9534f !important;
-    color: #fff !important;
+    background-color: #ebebeb !important;
 }
 
 .readNotify{
     border-color: #000 !important;
-    background-color: #ebebeb !important;
-    color: #000 !important;
+    background-color: white !important;
 }
 
 .add-to-cart-button > img{
@@ -205,13 +207,48 @@ aside{
 body > div > footer{ 
     font-size: 75%;
     background-color: #d9534f !important;
+    /*margin-top: 100px !important;*/
 }
+/*
+.footerEmptyPage{
+    margin-top: 450px !important;
+}*/
 
 .contactIcon{
     height: 20px !important;
     width: 20px !important;
 }
 
-.starReview{
+div.starReview{
     font-size: 2rem !important;
+}
+
+.contentCategory{
+    font-size: medium !important;
+    background-color:#d9534f !important;
+    width:150px !important;
+}
+
+button[id*="btnStar"]{
+    outline: none !important;
+    box-shadow: none !important;
+    transition: font-size 0s, color 0.2s, height 0.7s;
+    /*transition: all 2s;*/
+}
+
+button[id*="btnStar"]:hover{
+    font-size: 170% !important;
+}
+
+.starSelected{
+    color: #fcc201 !important;
+}
+
+li[id*="review"]{
+    opacity: 1;
+    transition: opacity 0.7s;
+}
+
+.reviewRemoving{
+    opacity: 0 !important;
 }

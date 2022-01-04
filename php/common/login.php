@@ -14,6 +14,7 @@ if(isset($_POST["email"]) && isset($_POST["password"])){
 
 if(isUserLoggedIn()){
     $orders = $dbh->getOrdersByAccount($_SESSION["mail"]);
+
     foreach($orders as $order){
         $orderState = getOrderState($order["DataOrdine"],$order["DataSpedizione"],$order["DataConsegna"]);
         $lastState = getOrderStateAtLastLogin($order["DataOrdine"],$order["DataSpedizione"],$order["DataConsegna"], $dbh->getLastLogin($_SESSION["mail"]));
@@ -31,13 +32,13 @@ if(isUserLoggedIn()){
                 $dbh->insertNotification($testoSpedito,$titoloSpedito,$linkSpedito,$order["DataSpedizione"], $_SESSION["mail"]);
 
                 $titoloConsegnato = "Ordine #".$order['Codice']." consegnato";
-                $testoConsegnato = "Il tuo ordine è stato consegnato.<br>Clicca qui per verificare lo stato del tuo ordine.";
+                $testoConsegnato = "Il tuo ordine è stato consegnato.<br>Clicca qui per lasciare una recensione.";
                 $linkConsegnato="/user/trackMyPackage.php?idOrder=".$order['Codice'];
                 $dbh->insertNotification($testoConsegnato,$titoloConsegnato,$linkConsegnato,$order["DataConsegna"], $_SESSION["mail"]);
             }
             if($lastState == "Ordine Spedito" && $orderState == "Consegnato"){
                 $titolo = "Ordine #".$order['Codice']." consegnato";
-                $testo = "Il tuo ordine è stato consegnato.<br>Clicca qui per verificare lo stato del tuo ordine.";
+                $testo = "Il tuo ordine è stato consegnato.<br>Clicca qui per lasciare una recensione.";
                 $link="/user/trackMyPackage.php?idOrder=".$order['Codice'];
                 $dbh->insertNotification($testo,$titolo,$link,$order["DataConsegna"], $_SESSION["mail"]);
             }

@@ -7,11 +7,11 @@
     <link rel="stylesheet" type="text/css" href="../../css/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../../js/base.js" type="text/javascript"></script>
+    <script src="../../js/base.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
-    <script src="../../js/cartManage.js" type="text/javascript"></script>
-    <script src="../../js/deleteProduct.js" type="text/javascript"></script>
+    <script src="../../js/cartManage.js" ></script>
+    <script src="../../js/deleteProduct.js"></script>
 </head>
 <body>
     <div class="container-fluid p-0">
@@ -69,6 +69,7 @@
         </main>
 
         <!--carrello-->
+        <?php if(isUserLoggedIn() && !$_SESSION["isadmin"]):?>
         <aside class="collapse float-end">
             <header class="row pt-3">
                 <div class="row mx-0 px-0">
@@ -88,7 +89,7 @@
                 </div>
             </header>
 
-            <?php if(isUserLoggedIn()):?>
+            
                 <ul class="list-group list-group-flush scrollarea cart">
                     <?php foreach($templateParams["disksInCart"] as $diskInCart): ?>
                         <li class="list-group-item row m-0 border-bottom " id="diskInCart<?php echo $diskInCart['CodiceDisco']?>">
@@ -141,14 +142,14 @@
                         <div class="row">
                             <div class="col-9"></div>
                             <div class="col-3">
-                                <a id="btnPaga" class="btn btn-primary btn-sm disabled" href="../../php/user/payment.php" role="button">Paga</a>
+                                <a id="btnPaga" class="btn btn-primary btn-sm <?php if(count($templateParams["disksInCart"]) == 0){echo "disabled";}?>" href="../../php/user/payment.php" role="button">Paga</a>
                             </div>
                         </div>
                     </div>
                 </footer>
-            <?php endif;?>
+            
         </aside>
-
+        <?php endif;?>
         <!--menu-->
         <aside class="float-start collapse">
             <header class="py-3 px-2">
@@ -164,9 +165,9 @@
                     <div class="col-3"></div>
                     <div class="col-6 text-center">
                         <?php if(isset($_SESSION["immagineprofilo"]) && $_SESSION["immagineprofilo"] != NULL):?>
-                            <img src="../../img/icon/<?php echo($_SESSION["immagineprofilo"])?>" alt=""/>
+                            <img src="../../img/profileImage/<?php echo($_SESSION["immagineprofilo"])?>" alt=""/>
                         <?php else : ?>
-                            <img src="../../img/icon/User.png" alt=""/>
+                            <img src="../../img/profileImage/User.png" alt=""/>
                         <?php endif; ?>
                     </div>
                     <div class="col-3"></div>
@@ -227,15 +228,15 @@
                         </button>
                     </div>
                     <?php if(isUserLoggedIn()): ?>
-                        <div class="modal-body">
+                        <div class="modal-body pt-0">
                             <ul class="list-unstyled">
                                 <?php foreach($templateParams["messages"] as $message):?>
                                     <a href="../../php/api/readNotification.php?codiceNotifica=<?php echo $message["Codice"]?>" class="text-decoration-none iconDropdown">
                                         <li class="row border-bottom">
                                             <div class="row">
-                                                <div class ="col-11">
+                                                <div class ="col-11 pt-1">
                                                     <header>
-                                                        <h3><?php echo $message["Titolo"]?></h3>
+                                                        <h3 class="mb-0"><?php echo $message["Titolo"]?></h3>
                                                     </header>
                                                 </div>
                                                 <?php if($dbh->isRead($message["Codice"]) == 0):?>
@@ -244,9 +245,12 @@
                                                     </div>
                                                 <?php endif;?>
                                             </div>
+                                            <div class="row mb-2 fw-light">
+                                                <label><?php echo $message["DataNotifica"]?></label>
+                                            </div>
                                             <div class="row">
                                                 <p><?php echo $message["Testo"]?></p>
-                                            <div>
+                                            </div>
                                         </li>
                                     </a>
                                 <?php endforeach;?>
@@ -269,8 +273,8 @@
                     <li class="d-inline-block mx-3">+39 333 6835952</li>
                     <li class="d-inline-block mx-3">Via Cesare Pavese, 5047521 Cesena FC</li>
                     <li class="d-inline-block mx-3">lpshop@gmail.com</li>
-                <ul>
-            <div>
+                </ul>
+            </div>
         </footer>
     </div>
 </body>

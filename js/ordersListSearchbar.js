@@ -20,10 +20,10 @@ function searchOrders(){
                 });
 
                 document.getElementById("adminOrdersAccordion").innerHTML = document.getElementById("adminOrdersAccordion").innerHTML +`
-                <div class="accordion-item">
+                <div class="accordion-item ms-1">
                     <h2 class="accordion-header" id="headingAdminOrder` + order.CodiceOrdine + `">
                     <button class="accordion-button py-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#adminOrder` + order.CodiceOrdine + `" aria-controls="adminOrder` + order.CodiceOrdine + `">
-                        <div class="col-5">
+                        <div class="col-5 ps-2">
                             <label>Ordine: ` + order.CodiceOrdine + `</label>
                         </div>
                         <div class="col-3">

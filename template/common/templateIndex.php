@@ -30,7 +30,7 @@
     </button>
 </div>
 
-<div class="row mt-4 mb-3">
+<div class="row mt-5 mb-2">
     <h1>
         <span class="mx-5 border-bottom border-danger border-2 py-1">
             Categorie
@@ -50,7 +50,7 @@
         <div class= "row">
             <div class="col-2"></div>
             <div class="col-8 text-center">
-                <span class="badge rounded-pill px-3" style="background-color:#d9534f !important; width:150px;"><?php echo $category["Nome"]?></span>
+                <span class="badge rounded-pill px-3 contentCategory"><?php echo $category["Nome"]?></span>
             </div>
             <div class="col-2"></div>
         </div>
