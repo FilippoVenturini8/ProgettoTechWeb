@@ -104,6 +104,15 @@ function searchOrders(){
             if(data.length == 0){
                 document.getElementById("adminOrdersAccordion").innerHTML = "<p>Nessun ordine corrispondente alla ricerca</p>";
             }
+            var docHeight = $(window).height();
+            var footerHeight = $("body > div > footer").height();
+            var footerTop = $("body > div > footer").position().top + footerHeight;
+    
+            if(footerTop < docHeight){
+                $("body > div > footer").css("margin-top", 16 + (docHeight - footerTop) + "px");
+            } else {
+                $("body > div > footer").css("margin-top", 100 + "px");
+            }
         }
     });
 }

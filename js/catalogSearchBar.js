@@ -77,6 +77,16 @@ function searchDisks(){
             if(data.length == 0){
                 document.getElementById("diskAccordion").innerHTML = "<p>Nessun disco corrispondente alla ricerca</p>";
             }
+            var docHeight = $(window).height();
+            var footerHeight = $("body > div > footer").height();
+            var footerTop = $("body > div > footer").position().top + footerHeight;
+    
+            if(footerTop < docHeight){
+                $("body > div > footer").css("margin-top", 16 + (docHeight - footerTop) + "px");
+            } else {
+                $("body > div > footer").css("margin-top", 100 + "px");
+            }
         }
+        
     });
 }
