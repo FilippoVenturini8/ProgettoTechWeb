@@ -52,7 +52,7 @@
                 <?php 
                     if(isUserLoggedIn() && $_SESSION["isadmin"]){
                         require("../../template/admin/templateHeaderAdmin.php");
-                    } else {
+                    } else{
                         require("../../template/user/templateHeaderUser.php");
                     }
                 ?>
@@ -68,7 +68,7 @@
         </main>
 
         <!--carrello-->
-        <?php if(isUserLoggedIn() && !$_SESSION["isadmin"]):?>
+        
         <aside class="collapse float-end">
             <header class="row pt-3">
                 <div class="row mx-0 px-0">
@@ -88,7 +88,7 @@
                 </div>
             </header>
 
-            
+            <?php if(isUserLoggedIn() && !$_SESSION["isadmin"]):?>
                 <ul class="list-group list-group-flush scrollarea cart">
                     <?php foreach($templateParams["disksInCart"] as $diskInCart): ?>
                         <li class="list-group-item row m-0 border-bottom " id="diskInCart<?php echo $diskInCart['CodiceDisco']?>">
@@ -146,9 +146,9 @@
                         </div>
                     </div>
                 </footer>
-            
+                <?php endif;?>
         </aside>
-        <?php endif;?>
+        
         <!--menu-->
         <aside class="float-start collapse">
             <header class="py-3 px-2">
