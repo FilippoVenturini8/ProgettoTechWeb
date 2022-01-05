@@ -17,13 +17,13 @@
         <header class="row text-center">
             <div class="col-2">
                 <button class="btn btn-default">
-                    <img src="../../img/icon/openMenuIcon.png" alt=""/>
+                    <img src="../../img/icon/openMenuIcon.png" alt="openMenuIcon"/>
                 </button>
             </div>
             <div class="col-2"></div>
             <div class="col-4">
                 <a href="../../php/common/index.php">
-                    <img src="../../img/icon/logo.png" alt=""/>
+                    <img src="../../img/icon/logo.png" alt="LPShop-logo"/>
                 </a>
             </div>
             <div class="col-2 text-end">
@@ -230,8 +230,8 @@
                         <div class="modal-body pt-0">
                             <ul class="list-unstyled">
                                 <?php foreach($templateParams["messages"] as $message):?>
-                                    <a href="../../php/api/readNotification.php?codiceNotifica=<?php echo $message["Codice"]?>" class="text-decoration-none iconDropdown">
-                                        <li class="row border-bottom">
+                                    <li class="row border-bottom">
+                                        <a href="../../php/api/readNotification.php?codiceNotifica=<?php echo $message["Codice"]?>" class="text-decoration-none iconDropdown">
                                             <div class="row">
                                                 <div class ="col-11 pt-1">
                                                     <header>
@@ -245,13 +245,14 @@
                                                 <?php endif;?>
                                             </div>
                                             <div class="row mb-2 fw-light">
-                                                <label><?php echo $message["DataNotifica"]?></label>
+                                                <span><?php echo $message["DataNotifica"]?></span>
                                             </div>
                                             <div class="row">
                                                 <p><?php echo $message["Testo"]?></p>
                                             </div>
-                                        </li>
-                                    </a>
+                                        </a>
+                                    </li>
+                                    
                                 <?php endforeach;?>
                             </ul>
                         </div>
