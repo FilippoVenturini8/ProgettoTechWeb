@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    if($("#openModal").attr("value")){
+    if($("#openModal").attr("data-id")){
         $('#ReviewModal').modal('show');
     }
 

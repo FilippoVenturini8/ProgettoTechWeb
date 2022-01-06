@@ -48,8 +48,6 @@ body > div > div > div:nth-child(3) >  div:nth-child(3) > div > p{
 body > div > div > nav > div:nth-child(2) button.btn:hover{
     background-color: #d9534f;
     background: #d9534f;
-
-
 }
 .navbar{
     background-color: white;
@@ -164,7 +162,7 @@ aside{
 }
 
 .iconDropdown{
-    background-color: #ebebeb !important;
+    background-color: white !important;
     color:#000 !important;
 }
 
@@ -207,12 +205,7 @@ aside{
 body > div > footer{ 
     font-size: 75%;
     background-color: #d9534f !important;
-    /*margin-top: 100px !important;*/
 }
-/*
-.footerEmptyPage{
-    margin-top: 450px !important;
-}*/
 
 .contactIcon{
     height: 20px !important;
@@ -233,7 +226,6 @@ button[id*="btnStar"]{
     outline: none !important;
     box-shadow: none !important;
     transition: font-size 0s, color 0.2s, height 0.7s;
-    /*transition: all 2s;*/
 }
 
 button[id*="btnStar"]:hover{

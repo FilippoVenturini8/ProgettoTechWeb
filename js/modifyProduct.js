@@ -22,22 +22,26 @@ function modifyProduct(val){
                         <form  action="../../php/api/processModifyProduct.php" method="POST" enctype="multipart/form-data">
                             <div class="row mt-2">
                                 <div class="col-12 col-md-11 px-0 text-center">
-                                    <input type="text" size="10"  id="txtTitolo`+ disk.Codice + `" value="`+ disk.Titolo +`"/>
+                                <label hidden for="/txtTitolo`+ disk.Codice + `">Titolo: </label>
+                                <input type="text" size="10"  id="txtTitolo`+ disk.Codice + `" value="`+ disk.Titolo +`"/>
                                     <label> - </label>
-                                    <input type="text" size="10" id="txtArtista`+ disk.Codice + `" value="`+ disk.Artista +`"/>                     
+                                <label hidden for="/txtArtista`+ disk.Codice + `">Artista: </label>
+                                <input type="text" size="10" id="txtArtista`+ disk.Codice + `" value="`+ disk.Artista +`"/>                     
                                 </div>
                                 <div class="col-0 col-md-1"></div>
                             </div>
                             <div class="row mt-3">              
                                 <div class="col-12 col-md-11 text-center">
-                                    <label><input type="text"  size="4" id="txtPrezzo`+ disk.Codice + `" value="`+ disk.Prezzo +`"/>€</label>  
+                                <label hidden for="/txtPrezzo`+ disk.Codice + `">Prezzo: </label>
+                                    <label>Prezzo: <input type="text"  size="4" id="txtPrezzo`+ disk.Codice + `" value="`+ disk.Prezzo +`"/>€</label>  
                                 </div>
                                 <div class="col-12 col-md-1"></div>
                             </div>
                             <div class="row">
                                 
                                 <div class="col-12 col-md-11 ml-2 text-center">
-                                    <label><input  type="text"  size="2" id="txtQta`+ disk.Codice + `" value="`+ disk.QuantitaDisponibile +`"/> Qtà</label>
+                                <label hidden for="/txtQta`+ disk.Codice + `">Quantità: </label>
+                                    <label>Quantità: <input  type="text"  size="2" id="txtQta`+ disk.Codice + `" value="`+ disk.QuantitaDisponibile +`"/> Qtà</label>
                                 </div>
                                 <div class="col-12 col-md-1"></div>
                                 

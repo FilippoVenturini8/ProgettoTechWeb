@@ -18,13 +18,13 @@
         <header class="row text-center">
             <div class="col-2">
                 <button class="btn btn-default">
-                    <img src="../../img/icon/openMenuIcon.png" alt=""/>
+                    <img src="../../img/icon/openMenuIcon.png" alt="openMenuIcon"/>
                 </button>
             </div>
             <div class="col-2"></div>
             <div class="col-4">
                 <a href="../../php/common/index.php">
-                    <img src="../../img/icon/logo.png" alt=""/>
+                    <img src="../../img/icon/logo.png" alt="LPShop-logo"/>
                 </a>
             </div>
             <div class="col-2 text-end">
@@ -53,7 +53,7 @@
                 <?php 
                     if(isUserLoggedIn() && $_SESSION["isadmin"]){
                         require("../../template/admin/templateHeaderAdmin.php");
-                    } else {
+                    } else{
                         require("../../template/user/templateHeaderUser.php");
                     }
                 ?>
@@ -69,7 +69,7 @@
         </main>
 
         <!--carrello-->
-        <?php if(isUserLoggedIn() && !$_SESSION["isadmin"]):?>
+        
         <aside class="collapse float-end">
             <header class="row pt-3">
                 <div class="row mx-0 px-0">
@@ -89,7 +89,7 @@
                 </div>
             </header>
 
-            
+            <?php if(isUserLoggedIn() && !$_SESSION["isadmin"]):?>
                 <ul class="list-group list-group-flush scrollarea cart">
                     <?php foreach($templateParams["disksInCart"] as $diskInCart): ?>
                         <li class="list-group-item row m-0 border-bottom " id="diskInCart<?php echo $diskInCart['CodiceDisco']?>">
@@ -112,7 +112,7 @@
                                     <div class="mt-2 row mx-0 py-0">
                                         <div class="col-2 px-0 text-end">
                                             <button class="btn btn-default mx-0 cart-minus" onclick="alterQuantity(<?php echo $diskInCart['CodiceDisco']?>, 'd')">
-                                                <img src="../../img/icon/minus2.png" alt=""/>
+                                                <img src="../../img/icon/minus2.png" alt="minus"/>
                                             </button> 
                                         </div>
                                         <div class="col-1 px-0 text-center">
@@ -120,7 +120,7 @@
                                         </div>
                                         <div class="col-2 px-0 text-start">
                                             <button class="btn btn-default mx-0 cart-plus" onclick="alterQuantity(<?php echo $diskInCart['CodiceDisco']?>, 'i')">
-                                                <img src="../../img/icon/plus2.png" alt=""/> 
+                                                <img src="../../img/icon/plus2.png" alt="plus"/> 
                                             </button> 
                                         </div>
                                         <div class="col-5"></div>
@@ -147,9 +147,9 @@
                         </div>
                     </div>
                 </footer>
-            
+                <?php endif;?>
         </aside>
-        <?php endif;?>
+        
         <!--menu-->
         <aside class="float-start collapse">
             <header class="py-3 px-2">
@@ -165,9 +165,9 @@
                     <div class="col-3"></div>
                     <div class="col-6 text-center">
                         <?php if(isset($_SESSION["immagineprofilo"]) && $_SESSION["immagineprofilo"] != NULL):?>
-                            <img src="../../img/profileImage/<?php echo($_SESSION["immagineprofilo"])?>" alt=""/>
+                            <img class="rounded-circle" src="../../img/profileImage/<?php echo($_SESSION["immagineprofilo"])?>" alt=""/>
                         <?php else : ?>
-                            <img src="../../img/profileImage/User.png" alt=""/>
+                            <img class="rounded-circle" src="../../img/profileImage/User.png" alt=""/>
                         <?php endif; ?>
                     </div>
                     <div class="col-3"></div>
@@ -231,8 +231,8 @@
                         <div class="modal-body pt-0">
                             <ul class="list-unstyled">
                                 <?php foreach($templateParams["messages"] as $message):?>
-                                    <a href="../../php/api/readNotification.php?codiceNotifica=<?php echo $message["Codice"]?>" class="text-decoration-none iconDropdown">
-                                        <li class="row border-bottom">
+                                    <li class="row border-bottom">
+                                        <a href="../../php/api/readNotification.php?codiceNotifica=<?php echo $message["Codice"]?>" class="text-decoration-none iconDropdown">
                                             <div class="row">
                                                 <div class ="col-11 pt-1">
                                                     <header>
@@ -246,13 +246,14 @@
                                                 <?php endif;?>
                                             </div>
                                             <div class="row mb-2 fw-light">
-                                                <label><?php echo $message["DataNotifica"]?></label>
+                                                <span><?php echo $message["DataNotifica"]?></span>
                                             </div>
                                             <div class="row">
                                                 <p><?php echo $message["Testo"]?></p>
                                             </div>
-                                        </li>
-                                    </a>
+                                        </a>
+                                    </li>
+                                    
                                 <?php endforeach;?>
                             </ul>
                         </div>

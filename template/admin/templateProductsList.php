@@ -101,7 +101,7 @@
                                 <div class="col-0 col-md-3"></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-5 col-md-2 text-end">
+                                <div class="col-5 col-md-3 text-end">
                                     <button type="button" class="btn btn-primary p-1" id="idElimina" data-id="<?php echo $disk["Codice"]?>" onclick="$('#dataid').val($(this).data('id'));" data-toggle="modal" data-target="#modalDelete">
                                         Elimina
                                     </button>

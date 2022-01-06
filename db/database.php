@@ -22,7 +22,8 @@ class DatabaseHelper{
         $stmt = $this->db->prepare("SELECT Sum(Quantita*Disco.Prezzo) as Totale
                                     FROM Disco_In_Carrello, Disco
                                     WHERE Disco_In_Carrello.CodiceDisco = Disco.Codice
-                                    AND Disco_In_Carrello.MailAccount = \"$accountMail\"");
+                                    AND Disco_In_Carrello.MailAccount = ?");
+        $stmt->bind_param("s",$accountMail);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -32,7 +33,8 @@ class DatabaseHelper{
     public function isAdmin($accountMail){
         $stmt = $this->db->prepare("SELECT isAdmin
                                     FROM Account
-                                    WHERE Mail = \"$accountMail\"");
+                                    WHERE Mail = ?");
+        $stmt->bind_param("s",$accountMail);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -56,7 +58,7 @@ class DatabaseHelper{
                                     OR MailAccount LIKE ?)
                                     ORDER BY Ordine.Codice DESC");
         $patternMail = "%".$str."%";
-        $stmt->bind_param("ss",$str, $patternMail,);
+        $stmt->bind_param("ss",$str, $patternMail);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -65,9 +67,10 @@ class DatabaseHelper{
     public function getOrderDetails($orderID){
         $stmt = $this->db->prepare("SELECT CodiceDisco, CodiceOrdine, Titolo, Copertina, Artista, Quantita, Prezzo*Quantita as Totale, DataOrdine, DataSpedizione, DataConsegna, Voto
                                     FROM Disco_Ordinato, Disco, Ordine
-                                    WHERE Disco_Ordinato.CodiceOrdine = $orderID
+                                    WHERE Disco_Ordinato.CodiceOrdine = ?
                                     AND Disco_Ordinato.CodiceDisco = Disco.Codice
                                     AND Disco_Ordinato.CodiceOrdine = Ordine.Codice");
+        $stmt->bind_param("i",$orderID);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -85,7 +88,8 @@ class DatabaseHelper{
     public function getUserInfo($accountMail){
         $stmt = $this->db->prepare("SELECT Nome, Cognome, Mail
                                     FROM Account
-                                    WHERE Mail = \"$accountMail\"");
+                                    WHERE Mail = ?");
+        $stmt->bind_param("s",$accountMail);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
@@ -94,8 +98,9 @@ class DatabaseHelper{
     public function getOrdersByAccount($accountMail){
         $stmt = $this->db->prepare("SELECT Codice, DataOrdine, DataSpedizione, DataConsegna, MailAccount
                                     FROM Ordine
-                                    WHERE MailAccount = \"$accountMail\"
+                                    WHERE MailAccount = ?
                                     ORDER BY Codice DESC");
+        $stmt->bind_param("s",$accountMail);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result->fetch_all(MYSQLI_ASSOC);
