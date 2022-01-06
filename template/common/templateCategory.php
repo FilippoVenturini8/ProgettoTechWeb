@@ -36,7 +36,7 @@
                                     </button>
                                 <?php else:?>
                                     <button id="add<?php echo $disk["Codice"]?>" class="btn btn-default mx-0 add-to-cart-button text-end" onclick="addDiskToCart(<?php echo $disk['Codice']?>)">
-                                        <img src="../../img/icon/plus2.png" alt=""/> 
+                                        <img src="../../img/icon/plus2.png" alt="plus"/> 
                                     </button>
                                 <?php endif;?>
                             <?php endif;?>
