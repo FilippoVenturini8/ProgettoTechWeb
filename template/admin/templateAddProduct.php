@@ -50,7 +50,7 @@
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4">
             <label for="titolo">Titolo:</label>
-            <input id="titolo" name="titolo" class="form-control" type="text" autocomplete="off"/>
+            <input required id="titolo" name="titolo" class="form-control" type="text" autocomplete="off"/>
         </div>
     </div>
 
@@ -58,7 +58,7 @@
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4">
             <label for="artista">Artista:</label>
-            <input id="artista" name="artista" class="form-control" type="text" autocomplete="off"/>
+            <input required id="artista" name="artista" class="form-control" type="text" autocomplete="off"/>
         </div>
     </div>
 
@@ -66,7 +66,7 @@
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4">
             <label for="prezzo">Prezzo:</label>
-            <input id="prezzo" name="prezzo" class="form-control" type="number" step="0.01"/>
+            <input required id="prezzo" name="prezzo" class="form-control" type="number" step="0.01"/>
         </div>
     </div>
 
@@ -74,7 +74,7 @@
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4">
             <label for="quantita">Quantità:</label>
-            <input id="quantita" name="quantita" class="form-control" type="number" min="1"/>
+            <input required id="quantita" name="quantita" class="form-control" type="number" min="1"/>
         </div>
     </div>
 
@@ -82,14 +82,14 @@
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4">
             <label for="datauscita">Data uscita:</label>
-            <input id="datauscita" name="datauscita" class="form-control" type="date"/>
+            <input required id="datauscita" name="datauscita" class="form-control" type="date"/>
         </div>
     </div>
 
     <div class="row mt-5">
         <div class="col-2 col-md-4"></div>
         <div class="col-8 col-md-4">
-            <input id="copertina" name="copertina" class="form-control" type="file" accept=".jpg,.jpeg,.png"/>
+            <input required id="copertina" name="copertina" class="form-control" type="file" accept=".jpg,.jpeg,.png"/>
         </div>
     </div>
 
