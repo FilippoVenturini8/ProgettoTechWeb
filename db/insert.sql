@@ -99,7 +99,8 @@ VALUES ("In a time lapse", '2013-01-21', 26, 'LP/Musica Classica/InATimeLapse-Lu
 /*ACCOUNT*/
 INSERT INTO Account(Mail, Psw, Nome, Cognome, Cellulare, ImmagineProfilo, isAdmin)
 VALUES ("lpshop@gmail.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918", "LP Shop", "", '0987654321', "manager.png", 1),
-("federico@gmail.com", "93ccf25b78706fdc6a82f98b6b7a1ca441de9d5522fd27d7ed7913c19b6fb944", "Federico", "Minotti", '1234567890', NULL, 0);
+("federico@gmail.com", "93ccf25b78706fdc6a82f98b6b7a1ca441de9d5522fd27d7ed7913c19b6fb944", "Federico", "Minotti", '1234567890', NULL, 0),
+("toni@gmail.com", "93ccf25b78706fdc6a82f98b6b7a1ca441de9d5522fd27d7ed7913c19b6fb944", "Toni", "Greco", '1234567890', NULL, 0);
 
 
 /*ORDINI*/
@@ -118,7 +119,8 @@ VALUES('2018-06-22', '2018-06-23', '2018-06-25',"federico@gmail.com"),
 ('2021-03-08','2021-03-10','2021-03-11',"toni@gmail.com"),
 ('2021-03-03','2021-03-05','2021-03-09',"toni@gmail.com"),
 ('2021-04-10','2021-04-13','2021-04-14',"toni@gmail.com"),
-('2021-04-16','2021-04-15','2021-04-18',"toni@gmail.com");
+('2021-04-16','2021-04-15','2021-04-18',"toni@gmail.com"),
+('2020-11-10', '2020-11-12', '2020-11-15',"federico@gmail.com");
 
 
 /*DISCHI ORDINATI*/
@@ -146,4 +148,11 @@ VALUES(12,1,1,4),
 (20,12,4,4), 
 (21,13,2,3), 
 (22,14,1,2), 
-(24,15,3,5);
+(24,15,3,5),
+(8,16,3,4),
+(9,16,1,3),
+(10,16,3,4),
+(11,16,3,2),
+(12,16,1,5),
+(13,16,1,1),
+(14,16,1,2);
