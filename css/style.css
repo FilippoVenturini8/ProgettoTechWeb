@@ -244,3 +244,35 @@ li[id*="review"]{
 .reviewRemoving{
     opacity: 0 !important;
 }
+
+/*vote*/
+.voteCover{
+    height: 80px !important;
+}
+
+.star-container{
+    height: 25px !important;
+}
+
+.star{
+    font-size: 150% !important; 
+    width:20px !important;
+}
+
+.save-vote{
+    height: 20px !important; 
+    width: 20px !important;
+}
+
+.carousel-vote{
+    width: 200px !important;
+}
+
+.progress-track{
+    height: 20px !important; 
+    width: 280px !important;
+}
+
+#mapAccordion{
+    width: 25rem !important;
+}
