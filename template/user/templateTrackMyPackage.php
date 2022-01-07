@@ -10,7 +10,7 @@
 
 <!--carosello-->
 <div class="mx-5 mt-4 d-flex justify-content-center">
-    <div id="carousel<?php echo $order["CodiceOrdine"] ?>" class="carousel slide d-inline-block" data-interval="false" style="width: 200px;">
+    <div id="carousel<?php echo $order["CodiceOrdine"] ?>" class="carousel slide d-inline-block carousel-vote" data-interval="false">
         <div class="carousel-inner w-100">
             <?php $i=0; foreach($dbh->getOrderDetails($order["CodiceOrdine"]) as $disk) :?>
                 <div class="carousel-item <?php if($i==0){ echo "active";}?> w-100">
@@ -35,7 +35,7 @@
 </div>
 
 <div class="mx-5 mt-5 d-flex justify-content-center">
-    <div class="progress" style="height: 20px; width: 280px">
+    <div class="progress progress-track">
         <div class="progress-bar text-center
         <?php if($templateParams["statoOrdine"] == "Ordine Ricevuto"){
                 echo " w-25";
@@ -82,7 +82,7 @@
 
 
 <div class=" d-flex justify-content-center mt-5 ">
-    <div class="accordion" id="mapAccordion" style="width: 25rem;">
+    <div class="accordion" id="mapAccordion" class="track-map">
         <div class="accordion-item">
             <h2 class="accordion-header" id="headingMap">
                 <button class="accordion-button collapsed d-block text-center py-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMap" aria-expanded="false" aria-controls="collapseMap">
@@ -115,7 +115,7 @@
                     </span>
                 </h1>
                 <button class="btn btn-default" data-bs-dismiss="modal">
-                    <img class="closeIcon" src="../../img/icon/close.png" alt=""/>
+                    <img class="closeIcon" src="../../img/icon/close.png" alt="close"/>
                 </button>
             </div>
             <div class="modal-body">
@@ -124,25 +124,25 @@
                         <li id="review<?php echo $disk["CodiceDisco"]?>" class="list-group-item">
                             <div class="row">
                                 <div class="col-3">
-                                    <img src="<?php echo UPLOAD_DIR.$disk["Copertina"]?>" alt="" style="height: 80px;"/>
+                                    <img class="voteCover" src="<?php echo UPLOAD_DIR.$disk["Copertina"]?>" alt=""/>
                                 </div>
                                 <div class="col-9 align-top">
                                     <div class="row">
                                         <p class="mb-0"><?php echo $disk["Titolo"]." - ".$disk["Artista"]?></p>
-                                        <span style="height: 25px">
-                                        <button id="btnStar1-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(1, <?php echo $disk['CodiceDisco']?>)" class="ms-2 btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px;" >☆</button>
-                                        <button id="btnStar2-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(2, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px" >☆</button>
-                                        <button id="btnStar3-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(3, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px" >☆</button>
-                                        <button id="btnStar4-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(4, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px" >☆</button>
-                                        <button id="btnStar5-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(5, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top" style="font-size: 150%; width:20px" >☆</button>
-                                    </span>
+                                        <span class="star-container">
+                                            <button id="btnStar1-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(1, <?php echo $disk['CodiceDisco']?>)" class="ms-2 btn d-inline-block py-0 align-top star" >☆</button>
+                                            <button id="btnStar2-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(2, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top star" >☆</button>
+                                            <button id="btnStar3-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(3, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top star" >☆</button>
+                                            <button id="btnStar4-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(4, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top star" >☆</button>
+                                            <button id="btnStar5-<?php echo $disk["CodiceDisco"]?>" onclick="updateStar(5, <?php echo $disk['CodiceDisco']?>)" class="btn d-inline-block py-0 align-top star" >☆</button>
+                                        </span>
                                     </div>
                                     <div class="text-end row">
                                         <div class="col-10"></div>
                                         <div class="col-1">
                                             <!--<a class=" btn btn-primary py-0 px-1 mb-0 mt-0">Vota</a>-->
                                             <button class="btn">
-                                                <img src="../../img/icon/save.png" alt="" onclick="saveReview(<?php echo $disk['CodiceDisco']?>, <?php echo $order['CodiceOrdine'] ?>)" style="height: 20px; width: 20px"/>
+                                                <img class="save-vote" src="../../img/icon/save3.png" alt="vote" onclick="saveReview(<?php echo $disk['CodiceDisco']?>, <?php echo $order['CodiceOrdine'] ?>)"/>
                                             </button>
                                         </div>
                                     </div>
